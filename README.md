@@ -6,6 +6,10 @@
 - 导入导出功能（json,Geojson,shp）
 
 使用说明
+依次输入以下命令运行该项目：
+1. npm install 
+2. npm start
+或着你也可以把它添加到自己的项目使用：
 
 1.你可以把components和js文件夹中的文件全部拷贝到自己的项目，然后引入drawViewer组件
 ```js
@@ -25,3 +29,4 @@ const viewer=new Cesium.Viewer('container')
 const pl=new Polyline(viewer)
 pl.initNodes()//如果要显示顶点
 ```
+
