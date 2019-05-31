@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Air craft",
+    "path": "static/models/CesiumAir/Cesium_Air.glb"
+  },
+  {
+    "name": "Balloon",
+    "path": "static/models/CesiumBalloon/CesiumBalloon.glb"
+  },
+  {
+    "name": "Man",
+    "path": "static/models/CesiumMan/Cesium_Man.glb"
+  },
+  {
+    "name": "MilkTruck",
+    "path": "static/models/CesiumMilkTruck/CesiumMilkTruck.glb"
+  },
+  {
+    "name": "DracoCompressed",
+    "path": "static/models/DracoCompressed/CesiumMilkTruck.gltf"
+  },
+  {
+    "name": "Pawns",
+    "path": "static/models/Pawns/Pawns.glb"
+  }
+]

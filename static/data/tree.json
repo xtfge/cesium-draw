@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "label": "气象数据",
+    "children": [
+      {
+        "id": "1.1",
+        "label":"FY3C_云顶高",
+        "data": "static/data/meteorogical/FY3C_云顶高_VIRRX_GBAL_L2_CPP_MLT_GLL_20181013_POAD_5000M_MS.png"
+      },
+      {
+        "id": "1.2",
+        "label":"FY3C_云顶温度",
+        "data": "static/data/meteorogical/FY3C_云顶温度_VIRRX_GBAL_L2_CPP_MLT_GLL_20181013_POAD_5000M_MS.png"
+      },
+      {
+        "id": "1.3",
+        "label":"FY3C_全球日高云量",
+        "data": "static/data/meteorogical/FY3C_全球日高云量_VIRRX_GBAL_L2_CLA_MLT_GLL_20181013_POAD_5000M_MS.png"
+      },
+      {
+        "id": "1.4",
+        "label":"FY3C_全球日总云量",
+        "data": "static/data/meteorogical/FY3C_全球日总云量_VIRRX_GBAL_L2_CLA_MLT_GLL_20181013_POAD_5000M_MS.png"
+      }
+    ]
+  }
+]

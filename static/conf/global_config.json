@@ -1,0 +1,20 @@
+{
+  "IMAGE_LAYER0": [
+    {
+      "type":"UrlTemplate",
+      "name":"底图",
+      "url":"http://192.168.48.233:9090/gisserver/tiles/BaseMap/{z}/{x}/{y}.jpg"
+    },
+    {
+      "type":"UrlTemplate",
+      "name":"路网",
+      "url":"https://wprd02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=2&style=8&ltype=11"
+    }
+  ],
+  "IMAGE_URL0": "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali",
+  "LOGIN_URL":"http://127.0.0.1:8000/login",
+  "MARKER_URL": "static/conf/marker_config.json",
+  "MODEL_URL": "http://192.168.48.233:9090/manager/rest/filecatalog/getByParentId",
+  "ANIMATE_URL":"static/conf/marker_config.json",
+  "SERVICE_URL": "http://192.168.48.233:9090"
+}

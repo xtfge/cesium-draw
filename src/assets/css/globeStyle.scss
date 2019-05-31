@@ -1,0 +1,95 @@
+.graphic-edit-panel{
+  position: absolute;
+  top:70px;
+  left:0px;
+  background-color: #F0F0EE99;
+  color:#000000;
+  width:300px;
+  .el-container{
+    padding-left: 20px;
+    .el-header{
+      padding: 0px;
+      height: 30px!important;
+      .show-drop-down{
+        height: 50px;
+        width:60px;
+        position: absolute;
+        top:20px;
+        background-color: #FFFFFF;
+        margin-left: -10px!important;
+        padding-left: 5px;
+        z-index: 100;
+        .drop-down-item{
+          cursor: pointer;
+        }
+        .drop-down-item:hover{
+          color:#00a0e9;
+        }
+      }
+      div{
+        color:#000000;
+        display: inline-block;
+
+      }
+      .closebtn{
+        color:#000000;
+        float: right;
+        margin-right: 10px;
+      }
+      .closebtn:hover{
+        color:#00a0e9;
+      }
+      .closebtn::after{
+        content: "\2716";
+      }
+
+    }
+    .geom-line{
+      height: 70px;
+    }
+    .geom-polygon{
+      height: 120px;
+    }
+    .el-main{
+      padding: 0px;
+      .input-class{
+
+      }
+      .p-class{
+        line-height: normal;
+        vertical-align: middle;
+        margin-top: 20px;
+      }
+      .el-color-picker{
+        padding: 0px;
+        margin-right: 50px;
+
+      }
+      .el-switch{
+        padding: 0px!important;
+        margin: 0px!important;
+        display: inline-block;
+      }
+      .el-slider{
+        padding: 0px!important;
+        margin: 0px!important;
+        //margin-right: 50px!important;
+        display: inline-block;
+        width: 100px;
+
+
+        //display: inline-block;
+      }
+      .el-input{
+        display: inline-block;
+        width:80px;
+        margin-left: 20px;
+      }
+      div{
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+}

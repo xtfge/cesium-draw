@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Image editor basic</title>
+        <link type="text/css" href="css/colorpicker.min.css" rel="stylesheet">
+        <link type="text/css" href="css/tui-image-editor.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="tui-image-editor-controls">
+                <ul class="menu">
+                    <li class="menu-item disabled" id="btn-undo">Undo(撤销)</li>
+                    <li class="menu-item disabled" id="btn-redo">Redo(重做)</li>
+                    <li class="menu-item" id="btn-clear-objects">ClearObjects(清除编辑)</li>
+                    <li class="menu-item" id="btn-remove-active-object">RemoveActiveObject(移除操作区)</li>
+                    <li class="menu-item" id="btn-draw-line">DrawLine(画笔)</li>
+                    <li class="menu-item" id="btn-draw-shape">Shape(添加形状)</li>
+                    <li class="menu-item" id="btn-add-icon">Icon(添加图标)</li>
+                    <li class="menu-item" id="btn-text">Text(添加文字)</li>
+                </ul>
+                <div class="sub-menu-container" id="crop-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item" id="btn-apply-crop">Apply(应用)</li>
+                        <li class="menu-item" id="btn-cancel-crop">Cancel(取消)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="flip-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item" id="btn-flip-x">FlipX(左右翻转)</li>
+                        <li class="menu-item" id="btn-flip-y">FlipY(上下翻转)</li>
+                        <li class="menu-item" id="btn-reset-flip">Reset(重置)</li>
+                        <li class="menu-item close">Close(关闭)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="rotation-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item" id="btn-rotate-clockwise">Clockwise(30)(顺时针30度)</li>
+                        <li class="menu-item" id="btn-rotate-counter-clockwise">Counter-Clockwise(-30)(逆时针30度)</li>
+                        <li class="menu-item no-pointer"><label>Range input(范围)<input id="input-rotation-range" type="range" min="-360" value="0" max="360"></label></li>
+                        <li class="menu-item close">Close(关闭)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container menu" id="draw-line-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <label><input type="radio" name="select-line-type" value="freeDrawing" checked="checked"> Free drawing(自由画笔)</label>
+                            <label><input type="radio" name="select-line-type" value="lineDrawing"> Straight line(画线)</label>
+                        </li>
+                        <li class="menu-item">
+                            <div id="tui-brush-color-picker">Brush color</div>
+                        </li>
+                        <li class="menu-item"><label class="menu-item no-pointer">Brush width(画笔宽)<input id="input-brush-width-range" type="range" min="5" max="30" value="12"></label></li>
+                        <li class="menu-item close">Close</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="draw-shape-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <label><input type="radio" name="select-shape-type" value="rect" checked="checked"> rect(方形)</label>
+                            <label><input type="radio" name="select-shape-type" value="circle"> circle(圆形)</label>
+                            <label><input type="radio" name="select-shape-type" value="triangle"> triangle(三角形)</label>
+                        </li>
+                        <li class="menu-item">
+                            <select name="select-color-type">
+                                <option value="fill">Fill</option>
+                                <option value="stroke">Stroke</option>
+                            </select>
+                            <label><input type="checkbox" id="input-check-transparent">transparent(透明)</label>
+                            <div id="tui-shape-color-picker"></div>
+                        </li>
+                        <li class="menu-item"><label class="menu-item no-pointer">Stroke width(边宽)<input id="input-stroke-width-range" type="range" min="0" max="300" value="12"></label></li>
+                        <li class="menu-item close">Close</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="icon-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <div id="tui-icon-color-picker">Icon color(图标颜色)</div>
+                        </li>
+                        <li class="menu-item border" id="btn-register-icon">Register custom icon(注册新增图标)</li>
+                        <li class="menu-item icon-text" data-icon-type="arrow">➡</li>
+                        <li class="menu-item icon-text" data-icon-type="cancel">✖</li>
+                        <li class="menu-item close">Close(关闭)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="text-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <div>
+                                <button class="btn-text-style" data-style-type="b">Bold(粗体)</button>
+                                <button class="btn-text-style" data-style-type="i">Italic(斜体)</button>
+                                <button class="btn-text-style" data-style-type="u">Underline(下划线)</button>
+                            </div>
+                            <div>
+                                <button class="btn-text-style" data-style-type="l">Left(靠左)</button>
+                                <button class="btn-text-style" data-style-type="c">Center(居中)</button>
+                                <button class="btn-text-style" data-style-type="r">Right(靠右)</button>
+                            </div>
+                        </li>
+                        <li class="menu-item"><label class="no-pointer"><input id="input-font-size-range" type="range" min="10" max="100" value="10"></label></li>
+                        <li class="menu-item">
+                            <div id="tui-text-color-picker">Text color(文字颜色)</div>
+                        </li>
+                        <li class="menu-item close">Close(关闭)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="filter-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item border input-wrapper">
+                            Load Mask Image(上传模糊图片)
+                            <input type="file" accept="image/*" id="input-mask-image-file">
+                        </li>
+                        <li class="menu-item" id="btn-apply-mask">Apply mask filter(应用模糊过滤)</li>
+                        <li class="menu-item close">Close(关闭)</li>
+                    </ul>
+                </div>
+                <div class="sub-menu-container" id="image-filter-sub-menu">
+                    <ul class="menu">
+                        <li class="menu-item align-left-top">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label><input type="checkbox" id="input-check-grayscale">Grayscale</label></td>
+                                        <td><label><input type="checkbox" id="input-check-invert">Invert</label></td>
+                                        <td><label><input type="checkbox" id="input-check-sepia">Sepia</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label><input type="checkbox" id="input-check-sepia2">Sepia2</label></td>
+                                        <td><label><input type="checkbox" id="input-check-blur">Blur</label></td>
+                                        <td><label><input type="checkbox" id="input-check-sharpen">Sharpen</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label><input type="checkbox" id="input-check-emboss">Emboss</label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-remove-white">RemoveWhite</label><br>
+                                <label>Threshold<input class="range-narrow" id="input-range-remove-white-threshold" type="range" min="0" value="60" max="255"></label><br>
+                                <label>Distance<input class="range-narrow" id="input-range-remove-white-distance" type="range" min="0" value="10" max="255"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-brightness">Brightness</label><br>
+                                <label>Value<input class="range-narrow" id="input-range-brightness-value" type="range" min="-255" value="100" max="255"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-noise">Noise</label><br>
+                                <label>Value<input class="range-narrow" id="input-range-noise-value" type="range" min="0" value="100" max="1000"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-gradient-transparancy">GradientTransparency</label><br>
+                                <label>Value<input class="range-narrow" id="input-range-gradient-transparency-value" type="range" min="0" value="100" max="255"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-pixelate">Pixelate</label><br>
+                                <label>Value<input class="range-narrow" id="input-range-pixelate-value" type="range" min="2" value="4" max="20"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-tint">Tint</label><br>
+                                <div id="tui-tint-color-picker"></div>
+                                <label>Opacity<input class="range-narrow" id="input-range-tint-opacity-value" type="range" min="0" value="1" max="1" step="0.1"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-multiply">Multiply</label>
+                                <div id="tui-multiply-color-picker"></div>
+                            </p>
+                        </li>
+                        <li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-blend">Blend</label>
+                                <div id="tui-blend-color-picker"></div>
+                                <select name="select-blend-type">
+                                    <option value="add" selected>Add</option>
+                                    <option value="diff">Diff</option>
+                                    <option value="diff">Subtract</option>
+                                    <option value="multiply">Multiply</option>
+                                    <option value="screen">Screen</option>
+                                    <option value="lighten">Lighten</option>
+                                    <option value="darken">Darken</option>
+                                </select>
+                            </p>
+                        </li><li class="menu-item align-left-top">
+                            <p>
+                                <label><input type="checkbox" id="input-check-color-filter">ColorFilter</label><br>
+                                <label>Threshold<input class="range-narrow" id="input-range-color-filter-value" type="range" min="0" value="45" max="255"></label>
+                            </p>
+                        </li>
+                        <li class="menu-item close">Close</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tui-image-editor"></div>
+        </div>
+        <script type="text/javascript" src="libs/fabric.js"></script>
+        <script type="text/javascript" src="libs/tui-code-snippet.js"></script>
+        <script type="text/javascript" src="libs/jquery.min.js"></script>
+        <script type="text/javascript" src="libs/FileSaver.min.js"></script>
+        <script type="text/javascript" src="libs/colorpicker.min.js"></script>
+        <script type="text/javascript" src="libs/tui-image-editor.min.js"></script>
+        <script src="js/basic.js"></script>
+    </body>
+</html>
