@@ -7,6 +7,13 @@
 
 使用说明
 
+依次输入以下命令运行该项目：
+
+npm install
+npm start
+
+或着你也可以把它添加到自己的项目使用：
+
 1.你可以把components和js文件夹中的文件全部拷贝到自己的项目，然后引入drawViewer组件
 ```js
 import drawViewer from '@/components/drawViewer'
@@ -25,3 +32,6 @@ const viewer=new Cesium.Viewer('container')
 const pl=new Polyline(viewer)
 pl.initNodes()//如果要显示顶点
 ```
+### 效果
+![avatar](https://img-blog.csdnimg.cn/20190524155136375.gif)
+![avatar](https://img-blog.csdnimg.cn/20190524155207442.gif)
