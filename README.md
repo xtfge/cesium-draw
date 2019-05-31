@@ -9,6 +9,7 @@
 依次输入以下命令运行该项目：
 1. npm install 
 2. npm start
+
 或着你也可以把它添加到自己的项目使用：
 
 1.你可以把components和js文件夹中的文件全部拷贝到自己的项目，然后引入drawViewer组件
