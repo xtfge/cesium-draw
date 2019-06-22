@@ -10,6 +10,7 @@
 依次输入以下命令运行该项目：
 
 npm install
+
 npm start
 
 或着你也可以把它添加到自己的项目使用：
@@ -24,7 +25,7 @@ import drawViewer from '@/components/drawViewer'
 ```js
 <draw-viewer :polylineNode="false" :polygonNode="true"></draw-viewer>
 ```
-此外，如果你没有使用Vue框架，并不影像核心功能drawHandler的使用
+此外，如果你没有使用Vue框架，并不影响核心功能drawHandler的使用
 
 ```js
 import {Polyline,Polygon} from "@/js/drawHandler";
