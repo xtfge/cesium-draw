@@ -1,7 +1,7 @@
 >这是一个Vue+Cesium的项目，主要功能包括点、线、面的标绘及编辑。
 
 详情如下 ：
-- 添加标记，提供多种图标选择、添加完成后右击可编辑
+- 添加标记，提供多种图标选择、添加完成后右击可编辑,支持自定义图标
 - 线、多边形绘制，可以编辑节点和属性信息
 - 导入导出功能（json,Geojson,shp）
 
@@ -25,7 +25,7 @@ import drawViewer from '@/components/drawViewer'
 ```js
 <draw-viewer :polylineNode="false" :polygonNode="true"></draw-viewer>
 ```
-此外，如果你没有使用Vue框架，并不影响核心功能drawHandler的使用
+此外，如果你没有使用Vue框架，并不影响核心功能drawHandler的使用,是不能使用左上角的编辑界面
 
 ```js
 import {Polyline,Polygon} from "@/js/drawHandler";
