@@ -25,12 +25,15 @@ import drawViewer from '@/components/drawViewer'
 ```js
 <draw-viewer :polylineNode="false" :polygonNode="true"></draw-viewer>
 ```
-此外，如果你没有使用Vue框架，并不影响核心功能drawHandler的使用,是不能使用左上角的编辑界面
+此外，如果你没有使用Vue框架，并不影响核心功能drawHandler的使用,只需要在options中添加editPanel为false即可,当然你需要手动删除
+drawHandler文件中关于editPanel文件的引用
 
 ```js
 import {Polyline,Polygon} from "@/js/drawHandler";
 const viewer=new Cesium.Viewer('container')
-const pl=new Polyline(viewer)
+const options=Polyline.defaultStyle()
+options.editPanel=false
+const pl=new Polyline(viewer,options)
 pl.initNodes()//如果要显示顶点
 ```
 ### 效果

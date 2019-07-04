@@ -6,7 +6,7 @@
 import convertTool from '@/js/Convert'
 import Cesium from 'cesium/Cesium'
 import Vue from 'vue'
-import editPanel from '@/components/editPanel'
+import editPanel from './editPanel'
 import {saveAs} from 'file-saver'
 
 class BaseGraphic{
@@ -15,7 +15,7 @@ class BaseGraphic{
    * @param viewer{Cesium.Viewer}
    * @param options{Object}
    */
-  constructor(viewer,options,name=null){
+  constructor(viewer,options={editPanel:false},name=null){
     this.name=name?name:Math.round(Math.random()*1000)
     this.viewer=viewer
     this.options=options
@@ -100,6 +100,9 @@ class BaseGraphic{
    * 初始化图形属性编辑界面，否则将不能对图形属性信息进行编辑
    */
   initEditWindow(){
+    if(this.options.editPanel===false){
+      return
+    }
     const editContainer=document.createElement('div')
     editContainer.id='editContainer'
     document.body.appendChild(editContainer)
@@ -491,6 +494,7 @@ class BaseGraphic{
  */
 function createCursor(viewer,text) {
   if(document.getElementById('cursortip')){
+    document.getElementById('cursortip').innerText=text
     return document.getElementById('cursortip')
   }
   const tip=document.createElement('div')
@@ -547,9 +551,9 @@ class Polyline extends BaseGraphic{
     return shape
   }
   initEditWindow() {
-    if(editPanel){
-      super.initEditWindow();
-      this.editPanel.width=this.options.width
+    super.initEditWindow();
+    if(this.editPanel){
+      this.editPanel.width=this.options.width?this.options.width:1
     }
 
   }
@@ -669,7 +673,8 @@ class Polygon extends BaseGraphic{
     }
     super.startEdit();
     this._removeGraphic()
-    const options=Polygon.selectedStyle()
+    const terrain=Cesium.defined(this.viewer.terrainProvider)?true:false
+    const options=Polygon.selectedStyle(terrain)
     options['material']=this.options['material']
     this.create(options,this.positions)
     // if(!this.border){
@@ -700,11 +705,9 @@ class Polygon extends BaseGraphic{
     // this.border=null
   }
   initEditWindow() {
-    if(editPanel){
-      super.initEditWindow();
-      this.editPanel.outline=this.options.outline
-      this.editPanel.outlineWidth=this.options.outlineWidth
-    }
+    super.initEditWindow();
+    this.editPanel.outline=this.options.outline
+    this.editPanel.outlineWidth=this.options.outlineWidth
   }
   export(name='polyline'){
     const graphicJSON=Polygon.toGeoJson(this.positions,name)
@@ -750,16 +753,28 @@ class Polygon extends BaseGraphic{
 
     }
   }
-  static selectedStyle(){
-    return {
+  static selectedStyle(terrain=false){
+    const normalStyle={
+      // material: new Cesium.ColorMaterialProperty(Cesium.Color.GREEN.withAlpha(0.4)),
+      //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
+      outline: true,
+      outlineColor: Cesium.Color.AQUA,
+      outlineWidth:3.0,
+      height : 0,
+      //heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+    }
+    const terrainStyle={
       // material: new Cesium.ColorMaterialProperty(Cesium.Color.RED.withAlpha(0.4)),
       //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
       outline: true,
       outlineColor: Cesium.Color.AQUA,
       outlineWidth:3.0,
-      height : 0.0
-
+      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
+    if(terrain){
+      return terrainStyle
+    }
+    return normalStyle
   }
   static toGeoJson(position,name='polygon'){
     const graphicJSON= {
@@ -811,7 +826,8 @@ class Point{
       color: Cesium.Color.RED,
       pixelSize: 5,
       outlineColor: Cesium.Color.WHITE,
-      outlineWidth: 2
+      outlineWidth: 2,
+      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
   }
   static editStyle(){
@@ -819,7 +835,8 @@ class Point{
       color: Cesium.Color.RED,
       pixelSize: 5,
       outlineColor: Cesium.Color.AQUA,
-      outlineWidth: 2
+      outlineWidth: 2,
+      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
   }
   static selectedStyle(){
