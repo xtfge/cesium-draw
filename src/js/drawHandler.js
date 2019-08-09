@@ -6,7 +6,7 @@
 import convertTool from '@/js/Convert'
 import Cesium from 'cesium/Cesium'
 import Vue from 'vue'
-import editPanel from './editPanel'
+import editPanel from '@/components/editPanel'
 import {saveAs} from 'file-saver'
 
 class BaseGraphic{
