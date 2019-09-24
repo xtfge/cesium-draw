@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "element-ui": "^2.6.1",
