@@ -3,7 +3,8 @@
 @Date:2019-03-13 10:36:32
 @E-mail:zhangb@geovie.com.cn
 @Last Modified by:zhangbo
-@Last Modified time:2019-03-13 10:36:32
+@Modify-Date:2019-9-24
+
 -->
 <template>
   <div style="width:100%;height: 100%" class="fullSize">
