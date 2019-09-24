@@ -2,6 +2,7 @@
 @Author:zhangbo
 @Date:2019-05-08 13:20:01
 @E-mail:zhangb@geovie.com.cn
+@Modify-Date:2019-9-24
 -->
 <template>
   <div class="markerPanel" v-show="isShow">
