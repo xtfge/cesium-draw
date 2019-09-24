@@ -25,7 +25,6 @@ module.exports = {
       sourcePrefix: ''
   },
   amd: {
-        // Enable webpack-friendly use of require in Cesium
         toUrlUndefined: true
     },
   resolve: {
