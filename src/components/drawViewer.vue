@@ -10,15 +10,15 @@
         标绘<span class="clostbtn" @click="isShow=false"></span>
       </el-header>
       <el-main>
-        <el-button v-on:click="" class="marker-panel" :class="{'active-panel':!activeMode['marker']}"
+        <el-button  class="marker-panel" :class="{'active-panel':!activeMode['marker']}"
                    @click="toggleClick('addMarker')"
                    title="标记地点">
         </el-button>
-        <el-button v-on:click="" class="polyline-panel" :class="{'active-panel':!activeMode['polyline']}"
+        <el-button  class="polyline-panel" :class="{'active-panel':!activeMode['polyline']}"
                    @click="toggleClick('addPolyline')"
                    title="绘线">
         </el-button>
-        <el-button v-on:click="" class="polygon-panel" :class="{'active-panel':!activeMode['polygon']}"
+        <el-button  class="polygon-panel" :class="{'active-panel':!activeMode['polygon']}"
                    type="info"
                    @click="toggleClick('addPolygon')"
                    title="绘多边形">
@@ -47,7 +47,7 @@
             <el-dropdown-item  command="dgon">多边形</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <!--<el-button v-on:click="" class="export-panel" :class="{'active-panel':!activeMode['export']}"-->
+        <!--<el-button  class="export-panel" :class="{'active-panel':!activeMode['export']}"-->
                    <!--type="info"-->
                    <!--@click="toggleMenu('export')"-->
                    <!--title="导出">-->
@@ -61,7 +61,7 @@
             <!--{{item.value}}-->
           <!--</div>-->
         <!--</div>-->
-        <el-button v-on:click="" class="remove-panel" :class="{'active-panel':!activeMode['remove']}"
+        <el-button  class="remove-panel" :class="{'active-panel':!activeMode['remove']}"
                    type="info"
                    @click="toggleClick('remove')"
                    title="一键删除">

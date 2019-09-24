@@ -715,7 +715,7 @@ E-mail:zhangb@geovie.com.cn
     height: 20px;
     line-height: 20px;
     margin-top: 0px;
-    width: 80%;
+    width: 78%;
     margin-bottom: 30px !important;
     margin-left: 0px !important;
   }
@@ -746,7 +746,7 @@ E-mail:zhangb@geovie.com.cn
   }
 
   #createPanel .el-textarea {
-    width: 80%;
+    width:78%;
   }
 
   #createPanel .el-aside {

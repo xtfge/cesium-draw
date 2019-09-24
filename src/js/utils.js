@@ -6,7 +6,6 @@
  @Last Modified time:2019-03-13 21:18:48
  */
 
-import Cesium from 'cesium/Cesium'
 import {world_to_cartesian3,world_to_latlon} from "./Convert";
 import XLSX from 'xlsx'
 import axios from "axios";

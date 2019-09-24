@@ -8,14 +8,8 @@ import ElementUI from "element-ui";
 import Bus from '@/js/Bus'
 import 'element-ui/lib/theme-chalk/index.css'
 import $ from 'jquery'
-import Cesium from 'cesium/Cesium'
 import axios from 'axios'
 import utils from '@/js/utils'
-import '../static/conf/globalURL'
-import '../static/UE/ueditor.config.js'
-import '../static/UE/ueditor.all.js'
-import '../static/UE/lang/zh-cn/zh-cn.js'
-import '../static/UE/ueditor.parse.min.js'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false

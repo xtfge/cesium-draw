@@ -5,7 +5,6 @@
  @Last Modified by:zhangbo
  @Last Modified time:2019-03-13 13:26:58
  */
-import Cesium from 'cesium/Cesium'
 
 //屏幕坐标转世界坐标
 const screen_to_world=(position,viewer)=>{

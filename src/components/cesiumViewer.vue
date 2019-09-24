@@ -14,7 +14,6 @@
 </template>
 
 <script>
-  import "cesium/Widgets/widgets.css";
   export default {
     name: "EarthViewer",
     viewerProperty: {},

@@ -4,7 +4,6 @@
  @E-mail:zhangb@geovie.com.cn
  */
 import convertTool from '@/js/Convert'
-import Cesium from 'cesium/Cesium'
 import Vue from 'vue'
 import editPanel from '@/components/editPanel'
 import {saveAs} from 'file-saver'
