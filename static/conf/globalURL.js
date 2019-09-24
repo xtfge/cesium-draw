@@ -8,7 +8,7 @@ window.UrlSetting={
 }
 const config={
   //默认底图，仅在IMAGE_URL未定义的情况下生效
-  //************ */
+  //*************/
   "DEFAULT_IMAGE": "static/tiles/{z}/{x}/{y}.jpg",
   //底图
   "IMAGE_URL": "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali",
