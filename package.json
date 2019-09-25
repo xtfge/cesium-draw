@@ -1,6 +1,6 @@
 {
   "name": "cesium-vue-draw",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Vue.js and Cesium project",
   "author": "liubf",
   "private": true,
@@ -10,9 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
+    "cesium": "^1.59.0",
     "element-ui": "^2.6.1",
     "file-saver": "^2.0.1",
     "html2canvas": "^1.0.0-alpha.12",
