@@ -108,10 +108,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //       name: 'cesium',
-    //       minChunks: module => module.context && module.context.indexOf('cesium') !== -1
-    // }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
