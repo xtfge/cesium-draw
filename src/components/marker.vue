@@ -35,7 +35,7 @@ E-mail:zhangb@geovie.com.cn
         </el-container>
       </el-container>
       <el-container v-show="selectPanel">
-        <img v-for="img in images" :src="img" @click="changeHandler(img)">
+        <img v-for="(index,img) in images" :src="img" :key="index" @click="changeHandler(img)">
       </el-container>
       <!--<i class="el-icon-caret-bottom"></i>-->
     </div>

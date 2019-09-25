@@ -9,6 +9,7 @@
   <!--<div id="contextmenubox" :style="{height: height+'px'}" v-show="isShow" oncontextmenu="return false">-->
     <!--<div v-for="(eventHandler,key) in contextMenuItems" :id="key" @click="eventHandler(triggerObj);Bus.$emit('contextMenuHide')">{{key}}</div>-->
   <!--</div>-->
+  <div></div>
 </template>
 
 <script>
