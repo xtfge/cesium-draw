@@ -41,7 +41,7 @@ class BaseGraphic{
    */
   init(){
     const _this=this
-    this.tip=createCursor(this.viewer,'单击继续，双击或右击结束')
+    window.tip=createCursor(this.viewer,'单击继续，双击或右击结束')
     this.handler.setInputAction(e=> {
       _this.onClick(e)
       
@@ -186,11 +186,11 @@ class BaseGraphic{
       }else if(!_this.editMode){
         const obj=_this.viewer.scene.pick(e.endPosition)
         if(Cesium.defined(obj)&&obj.id&&obj.id===_this.graphic){
-          _this.tip=createCursor(_this.viewer,'双击要素编辑')
+          window.tip=createCursor(_this.viewer,'双击要素编辑')
         }else{
-          if(_this.tip){
-            document.body.removeChild(_this.tip)
-            _this.tip=null
+          if(window.tip){
+            document.body.removeChild(window.tip)
+            window.tip=null
           }
         }
 
@@ -216,7 +216,7 @@ class BaseGraphic{
     }
     const _this=this
     _this.editMode=true
-    this.tip=createCursor(this.viewer,'拖动节点编辑图形，按Delete键删除')
+    window.tip=createCursor(this.viewer,'拖动节点编辑图形，按Delete键删除')
     // this.options=Polyline.selectedStyle()
     //如果顶点存在设置点的样式为编辑
     if(Array.isArray(_this.nodes)){
@@ -269,9 +269,9 @@ class BaseGraphic{
       _this.setNode(_this.setNodeAction)
     }
     //删除跟随鼠标的提示框
-    if(_this.tip){
-      document.body.removeChild(_this.tip)
-      _this.tip=null
+    if(window.tip){
+      document.body.removeChild(window.tip)
+      window.tip=null
     }
     //销毁编辑窗口
     if(_this.editPanel){
@@ -453,7 +453,7 @@ class BaseGraphic{
     this.handler.destroy()
     if(document.getElementById('cursortip')){
       document.body.removeChild(document.getElementById('cursortip'))
-      this.tip=null
+      window.tip=null
     }
 
   }
@@ -470,18 +470,10 @@ class BaseGraphic{
       this.selectedHandler.destroy()
     }
     this._destroyEditPanel()
-    if(this.tip){
-      document.body.removeChild(this.tip)
-      this.tip=null
+    if(window.tip){
+      document.body.removeChild(window.tip)
+      window.tip=null
     }
-    // if(this.tip){
-    //   document.body.removeChild(this.tip)
-    //   this.tip=null
-    // }
-    // if(this.tip){
-    //   document.body.removeChild(this.tip)
-    // }
-    // this.graphic=null
 
   }
 }
@@ -758,7 +750,7 @@ class Polygon extends BaseGraphic{
       //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
       outline: true,
       outlineColor: Cesium.Color.AQUA,
-      outlineWidth:3.0,
+      outlineWidth:1.0,
       height : 0,
       //heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
@@ -767,7 +759,8 @@ class Polygon extends BaseGraphic{
       //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
       outline: true,
       outlineColor: Cesium.Color.AQUA,
-      outlineWidth:3.0,
+      outlineWidth:1.0,
+      height:0,
       heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
     if(terrain){

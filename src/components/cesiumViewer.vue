@@ -51,15 +51,9 @@
         shadows: false,
         //去黑色背景
         skyAtmosphere: false,
-        contextOptions: _this.dropBackground ? {
-          webgl: {
-            alpha: true,
-          }
-        } : {}
-
-        // imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        //   url:"./static/tiles/{z}/{x}/{y}.png"
-        // })
+        imageryProvider: new Cesium.UrlTemplateImageryProvider({
+          url:"./static/tiles/{z}/{x}/{y}.png"
+        })
       }
 
       //设置Veiwer属性
