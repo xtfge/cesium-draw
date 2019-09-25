@@ -5,7 +5,7 @@
 - 线、多边形绘制，可以编辑节点和属性信息
 - 导入导出功能（json,Geojson,shp）
 
-使用说明
+使用说明:
 
 依次输入以下命令运行该项目：
 
@@ -36,6 +36,7 @@ options.editPanel=false
 const pl=new Polyline(viewer,options)
 pl.initNodes()//如果要显示顶点
 ```
+
 ### 效果
 ![avatar](https://img-blog.csdnimg.cn/20190524155136375.gif)
 ![avatar](https://img-blog.csdnimg.cn/20190524155207442.gif)
