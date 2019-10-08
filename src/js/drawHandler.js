@@ -883,6 +883,7 @@ class polylineCollection{
 
    */
   add(node=false,name=null){
+    name=name||'polyline'+this.values.size
     const pl=new Polyline(this.viewer,this.options,name)
     this.values.set(pl.name,pl)
     if(node){
@@ -954,6 +955,7 @@ class polygonCollection{
    * @param name
    */
   add(node=true,name=null){
+    name=name||'polygon'+this.values.size
     const pg=new Polygon(this.viewer,this.options,name)
     this.values.set(pg.name,pg)
     if(node){

@@ -20,13 +20,11 @@
                    title="绘线">
         </el-button>
         <el-button  class="polygon-panel" :class="{'active-panel':!activeMode['polygon']}"
-                   type="info"
                    @click="toggleClick('addPolygon')"
                    title="绘多边形">
         </el-button>
         <el-dropdown @command="handleCommand">
           <el-button class="import-panel" :class="{'active-panel':!activeMode['export']}"
-                     type="info"
                      title="导入"
           ><i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>
@@ -38,7 +36,6 @@
         </el-dropdown>
         <el-dropdown @command="handleCommand">
           <el-button class="export-panel" :class="{'active-panel':!activeMode['export']}"
-                     type="info"
                      title="导出"
           ><i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>
@@ -63,7 +60,6 @@
           <!--</div>-->
         <!--</div>-->
         <el-button  class="remove-panel" :class="{'active-panel':!activeMode['remove']}"
-                   type="info"
                    @click="toggleClick('remove')"
                    title="一键删除">
         </el-button>
@@ -199,12 +195,32 @@
         this[event]()
       },
       addPolyline(){
+        const lastPolygon=this.pgCollection.values.get('polygon'+(this.pgCollection.values.size-1))
+        if(lastPolygon){
+          lastPolygon.deepDestroy()
+        }
+        this.$refs.marker.isDrawing=false
+        // createCursor(this.viewer,'点击地图开始绘制')
         this.plCollection.add(this.polylineNode)
       },
       addPolygon(){
+        const lastPolyline=this.plCollection.values.get('polyline'+(this.plCollection.values.size-1))
+        if(lastPolyline){
+          lastPolyline.deepDestroy()
+        }
+        this.$refs.marker.isDrawing=false
+        // createCursor(this.viewer,'点击地图开始绘制')
         this.pgCollection.add(this.polygonNode)
       },
       addMarker(){
+        const lastPolygon=this.pgCollection.values.get('polygon'+(this.pgCollection.values.size-1))
+        if(lastPolygon){
+          lastPolygon.deepDestroy()
+        }
+        const lastPolyline=this.plCollection.values.get('polyline'+(this.plCollection.values.size-1))
+        if(lastPolyline){
+          lastPolyline.deepDestroy()
+        }
         createCursor(this.viewer,'点击地图添加标记')
         this.$refs.marker.isDrawing=true
         // Bus.$emit('markerViewerInit',this.viewer,'single')
@@ -225,7 +241,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .clostbtn::after{
     content: '✖';
     float: right;

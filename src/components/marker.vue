@@ -35,7 +35,7 @@ E-mail:zhangb@geovie.com.cn
         </el-container>
       </el-container>
       <el-container v-show="selectPanel">
-        <img v-for="(index,img) in images" :src="img" :key="index" @click="changeHandler(img)">
+        <img v-for="(img,index) in images" :src="img" :key="index" @click="changeHandler(img)">
       </el-container>
       <!--<i class="el-icon-caret-bottom"></i>-->
     </div>
@@ -365,7 +365,7 @@ E-mail:zhangb@geovie.com.cn
           const objs = viewer.scene.drillPick(evt.position)
           if (Cesium.defined(objs)) {
             for (let obj in objs) {
-              if (objs[obj].primitive instanceof Cesium.Billboard) {
+              if (objs[obj].primitive instanceof Cesium.Billboard&&Cesium.defined(objs[obj].id.Billboard)) {
                 _this.selectedObj = objs[obj]
                 createContextMenu()
                 _this.$refs.contextMenu.setPosition(evt.position)
