@@ -288,8 +288,9 @@
     padding-left: 10px;
   }
   .el-dropdown>>>span{
-    padding: 0px;
-    margin: 0px;
-    position: absolute;
+    // padding: 0px;
+    // margin: 0px;
+    // position: absolute;
+    display: none
   }
 </style>
