@@ -12,7 +12,6 @@
   "dependencies": {
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
-    "cesium": "^1.59.0",
     "element-ui": "^2.6.1",
     "file-saver": "^2.0.1",
     "html2canvas": "^1.0.0-alpha.12",
