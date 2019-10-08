@@ -1,0 +1,38 @@
+[
+  {
+    "name": "marker1",
+    "path": "static/images/markers/1.png"
+  },
+  {
+    "name": "marker2",
+    "path": "static/images/markers/2.png"
+  },
+  {
+    "name": "marker3",
+    "path": "static/images/markers/3.png"
+  },
+  {
+    "name": "marker4",
+    "path": "static/images/markers/4.png"
+  },
+  {
+    "name": "marker5",
+    "path": "static/images/markers/5.png"
+  },
+  {
+    "name": "marker6",
+    "path": "static/images/markers/6.png"
+  },
+  {
+    "name": "marker7",
+    "path": "static/images/markers/7.png"
+  },
+  {
+    "name": "marker8",
+    "path": "static/images/markers/8.png"
+  },
+  {
+    "name": "marker9",
+    "path": "static/images/markers/9.png"
+  }
+]

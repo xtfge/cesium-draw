@@ -1,0 +1,10 @@
+[
+  {
+    "name": "fire",
+    "path": "static/images/markers/fire.png"
+  },
+  {
+    "name": "smoke",
+    "path": "static/images/markers/smoke.png"
+  }
+]
