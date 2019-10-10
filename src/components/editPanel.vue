@@ -121,7 +121,7 @@
       }
     },
     mounted() {
-      const self = this
+      // const self = this
     },
     methods: {
       command(command){
@@ -138,6 +138,9 @@
     },
     watch: {
       color(n,o){
+        if(n===o){
+          return
+        }
         this.graphic.setColor(n)
       },
       width(n,o){
@@ -145,17 +148,24 @@
           this.width=0
           return
         }
+        if(n===o){
+          return
+        }
         this.graphic.setWidth(n)
       },
       node(n,o){
         // this.graphic.setNode(n)
+        if(n===o){
+          return
+        }
         this.graphic.setNodeAction=n
       },
       outline(n,o){
+        if(n===o)return
         this.graphic.setOutline(n)
       },
       outlineWidth(n,o){
-        if(n===''){
+        if(n===''&&n!==o){
           this.outlineWidth=0
           return
         }
@@ -169,6 +179,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.graphic-edit-panel{
+  z-index: 999;
+}
+@import "~@/assets/css/globeStyle";
 </style>

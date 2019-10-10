@@ -1,20 +1,26 @@
-/**
- @Author:zhangbo
- @Date:2019-03-13 11:29:13
- @E-mail:zhangb@geovie.com.cn
- @Last Modified by:zhangbo
- @Last Modified time:2019-03-13 11:29:13
- */
-import Vue from "vue";
-import Vuex from "vuex";
-Vue.use(Vuex);
+import cesiumMarker from './marker/index'
+import cesiumDrawHandler from './drawViewer/index'
 
-export default new Vuex.Store({
-  //开发环境下开启严格模式
-  strict: process.env.NODE_ENV !== 'production',
-  state: {
-    isLogin:false
-  },
-  mutations: {},
-  actions: {}
-});
+const components = [
+    cesiumMarker,
+    cesiumDrawHandler
+    
+]
+
+const install = function (Vue) {
+    if (install.installed) return
+    install.installed = true
+    components.map(component => {
+        Vue.component(component.name, component)
+    })
+}
+
+/** 支持使用标签方式引入 */
+if (typeof window != 'undefined' && window.Vue) {
+    install(window.Vue)
+}
+
+export default {
+    install,
+    ...components
+}

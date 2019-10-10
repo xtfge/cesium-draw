@@ -7,6 +7,9 @@ import convertTool from '@/js/Convert'
 import Vue from 'vue'
 import editPanel from '@/components/editPanel'
 import {saveAs} from 'file-saver'
+import $ from 'jquery'
+import Bus from '@/js/Bus'
+const Cesium = window.Cesium
 
 class BaseGraphic{
   /**
@@ -58,6 +61,7 @@ class BaseGraphic{
       this.onSelected()
       // this.create(this.positions)
       this.startEdit()
+      console.log(e)
     },DrawEvent.RIGHT_CLICK());
     //Cesium在执行双击事件的时候会执行再次单击事件，因此双击结束会对最后一个点添加3次，建议右键结束
     this.handler.setInputAction(e=> {
@@ -66,6 +70,7 @@ class BaseGraphic{
       this.destroy()
       this.onSelected()
       this.startEdit()
+      console.log(e)
     },DrawEvent.LEFT_DOUBLE_CLICK());
 
   }
@@ -279,6 +284,7 @@ class BaseGraphic{
     }
     //取消键盘事件监听
     $(document).unbind('keydown',_this.keyDown);
+    Bus.$emit('drawEventCompleted')
   }
 
   keyDown(event){
@@ -371,6 +377,7 @@ class BaseGraphic{
    * @param rgb{String}
    */
   setColor(rgb){
+    this.options.material=Cesium.Color.fromRgba(rgb)
   }
 
   /**
@@ -378,6 +385,7 @@ class BaseGraphic{
    * @param width
    */
   setWidth(width){
+    this.options.width=width
   }
 
   setNode(node){
@@ -867,7 +875,7 @@ class DrawEvent{
     return Cesium.ScreenSpaceEventType.LEFT_UP
   }
 }
-class polylineCollection{
+class PolylineCollection{
   constructor(viewer,options=Polyline.defaultStyle()){
     this.viewer=viewer
     this.values=new Map()
@@ -911,7 +919,6 @@ class polylineCollection{
       "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
       "features": []
     }
-    const feats=[]
     for(let pl of pls){
       const geojson=Polyline.toGeoJson(pl.positions,pl.name)
       graphicJSON.features.push(geojson.features[0])
@@ -941,7 +948,7 @@ class polylineCollection{
     }
   }
 }
-class polygonCollection{
+class PolygonCollection{
   constructor(viewer,options=Polygon.defaultStyle(),){
     this.viewer=viewer
     this.options=options
@@ -979,7 +986,6 @@ class polygonCollection{
       "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
       "features": []
     }
-    const feats=[]
     for(let pg of pgs){
       const geojson=Polygon.toGeoJson(pg.positions,pg.name)
       graphicJSON.features.push(geojson.features[0])
@@ -1009,4 +1015,10 @@ class polygonCollection{
     }
   }
 }
-export {Polyline,Polygon,polygonCollection,polylineCollection}
+// Polygon.prototype.name='cesiumPolygon'
+// Polyline.prototype.name='cesiumPolyline'
+// PolygonCollection.prototype.name='cesiumPolygonCollection'
+// PolylineCollection.prototype.name='cesiumPolylineCollection'
+// Polygon.prototype.version=Polyline.prototype.version=PolygonCollection.prototype.version=PolylineCollection.prototype.version="2.0"
+
+export {Polyline,Polygon,PolygonCollection,PolylineCollection}

@@ -1,37 +1,23 @@
 import Vue from 'vue'
+import './plugins/element.js'
 import App from './App'
 import router from './router'
-import store from './store'
-import ElementUI from "element-ui";
 import Bus from '@/js/Bus'
-import 'element-ui/lib/theme-chalk/index.css'
-import $ from 'jquery'
-import axios from 'axios'
 import utils from '@/js/utils'
+import Router from 'vue-router'
+import $ from 'jquery'
+import cesiumDrawHandler from './index'
+Vue.use(cesiumDrawHandler)
+// Vue.use(cesiumDrawHandler)
 
-Vue.use(ElementUI)
 Vue.config.productionTip = false
-window.Bus=Bus
-Vue.prototype.Bus = Bus
-window.Cesium=Cesium
-Vue.prototype.axios=axios
-window.axios=axios
+Vue.use(Router)
+window.Bus = Bus
 window.$=$
-window.errorCatch=utils.errorCatch
-$.ajax({
-  url: 'static/conf/global_config.json',
-  type: "GET",
-  async: false,
-  contentType: "application/json",
-  success: function (response) {
-    Vue.prototype.GLOBAL = response;
-  }
-});
-
+Vue.prototype.Bus = Bus
+window.errorCatch = utils.errorCatch
+window.$=$
 new Vue({
-  el: '#app',
+  render: h => h(App),
   router,
-  store,
-  components: {App},
-  template: '<App/>'
-})
+}).$mount('#app')

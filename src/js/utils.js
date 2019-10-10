@@ -7,8 +7,6 @@
  */
 
 import {world_to_cartesian3,world_to_latlon} from "./Convert";
-import XLSX from 'xlsx'
-import axios from "axios";
 import {open} from 'shapefile'
 
 
@@ -215,38 +213,32 @@ const downloadFile=(fileName, content)=> {//下载文件
     return new Blob([uInt8Array], {type: contentType});
   }
 }
-export function JSON2Excel(data,filename) {
-  let ws=XLSX.utils.json_to_sheet(data)
-  let wb=XLSX.utils.book_new()
-  XLSX.utils.book_append_sheet(wb, ws, "sheet1");/* 生成xlsx文件 */
-  XLSX.writeFile(wb, filename);
-}
-export function ajaxPromise(url,options={}){
-  return new Promise((resolve,reject)=>{
-    const defaultOptions= {
-      service: 'WFS',
-      version: '1.0.0',
-      request: 'GetFeature',
-      outputFormat: 'application/json'
-    }
-    if(!options['typeName']){
-      alert('typeName参数必须提供')
-      return
-    }
-    for(let key in options){
-      defaultOptions[key]=options[key]
-    }
-    let urlString=url+'?'
-    for(let key in defaultOptions){
-      urlString+=`&${key}=${defaultOptions[key]}`
-    }
-    axios.get(urlString).then(res=>{
-      resolve(res)
-    }).catch(e=>{
-      reject(e)
-    })
-  })
-}
+// export function ajaxPromise(url,options={}){
+//   return new Promise((resolve,reject)=>{
+//     const defaultOptions= {
+//       service: 'WFS',
+//       version: '1.0.0',
+//       request: 'GetFeature',
+//       outputFormat: 'application/json'
+//     }
+//     if(!options['typeName']){
+//       alert('typeName参数必须提供')
+//       return
+//     }
+//     for(let key in options){
+//       defaultOptions[key]=options[key]
+//     }
+//     let urlString=url+'?'
+//     for(let key in defaultOptions){
+//       urlString+=`&${key}=${defaultOptions[key]}`
+//     }
+//     axios.get(urlString).then(res=>{
+//       resolve(res)
+//     }).catch(e=>{
+//       reject(e)
+//     })
+//   })
+// }
 //根据图片和文字绘制canvas
 function drawCanvas(url='',text='',fontsize=14,bg=true){
   const canvas = document.createElement('canvas');      //创建canvas标签
