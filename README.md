@@ -21,7 +21,7 @@ Vue.use(cesiumDrawHandler)
 <templete>
 <div>
 <div id='cesiumContainer'></div>
-<cesiumDrawViewer style="z-inex:10" :viewer="viewer" v-if="mounted"></cesiumDrawViewer>
+<cesiumDrawViewer :viewer="viewer" v-if="mounted"></cesiumDrawViewer>
 </div>
 </templete>
 <script>
