@@ -3,7 +3,7 @@ This is a Vue+Cesium project, which provides functions such as drawing and editi
 Key Features ：
 - Add markers, you can extend the markers style, edit and delete them.
 - Interactive drawing of polyline and polygon openings allows editing and setting of nodes and their styles.
-- export and import.（json,Geojson,shp）
+- Export and import.（json,Geojson,shp）
 
 #### Install
 ```
