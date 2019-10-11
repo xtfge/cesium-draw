@@ -7,7 +7,7 @@ Key Features ：
 
 #### Install
 ```
-npm install vue-draw --save
+npm install cesium-draw --save
 ```
 #### Usage
 ```js
