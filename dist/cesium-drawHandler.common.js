@@ -77165,12 +77165,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=27c3931e&
-var markervue_type_template_id_27c3931e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
-var markervue_type_template_id_27c3931e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=2c88a422&
+var markervue_type_template_id_2c88a422_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
+var markervue_type_template_id_2c88a422_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=27c3931e&
+// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=2c88a422&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
 var is_array = __webpack_require__("a745");
@@ -78100,6 +78100,11 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
           self.$refs['nameinput'].$el.children[0].focus();
         });
       }
+    },
+    extendImage: function extendImage(n, o) {
+      if (n.length > 0) {
+        this.images = [this.defaultImage].concat(_toConsumableArray(n));
+      }
     }
   }
 });
@@ -78119,8 +78124,8 @@ var markervue_type_style_index_0_lang_css_ = __webpack_require__("3d44");
 
 var marker_component = normalizeComponent(
   src_markervue_type_script_lang_js_,
-  markervue_type_template_id_27c3931e_render,
-  markervue_type_template_id_27c3931e_staticRenderFns,
+  markervue_type_template_id_2c88a422_render,
+  markervue_type_template_id_2c88a422_staticRenderFns,
   false,
   null,
   null,
