@@ -50,10 +50,10 @@ E-mail:zhangb@geovie.com.cn
 </template>
 
 <script>
-  import convertTool from "@/js/Convert";
+  import convertTool from "../../..//js/Convert";
   import contextMenuViewer from './contextmenu'
   import {saveAs} from 'file-saver';
-  import Bus from '@/js/Bus'
+  import Bus from '../../../js/Bus'
   const Cesium=window.Cesium
 
   export default {

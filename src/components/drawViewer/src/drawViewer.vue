@@ -71,10 +71,10 @@
 </template>
 
 <script>
-  import markerViewer from '@/components/marker/src/marker'
-  import {PolylineCollection,PolygonCollection} from "@/js/drawHandler";
-  import utils from '@/js/utils'
-  import Bus from '@/js/Bus'
+  import markerViewer from '../../marker/src/marker'
+  import {PolylineCollection,PolygonCollection} from "../../../js/drawHandler";
+  import utils from '../../../js/utils'
+  import Bus from '../../../js/Bus'
 
   export default {
     name:"cesiumDrawViewer",
@@ -88,14 +88,7 @@
         viewerMounted:false,
         menuShow:{},
         menus:[{'value':'标记','key':'marker'},{'value':'线','key':'polyline'},{'value':'多边形','key':'polygon'}],
-        markerExtend:['static/images/markers/1.png',
-          'static/images/markers/2.png',
-          'static/images/markers/3.png',
-          'static/images/markers/4.png',
-          'static/images/markers/5.png',
-          'static/images/markers/6.png',
-          'static/images/markers/7.png',
-          'static/images/markers/8.png']
+        markerExtend:[]
       }
     },
     components:{markerViewer},
@@ -126,6 +119,9 @@
       this.$refs.marker.init(this.viewer,'single')
     },
     methods: {
+      extendMarkImage(images){
+        this.markerExtend=images
+      },
       importfp(){
         const _this = this
         const evt = event ? event : window.event
@@ -195,7 +191,7 @@
       addPolyline(){
         const lastPolygon=this.pgCollection.values.get('polygon'+(this.pgCollection.values.size-1))
         if(lastPolygon){
-          lastPolygon.deepDestroy()
+          lastPolygon.destroy()
         }
         this.$refs.marker.isDrawing=false
         // createCursor(this.viewer,'点击地图开始绘制')
@@ -204,7 +200,7 @@
       addPolygon(){
         const lastPolyline=this.plCollection.values.get('polyline'+(this.plCollection.values.size-1))
         if(lastPolyline){
-          lastPolyline.deepDestroy()
+          lastPolyline.destroy()
         }
         this.$refs.marker.isDrawing=false
         // createCursor(this.viewer,'点击地图开始绘制')
@@ -213,11 +209,11 @@
       addMarker(){
         const lastPolygon=this.pgCollection.values.get('polygon'+(this.pgCollection.values.size-1))
         if(lastPolygon){
-          lastPolygon.deepDestroy()
+          lastPolygon.destroy()
         }
         const lastPolyline=this.plCollection.values.get('polyline'+(this.plCollection.values.size-1))
         if(lastPolyline){
-          lastPolyline.deepDestroy()
+          lastPolyline.destroy()
         }
         window.createCursor(this.viewer,'点击地图添加标记')
         this.$refs.marker.isDrawing=true
