@@ -569,6 +569,11 @@ E-mail:zhangb@geovie.com.cn
             self.$refs['nameinput'].$el.children[0].focus();
           })
         }
+      },
+      extendImage(n,o){
+        if(n.length>0){
+          this.images=[this.defaultImage,...n]
+        }
       }
     }
   }
