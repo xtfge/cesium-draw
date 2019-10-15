@@ -45,7 +45,9 @@ E-mail:zhangb@geovie.com.cn
       <!--:style="{left:scenePos.x,top:scenePos.y}">-->
       <!--&lt;!&ndash;单击地图添加标记&ndash;&gt;-->
     <!--</div>-->
-
+    <div v-if="btShow">
+      <el-button type="primary" plain size="mini" id="submitbtn" @click="edit">bianji</el-button>
+    </div>
   </div>
 </template>
 
@@ -80,7 +82,8 @@ E-mail:zhangb@geovie.com.cn
         markRemark: '',
         images: [],
         defaultImage: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAfCAYAAAAIjIbwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAK8AAACvAAsAdHPAAAAB3RJTUUH4wEJAy0MN7YNKwAAA05JREFUSMeV1suLHFUUx/FPVVc/ZpKJozhKYkSQxOATBDdKkLgQRaKooP+DgijoTnDjNsYXIhoiCMa3ohJQEEnEiJsg+EhcRHzHiQmYOM6ju2aqr4uqmtzuTJvJ2TRV95xv/c7j3tuJyqa3bxVZhptwF27BRkxgFkexHx/hS+R10Pq9B0CyAvBKPIJ7caHR9jc+xDP4NgYnQ8DbsbMCr9Z+xKOV8uU0a7sVu7FhOKoIQb8fpGmikSTDy5uwC33sjaGb8FQMDJjLF83kubwoFP2gkSRajYaJdtPaVkuEvwg78BMOp0jxIK6NlZ2YWzA9O2eml+stFZb6fb2iMJPnjs3OOz43r+iHWPEWPIQsw3W4b6ADC10nu926kzM4iN+wMeGGfgiTp7o9CabWjMeK78GrGW6L055bXHSq26sfj+AxfIoFdJQjtgNX/dPLjTeb1raatf/FuCPDtqoEYDZfVIQgYR6Px11FFx9XvdhThDAxm+cxFLalysEG/RDkRVE//lApLD2/OhQH7lPNZl709cNAbTekmFzueKDoh7pGx5Vql4EReAF/JVgKZ0DXpcpGgDQhS1OVy6U4D/bfeLX4F+twWVD6p4OzO59WzSg7nSTaWSMekfvrhwhIuYWvgXajMQw9klb1WS7kRKupmabQxBN4GJdgHOvxAJ5EO0sT69qtGBiwL5nevnWzcntdUa+c7PacmJuvy7CEnzFdjczl1QdNjY+5YKwTQ3/BnXX6e+KVyXbL1Jrxur5ZYDNuDmwJNLM0NTU+ZrLTNmRv4vt67+/G3bi+ru35nbaxLDOb53pFuU2zNNVuNKxtNXWybBh4GC9x+kA5imeVp83yJHeyhk42JiCEIEkSZ5xRpRV4vkr/9E7Ce6Jhjy1BOhoIn1epg7S+ApRXxU6ccm42ELd+74EBpZR3z1vnCH1/OMO0pg/V5tdVAv9U9iKPOekKjofw8iqhr+Dr4ZfL0Eht7XzwLMDv4o/H8QNKo4Vjyqs3HwFcwnP4fQVBK6Zf2wf4ZMTaPrw9KvAMaPTVOTyNk0Mu/ypHaGYllWdTCl/g9aF37+Cz/wtaETo0Yi8oTyn4o6rl4iiVq1FKeVe9qPwHsgvfnC1gJHRIxRt4F6+NWB+w/wD3vCGsfC8xrQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wMS0wOVQwMzo0NToxMiswODowMKswftkAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDlUMDM6NDU6MTIrMDg6MDDabcZlAAAAQ3RFWHRzb2Z0d2FyZQAvdXNyL2xvY2FsL2ltYWdlbWFnaWNrL3NoYXJlL2RvYy9JbWFnZU1hZ2ljay03Ly9pbmRleC5odG1svbV5CgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMjMzz/MXEAAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxNTifzIcaAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE1NDY5NzY3MTKeBuyKAAAAEnRFWHRUaHVtYjo6U2l6ZQAxMDM4M0L7qH+sAAAAYnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L25ld3NpdGUvd3d3LmVhc3lpY29uLm5ldC9jZG4taW1nLmVhc3lpY29uLmNuL2ZpbGVzLzExOC8xMTg1NjU4LnBuZzaDG7oAAAAASUVORK5CYII=',
-        selectPanel: false
+        selectPanel: false,
+        btShow:false
       }
     },
     computed: {
@@ -117,7 +120,7 @@ E-mail:zhangb@geovie.com.cn
 
     },
     mounted() {
-      const _this = this
+      let _this = this
       _this.contextMenu = {
         '编 辑': _this.edit,
         '删 除': _this.drop
@@ -128,7 +131,7 @@ E-mail:zhangb@geovie.com.cn
       Bus.$on('drawingStop', _this.stopDrawing)
       //Bus.$emit('markerViewerInit')
       //初始化markerViewer
-      Bus.$on('markerViewerInit', _this.init)
+      Bus.$on('markerViewerInit', this.init)
       //注销markerViewer
       Bus.$on('markerViewerDestroy', _this.destroy)
       //一键删除
@@ -141,33 +144,7 @@ E-mail:zhangb@geovie.com.cn
       Bus.$on('stopPickMarker', function () {
         _this.isDrawing = false
       })
-      //编辑标记
-      // Bus.$on('updateMark', function (text) {
-      //   for (let i = 0; i < _this.labels.length; i++) {
-      //     if (_this.labels.get(i).id == _this.$store.state.id) {
-      //       _this.labels.get(i).text = text
-      //     }
-      //   }
-      // })
-      // //删除标记
-      // Bus.$on('removeMark', function (id) {
-      //   for (let i = 0; i < _this.billboards.length; i++) {
-      //     if (_this.billboards.get(i).id === id) {
-      //       _this.billboards.remove(_this.billboards.get(i))
-      //       _this.labels.remove(_this.labels.get(i))
-      //     }
-      //   }
-      // })
-      // //编辑没有完全添加的标记，更换标记图标后触发该事件
-      // Bus.$on('updateLastMark', function () {
-      //   _this.defaultImage = _this.$store.state.defaultImage
-      //   _this.billboards.get(_this.billboards.length - 1).image = _this.defaultImage
-      // })
-      // //取消添加
-      // Bus.$on('removeLastMark', function () {
-      //   _this.billboards.remove(_this.billboards.get(_this.billboards.length - 1))
-      //   _this.labels.remove(_this.labels.get(_this.labels.length - 1))
-      // })
+      
       Bus.$on('exportMarks', _this.exportMarks)
       Bus.$on('importMarks', function () {
         document.getElementById('uploadhandler').click()
@@ -334,10 +311,12 @@ E-mail:zhangb@geovie.com.cn
         _this.handler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK)
         _this.handler.removeInputAction(Cesium.ScreenSpaceEventType.RIGHT_CLICK)
         _this.handler.setInputAction(evt => {
+          
           //移除右键菜单重新初始化
           Bus.$emit('contextMenuHide')
           const e = window.event,//event|| window.event,
             target = e.target || e.srcElement;
+            e.stopPropagation();
           const marker_message = _this.tipLoad(evt)
           if (marker_message) {
             return marker_message
@@ -363,6 +342,8 @@ E-mail:zhangb@geovie.com.cn
 
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK)
         _this.handler.setInputAction((evt) => {
+          _this.btShow = true;
+          console.log(_this)
           // _this.tipShow=false
           // _this.isShow=false
           if (document.getElementById('tooltip')) {
@@ -416,7 +397,7 @@ E-mail:zhangb@geovie.com.cn
        * @param input 是否显示编辑界面，默认显示
        */
       add(input = true) {
-        const _this = this
+        let _this = this
         if(document.getElementById('cursortip')){
           document.body.removeChild(document.getElementById('cursortip'))
         }
@@ -425,7 +406,7 @@ E-mail:zhangb@geovie.com.cn
         // }
         // _this.$store.state.defaultImage = _this.defaultImage
 
-        const cvt = convertTool(_this.viewer)
+        let cvt = convertTool(_this.viewer)
         // _this.isShow=true
         _this.tipShow = false
         _this.id = "marker" + Math.round(Math.random() * 10000)
@@ -458,7 +439,7 @@ E-mail:zhangb@geovie.com.cn
        * @param text
        */
       update: function () {
-        const newtext = this.markName
+        let newtext = this.markName
         if (this.curIndex == undefined) {
           this.curIndex = this.labels.length - 1
         }
@@ -485,17 +466,16 @@ E-mail:zhangb@geovie.com.cn
             break
           }
         }
-        Bus.$emit('olRemoveMarker', obj.primitive.id)
         _this.billboards.remove(obj.primitive)
         _this.menuShow = false
         _this.selectedObj = undefined
       },
       edit() {
-        const _this = this
+        let _this = this
         if (!Cesium.defined(_this.selectedObj)) {
           return
         }
-        const obj = _this.selectedObj
+        let obj = _this.selectedObj
         _this.isShow = true
         //_this.createInput()
         for (let index = 0; index < _this.billboards.length; index++) {

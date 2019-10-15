@@ -1,2 +1,2 @@
-import {Polyline,Polygon,PolylineCollection,PolygonCollection} from "@/js/drawHandler";
+import {Polyline,Polygon,PolylineCollection,PolygonCollection} from "../../js/drawHandler";
 export {Polygon,Polyline,PolygonCollection,PolylineCollection}

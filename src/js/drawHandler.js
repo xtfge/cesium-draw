@@ -3,12 +3,12 @@
  @Date:2019-05-21 15:32:46
  @E-mail:zhangb@geovie.com.cn
  */
-import convertTool from '@/js/Convert'
+import convertTool from './Convert'
 import Vue from 'vue'
-import editPanel from '@/components/editPanel'
+import editPanel from '../components/editPanel'
 import {saveAs} from 'file-saver'
 import $ from 'jquery'
-import Bus from '@/js/Bus'
+import Bus from './Bus'
 const Cesium = window.Cesium
 
 class BaseGraphic{
@@ -33,6 +33,13 @@ class BaseGraphic{
     this.handler=new Cesium.ScreenSpaceEventHandler(viewer.canvas)
     this.selectedHandler=new Cesium.ScreenSpaceEventHandler(viewer.canvas)
     this.setNodeAction=undefined
+    this.info=[]
+    this.updateEvent=new CustomEvent('updateEvent',{
+      detail:{
+        nodes:this.positions,
+        name:this.name,
+        target:this}
+    });
     this.init()
   }
   initNodes(){
@@ -84,6 +91,7 @@ class BaseGraphic{
       this.pushNode(e.position)
     }
     this.pushNode(e.position)
+    
   }
   onMove(e){
     const self=this
@@ -161,6 +169,7 @@ class BaseGraphic{
           }
           _this.selectedNode=null
         }
+        console.log(obj)
       }
     },DrawEvent.LEFT_CLICK())
     _this.selectedHandler.setInputAction(e=>{
@@ -231,8 +240,10 @@ class BaseGraphic{
     //如果顶点不存在添加临时顶点
     else{
       _this.tmpNodes=[]
+      let i=0
       this.positions.map(p=>{
         const pt=new Point(_this.viewer,null,p,Point.editStyle())
+        i++
         _this.tmpNodes.push(pt.graphic)
       })
     }
@@ -242,6 +253,7 @@ class BaseGraphic{
     //打开编辑面板
     if(!this.editPanel){
       this.initEditWindow()
+      window.dispatchEvent(this.updateEvent);
     }
 
 
@@ -261,6 +273,7 @@ class BaseGraphic{
     _this.editMode=false
     // this.options=Polyline.defaultStyle()
     //如果添加了临时顶点，删除
+    
     if(this.tmpNodes){
       for(let node of this.tmpNodes){
         _this.viewer.entities.remove(node)
@@ -308,6 +321,7 @@ class BaseGraphic{
         //_this.positions.splice(_this.positions.indexOf(_this.selectedPosition)-1,1)
       }
       _this.selectedNode=null
+      // window.dispatchEvent(this.updateEvent);
     }
   }
   /**
@@ -342,6 +356,8 @@ class BaseGraphic{
         const pt=new Point(this.viewer,null,wp)
         this.nodes.push(pt.graphic)
       }
+      
+      // window.dispatchEvent(this.updateEvent);
     }
   }
 
@@ -482,6 +498,8 @@ class BaseGraphic{
       document.body.removeChild(window.tip)
       window.tip=null
     }
+    this.positions.splice(0,this.positions.length)
+    // window.dispatchEvent(this.updateEvent)
 
   }
 }
@@ -577,9 +595,23 @@ class Polyline extends BaseGraphic{
     // }
   }
   export(name='polyline'){
-    const graphicJSON=Polyline.toGeoJson(this.positions)
+    const ext=name.split('.')[1]
+    let graphicJSON=undefined
+    if(ext&&ext.toLowerCase()==='json'){
+      let index=0
+      for(let p of this.positions){
+        const ll=Point.worldLatlon(this.viewer,p)
+        this.info[index]=this.info[index]||{}
+        this.info[index].coords=[ll.lon,ll.lat]
+        index++
+      }
+      graphicJSON=this.info
+    }else{
+      graphicJSON=Polyline.toGeoJson(this.positions)
+    }
     const blob = new Blob([JSON.stringify(graphicJSON)], {type: ""});
-    saveAs(blob, name+".geojson");
+    
+    saveAs(blob, name);
   }
   setWidth(v){
     this.options.width=parseInt(v)
@@ -851,6 +883,10 @@ class Point{
     const cvt=new convertTool(viewer)
     return cvt.screenWorld(pixel)
   }
+  static worldLatlon(viewer,world){
+    const cvt=new convertTool(viewer)
+    return cvt.worldLatLon(world)
+  }
 }
 class DrawEvent{
   constructor(){
@@ -1021,4 +1057,4 @@ class PolygonCollection{
 // PolylineCollection.prototype.name='cesiumPolylineCollection'
 // Polygon.prototype.version=Polyline.prototype.version=PolygonCollection.prototype.version=PolylineCollection.prototype.version="2.0"
 
-export {Polyline,Polygon,PolygonCollection,PolylineCollection}
+export {Polyline,Polygon,PolygonCollection,PolylineCollection,Point}

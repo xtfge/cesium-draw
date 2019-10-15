@@ -116,7 +116,10 @@
       Bus.$on('viewerMounted',function () {
         self.viewerMounted=true
       })
-      this.$refs.marker.init(this.viewer,'single')
+      if(!window.isLoad){
+      this.$refs.marker.init(this.viewer,'single');
+      window.isLoad = true;
+      }
     },
     methods: {
       extendMarkImage(images){

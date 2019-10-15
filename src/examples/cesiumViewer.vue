@@ -83,6 +83,10 @@ export default {
     this.viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(
       Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK
     );
+    viewer.camera.flyTo({
+      destination:Cesium.Cartesian3.fromDegrees(116.4,39.9,15000000),
+      duration:0
+    })
   },
   methods: {}
 };
