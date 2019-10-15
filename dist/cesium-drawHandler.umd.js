@@ -13550,6 +13550,17 @@ exports.f = __webpack_require__("2b4c");
 
 /***/ }),
 
+/***/ "388e":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_7fcd44a1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a340");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_7fcd44a1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_7fcd44a1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_7fcd44a1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "38fd":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15617,6 +15628,20 @@ module.exports = __webpack_require__("7f4d");
 /***/ })
 
 /******/ });
+
+/***/ }),
+
+/***/ "47af":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("f9eb");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("499e")("c1dee294", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -65123,6 +65148,17 @@ exports.f = __webpack_require__("9e1e") ? Object.defineProperty : function defin
 
 /***/ }),
 
+/***/ "88ef":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_1ee09826_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("47af");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_1ee09826_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_1ee09826_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_1ee09826_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "8a81":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66022,17 +66058,6 @@ var UserAgent_DEPRECATED = {
 
 module.exports = UserAgent_DEPRECATED;
 
-
-/***/ }),
-
-/***/ "8f29":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("e409");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editPanel_vue_vue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -67720,6 +67745,20 @@ module.exports = navigator && navigator.userAgent || '';
 
 /***/ }),
 
+/***/ "a340":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("b805");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("499e")("6cc04312", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
 /***/ "a3c3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68183,6 +68222,21 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABK
 
 /***/ }),
 
+/***/ "b805":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".graphic-edit-panel[data-v-7fcd44a1]{z-index:999;position:absolute;top:70px;left:0;background-color:rgba(240,240,238,.6);color:#000;width:300px}.graphic-edit-panel .el-container[data-v-7fcd44a1]{padding-left:20px}.graphic-edit-panel .el-container .el-header[data-v-7fcd44a1]{padding:0;height:30px!important}.graphic-edit-panel .el-container .el-header .show-drop-down[data-v-7fcd44a1]{height:66px;width:60px;position:absolute;top:20px;background-color:#fff;margin-left:-10px!important;padding-left:5px;z-index:100}.graphic-edit-panel .el-container .el-header .show-drop-down .drop-down-item[data-v-7fcd44a1]{cursor:pointer}.graphic-edit-panel .el-container .el-header .show-drop-down .drop-down-item[data-v-7fcd44a1]:hover{color:#00a0e9}.graphic-edit-panel .el-container .el-header div[data-v-7fcd44a1]{color:#000;display:inline-block}.graphic-edit-panel .el-container .el-header .closebtn[data-v-7fcd44a1]{color:#000;float:right;margin-right:10px}.graphic-edit-panel .el-container .el-header .closebtn[data-v-7fcd44a1]:hover{color:#00a0e9}.graphic-edit-panel .el-container .el-header .closebtn[data-v-7fcd44a1]:after{content:\"\\2716\"}.graphic-edit-panel .el-container .geom-line[data-v-7fcd44a1]{height:70px}.graphic-edit-panel .el-container .geom-polygon[data-v-7fcd44a1]{height:120px}.graphic-edit-panel .el-container .el-main[data-v-7fcd44a1]{padding:0}.graphic-edit-panel .el-container .el-main .p-class[data-v-7fcd44a1]{line-height:normal;vertical-align:middle;margin-top:20px}.graphic-edit-panel .el-container .el-main .el-color-picker[data-v-7fcd44a1]{padding:0;margin-right:50px}.graphic-edit-panel .el-container .el-main .el-slider[data-v-7fcd44a1],.graphic-edit-panel .el-container .el-main .el-switch[data-v-7fcd44a1]{padding:0!important;margin:0!important;display:inline-block}.graphic-edit-panel .el-container .el-main .el-slider[data-v-7fcd44a1]{width:100px}.graphic-edit-panel .el-container .el-main .el-input[data-v-7fcd44a1]{display:inline-block;width:80px;margin-left:20px}.graphic-edit-panel .el-container .el-main div[data-v-7fcd44a1]{vertical-align:middle}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "b8e3":
 /***/ (function(module, exports) {
 
@@ -68240,22 +68294,6 @@ module.exports = function (C, x) {
   resolve(x);
   return promiseCapability.promise;
 };
-
-
-/***/ }),
-
-/***/ "bcf3":
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__("b041");
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".clostbtn[data-v-d19e41d8]:after{content:\"\\2716\";float:right;margin-right:10px}.markerPanel[data-v-d19e41d8]{background-color:#fff;width:320px;position:fixed;z-index:999}.markerPanel .el-button[data-v-d19e41d8]{width:35px}.active-panel[data-v-d19e41d8]{border:none}.marker-panel[data-v-d19e41d8]{background:url(" + escape(__webpack_require__("57a4")) + ") no-repeat 50%}.polyline-panel[data-v-d19e41d8]{background:url(" + escape(__webpack_require__("b61e")) + ") no-repeat 50%}.polygon-panel[data-v-d19e41d8]{background:url(" + escape(__webpack_require__("6a8c")) + ") no-repeat 50%}.import-panel[data-v-d19e41d8]{background:url(" + escape(__webpack_require__("27e0")) + ") no-repeat 50%}.export-panel[data-v-d19e41d8]{width:180px;background:url(" + escape(__webpack_require__("be02")) + ") no-repeat 50%}.remove-panel[data-v-d19e41d8]{background:url(" + escape(__webpack_require__("13d4")) + ") no-repeat 50%}.el-button[data-v-d19e41d8]{margin-left:8px}.el-header[data-v-d19e41d8],.el-main[data-v-d19e41d8]{padding:0;height:30px!important;margin:0 0 5px 5px!important}.el-header[data-v-d19e41d8]{border-bottom:1px solid #8c8c8c;padding-left:10px}.el-icon--right[data-v-d19e41d8]{display:none!important}", ""]);
-
-// exports
 
 
 /***/ }),
@@ -70469,6 +70507,21 @@ exports.f = __webpack_require__("8e60") ? Object.defineProperty : function defin
 
 /***/ }),
 
+/***/ "da4c":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, "[data-v-17c5e0f8] .el-header{background-color:#fff;line-height:60px!important;min-height:60px}[data-v-17c5e0f8] .el-input{margin-left:0!important}[data-v-17c5e0f8] .el-table{overflow:hidden}.el-main[data-v-17c5e0f8]{background-color:#fff}.attribute-class[data-v-17c5e0f8]{position:fixed;width:800px;height:480px}[data-v-17c5e0f8] .el-input__inner{border:0 solid #dcdfe6!important}.close-btn[data-v-17c5e0f8]:hover{cursor:pointer}.close-btn[data-v-17c5e0f8]:after{content:\"\\2716\";float:right;margin-right:10px}[data-v-17c5e0f8] .el-dialog .el-input{border:1px solid #dcdfe6!important}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "dbdb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -71245,35 +71298,6 @@ module.exports = (
   'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
 ).split(',');
 
-
-/***/ }),
-
-/***/ "e2a0":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".graphic-edit-panel[data-v-6d763d0c]{z-index:999;position:absolute;top:70px;left:0;background-color:rgba(240,240,238,.6);color:#000;width:300px}.graphic-edit-panel .el-container[data-v-6d763d0c]{padding-left:20px}.graphic-edit-panel .el-container .el-header[data-v-6d763d0c]{padding:0;height:30px!important}.graphic-edit-panel .el-container .el-header .show-drop-down[data-v-6d763d0c]{height:50px;width:60px;position:absolute;top:20px;background-color:#fff;margin-left:-10px!important;padding-left:5px;z-index:100}.graphic-edit-panel .el-container .el-header .show-drop-down .drop-down-item[data-v-6d763d0c]{cursor:pointer}.graphic-edit-panel .el-container .el-header .show-drop-down .drop-down-item[data-v-6d763d0c]:hover{color:#00a0e9}.graphic-edit-panel .el-container .el-header div[data-v-6d763d0c]{color:#000;display:inline-block}.graphic-edit-panel .el-container .el-header .closebtn[data-v-6d763d0c]{color:#000;float:right;margin-right:10px}.graphic-edit-panel .el-container .el-header .closebtn[data-v-6d763d0c]:hover{color:#00a0e9}.graphic-edit-panel .el-container .el-header .closebtn[data-v-6d763d0c]:after{content:\"\\2716\"}.graphic-edit-panel .el-container .geom-line[data-v-6d763d0c]{height:70px}.graphic-edit-panel .el-container .geom-polygon[data-v-6d763d0c]{height:120px}.graphic-edit-panel .el-container .el-main[data-v-6d763d0c]{padding:0}.graphic-edit-panel .el-container .el-main .p-class[data-v-6d763d0c]{line-height:normal;vertical-align:middle;margin-top:20px}.graphic-edit-panel .el-container .el-main .el-color-picker[data-v-6d763d0c]{padding:0;margin-right:50px}.graphic-edit-panel .el-container .el-main .el-slider[data-v-6d763d0c],.graphic-edit-panel .el-container .el-main .el-switch[data-v-6d763d0c]{padding:0!important;margin:0!important;display:inline-block}.graphic-edit-panel .el-container .el-main .el-slider[data-v-6d763d0c]{width:100px}.graphic-edit-panel .el-container .el-main .el-input[data-v-6d763d0c]{display:inline-block;width:80px;margin-left:20px}.graphic-edit-panel .el-container .el-main div[data-v-6d763d0c]{vertical-align:middle}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "e409":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("e2a0");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("499e")("69331603", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -72181,6 +72205,20 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 /***/ }),
 
+/***/ "e56a":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("da4c");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("499e")("886671f2", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
 /***/ "e62d":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -72984,17 +73022,6 @@ module.exports = {
   check: check
 };
 
-
-/***/ }),
-
-/***/ "eb61":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_d19e41d8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("f807");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_d19e41d8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_d19e41d8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_drawViewer_vue_vue_type_style_index_0_id_d19e41d8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -75946,20 +75973,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "f807":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("bcf3");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("499e")("769bb43e", content, true, {"sourceMap":false,"shadowMode":false});
-
-/***/ }),
-
 /***/ "f893":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -75975,6 +75988,22 @@ __webpack_require__("c207");
 __webpack_require__("69d3");
 __webpack_require__("765d");
 module.exports = __webpack_require__("584a").Symbol;
+
+
+/***/ }),
+
+/***/ "f9eb":
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__("b041");
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".clostbtn[data-v-1ee09826]:after{content:\"\\2716\";float:right;margin-right:10px}.markerPanel[data-v-1ee09826]{background-color:#fff;width:320px;position:fixed;z-index:999}.markerPanel .el-button[data-v-1ee09826]{width:35px}.active-panel[data-v-1ee09826]{border:none}.marker-panel[data-v-1ee09826]{background:url(" + escape(__webpack_require__("57a4")) + ") no-repeat 50%}.polyline-panel[data-v-1ee09826]{background:url(" + escape(__webpack_require__("b61e")) + ") no-repeat 50%}.polygon-panel[data-v-1ee09826]{background:url(" + escape(__webpack_require__("6a8c")) + ") no-repeat 50%}.import-panel[data-v-1ee09826]{background:url(" + escape(__webpack_require__("27e0")) + ") no-repeat 50%}.export-panel[data-v-1ee09826]{width:180px;background:url(" + escape(__webpack_require__("be02")) + ") no-repeat 50%}.remove-panel[data-v-1ee09826]{background:url(" + escape(__webpack_require__("13d4")) + ") no-repeat 50%}.el-button[data-v-1ee09826]{margin-left:8px}.el-header[data-v-1ee09826],.el-main[data-v-1ee09826]{padding:0;height:30px!important;margin:0 0 5px 5px!important}.el-header[data-v-1ee09826]{border-bottom:1px solid #8c8c8c;padding-left:10px}.el-icon--right[data-v-1ee09826]{display:none!important}", ""]);
+
+// exports
 
 
 /***/ }),
@@ -77161,12 +77190,12 @@ var utils_shp2GeoJSON = function shp2GeoJSON(filedata) {
   downloadFile: downloadFile,
   shp2GeoJSON: utils_shp2GeoJSON
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=d19e41d8&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=1ee09826&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],staticClass:"markerPanel"},[_c('el-container',[_c('el-header',[_vm._v("\n      标绘"),_c('span',{staticClass:"clostbtn",on:{"click":function($event){_vm.isShow=false}}})]),_c('el-main',[_c('el-button',{staticClass:"marker-panel",class:{'active-panel':!_vm.activeMode['marker']},attrs:{"title":"标记地点"},on:{"click":function($event){return _vm.toggleClick('addMarker')}}}),_c('el-button',{staticClass:"polyline-panel",class:{'active-panel':!_vm.activeMode['polyline']},attrs:{"title":"绘线"},on:{"click":function($event){return _vm.toggleClick('addPolyline')}}}),_c('el-button',{staticClass:"polygon-panel",class:{'active-panel':!_vm.activeMode['polygon']},attrs:{"title":"绘多边形"},on:{"click":function($event){return _vm.toggleClick('addPolygon')}}}),_c('el-dropdown',{on:{"command":_vm.handleCommand}},[_c('el-button',{staticClass:"import-panel",class:{'active-panel':!_vm.activeMode['export']},attrs:{"title":"导入"}},[_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{attrs:{"command":"umarker"}},[_vm._v("标记")]),_c('el-dropdown-item',{attrs:{"command":"uline"}},[_vm._v("线")]),_c('el-dropdown-item',{attrs:{"command":"ugon"}},[_vm._v("多边形")])],1)],1),_c('el-dropdown',{on:{"command":_vm.handleCommand}},[_c('el-button',{staticClass:"export-panel",class:{'active-panel':!_vm.activeMode['export']},attrs:{"title":"导出"}},[_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{attrs:{"command":"dmarker"}},[_vm._v("标记")]),_c('el-dropdown-item',{attrs:{"command":"dline"}},[_vm._v("线")]),_c('el-dropdown-item',{attrs:{"command":"dgon"}},[_vm._v("多边形")])],1)],1),_c('el-button',{staticClass:"remove-panel",class:{'active-panel':!_vm.activeMode['remove']},attrs:{"title":"一键删除"},on:{"click":function($event){return _vm.toggleClick('remove')}}})],1)],1),_c('markerViewer',{ref:"marker",attrs:{"extendImage":_vm.markerExtend,"viewer":_vm.viewer}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson,.shp"},on:{"change":_vm.importfp}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=d19e41d8&scoped=true&
+// CONCATENATED MODULE: ./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=1ee09826&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -77174,12 +77203,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=2c88a422&
-var markervue_type_template_id_2c88a422_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
-var markervue_type_template_id_2c88a422_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=255fccd2&
+var markervue_type_template_id_255fccd2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}}),(_vm.btShow)?_c('div',[_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.edit}},[_vm._v("bianji")])],1):_vm._e()],1)}
+var markervue_type_template_id_255fccd2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=2c88a422&
+// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=255fccd2&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
 var is_array = __webpack_require__("a745");
@@ -77523,6 +77552,8 @@ var FileSaver_min = __webpack_require__("21a6");
 //
 //
 //
+//
+//
 
 
 
@@ -77555,7 +77586,8 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
       markRemark: '',
       images: [],
       defaultImage: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAfCAYAAAAIjIbwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAK8AAACvAAsAdHPAAAAB3RJTUUH4wEJAy0MN7YNKwAAA05JREFUSMeV1suLHFUUx/FPVVc/ZpKJozhKYkSQxOATBDdKkLgQRaKooP+DgijoTnDjNsYXIhoiCMa3ohJQEEnEiJsg+EhcRHzHiQmYOM6ju2aqr4uqmtzuTJvJ2TRV95xv/c7j3tuJyqa3bxVZhptwF27BRkxgFkexHx/hS+R10Pq9B0CyAvBKPIJ7caHR9jc+xDP4NgYnQ8DbsbMCr9Z+xKOV8uU0a7sVu7FhOKoIQb8fpGmikSTDy5uwC33sjaGb8FQMDJjLF83kubwoFP2gkSRajYaJdtPaVkuEvwg78BMOp0jxIK6NlZ2YWzA9O2eml+stFZb6fb2iMJPnjs3OOz43r+iHWPEWPIQsw3W4b6ADC10nu926kzM4iN+wMeGGfgiTp7o9CabWjMeK78GrGW6L055bXHSq26sfj+AxfIoFdJQjtgNX/dPLjTeb1raatf/FuCPDtqoEYDZfVIQgYR6Px11FFx9XvdhThDAxm+cxFLalysEG/RDkRVE//lApLD2/OhQH7lPNZl709cNAbTekmFzueKDoh7pGx5Vql4EReAF/JVgKZ0DXpcpGgDQhS1OVy6U4D/bfeLX4F+twWVD6p4OzO59WzSg7nSTaWSMekfvrhwhIuYWvgXajMQw9klb1WS7kRKupmabQxBN4GJdgHOvxAJ5EO0sT69qtGBiwL5nevnWzcntdUa+c7PacmJuvy7CEnzFdjczl1QdNjY+5YKwTQ3/BnXX6e+KVyXbL1Jrxur5ZYDNuDmwJNLM0NTU+ZrLTNmRv4vt67+/G3bi+ru35nbaxLDOb53pFuU2zNNVuNKxtNXWybBh4GC9x+kA5imeVp83yJHeyhk42JiCEIEkSZ5xRpRV4vkr/9E7Ce6Jhjy1BOhoIn1epg7S+ApRXxU6ccm42ELd+74EBpZR3z1vnCH1/OMO0pg/V5tdVAv9U9iKPOekKjofw8iqhr+Dr4ZfL0Eht7XzwLMDv4o/H8QNKo4Vjyqs3HwFcwnP4fQVBK6Zf2wf4ZMTaPrw9KvAMaPTVOTyNk0Mu/ypHaGYllWdTCl/g9aF37+Cz/wtaETo0Yi8oTyn4o6rl4iiVq1FKeVe9qPwHsgvfnC1gJHRIxRt4F6+NWB+w/wD3vCGsfC8xrQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wMS0wOVQwMzo0NToxMiswODowMKswftkAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDlUMDM6NDU6MTIrMDg6MDDabcZlAAAAQ3RFWHRzb2Z0d2FyZQAvdXNyL2xvY2FsL2ltYWdlbWFnaWNrL3NoYXJlL2RvYy9JbWFnZU1hZ2ljay03Ly9pbmRleC5odG1svbV5CgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMjMzz/MXEAAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxNTifzIcaAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE1NDY5NzY3MTKeBuyKAAAAEnRFWHRUaHVtYjo6U2l6ZQAxMDM4M0L7qH+sAAAAYnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L25ld3NpdGUvd3d3LmVhc3lpY29uLm5ldC9jZG4taW1nLmVhc3lpY29uLmNuL2ZpbGVzLzExOC8xMTg1NjU4LnBuZzaDG7oAAAAASUVORK5CYII=',
-      selectPanel: false
+      selectPanel: false,
+      btShow: false
     };
   },
   computed: {
@@ -77607,7 +77639,7 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
     Bus.$on('drawingStop', _this.stopDrawing); //Bus.$emit('markerViewerInit')
     //初始化markerViewer
 
-    Bus.$on('markerViewerInit', _this.init); //注销markerViewer
+    Bus.$on('markerViewerInit', this.init); //注销markerViewer
 
     Bus.$on('markerViewerDestroy', _this.destroy); //一键删除
 
@@ -77619,34 +77651,7 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
 
     Bus.$on('stopPickMarker', function () {
       _this.isDrawing = false;
-    }); //编辑标记
-    // Bus.$on('updateMark', function (text) {
-    //   for (let i = 0; i < _this.labels.length; i++) {
-    //     if (_this.labels.get(i).id == _this.$store.state.id) {
-    //       _this.labels.get(i).text = text
-    //     }
-    //   }
-    // })
-    // //删除标记
-    // Bus.$on('removeMark', function (id) {
-    //   for (let i = 0; i < _this.billboards.length; i++) {
-    //     if (_this.billboards.get(i).id === id) {
-    //       _this.billboards.remove(_this.billboards.get(i))
-    //       _this.labels.remove(_this.labels.get(i))
-    //     }
-    //   }
-    // })
-    // //编辑没有完全添加的标记，更换标记图标后触发该事件
-    // Bus.$on('updateLastMark', function () {
-    //   _this.defaultImage = _this.$store.state.defaultImage
-    //   _this.billboards.get(_this.billboards.length - 1).image = _this.defaultImage
-    // })
-    // //取消添加
-    // Bus.$on('removeLastMark', function () {
-    //   _this.billboards.remove(_this.billboards.get(_this.billboards.length - 1))
-    //   _this.labels.remove(_this.labels.get(_this.labels.length - 1))
-    // })
-
+    });
     Bus.$on('exportMarks', _this.exportMarks);
     Bus.$on('importMarks', function () {
       document.getElementById('uploadhandler').click();
@@ -77844,6 +77849,7 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
         var e = window.event,
             //event|| window.event,
         target = e.target || e.srcElement;
+        e.stopPropagation();
 
         var marker_message = _this.tipLoad(evt);
 
@@ -77876,8 +77882,10 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
       }, markervue_type_script_lang_js_Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
       _this.handler.setInputAction(function (evt) {
-        // _this.tipShow=false
+        _this.btShow = true;
+        console.log(_this); // _this.tipShow=false
         // _this.isShow=false
+
         if (document.getElementById('tooltip')) {
           document.body.removeChild(document.getElementById('tooltip'));
         }
@@ -78013,8 +78021,6 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
         }
       }
 
-      Bus.$emit('olRemoveMarker', obj.primitive.id);
-
       _this.billboards.remove(obj.primitive);
 
       _this.menuShow = false;
@@ -78133,8 +78139,8 @@ var markervue_type_style_index_0_lang_css_ = __webpack_require__("3d44");
 
 var marker_component = normalizeComponent(
   src_markervue_type_script_lang_js_,
-  markervue_type_template_id_2c88a422_render,
-  markervue_type_template_id_2c88a422_staticRenderFns,
+  markervue_type_template_id_255fccd2_render,
+  markervue_type_template_id_255fccd2_staticRenderFns,
   false,
   null,
   null,
@@ -78325,13 +78331,355 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/editPanel.vue?vue&type=template&id=6d763d0c&scoped=true&
-var editPanelvue_type_template_id_6d763d0c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],staticClass:"graphic-edit-panel",attrs:{"id":_vm.graphic.name}},[(_vm.graphic.geomType==='polyline')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'export'},{'value':'删除','key':'remove'}]),function(item,index){return _c('div',{key:index,staticClass:"drop-down-item",on:{"click":function($event){return _vm.command(item.key)}}},[_vm._v("\n          "+_vm._s(item.value)+"\n        ")])}),0),_c('div',[_vm._v(_vm._s(_vm.title))]),_c('span',{staticClass:"closebtn",on:{"click":_vm.closeHandler}})]),_c('el-main',{staticClass:"geom-line"},[_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.color),callback:function ($$v) {_vm.color=$$v},expression:"color"}}),_c('span',{staticClass:"p-class"},[_vm._v("顶点：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.node),callback:function ($$v) {_vm.node=$$v},expression:"node"}})],1),_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("线宽：")]),_c('el-slider',{attrs:{"step":1,"max":10,"min":0},model:{value:(_vm.Width),callback:function ($$v) {_vm.Width=$$v},expression:"Width"}}),_c('el-input',{attrs:{"size":"mini"},model:{value:(_vm.width),callback:function ($$v) {_vm.width=$$v},expression:"width"}})],1)])],1):_vm._e(),(_vm.graphic.geomType==='polygon')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'export'},{'value':'删除','key':'remove'}]),function(item,index){return _c('div',{key:index,staticClass:"drop-down-item",on:{"click":function($event){return _vm.command(item.key)}}},[_vm._v("\n          "+_vm._s(item.value)+"\n        ")])}),0),_c('div',[_vm._v(_vm._s(_vm.title))]),_c('span',{staticClass:"closebtn",on:{"click":_vm.closeHandler}})]),_c('el-main',{class:{'geom-polygon':_vm.outline,'geom-line':!_vm.outline}},[_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.color),callback:function ($$v) {_vm.color=$$v},expression:"color"}}),_c('span',{staticClass:"p-class"},[_vm._v("顶点：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.node),callback:function ($$v) {_vm.node=$$v},expression:"node"}})],1),_c('div',{staticStyle:{"margin-bottom":"5px"}},[_c('span',{staticClass:"p-class"},[_vm._v("边框：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.outline),callback:function ($$v) {_vm.outline=$$v},expression:"outline"}})],1),(_vm.outline)?_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}})],1):_vm._e(),(_vm.outline)?_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("线宽：")]),_c('el-slider',{attrs:{"step":1,"max":10,"min":0},model:{value:(_vm.outWidth),callback:function ($$v) {_vm.outWidth=$$v},expression:"outWidth"}}),_c('el-input',{attrs:{"size":"mini"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}})],1):_vm._e()])],1):_vm._e()],1)}
-var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/editPanel.vue?vue&type=template&id=7fcd44a1&scoped=true&
+var editPanelvue_type_template_id_7fcd44a1_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],staticClass:"graphic-edit-panel",attrs:{"id":_vm.graphic.name}},[(_vm.graphic.geomType==='polyline')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'showExport'},
+             {'value':'删除','key':'remove'},
+             {'value':'属性','key':'attribute'}]),function(item,index){return _c('div',{key:index,staticClass:"drop-down-item",on:{"click":function($event){return _vm.command(item.key)}}},[_vm._v(_vm._s(item.value))])}),0),_c('div',[_vm._v(_vm._s(_vm.title))]),_c('span',{staticClass:"closebtn",on:{"click":_vm.closeHandler}})]),_c('el-main',{staticClass:"geom-line"},[_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.color),callback:function ($$v) {_vm.color=$$v},expression:"color"}}),_c('span',{staticClass:"p-class"},[_vm._v("顶点：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.node),callback:function ($$v) {_vm.node=$$v},expression:"node"}})],1),_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("线宽：")]),_c('el-slider',{attrs:{"step":1,"max":10,"min":0},model:{value:(_vm.Width),callback:function ($$v) {_vm.Width=$$v},expression:"Width"}}),_c('el-input',{attrs:{"size":"mini"},model:{value:(_vm.width),callback:function ($$v) {_vm.width=$$v},expression:"width"}})],1)])],1):_vm._e(),(_vm.graphic.geomType==='polygon')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'export'},
+             {'value':'删除','key':'remove'},
+             {'value':'属性','key':'attribute'}]),function(item,index){return _c('div',{key:index,staticClass:"drop-down-item",on:{"click":function($event){return _vm.command(item.key)}}},[_vm._v(_vm._s(item.value))])}),0),_c('div',[_vm._v(_vm._s(_vm.title))]),_c('span',{staticClass:"closebtn",on:{"click":_vm.closeHandler}})]),_c('el-main',{class:{'geom-polygon':_vm.outline,'geom-line':!_vm.outline}},[_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.color),callback:function ($$v) {_vm.color=$$v},expression:"color"}}),_c('span',{staticClass:"p-class"},[_vm._v("顶点：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.node),callback:function ($$v) {_vm.node=$$v},expression:"node"}})],1),_c('div',{staticStyle:{"margin-bottom":"5px"}},[_c('span',{staticClass:"p-class"},[_vm._v("边框：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.outline),callback:function ($$v) {_vm.outline=$$v},expression:"outline"}})],1),(_vm.outline)?_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}})],1):_vm._e(),(_vm.outline)?_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("线宽：")]),_c('el-slider',{attrs:{"step":1,"max":10,"min":0},model:{value:(_vm.outWidth),callback:function ($$v) {_vm.outWidth=$$v},expression:"outWidth"}}),_c('el-input',{attrs:{"size":"mini"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}})],1):_vm._e()])],1):_vm._e(),_c('attributeViewer',{ref:"attributeTable"}),_c('el-dialog',{attrs:{"visible":_vm.exportdiag,"width":"30%","modal-append-to-body":false},on:{"update:visible":function($event){_vm.exportdiag=$event}}},[_vm._v("\n    请输入文件名：\n    "),_c('el-input',{model:{value:(_vm.exportName),callback:function ($$v) {_vm.exportName=$$v},expression:"exportName"}}),_c('span',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.exportdiag = false}}},[_vm._v("取 消")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){_vm.exportdiag=false;_vm.command('export')}}},[_vm._v("确 定")])],1)],1)],1)}
+var editPanelvue_type_template_id_7fcd44a1_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/editPanel.vue?vue&type=template&id=6d763d0c&scoped=true&
+// CONCATENATED MODULE: ./src/components/editPanel.vue?vue&type=template&id=7fcd44a1&scoped=true&
 
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/attribute.vue?vue&type=template&id=17c5e0f8&scoped=true&
+var attributevue_type_template_id_17c5e0f8_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.dialogFormVisible),expression:"dialogFormVisible"}],staticClass:"attribute-class",attrs:{"id":"attribute_table"}},[_c('el-container',[_c('el-header',{attrs:{"id":"title"}},[_c('span',[_vm._v("属性编辑")]),_c('span',{staticClass:"close-btn",on:{"click":function($event){_vm.dialogFormVisible=false}}}),_c('el-button',{staticStyle:{"margin-left":"20px"},attrs:{"size":"mini"},on:{"click":function($event){_vm.dialogVisible=true}}},[_vm._v("添加字段")]),_c('el-button',{staticStyle:{"margin-left":"20px"},attrs:{"size":"mini"},on:{"click":_vm.save}},[_vm._v("保存")])],1),_c('el-main',[_c('el-table',{ref:"attr",staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"height":400,"id":"table","border":"","default-sort":{prop: 'id', order: 'ascending'}},on:{"cell-dblclick":_vm.edit}},[_c('el-table-column',{attrs:{"width":"100","fixed":"","label":"id","sortable":""},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(scope.row.id.value))])]}}])}),_vm._l((_vm.columns),function(item){return _c('el-table-column',{key:item,attrs:{"width":100,"prop":item,"label":item,"sortable":""},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(!scope.row[item]._edit)?_c('span',[_vm._v(_vm._s(scope.row[item].value))]):_c('el-input',{directives:[{name:"focus",rawName:"v-focus"}],attrs:{"title":"按回车键保存修改","size":"small"},nativeOn:{"keydown":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.saveEdit(scope)}},model:{value:(scope.row[item].value),callback:function ($$v) {_vm.$set(scope.row[item], "value", $$v)},expression:"scope.row[item].value"}})]}}],null,true)})})],2)],1)],1),_c('el-dialog',{attrs:{"title":"添加字段","visible":_vm.dialogVisible,"width":"30%","modal-append-to-body":false},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_vm._v("\n    字段名：\n    "),_c('el-input',{directives:[{name:"focus",rawName:"v-focus"}],nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.addField($event)}},model:{value:(_vm.newField),callback:function ($$v) {_vm.newField=$$v},expression:"newField"}}),_vm._v("默认值：\n    "),_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.addField($event)}},model:{value:(_vm.defaultValue),callback:function ($$v) {_vm.defaultValue=$$v},expression:"defaultValue"}}),_c('span',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.dialogVisible = false}}},[_vm._v("取 消")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addField}},[_vm._v("确 定")])],1)],1)],1)}
+var attributevue_type_template_id_17c5e0f8_scoped_true_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/attribute.vue?vue&type=template&id=17c5e0f8&scoped=true&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/attribute.vue?vue&type=script&lang=js&
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ var attributevue_type_script_lang_js_ = ({
+  data: function data() {
+    return {
+      dialogFormVisible: false,
+      dialogVisible: false,
+      newField: "",
+      defaultValue: null,
+      name: "undefined",
+      object: undefined,
+      info: {
+        name: "0.0"
+      },
+      mouseListener: false,
+      tableData: [{
+        id: 0,
+        name: "xxx"
+      }, {
+        id: 1,
+        name: "ooo"
+      }],
+      columns: []
+    };
+  },
+  directives: {
+    // 注册一个局部的自定义指令 v-focus
+    focus: {
+      // 指令的定义
+      inserted: function inserted(el) {
+        // 聚焦元素
+        el.querySelector("input").focus();
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.columns = Object.keys(this.tableData[0]) || [];
+    this.columns.splice(this.columns.indexOf("id"), 1);
+    var self = this;
+    var cvt = Convert(viewer);
+    console.log(drawHandler_Point.editStyle().color);
+    window.addEventListener("updateEvent", function (e) {
+      var nodes = e.detail.nodes;
+      self.nodes = nodes;
+      self.tableData.splice(0, self.tableData.length);
+
+      if (e.detail.target.info.length != nodes.length) {
+        var index = 0;
+        self.name = e.detail.name;
+        self.object = e.detail.target;
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = nodes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var node = _step.value;
+            var ll = cvt.worldLatLon(node);
+            self.tableData.push({
+              id: {
+                value: index,
+                _edit: false
+              }
+            });
+            index++;
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return != null) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      } else {
+        self.tableData = self.object.info;
+      }
+
+      self.columns = Object.keys(self.tableData[0]) || [];
+      self.columns.splice(self.columns.indexOf("id"), 1);
+    });
+    var move = false;
+    var start = {},
+        end = {};
+
+    window.onDown = function (e) {
+      move = true;
+      start.x = e.clientX;
+      start.y = e.clientY;
+    };
+
+    window.onMove = function (e) {
+      console.log("---------");
+
+      if (!move) {
+        return;
+      }
+
+      end.x = e.clientX;
+      end.y = e.clientY;
+      var eleX = /(\d*)px/.exec($(ele).css('left'))[1];
+      var eleY = /(\d*)px/.exec($(ele).css('top'))[1];
+      ele.style.left = +eleX + (end.x - start.x) + "px";
+      ele.style.top = +eleY + (end.y - start.y) + "px";
+      start.x = e.clientX;
+      start.y = e.clientY;
+    };
+
+    window.onUp = function (e) {
+      move = false;
+    };
+
+    function moveElement() {
+      self.target.addEventListener("mousedown", onDown);
+      self.target.addEventListener("mousemove", onMove);
+      self.target.addEventListener("mouseup", onUp);
+      self.target.addEventListener("mouseout", onUp);
+    }
+
+    var ele = document.getElementById("attribute_table");
+    this.target = document.getElementById("title");
+    moveElement();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.target.removeEventListener("mousedown", onDown);
+    this.target.removeEventListener("mousemove", onMove);
+    this.target.removeEventListener("mouseup", onUp);
+    this.target.removeEventListener("mouseout", onUp);
+  },
+  methods: {
+    saveEdit: function saveEdit(scope) {
+      scope.row[scope.column.label]._edit = false;
+      var nodes = this.object.nodes || this.object.tmpNodes;
+
+      if (Cesium.defined(nodes[+scope.row.id.value])) {
+        nodes[+scope.row.id.value].point.color = drawHandler_Point.defaultStyle().color;
+      }
+    },
+    edit: function edit(row, column, cell, event) {
+      row[column.label]._edit = true;
+      var nodes = this.object.nodes || this.object.tmpNodes;
+
+      if (Cesium.defined(nodes[+row.id.value])) {
+        nodes[+row.id.value].point.color = Cesium.Color.AQUA;
+      } // this.$set(row, '_edit', true)
+
+    },
+    save: function save() {
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        for (var _iterator2 = this.tableData[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var d = _step2.value;
+          var pts = {};
+          var keys = Object.keys(d);
+
+          for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+            var k = _keys[_i];
+            pts[k] = d[k].value;
+          }
+
+          this.object.info.push({
+            propertites: pts
+          });
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+            _iterator2.return();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+    },
+    addField: function addField() {
+      var _this = this;
+
+      if (this.newField === "") {
+        this.$alert("字段名不能为空");
+        return;
+      }
+
+      this.dialogVisible = false;
+      this.columns.push(this.newField);
+      var _iteratorNormalCompletion3 = true;
+      var _didIteratorError3 = false;
+      var _iteratorError3 = undefined;
+
+      try {
+        for (var _iterator3 = this.tableData[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+          var d = _step3.value;
+          this.$set(d, this.newField, {
+            value: this.defaultValue,
+            _edit: false
+          }); // d[this.newField] = this.defaultValue;
+        }
+      } catch (err) {
+        _didIteratorError3 = true;
+        _iteratorError3 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+            _iterator3.return();
+          }
+        } finally {
+          if (_didIteratorError3) {
+            throw _iteratorError3;
+          }
+        }
+      }
+
+      this.$nextTick(function () {
+        _this.$refs.attr.doLayout();
+      });
+      this.newField = "";
+      this.defaultValue = "";
+    },
+    open: function open() {
+      this.dialogFormVisible = !this.dialogFormVisible;
+    },
+    addItem: function addItem(data) {
+      this.tableData.push(data);
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/attribute.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_attributevue_type_script_lang_js_ = (attributevue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/components/attribute.vue?vue&type=style&index=0&id=17c5e0f8&lang=scss&scoped=true&
+var attributevue_type_style_index_0_id_17c5e0f8_lang_scss_scoped_true_ = __webpack_require__("fb86");
+
+// CONCATENATED MODULE: ./src/components/attribute.vue
+
+
+
+
+
+
+/* normalize component */
+
+var attribute_component = normalizeComponent(
+  components_attributevue_type_script_lang_js_,
+  attributevue_type_template_id_17c5e0f8_scoped_true_render,
+  attributevue_type_template_id_17c5e0f8_scoped_true_staticRenderFns,
+  false,
+  null,
+  "17c5e0f8",
+  null
+  
+)
+
+/* harmony default export */ var attribute = (attribute_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/editPanel.vue?vue&type=script&lang=js&
 //
 //
@@ -78418,11 +78766,16 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
 //
 //
 //
+//
+//
+
 /* harmony default export */ var editPanelvue_type_script_lang_js_ = ({
   data: function data() {
     return {
       isShow: true,
-      title: '要素编辑',
+      exportdiag: false,
+      exportName: "",
+      title: "要素编辑",
       color: "#FF0000",
       width: 3,
       node: true,
@@ -78434,7 +78787,9 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
     };
   },
   props: {},
-  components: {},
+  components: {
+    attributeViewer: attribute
+  },
   computed: {
     Width: {
       get: function get() {
@@ -78457,7 +78812,13 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
   },
   methods: {
     command: function command(_command) {
-      this.graphic[_command]();
+      if (_command === "attribute") {
+        this.$refs.attributeTable.open();
+      } else if (_command === "showExport") {
+        this.exportdiag = true;
+      } else {
+        this.graphic[_command](this.exportName);
+      }
 
       this.showMenu = false;
     },
@@ -78478,7 +78839,7 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
       this.graphic.setColor(n);
     },
     width: function width(n, o) {
-      if (n === '') {
+      if (n === "") {
         this.width = 0;
         return;
       }
@@ -78502,7 +78863,7 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
       this.graphic.setOutline(n);
     },
     outlineWidth: function outlineWidth(n, o) {
-      if (n === '' && n !== o) {
+      if (n === "" && n !== o) {
         this.outlineWidth = 0;
         return;
       }
@@ -78516,8 +78877,8 @@ var editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns = []
 });
 // CONCATENATED MODULE: ./src/components/editPanel.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_editPanelvue_type_script_lang_js_ = (editPanelvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/editPanel.vue?vue&type=style&index=0&id=6d763d0c&lang=scss&scoped=true&
-var editPanelvue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true_ = __webpack_require__("8f29");
+// EXTERNAL MODULE: ./src/components/editPanel.vue?vue&type=style&index=0&id=7fcd44a1&lang=scss&scoped=true&
+var editPanelvue_type_style_index_0_id_7fcd44a1_lang_scss_scoped_true_ = __webpack_require__("388e");
 
 // CONCATENATED MODULE: ./src/components/editPanel.vue
 
@@ -78530,17 +78891,18 @@ var editPanelvue_type_style_index_0_id_6d763d0c_lang_scss_scoped_true_ = __webpa
 
 var editPanel_component = normalizeComponent(
   components_editPanelvue_type_script_lang_js_,
-  editPanelvue_type_template_id_6d763d0c_scoped_true_render,
-  editPanelvue_type_template_id_6d763d0c_scoped_true_staticRenderFns,
+  editPanelvue_type_template_id_7fcd44a1_scoped_true_render,
+  editPanelvue_type_template_id_7fcd44a1_scoped_true_staticRenderFns,
   false,
   null,
-  "6d763d0c",
+  "7fcd44a1",
   null
   
 )
 
 /* harmony default export */ var editPanel = (editPanel_component.exports);
 // CONCATENATED MODULE: ./src/js/drawHandler.js
+
 
 
 
@@ -78602,6 +78964,14 @@ function () {
     this.handler = new drawHandler_Cesium.ScreenSpaceEventHandler(viewer.canvas);
     this.selectedHandler = new drawHandler_Cesium.ScreenSpaceEventHandler(viewer.canvas);
     this.setNodeAction = undefined;
+    this.info = [];
+    this.updateEvent = new CustomEvent('updateEvent', {
+      detail: {
+        nodes: this.positions,
+        name: this.name,
+        target: this
+      }
+    });
     this.init();
   }
 
@@ -78768,6 +79138,8 @@ function () {
 
             _this.selectedNode = null;
           }
+
+          console.log(obj);
         }
       }, drawHandler_DrawEvent.LEFT_CLICK());
 
@@ -78864,8 +79236,10 @@ function () {
       } //如果顶点不存在添加临时顶点
       else {
           _this.tmpNodes = [];
+          var i = 0;
           this.positions.map(function (p) {
             var pt = new drawHandler_Point(_this.viewer, null, p, drawHandler_Point.editStyle());
+            i++;
 
             _this.tmpNodes.push(pt.graphic);
           });
@@ -78876,6 +79250,7 @@ function () {
 
       if (!this.editPanel) {
         this.initEditWindow();
+        window.dispatchEvent(this.updateEvent);
       } //删除当前对象，监听delete按键
       //寻求更好的方法
 
@@ -78999,7 +79374,7 @@ function () {
           }
         }
 
-        _this.selectedNode = null;
+        _this.selectedNode = null; // window.dispatchEvent(this.updateEvent);
       }
     }
     /**
@@ -79061,7 +79436,8 @@ function () {
         if (Array.isArray(this.nodes)) {
           var pt = new drawHandler_Point(this.viewer, null, wp);
           this.nodes.push(pt.graphic);
-        }
+        } // window.dispatchEvent(this.updateEvent);
+
       }
     }
     /**
@@ -79280,6 +79656,8 @@ function () {
         document.body.removeChild(window.tip);
         window.tip = null;
       }
+
+      this.positions.splice(0, this.positions.length); // window.dispatchEvent(this.updateEvent)
     }
   }]);
 
@@ -79409,11 +79787,47 @@ function (_BaseGraphic) {
     key: "export",
     value: function _export() {
       var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'polyline';
-      var graphicJSON = Polyline.toGeoJson(this.positions);
+      var ext = name.split('.')[1];
+      var graphicJSON = undefined;
+
+      if (ext && ext.toLowerCase() === 'json') {
+        var index = 0;
+        var _iteratorNormalCompletion7 = true;
+        var _didIteratorError7 = false;
+        var _iteratorError7 = undefined;
+
+        try {
+          for (var _iterator7 = this.positions[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+            var p = _step7.value;
+            var ll = drawHandler_Point.worldLatlon(this.viewer, p);
+            this.info[index] = this.info[index] || {};
+            this.info[index].coords = [ll.lon, ll.lat];
+            index++;
+          }
+        } catch (err) {
+          _didIteratorError7 = true;
+          _iteratorError7 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
+              _iterator7.return();
+            }
+          } finally {
+            if (_didIteratorError7) {
+              throw _iteratorError7;
+            }
+          }
+        }
+
+        graphicJSON = this.info;
+      } else {
+        graphicJSON = Polyline.toGeoJson(this.positions);
+      }
+
       var blob = new Blob([JSON.stringify(graphicJSON)], {
         type: ""
       });
-      Object(FileSaver_min["saveAs"])(blob, name + ".geojson");
+      Object(FileSaver_min["saveAs"])(blob, name);
     }
   }, {
     key: "setWidth",
@@ -79478,29 +79892,29 @@ function (_BaseGraphic) {
       var ellipsoid = drawHandler_Cesium.Ellipsoid.WGS84;
       var i = 0;
       var nodes = [];
-      var _iteratorNormalCompletion7 = true;
-      var _didIteratorError7 = false;
-      var _iteratorError7 = undefined;
+      var _iteratorNormalCompletion8 = true;
+      var _didIteratorError8 = false;
+      var _iteratorError8 = undefined;
 
       try {
-        for (var _iterator7 = position[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-          var p = _step7.value;
+        for (var _iterator8 = position[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+          var p = _step8.value;
           var cartographic = ellipsoid.cartesianToCartographic(p);
           var lat = drawHandler_Cesium.Math.toDegrees(cartographic.latitude);
           var lon = drawHandler_Cesium.Math.toDegrees(cartographic.longitude);
           nodes.push([lon, lat]);
         }
       } catch (err) {
-        _didIteratorError7 = true;
-        _iteratorError7 = err;
+        _didIteratorError8 = true;
+        _iteratorError8 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
-            _iterator7.return();
+          if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
+            _iterator8.return();
           }
         } finally {
-          if (_didIteratorError7) {
-            throw _iteratorError7;
+          if (_didIteratorError8) {
+            throw _iteratorError8;
           }
         }
       }
@@ -79727,29 +80141,29 @@ function (_BaseGraphic2) {
       var ellipsoid = drawHandler_Cesium.Ellipsoid.WGS84;
       var i = 0;
       var nodes = [];
-      var _iteratorNormalCompletion8 = true;
-      var _didIteratorError8 = false;
-      var _iteratorError8 = undefined;
+      var _iteratorNormalCompletion9 = true;
+      var _didIteratorError9 = false;
+      var _iteratorError9 = undefined;
 
       try {
-        for (var _iterator8 = position[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-          var p = _step8.value;
+        for (var _iterator9 = position[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+          var p = _step9.value;
           var cartographic = ellipsoid.cartesianToCartographic(p);
           var lat = drawHandler_Cesium.Math.toDegrees(cartographic.latitude);
           var lon = drawHandler_Cesium.Math.toDegrees(cartographic.longitude);
           nodes.push([lon, lat]);
         }
       } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
-            _iterator8.return();
+          if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
+            _iterator9.return();
           }
         } finally {
-          if (_didIteratorError8) {
-            throw _iteratorError8;
+          if (_didIteratorError9) {
+            throw _iteratorError9;
           }
         }
       }
@@ -79846,6 +80260,12 @@ function () {
       var cvt = new Convert(viewer);
       return cvt.screenWorld(pixel);
     }
+  }, {
+    key: "worldLatlon",
+    value: function worldLatlon(viewer, world) {
+      var cvt = new Convert(viewer);
+      return cvt.worldLatLon(world);
+    }
   }]);
 
   return Point;
@@ -79936,26 +80356,26 @@ function () {
     key: "remove",
     value: function remove() {
       var pls = this.values.values();
-      var _iteratorNormalCompletion9 = true;
-      var _didIteratorError9 = false;
-      var _iteratorError9 = undefined;
+      var _iteratorNormalCompletion10 = true;
+      var _didIteratorError10 = false;
+      var _iteratorError10 = undefined;
 
       try {
-        for (var _iterator9 = pls[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-          var pl = _step9.value;
+        for (var _iterator10 = pls[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+          var pl = _step10.value;
           pl.remove();
         }
       } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
+        _didIteratorError10 = true;
+        _iteratorError10 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
-            _iterator9.return();
+          if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
+            _iterator10.return();
           }
         } finally {
-          if (_didIteratorError9) {
-            throw _iteratorError9;
+          if (_didIteratorError10) {
+            throw _iteratorError10;
           }
         }
       }
@@ -79981,27 +80401,27 @@ function () {
         },
         "features": []
       };
-      var _iteratorNormalCompletion10 = true;
-      var _didIteratorError10 = false;
-      var _iteratorError10 = undefined;
+      var _iteratorNormalCompletion11 = true;
+      var _didIteratorError11 = false;
+      var _iteratorError11 = undefined;
 
       try {
-        for (var _iterator10 = pls[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-          var pl = _step10.value;
+        for (var _iterator11 = pls[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+          var pl = _step11.value;
           var geojson = drawHandler_Polyline.toGeoJson(pl.positions, pl.name);
           graphicJSON.features.push(geojson.features[0]);
         }
       } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
+        _didIteratorError11 = true;
+        _iteratorError11 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
-            _iterator10.return();
+          if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
+            _iterator11.return();
           }
         } finally {
-          if (_didIteratorError10) {
-            throw _iteratorError10;
+          if (_didIteratorError11) {
+            throw _iteratorError11;
           }
         }
       }
@@ -80015,13 +80435,13 @@ function () {
     key: "import",
     value: function _import(geojson) {
       var feats = geojson.features;
-      var _iteratorNormalCompletion11 = true;
-      var _didIteratorError11 = false;
-      var _iteratorError11 = undefined;
+      var _iteratorNormalCompletion12 = true;
+      var _didIteratorError12 = false;
+      var _iteratorError12 = undefined;
 
       try {
-        for (var _iterator11 = feats[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-          var feat = _step11.value;
+        for (var _iterator12 = feats[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+          var feat = _step12.value;
           var geom = feat.geometry.coordinates[0];
 
           if (feat.geometry.type !== 'MultiLineString' && feat.geometry.type !== 'Polyline') {
@@ -80030,26 +80450,26 @@ function () {
           }
 
           var ps = [];
-          var _iteratorNormalCompletion12 = true;
-          var _didIteratorError12 = false;
-          var _iteratorError12 = undefined;
+          var _iteratorNormalCompletion13 = true;
+          var _didIteratorError13 = false;
+          var _iteratorError13 = undefined;
 
           try {
-            for (var _iterator12 = geom[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-              var p = _step12.value;
+            for (var _iterator13 = geom[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+              var p = _step13.value;
               ps.push(drawHandler_Cesium.Cartesian3.fromDegrees(parseFloat(p[0]), parseFloat(p[1])));
             }
           } catch (err) {
-            _didIteratorError12 = true;
-            _iteratorError12 = err;
+            _didIteratorError13 = true;
+            _iteratorError13 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
-                _iterator12.return();
+              if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
+                _iterator13.return();
               }
             } finally {
-              if (_didIteratorError12) {
-                throw _iteratorError12;
+              if (_didIteratorError13) {
+                throw _iteratorError13;
               }
             }
           }
@@ -80062,16 +80482,16 @@ function () {
           this.values.set(pl.name, pl);
         }
       } catch (err) {
-        _didIteratorError11 = true;
-        _iteratorError11 = err;
+        _didIteratorError12 = true;
+        _iteratorError12 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
-            _iterator11.return();
+          if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
+            _iterator12.return();
           }
         } finally {
-          if (_didIteratorError11) {
-            throw _iteratorError11;
+          if (_didIteratorError12) {
+            throw _iteratorError12;
           }
         }
       }
@@ -80122,26 +80542,26 @@ function () {
     key: "remove",
     value: function remove() {
       var pgs = this.values.values();
-      var _iteratorNormalCompletion13 = true;
-      var _didIteratorError13 = false;
-      var _iteratorError13 = undefined;
+      var _iteratorNormalCompletion14 = true;
+      var _didIteratorError14 = false;
+      var _iteratorError14 = undefined;
 
       try {
-        for (var _iterator13 = pgs[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
-          var pg = _step13.value;
+        for (var _iterator14 = pgs[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
+          var pg = _step14.value;
           pg.remove();
         }
       } catch (err) {
-        _didIteratorError13 = true;
-        _iteratorError13 = err;
+        _didIteratorError14 = true;
+        _iteratorError14 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
-            _iterator13.return();
+          if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
+            _iterator14.return();
           }
         } finally {
-          if (_didIteratorError13) {
-            throw _iteratorError13;
+          if (_didIteratorError14) {
+            throw _iteratorError14;
           }
         }
       }
@@ -80162,27 +80582,27 @@ function () {
         },
         "features": []
       };
-      var _iteratorNormalCompletion14 = true;
-      var _didIteratorError14 = false;
-      var _iteratorError14 = undefined;
+      var _iteratorNormalCompletion15 = true;
+      var _didIteratorError15 = false;
+      var _iteratorError15 = undefined;
 
       try {
-        for (var _iterator14 = pgs[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
-          var pg = _step14.value;
+        for (var _iterator15 = pgs[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
+          var pg = _step15.value;
           var geojson = drawHandler_Polygon.toGeoJson(pg.positions, pg.name);
           graphicJSON.features.push(geojson.features[0]);
         }
       } catch (err) {
-        _didIteratorError14 = true;
-        _iteratorError14 = err;
+        _didIteratorError15 = true;
+        _iteratorError15 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
-            _iterator14.return();
+          if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
+            _iterator15.return();
           }
         } finally {
-          if (_didIteratorError14) {
-            throw _iteratorError14;
+          if (_didIteratorError15) {
+            throw _iteratorError15;
           }
         }
       }
@@ -80196,13 +80616,13 @@ function () {
     key: "import",
     value: function _import(geojson) {
       var feats = geojson.features;
-      var _iteratorNormalCompletion15 = true;
-      var _didIteratorError15 = false;
-      var _iteratorError15 = undefined;
+      var _iteratorNormalCompletion16 = true;
+      var _didIteratorError16 = false;
+      var _iteratorError16 = undefined;
 
       try {
-        for (var _iterator15 = feats[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
-          var feat = _step15.value;
+        for (var _iterator16 = feats[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
+          var feat = _step16.value;
           var geom = feat.geometry.coordinates[0];
 
           if (feat.geometry.type !== 'MultiPolygon' && feat.geometry.type !== 'Polygon') {
@@ -80211,26 +80631,26 @@ function () {
           }
 
           var ps = [];
-          var _iteratorNormalCompletion16 = true;
-          var _didIteratorError16 = false;
-          var _iteratorError16 = undefined;
+          var _iteratorNormalCompletion17 = true;
+          var _didIteratorError17 = false;
+          var _iteratorError17 = undefined;
 
           try {
-            for (var _iterator16 = geom[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
-              var p = _step16.value;
+            for (var _iterator17 = geom[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
+              var p = _step17.value;
               ps.push(drawHandler_Cesium.Cartesian3.fromDegrees(parseFloat(p[0]), parseFloat(p[1])));
             }
           } catch (err) {
-            _didIteratorError16 = true;
-            _iteratorError16 = err;
+            _didIteratorError17 = true;
+            _iteratorError17 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
-                _iterator16.return();
+              if (!_iteratorNormalCompletion17 && _iterator17.return != null) {
+                _iterator17.return();
               }
             } finally {
-              if (_didIteratorError16) {
-                throw _iteratorError16;
+              if (_didIteratorError17) {
+                throw _iteratorError17;
               }
             }
           }
@@ -80243,16 +80663,16 @@ function () {
           this.values.set(pg.name, pg);
         }
       } catch (err) {
-        _didIteratorError15 = true;
-        _iteratorError15 = err;
+        _didIteratorError16 = true;
+        _iteratorError16 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
-            _iterator15.return();
+          if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
+            _iterator16.return();
           }
         } finally {
-          if (_didIteratorError15) {
-            throw _iteratorError15;
+          if (_didIteratorError16) {
+            throw _iteratorError16;
           }
         }
       }
@@ -80397,7 +80817,11 @@ function () {
     Bus.$on('viewerMounted', function () {
       self.viewerMounted = true;
     });
-    this.$refs.marker.init(this.viewer, 'single');
+
+    if (!window.isLoad) {
+      this.$refs.marker.init(this.viewer, 'single');
+      window.isLoad = true;
+    }
   },
   methods: {
     extendMarkImage: function extendMarkImage(images) {
@@ -80536,8 +80960,8 @@ function () {
 });
 // CONCATENATED MODULE: ./src/components/drawViewer/src/drawViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_drawViewervue_type_script_lang_js_ = (drawViewervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/drawViewer/src/drawViewer.vue?vue&type=style&index=0&id=d19e41d8&lang=scss&scoped=true&
-var drawViewervue_type_style_index_0_id_d19e41d8_lang_scss_scoped_true_ = __webpack_require__("eb61");
+// EXTERNAL MODULE: ./src/components/drawViewer/src/drawViewer.vue?vue&type=style&index=0&id=1ee09826&lang=scss&scoped=true&
+var drawViewervue_type_style_index_0_id_1ee09826_lang_scss_scoped_true_ = __webpack_require__("88ef");
 
 // CONCATENATED MODULE: ./src/components/drawViewer/src/drawViewer.vue
 
@@ -80554,7 +80978,7 @@ var drawViewer_component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "d19e41d8",
+  "1ee09826",
   null
   
 )
@@ -80600,6 +81024,17 @@ if (typeof window !== 'undefined' && window.Vue) {
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
 
 
+
+/***/ }),
+
+/***/ "fb86":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_attribute_vue_vue_type_style_index_0_id_17c5e0f8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("e56a");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_attribute_vue_vue_type_style_index_0_id_17c5e0f8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_attribute_vue_vue_type_style_index_0_id_17c5e0f8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_attribute_vue_vue_type_style_index_0_id_17c5e0f8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
