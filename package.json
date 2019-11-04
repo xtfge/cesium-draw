@@ -1,6 +1,6 @@
 {
   "name": "cesium-draw",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "add a mark,polyline,polygon base on Cesium",
   "private": false,
   "keyword": "Cesium Polygon Polyline mark interactive",
@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
+    "cesium": "^1.59.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
     "file-saver": "^2.0.2",
