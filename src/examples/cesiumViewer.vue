@@ -66,12 +66,12 @@ export default {
       _this.viewerDefaultProperty[property] = _this.viewerProperty[property];
     }
 
-    this.viewer = new Cesium.Viewer(
+    const viewer = new Cesium.Viewer(
       "cesiumContainer",
       _this.viewerDefaultProperty
     );
-    window.viewer = this.viewer;
-    if (Cesium.defined(this.viewer)) {
+    window.viewer = viewer;
+    if (Cesium.defined(viewer)) {
       Bus.$emit("viewerMounted");
     }
 
@@ -80,13 +80,14 @@ export default {
     credits[0].parentElement.removeChild(credits[0]);
 
     //禁止双击zoom
-    this.viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(
+    viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(
       Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK
     );
     viewer.camera.flyTo({
       destination:Cesium.Cartesian3.fromDegrees(116.4,39.9,15000000),
       duration:0
     })
+  
   },
   methods: {}
 };

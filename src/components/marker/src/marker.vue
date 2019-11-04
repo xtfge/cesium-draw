@@ -45,9 +45,6 @@ E-mail:zhangb@geovie.com.cn
       <!--:style="{left:scenePos.x,top:scenePos.y}">-->
       <!--&lt;!&ndash;单击地图添加标记&ndash;&gt;-->
     <!--</div>-->
-    <div v-if="btShow">
-      <el-button type="primary" plain size="mini" id="submitbtn" @click="edit">bianji</el-button>
-    </div>
   </div>
 </template>
 
@@ -550,7 +547,7 @@ E-mail:zhangb@geovie.com.cn
           })
         }
       },
-      extendImage(n,o){
+      extendImage(n){
         if(n.length>0){
           this.images=[this.defaultImage,...n]
         }
