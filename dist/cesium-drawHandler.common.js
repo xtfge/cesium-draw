@@ -77181,7 +77181,7 @@ var utils_shp2GeoJSON = function shp2GeoJSON(filedata) {
   downloadFile: downloadFile,
   shp2GeoJSON: utils_shp2GeoJSON
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=1ee09826&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8313fefe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/drawViewer/src/drawViewer.vue?vue&type=template&id=1ee09826&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],staticClass:"markerPanel"},[_c('el-container',[_c('el-header',[_vm._v("\n      标绘"),_c('span',{staticClass:"clostbtn",on:{"click":function($event){_vm.isShow=false}}})]),_c('el-main',[_c('el-button',{staticClass:"marker-panel",class:{'active-panel':!_vm.activeMode['marker']},attrs:{"title":"标记地点"},on:{"click":function($event){return _vm.toggleClick('addMarker')}}}),_c('el-button',{staticClass:"polyline-panel",class:{'active-panel':!_vm.activeMode['polyline']},attrs:{"title":"绘线"},on:{"click":function($event){return _vm.toggleClick('addPolyline')}}}),_c('el-button',{staticClass:"polygon-panel",class:{'active-panel':!_vm.activeMode['polygon']},attrs:{"title":"绘多边形"},on:{"click":function($event){return _vm.toggleClick('addPolygon')}}}),_c('el-dropdown',{on:{"command":_vm.handleCommand}},[_c('el-button',{staticClass:"import-panel",class:{'active-panel':!_vm.activeMode['export']},attrs:{"title":"导入"}},[_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{attrs:{"command":"umarker"}},[_vm._v("标记")]),_c('el-dropdown-item',{attrs:{"command":"uline"}},[_vm._v("线")]),_c('el-dropdown-item',{attrs:{"command":"ugon"}},[_vm._v("多边形")])],1)],1),_c('el-dropdown',{on:{"command":_vm.handleCommand}},[_c('el-button',{staticClass:"export-panel",class:{'active-panel':!_vm.activeMode['export']},attrs:{"title":"导出"}},[_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{attrs:{"command":"dmarker"}},[_vm._v("标记")]),_c('el-dropdown-item',{attrs:{"command":"dline"}},[_vm._v("线")]),_c('el-dropdown-item',{attrs:{"command":"dgon"}},[_vm._v("多边形")])],1)],1),_c('el-button',{staticClass:"remove-panel",class:{'active-panel':!_vm.activeMode['remove']},attrs:{"title":"一键删除"},on:{"click":function($event){return _vm.toggleClick('remove')}}})],1)],1),_c('markerViewer',{ref:"marker",attrs:{"extendImage":_vm.markerExtend,"viewer":_vm.viewer}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson,.shp"},on:{"change":_vm.importfp}})],1)}
 var staticRenderFns = []
 
@@ -77194,12 +77194,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=255fccd2&
-var markervue_type_template_id_255fccd2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}}),(_vm.btShow)?_c('div',[_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.edit}},[_vm._v("bianji")])],1):_vm._e()],1)}
-var markervue_type_template_id_255fccd2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8313fefe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=template&id=1744dbae&
+var markervue_type_template_id_1744dbae_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("添加标记"),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":function($event){_vm.isShow=false}}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"autofocus":"true","id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("\n            备注：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             "),_c('img',{attrs:{"src":_vm.defaultImage}}),_c('br'),(_vm.images.length>0)?_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":_vm.changeImage}},[_vm._v("更换")]):_vm._e()])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}]},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1),_c('contextMenuViewer',{ref:"contextMenu",attrs:{"viewer":_vm.viewer,"contextMenuItems":_vm.contextMenu}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
+var markervue_type_template_id_1744dbae_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=255fccd2&
+// CONCATENATED MODULE: ./src/components/marker/src/marker.vue?vue&type=template&id=1744dbae&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
 var is_array = __webpack_require__("a745");
@@ -77241,7 +77241,7 @@ function _nonIterableSpread() {
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/contextmenu.vue?vue&type=template&id=0f928394&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8313fefe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/contextmenu.vue?vue&type=template&id=0f928394&
 var contextmenuvue_type_template_id_0f928394_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')}
 var contextmenuvue_type_template_id_0f928394_staticRenderFns = []
 
@@ -77492,9 +77492,6 @@ var FileSaver_min = __webpack_require__("21a6");
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/marker/src/marker.vue?vue&type=script&lang=js&
 
 
-//
-//
-//
 //
 //
 //
@@ -78107,7 +78104,7 @@ var markervue_type_script_lang_js_Cesium = window.Cesium;
         });
       }
     },
-    extendImage: function extendImage(n, o) {
+    extendImage: function extendImage(n) {
       if (n.length > 0) {
         this.images = [this.defaultImage].concat(_toConsumableArray(n));
       }
@@ -78130,8 +78127,8 @@ var markervue_type_style_index_0_lang_css_ = __webpack_require__("3d44");
 
 var marker_component = normalizeComponent(
   src_markervue_type_script_lang_js_,
-  markervue_type_template_id_255fccd2_render,
-  markervue_type_template_id_255fccd2_staticRenderFns,
+  markervue_type_template_id_1744dbae_render,
+  markervue_type_template_id_1744dbae_staticRenderFns,
   false,
   null,
   null,
@@ -78322,7 +78319,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/editPanel.vue?vue&type=template&id=7fcd44a1&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8313fefe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/editPanel.vue?vue&type=template&id=7fcd44a1&scoped=true&
 var editPanelvue_type_template_id_7fcd44a1_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isShow),expression:"isShow"}],staticClass:"graphic-edit-panel",attrs:{"id":_vm.graphic.name}},[(_vm.graphic.geomType==='polyline')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'showExport'},
              {'value':'删除','key':'remove'},
              {'value':'属性','key':'attribute'}]),function(item,index){return _c('div',{key:index,staticClass:"drop-down-item",on:{"click":function($event){return _vm.command(item.key)}}},[_vm._v(_vm._s(item.value))])}),0),_c('div',[_vm._v(_vm._s(_vm.title))]),_c('span',{staticClass:"closebtn",on:{"click":_vm.closeHandler}})]),_c('el-main',{staticClass:"geom-line"},[_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("颜色：")]),_c('el-color-picker',{attrs:{"size":"mini"},model:{value:(_vm.color),callback:function ($$v) {_vm.color=$$v},expression:"color"}}),_c('span',{staticClass:"p-class"},[_vm._v("顶点：")]),_c('el-switch',{attrs:{"size":"mini","active-color":"#13ce66","inactive-color":"#ff0000"},model:{value:(_vm.node),callback:function ($$v) {_vm.node=$$v},expression:"node"}})],1),_c('div',[_c('span',{staticClass:"p-class"},[_vm._v("线宽：")]),_c('el-slider',{attrs:{"step":1,"max":10,"min":0},model:{value:(_vm.Width),callback:function ($$v) {_vm.Width=$$v},expression:"Width"}}),_c('el-input',{attrs:{"size":"mini"},model:{value:(_vm.width),callback:function ($$v) {_vm.width=$$v},expression:"width"}})],1)])],1):_vm._e(),(_vm.graphic.geomType==='polygon')?_c('el-container',[_c('el-header',[_c('span',{staticClass:"el-icon-user-solid",staticStyle:{"margin-left":"-20px"},on:{"click":function($event){_vm.showMenu=!_vm.showMenu}}}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMenu),expression:"showMenu"}],staticClass:"show-drop-down"},_vm._l(([{'value':'导出','key':'export'},
@@ -78333,7 +78330,7 @@ var editPanelvue_type_template_id_7fcd44a1_scoped_true_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/editPanel.vue?vue&type=template&id=7fcd44a1&scoped=true&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d21e6eee-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/attribute.vue?vue&type=template&id=17c5e0f8&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8313fefe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/attribute.vue?vue&type=template&id=17c5e0f8&scoped=true&
 var attributevue_type_template_id_17c5e0f8_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.dialogFormVisible),expression:"dialogFormVisible"}],staticClass:"attribute-class",attrs:{"id":"attribute_table"}},[_c('el-container',[_c('el-header',{attrs:{"id":"title"}},[_c('span',[_vm._v("属性编辑")]),_c('span',{staticClass:"close-btn",on:{"click":function($event){_vm.dialogFormVisible=false}}}),_c('el-button',{staticStyle:{"margin-left":"20px"},attrs:{"size":"mini"},on:{"click":function($event){_vm.dialogVisible=true}}},[_vm._v("添加字段")]),_c('el-button',{staticStyle:{"margin-left":"20px"},attrs:{"size":"mini"},on:{"click":_vm.save}},[_vm._v("保存")])],1),_c('el-main',[_c('el-table',{ref:"attr",staticStyle:{"width":"100%"},attrs:{"data":_vm.tableData,"height":400,"id":"table","border":"","default-sort":{prop: 'id', order: 'ascending'}},on:{"cell-dblclick":_vm.edit}},[_c('el-table-column',{attrs:{"width":"100","fixed":"","label":"id","sortable":""},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('span',[_vm._v(_vm._s(scope.row.id.value))])]}}])}),_vm._l((_vm.columns),function(item){return _c('el-table-column',{key:item,attrs:{"width":100,"prop":item,"label":item,"sortable":""},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [(!scope.row[item]._edit)?_c('span',[_vm._v(_vm._s(scope.row[item].value))]):_c('el-input',{directives:[{name:"focus",rawName:"v-focus"}],attrs:{"title":"按回车键保存修改","size":"small"},nativeOn:{"keydown":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.saveEdit(scope)}},model:{value:(scope.row[item].value),callback:function ($$v) {_vm.$set(scope.row[item], "value", $$v)},expression:"scope.row[item].value"}})]}}],null,true)})})],2)],1)],1),_c('el-dialog',{attrs:{"title":"添加字段","visible":_vm.dialogVisible,"width":"30%","modal-append-to-body":false},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_vm._v("\n    字段名：\n    "),_c('el-input',{directives:[{name:"focus",rawName:"v-focus"}],nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.addField($event)}},model:{value:(_vm.newField),callback:function ($$v) {_vm.newField=$$v},expression:"newField"}}),_vm._v("默认值：\n    "),_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.addField($event)}},model:{value:(_vm.defaultValue),callback:function ($$v) {_vm.defaultValue=$$v},expression:"defaultValue"}}),_c('span',{staticClass:"dialog-footer",attrs:{"slot":"footer"},slot:"footer"},[_c('el-button',{on:{"click":function($event){_vm.dialogVisible = false}}},[_vm._v("取 消")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.addField}},[_vm._v("确 定")])],1)],1)],1)}
 var attributevue_type_template_id_17c5e0f8_scoped_true_staticRenderFns = []
 
@@ -79226,11 +79223,10 @@ function () {
         _this.setNodeStyle(options);
       } //如果顶点不存在添加临时顶点
       else {
-          _this.tmpNodes = [];
-          var i = 0;
+          _this.tmpNodes = []; // let i = 0
+
           this.positions.map(function (p) {
-            var pt = new drawHandler_Point(_this.viewer, null, p, drawHandler_Point.editStyle());
-            i++;
+            var pt = new drawHandler_Point(_this.viewer, null, p, drawHandler_Point.editStyle()); // i+=1
 
             _this.tmpNodes.push(pt.graphic);
           });
@@ -79615,11 +79611,13 @@ function () {
   }, {
     key: "destroy",
     value: function destroy() {
-      this.handler.removeInputAction(drawHandler_DrawEvent.LEFT_DOUBLE_CLICK());
-      this.handler.removeInputAction(drawHandler_DrawEvent.LEFT_CLICK());
-      this.handler.removeInputAction(drawHandler_DrawEvent.RIGHT_CLICK());
-      this.handler.removeInputAction(drawHandler_DrawEvent.MOUSE_MOVE());
-      this.handler.destroy();
+      if (!this.handler.isDestroyed()) {
+        this.handler.removeInputAction(drawHandler_DrawEvent.LEFT_DOUBLE_CLICK());
+        this.handler.removeInputAction(drawHandler_DrawEvent.LEFT_CLICK());
+        this.handler.removeInputAction(drawHandler_DrawEvent.RIGHT_CLICK());
+        this.handler.removeInputAction(drawHandler_DrawEvent.MOUSE_MOVE());
+        this.handler.destroy();
+      }
 
       if (document.getElementById('cursortip')) {
         document.body.removeChild(document.getElementById('cursortip'));
@@ -79963,9 +79961,10 @@ function (_BaseGraphic2) {
   _createClass(Polygon, [{
     key: "create",
     value: function create(options, position) {
-      var pos = get_get(getPrototypeOf_getPrototypeOf(Polygon.prototype), "create", this).call(this, options, position);
-
-      options['hierarchy'] = pos;
+      // const pos = super.create(options, position)
+      options['hierarchy'] = new drawHandler_Cesium.CallbackProperty(function () {
+        return new drawHandler_Cesium.PolygonHierarchy(position);
+      }, false);
       options['id'] = 'polygon%d' % Math.round(Math.random() * 1000);
       var shape = this.viewer.entities.add({
         polygon: options
