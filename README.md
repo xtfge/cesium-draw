@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-10-09 19:43:05
  * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-02 19:03:01
+ * @LastEditTime : 2020-01-02 19:07:11
  * @Desc: 
  -->
 ### Cesium-Draw
@@ -40,6 +40,28 @@ export default {
 
 }
 </script>
+```
+大多数情况下，我们可能不会将Viewer对象存储到Vue data对象中，此时需要显式调用init方法初始化组件
+```js
+//you-component.js
+<templete>
+<div>
+<div id='cesiumContainer'></div>
+<cesiumDrawViewer ref='markerManager'></cesiumDrawViewer>
+</div>
+</templete>
+<script>
+import cesiumDrawHandler from 'cesium-draw'
+export default {
+  name: "my-component",
+  components:{cesiumDrawHandler},
+  mounted(){
+      const viewer=new Cesium.Viewer('cesiumContainer')
+      this.$refs.markerManager.init(viewer)
+  }
+
+}
+</scrip
 ```
 #### Development
 ```
