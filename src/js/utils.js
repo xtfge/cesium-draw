@@ -5,14 +5,58 @@
  @Last Modified by:zhangbo
  @Last Modified time:2019-03-13 21:18:48
  */
+const Cesium=window.Cesium
+import { open } from 'shapefile'
+/**
+ * Cesium坐标转换工具
+ */
+const CVT = (function () {
+  function _() {
 
-import {world_to_cartesian3,world_to_latlon} from "./Convert";
-import {open} from 'shapefile'
-
-
-const earthRadiusMeters = 6371000.0;
-const radiansPerDegree = Math.PI / 180.0;
-const degreesPerRadian = 180.0 / Math.PI;
+  }
+  _.cartesian2Pixel=function(cartesian,viewer){
+    return Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene,cartesian)
+  }
+  _.pixel2Cartesian = function (pixel, viewer) {
+    const ray = viewer.camera.getPickRay(pixel)
+    const cartesian = viewer.scene.globe.pick(ray, viewer.scene);
+    return cartesian
+  }
+  _.cartesian2Radians = function (cartesian, viewer) {
+    const ellipsoid = viewer.scene.globe.ellipsoid || Cesium.Ellipsoid.WGS84
+    const cartographic = Cesium.Cartographic.fromCartesian(cartesian, ellipsoid)
+    const lon = cartographic.longitude
+    const lat = cartographic.latitude
+    const height = cartographic.height
+    return { lon, lat, height }
+  }
+  _.cartesian2Degrees = function (cartesian, viewer) {
+    const coords = _.cartesian2Radians(cartesian, viewer)
+    const lon = Cesium.Math.toDegrees(coords.lon)
+    const lat = Cesium.Math.toDegrees(coords.lat)
+    const height = coords.height
+    return { lon, lat, height }
+  }
+  _.degrees2Cartesian = function (position) {
+    const cartesian = Cesium.Cartesian3.fromDegrees(position.lon, position.lat, position.height)
+    return cartesian
+  }
+  _.radians2Cartesian = function (position) {
+    return Cesium.Cartesian3.fromRadians(position.lon, position.lat, position.height)
+  }
+  _.pixel2Degress = function (pixel, viewer) {
+    const cartesian = _.pixel2Cartesian(pixel, viewer)
+    return _.cartesian2Degrees(cartesian, viewer)
+  }
+  _.pixel2Radians = function (pixel, viewer) {
+    const cartesian = _.pixel2Cartesian(pixel, viewer)
+    return _.cartesian2Radians(cartesian, viewer)
+  }
+  return _
+})()
+// const earthRadiusMeters = 6371000.0;
+// const radiansPerDegree = Math.PI / 180.0;
+// const degreesPerRadian = 180.0 / Math.PI;
 /**
  * 返回两个点之间的距离
  * @param x {Cartesian3} 起始点的地理坐标
@@ -61,74 +105,7 @@ const getSpaceDistance = (x, y) => {
   const surdis = getDistance(x, y)
   return Math.sqrt(Math.pow(surdis, 2) + Math.pow(x.height - y.height, 2));
 }
-const getSpaceDisfromCartesian3Array=(positions)=>{
-  let dist=0.0
-  for(let i=0;i<positions.length-1;i++){
-    dist+=getSpaceDistance(positions[i],positions[i+1])
-  }
-  return dist.toFixed(2)
-}
-const getSpaceDisfromArray=(positions)=>{
-  const ct3=positions.map((x)=>{
-    return world_to_cartesian3(x)
-  })
-  let dist=0.0
-  for(let i=0;i<ct3.length-1;i++){
-    dist+=getSpaceDistance(ct3[i],ct3[i+1])
-  }
-  return dist.toFixed(2)
-}
-/**
- * points 多边形的顶点坐标，形如[{lan:23,lon:99}]
- * 计算多边形面积
- */
-const getArea = (points) => {
-  const earthRadiusMeters = 6371000.0;
-  const radiansPerDegree = Math.PI / 180.0;
-  const degreesPerRadian = 180.0 / Math.PI;
-  if(points.length<3){
-    return 0
-  }
-  let totalAngle = 0;
-  for (let i = 0; i < points.length; i++) {
-    let j = (i + 1) % points.length;
-    let k = (i + 2) % points.length;
-    totalAngle += Angle(points[i], points[j], points[k]);
-  }
-  const planarTotalAngle = (points.length - 2) * 180.0;
-  let sphericalExcess = totalAngle - planarTotalAngle;
-  if (sphericalExcess > 420.0) {
-    totalAngle = points.length * 360.0 - totalAngle;
-    sphericalExcess = totalAngle - planarTotalAngle;
-  } else if (sphericalExcess > 300.0 && sphericalExcess < 420.0) {
-    sphericalExcess = Math.abs(360.0 - sphericalExcess);
-  }
-  return sphericalExcess * radiansPerDegree * earthRadiusMeters * earthRadiusMeters;
-}
 
-function Angle(p1, p2, p3) {
-  const bearing21 = Bearing(p2, p1);
-  const bearing23 = Bearing(p2, p3);
-  let angle = bearing21 - bearing23;
-  if (angle < 0) {
-    angle += 360;
-  }
-  return angle;
-};
-
-/*方向*/
-function Bearing(from, to) {
-  const lat1 = from.lat * radiansPerDegree;
-  const lon1 = from.lon * radiansPerDegree;
-  const lat2 = to.lat * radiansPerDegree;
-  const lon2 = to.lon * radiansPerDegree;
-  let angle = -Math.atan2(Math.sin(lon1 - lon2) * Math.cos(lat2), Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
-  if (angle < 0) {
-    angle += Math.PI * 2.0;
-  }
-  angle = angle * degreesPerRadian;
-  return angle;
-}
 function currentExtent(viewer) {
   // 范围对象
   const extent = {};
@@ -177,21 +154,21 @@ function currentExtent(viewer) {
   extent.height = Math.ceil(viewer.camera.positionCartographic.height);
   return extent;
 }
-const viewerCenter=(viewer)=>{
+const viewerCenter = (viewer) => {
   const viewCenter = new Cesium.Cartesian2(Math.floor(viewer.canvas.clientWidth / 2), Math.floor(viewer.canvas.clientHeight / 2));
   // Given the pixel in the center, get the world position
   const newWorldPosition = viewer.scene.camera.pickEllipsoid(viewCenter);
-  return world_to_latlon(newWorldPosition,viewer)
+  return newWorldPosition
 }
-const saveCurViewerImage=(viewer,filename)=>{
+const saveCurViewerImage = (viewer, filename) => {
   viewer.render();
-  if(!filename||filename==''){
-    filename=new Date().toLocaleString()+".png"
+  if (!filename || filename == '') {
+    filename = new Date().toLocaleString() + ".png"
   }
-  const ext=filename.split(".")[1]
+  const ext = filename.split(".")[1]
   downloadFile(filename, viewer.scene.canvas.toDataURL("image/%s" % ext));
 }
-const downloadFile=(fileName, content)=> {//下载文件
+const downloadFile = (fileName, content) => {//下载文件
   let aLink = document.createElement('a');
   let blob = base64ToBlob(content); //new Blob([content]);
   let evt = document.createEvent("HTMLEvents");
@@ -210,96 +187,23 @@ const downloadFile=(fileName, content)=> {//下载文件
     for (let i = 0; i < rawLength; ++i) {
       uInt8Array[i] = raw.charCodeAt(i);
     }
-    return new Blob([uInt8Array], {type: contentType});
+    return new Blob([uInt8Array], { type: contentType });
   }
 }
-// export function ajaxPromise(url,options={}){
-//   return new Promise((resolve,reject)=>{
-//     const defaultOptions= {
-//       service: 'WFS',
-//       version: '1.0.0',
-//       request: 'GetFeature',
-//       outputFormat: 'application/json'
-//     }
-//     if(!options['typeName']){
-//       alert('typeName参数必须提供')
-//       return
-//     }
-//     for(let key in options){
-//       defaultOptions[key]=options[key]
-//     }
-//     let urlString=url+'?'
-//     for(let key in defaultOptions){
-//       urlString+=`&${key}=${defaultOptions[key]}`
-//     }
-//     axios.get(urlString).then(res=>{
-//       resolve(res)
-//     }).catch(e=>{
-//       reject(e)
-//     })
-//   })
-// }
-//根据图片和文字绘制canvas
-function drawCanvas(url='',text='',fontsize=14,bg=true){
-  const canvas = document.createElement('canvas');      //创建canvas标签
-  const ctx = canvas.getContext('2d');
-  ctx.font = fontsize + "px Arial";
-  canvas.width = ctx.measureText(text).width + fontsize * 0;//0.5      //根据文字内容获取宽度
-  canvas.height = fontsize * 1.2; // fontsize * 1.5
-  const img = new Image();
-  img.src=url
-  if(url==''){
-    if(bg){
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      //设置线条颜色
-      ctx.strokeStyle='#ADADAD';
-      //设置线条宽度
-      ctx.lineWidth=2;
-      ctx.strokeRect(0,0,canvas.width,canvas.height);
-    }
-    ctx.fillStyle = "#000000";
-    ctx.font ="italic  lighter"+ fontsize + "px Calibri,sans-serif";
-    // ctx.shadowOffsetX = 1;    //阴影往左边偏，横向位移量
-    // ctx.shadowOffsetY = 0;   //阴影往左边偏，纵向位移量
-    // ctx.shadowColor = "#fff"; //阴影颜色
-    // ctx.shadowBlur = 1; //阴影的模糊范围
-    ctx.fillText(text, fontsize*1/4, fontsize*5/6);
-    return [canvas.width,canvas]
-  }
-  return new Promise((resolve,reject)=>{
-    img.onload = function(){
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0,0,120,60);
-      ctx.fillStyle = "#00000099";
-      ctx.drawImage(img, 0,0,32, 32);
-      ctx.fillStyle = '#000';
-      ctx.font = fontsize + "px Calibri,sans-serif";
-      ctx.shadowOffsetX = 1;    //阴影往左边偏，横向位移量
-      ctx.shadowOffsetY = 0;   //阴影往左边偏，纵向位移量
-      ctx.shadowColor = "#fff"; //阴影颜色
-      ctx.shadowBlur = 1; //阴影的模糊范围
-      ctx.fillText(text, fontsize*7/4, fontsize*4/3);
-      resolve(canvas)
-    }
-  })
-  return canvas
-
-}
-const errroCatch=function (e,callback) {
-  if(e.response){
+const errroCatch = function (e, callback) {
+  if (e.response) {
     callback(e.response.data)
-  } else if(e.request){
+  } else if (e.request) {
     callback(e.request)
-  } else{
+  } else {
     callback(e.message)
   }
 }
-const shp2GeoJSON=function(filedata) {
+const shp2GeoJSON = function (filedata) {
   const reader = new FileReader()
   reader.readAsArrayBuffer(filedata)
-  return new Promise((resolve,reject)=>{
-    reader.onload = function (e) {
+  return new Promise((resolve) => {
+    reader.onload = function () {
       open(this.result)
         .then(source => source.read()
           .then(function log(result) {
@@ -311,22 +215,67 @@ const shp2GeoJSON=function(filedata) {
         .catch(error => console.error(error.stack));
     }
   })
-
-
-
 }
-export {getDistance, getSpaceDistance,getSpaceDisfromArray,getArea,currentExtent,viewerCenter,saveCurViewerImage,downloadFile}
+class CursorTip {
+  constructor(text, id,viewer) {
+    const tooltip = document.createElement("div");
+    tooltip.id = id||"cursor-tip";
+    tooltip.style.position = 'fixed'
+    tooltip.style.border = '1px #b6aeae solid'
+    tooltip.style.height = '30px'
+    tooltip.style.lineHeight = '30px'
+    tooltip.style.paddingLeft = '10px'
+    tooltip.style.paddingRight = '20px'
+    tooltip.style.backgroundColor = '#b6aeae'
+    tooltip.style.color = '#FFF'
+    tooltip.style.borderRadius = '6px 6px 6px 0px'
+    tooltip.style.pointerEvents = 'none'
+    tooltip.innerHTML = text;
+    tooltip.style.zIndex=999
+    tooltip.style.minWidth='280px'
+    // if(oe){
+    //   document.body.removeChild(oe)
+    // }
+    document.body.appendChild(tooltip);
+    this.ele=tooltip
+    this._visible=true
+    const self=this
+    if(viewer instanceof Cesium.Viewer){
+      viewer.screenSpaceEventHandler.setInputAction(e=>{
+        self.updatePosition(e.endPosition)
+      },Cesium.ScreenSpaceEventType.MOUSE_MOVE)
+    }
+  }
+  updatePosition(pixel){
+    this.ele.style.left=pixel.x + 10 + 'px';
+    this.ele.style.top=pixel.y + 10 + 'px';
+  }
+  updateText(text){
+    this.ele.innerHTML=text
+  }
+  get visible(){
+    return this._visible
+  }
+  set visible(v){
+    this._visible=v
+    if(v){
+      this.ele.style.display='block'
+    }else{
+      this.ele.style.display='none'
+    }
+  }
+}
+export {currentExtent, viewerCenter, saveCurViewerImage, downloadFile,CVT }
 export default {
-  drawCanvas,
   moveDiv,
   errroCatch,
   getDistance,
   getSpaceDistance,
-  getSpaceDisfromArray,
-  getArea,
   currentExtent,
   viewerCenter,
   saveCurViewerImage,
   downloadFile,
-  shp2GeoJSON
+  shp2GeoJSON,
+  CVT,
+  CursorTip
 }

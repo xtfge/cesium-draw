@@ -8,47 +8,29 @@
     <earthViewer></earthViewer>
     <!-- <cesiumMarkerViewer :viewer="viewer" v-if="viewerMounted"></cesiumMarkerViewer> -->
     <!--<editViewer></editViewer>-->
-    <cesiumDrawViewer
+    <!-- <cesiumDrawViewer
       :viewer="viewer"
       v-if="viewerMounted"
       v-show="drawviewerShow"
       :polylineNode="false"
       :polygonNode="true"
       ref="draw"
-    ></cesiumDrawViewer>
+    ></cesiumDrawViewer>-->
+    <cesiumDrawViewer :extendMarkerImage="imags"></cesiumDrawViewer>
   </div>
 </template>
 
 <script>
 import earthViewer from "@/examples/cesiumViewer";
-import cesiumDrawViewer from "@/components/drawViewer/index";
-import utils from "@/js/utils";
-import { Polygon } from "@/components/commons";
-const Bus = window.Bus;
+import cesiumDrawViewer from '@/components/cesiumDrawViewer'
+const Cesium = window.Cesium;
 export default {
   data() {
     return {
       drawHelper: "",
       viewerMounted: false,
-      drawviewerShow: true
-    };
-  },
-  components: {
-    cesiumDrawViewer,
-    earthViewer
-  },
-  props: {},
-  computed: {},
-  beforeMount() {
-    const self = this;
-    Bus.$on("viewerMounted", function() {
-      self.viewerMounted = true;
-    });
-  },
-  mounted() {
-    const self = this;
-    self.viewer = window.viewer;
-    const imags = [
+      drawviewerShow: true,
+      imags : [
       "./static/images/markers/1.png",
       "./static/images/markers/2.png",
       "./static/images/markers/3.png",
@@ -56,22 +38,35 @@ export default {
       "./static/images/markers/5.png",
       "./static/images/markers/6.png",
       "./static/images/markers/7.png",
-      "./static/images/markers/8.png"
-    ];
-    this.$nextTick(()=>{
-      this.$refs.draw.extendMarkImage(imags)
+      "./static/images/markers/8.png",
+       "./static/images/markers/5.png",
+      "./static/images/markers/6.png"
+    ],
+    model:[{ id: "model0", name: "木塔", url: "static/model/Wood_Tower.gltf" },
+          { id: "model1", name: "人", url: "static/model/Cesium_Man.gltf" }]
+      
+    };
+  },
+  components: {
+    earthViewer,
+    cesiumDrawViewer,
+  },
+  props: {},
+  computed: {},
+  beforeMount() {
+  },
+  mounted() {
+    // self.viewer = window.cesiumViewer;
+    const viewer =  window.cesiumViewer;
+    const tileset=new Cesium.Cesium3DTileset({
+      url:'static/Photogrammetry/tileset.json'
     })
-    // new Polygon(self.viewer)
-    // const pl=new Polyline(this.$store.state.earth)
-    // const pg=new Polygon(this.$store.state.earth)
-    // pl.initNodes()
-    // pg.initNodes()
+    tileset.readyPromise.then(t=>{
+      viewer.scene.primitives.add(t)
+      viewer.camera.viewBoundingSphere(t.boundingSphere)
+    })
   },
   methods: {
-    load(event) {
-      const fileData = event.target.files[0];
-      utils.shp2GeoJSON(fileData);
-    }
   },
   watch: {}
 };

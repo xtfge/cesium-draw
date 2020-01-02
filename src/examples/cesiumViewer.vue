@@ -34,8 +34,7 @@ export default {
   },
   computed: {},
   mounted() {
-    const Bus=window.Bus
-    const Cesium=window.Cesium
+    const Cesium = window.Cesium;
     const _this = this;
     _this.viewerDefaultProperty = {
       animation: false,
@@ -51,29 +50,46 @@ export default {
       selectionIndicator: false,
       sceneModePicker: false,
       shadows: false,
-      //去黑色背景
       skyAtmosphere: false,
       imageryProvider: new Cesium.UrlTemplateImageryProvider({
         url: "http://www.google.cn/maps/vt?lyrs=s@800&x={x}&y={y}&z={z}",
         tilingScheme: new Cesium.WebMercatorTilingScheme(),
         minimumLevel: 1,
         maximumLevel: 20
-      })
+      }),
+      terrainProvider: Cesium.createWorldTerrain()
     };
-
+    Cesium.Ion.defaultAccessToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwYTBiYzJiMy1hMWYzLTQ4MWMtOWI5ZC1lYTI3MjEwNjUwZjkiLCJpZCI6ODMxOSwic2NvcGVzIjpbImFzciIsImdjIl0sImlhdCI6MTU1MTc0OTk5OX0.CVjmJ3X9IL_jjuT1dsV75dGhUPEAz6mH2zVLmXZHlrM";
     //设置Veiwer属性
     for (let property in _this.viewerProperty) {
       _this.viewerDefaultProperty[property] = _this.viewerProperty[property];
     }
 
-    const viewer = new Cesium.Viewer(
-      "cesiumContainer",
-      _this.viewerDefaultProperty
-    );
-    window.viewer = viewer;
-    if (Cesium.defined(viewer)) {
-      Bus.$emit("viewerMounted");
-    }
+    const viewer = new Cesium.Viewer("cesiumContainer", {
+      animation: false,
+      timeline: false,
+      geocoder: false,
+      homeButton: false,
+      navigationHelpButton: false,
+      baseLayerPicker: false,
+      fullscreenElement: "cesiumContainer",
+      fullscreenButton: false,
+      shouldAnimate: true,
+      infoBox: false,
+      selectionIndicator: false,
+      sceneModePicker: false,
+      shadows: false,
+      skyAtmosphere: false,
+      imageryProvider: new Cesium.UrlTemplateImageryProvider({
+        url: "http://www.google.cn/maps/vt?lyrs=s@800&x={x}&y={y}&z={z}",
+        tilingScheme: new Cesium.WebMercatorTilingScheme(),
+        minimumLevel: 1,
+        maximumLevel: 20
+      }),
+      terrainProvider: Cesium.createWorldTerrain()
+    });
+    window.cesiumViewer = viewer;
 
     //清除cesium-widget-credits
     const credits = document.getElementsByClassName("cesium-widget-credits");
@@ -83,11 +99,22 @@ export default {
     viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(
       Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK
     );
+    viewer.scene.postProcessStages.fxaa.enabled = false;
     viewer.camera.flyTo({
-      destination:Cesium.Cartesian3.fromDegrees(116.4,39.9,15000000),
-      duration:0
-    })
-  
+      destination: Cesium.Cartesian3.fromDegrees(116.4, 39.9, 15000000),
+      duration: 0
+    });
+    // viewer.scene.camera.setView({
+    //   destination: new Cesium.Cartesian3(
+    //     277096.634865404,
+    //     5647834.481964232,
+    //     2985563.7039122293
+    //   ),
+    //   orientation: {
+    //     heading: 4.731089976107251,
+    //     pitch: -0.32003481981370063
+    //   }
+    // });
   },
   methods: {}
 };

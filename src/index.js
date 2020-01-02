@@ -1,17 +1,21 @@
+/*
+ * @Author: zhangbo
+ * @E-mail: zhangb@geovis.com.cn
+ * @Date: 2019-10-10 15:55:20
+ * @LastEditors  : zhangbo
+ * @LastEditTime : 2019-12-26 11:52:35
+ * @Desc: 
+ */
 import Vue from 'vue'
 import './plugins/element.js'
-import Bus from '@/js/Bus'
 import $ from 'jquery'
 import utils from '@/js/utils'
-import drawViewer from '@/components/drawViewer'
-// import {Polyline,Polygon,PolylineCollection,PolygonCollection} from "@/js/drawHandler";
-// import markerViewer from '@/components/marker'
-
+import 'jstree'
+import 'jstree/dist/themes/default/style.min.css'
+import "@/assets/css/iconfont.css";
+import drawViewer from './components/cesiumDrawViewer'
 Vue.config.productionTip = false
-window.Bus = Bus
-Vue.prototype.Bus = Bus
 window.$ = $
-window.errorCatch = utils.errorCatch
 
 drawViewer.install = Vue => {
   Vue.component(drawViewer.name, drawViewer)
