@@ -1,3 +1,11 @@
+<!--
+ * @Author: zhangbo
+ * @E-mail: zhangb@geovis.com.cn
+ * @Date: 2019-10-09 19:43:05
+ * @LastEditors  : zhangbo
+ * @LastEditTime : 2020-01-02 18:57:11
+ * @Desc: 
+ -->
 ### Cesium-Draw
 This is a Vue+Cesium project, which provides functions such as drawing and editing graphics as well as importing and exporting them.
 Key Features ：
@@ -11,25 +19,21 @@ npm install cesium-draw --save
 ```
 #### Usage
 ```js
-//main.js
-import Vue from 'vue'
-import cesiumDrawHandler from 'cesium-draw'
-Vue.use(cesiumDrawHandler)
-```
-```js
 //you-component.js
 <templete>
 <div>
 <div id='cesiumContainer'></div>
-<cesiumDrawViewer :viewer="viewer" v-if="mounted"></cesiumDrawViewer>
+<cesiumDrawViewer :viewer="viewer"></cesiumDrawViewer>
 </div>
 </templete>
 <script>
+import cesiumDrawHandler from 'cesium-draw'
 export default {
   name: "my-component",
   data(){
 
   },
+  components:{cesiumDrawHandler},
   mounted(){
       this.viewer=new Cesium.Viewer('cesiumContainer')
   }
