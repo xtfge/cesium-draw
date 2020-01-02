@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-10-09 19:43:05
  * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-02 18:57:11
+ * @LastEditTime : 2020-01-02 19:03:01
  * @Desc: 
  -->
 ### Cesium-Draw
@@ -52,5 +52,6 @@ npm run build
 ```
 
 ### 效果
-![avatar](https://img-blog.csdnimg.cn/20190524155136375.gif)
-![avatar](https://img-blog.csdnimg.cn/20190524155207442.gif)
+![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
+![avatar](https://img-blog.csdnimg.cn/20200102184102356.gif)
+![avatar](https://img-blog.csdnimg.cn/20200102184114146.gif)
