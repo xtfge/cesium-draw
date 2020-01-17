@@ -3,15 +3,15 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-12-19 12:37:53
  * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-02 17:37:34
+ * @LastEditTime : 2020-01-17 10:52:56
  * @Desc: cesium标绘面板
  -->
 <template>
   <div id="drawtoolPanel" v-show="visible">
     <el-container>
-      <el-header>
+      <el-header id="drawtoolHead">
         <span>基础标绘</span>
-        <span class="closebtn iconfont icondelete" @click="visible=false"></span>
+        <span class="closebtn iconfont icondelete" @click="$emit('closeEvent')"></span>
         <!-- <span class="clostbtn" @click="measurePanelShow=false"></span> -->
       </el-header>
       <el-main class="graphic-draw-main">
@@ -352,12 +352,12 @@ import MarkerViewer from "../components/markerViewer";
 import { CesiumPolygon } from "../core/Graphic";
 import layerManager from "./layerManager";
 import GraphicType from "../core/GraphicType";
-import { saveAs } from "file-saver";
-import {open} from 'shapefile'
+import { open } from "shapefile";
+import { moveDiv } from "@/js/utils";
 import $ from "jquery";
 let graphicManager = undefined;
 const Cesium = window.Cesium;
-let cesiumViewer;
+
 const console = window.console;
 export default {
   name: "cesiumDrawViewer",
@@ -373,7 +373,7 @@ export default {
       markerFont: "sans-serif",
       markerOptionsVisible: false,
       markerOption: "",
-      lineColor: "rgba(255,247,145,1)",
+      lineColor: "rgba(247,224,32,1)",
       lineWidth: "3px",
       lineWidthList: [
         "1px",
@@ -403,7 +403,7 @@ export default {
         { value: "NONE", name: "空间线" }
       ],
       outlineWidth: "3px",
-      outlineColor: "rgba(255,247,145,1)",
+      outlineColor: "rgba(247,224,32,1)",
       polygonColor: "rgba(247,224,32,0.5)",
       outline: true,
       imags: [
@@ -443,7 +443,7 @@ export default {
   },
   computed: {
     defaultImage() {
-      return 'this.src="' + require("@/assets/images/nothmub.jpg") + '"';
+      return 'this.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1UlEQVQ4T6XTMWgUQRQG4P/N3gaRSBpBEAMqrldkYyXu5VCMChZBEDxOsDIgKKSyECxTWERIYe2hRdoLeKV2RhCymwhy3E48b087C7EQtRDj7vyyg3dKDGyI087MN/97MyP4zyFF+5vNpnPEP3neZGlNlFwBoU/53rnBvn+AsPP+AFRWgUFNKVwgcVCAp4C0lJu10lTNiTGdYLLcyhF52e3uG8lUDVRnDXhagEP5YkM2pia9la0Jw413nhhzKfC9BxaI4t4aII3A9x6FcXJbBGNFZQ3jG3Yk0snjYMK7EelkHsBGMOEt7xSI4oQSxr3lin+8ngPG4MV2sQdgGPdvCviQkFsV/1jDAmu6f6c0wqWfm5grAiKd1EE0IbiaJ7VApN+egcF+KHWiCNhamgVekW4a9xdE4dsAeK716F7jLkJUNXOzmWq5/GG7vlggn4ji5BkEqzngQDYpXARQtdcErKRje2aq4+PfbaOJKcC5G/hH20NgPU7uU/AjJT47wD0Ao3+fSMgTBXwlOPvnBcoSweu/E/SuUdRFQ7YdwD6QopEnIzBtgfV2t8ySM5sSH3cF2D7oZD4jvpSAy0Wn5/MEPgGoDz/T6us3hx231KVgYSeAbTAx/Qs/Rdq4fXky6QAAAABJRU5ErkJggg=="';
     }
   },
   props: {
@@ -467,17 +467,15 @@ export default {
   },
   mounted() {
     const self = this;
-    window.a = this.$refs.layerManager;
-    $(".el-color-picker__icon,.el-icon-arrow-down").addClass(
-      "iconfont iconcolor"
-    );
+    moveDiv("drawtoolPanel", "drawtoolHead");
+    $("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
     document.addEventListener("addEvent", function(e) {
       self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
     });
     document.addEventListener("stopEdit", function() {
       self.menuSelected = {};
       self.editMode = false;
-      cesiumViewer.scene.globe.depthTestAgainstTerrain =
+      self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
     document.addEventListener("startEdit", function(e) {
@@ -487,20 +485,20 @@ export default {
       self.editMode = true;
 
       if (/.*MODEL.*/.test(self.graphicHeight)) {
-        cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
+        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
       }
     });
     document.addEventListener("destroyEvent", function(e) {
       //   self.menuSelected = {};
       //   self.editMode = false;
       self.$refs.layerManager.deleteNode(e.detail.gvid);
-      cesiumViewer.scene.globe.depthTestAgainstTerrain =
+      self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
     if (this.viewer instanceof Cesium.Viewer) {
       this.init(this.viewer);
-    } else if (window.cesiumViewer instanceof Cesium.Viewer) {
-      this.init(window.cesiumViewer);
+    } else if (window.viewer instanceof Cesium.Viewer) {
+      this.init(window.viewer);
     }
     this.$nextTick(() => {
       self.syncColor("markerColor", self.markerColor);
@@ -510,6 +508,9 @@ export default {
   },
   methods: {
     init(viewer) {
+      if (viewer instanceof Cesium.Viewer == false) {
+        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
+      }
       this._depthTestAgainstTerrain =
         viewer.scene.globe.depthTestAgainstTerrain;
       this.$refs.markerManager.init(viewer);
@@ -517,7 +518,7 @@ export default {
       this.selectedModel = this.extendMarkerModel.length
         ? this.extendMarkerModel[0].url
         : undefined;
-      cesiumViewer = viewer;
+      this.cesiumViewer = viewer;
     },
     syncColor(parent, color) {
       const parents = [parent];
@@ -528,7 +529,7 @@ export default {
         parents.push("labelColor");
       }
       const eles = $(
-        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont icon-seban"
+        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont iconcolor"
       );
       for (let e of eles) {
         const target = $(e)
@@ -549,7 +550,7 @@ export default {
       if (item.thumb) {
         return item.thumb;
       }
-      return require("@/assets/images/nothmub.jpg");
+      return this.defaultImage;
     },
     selectModel(item) {
       this.selectedModel = item.url;
@@ -670,8 +671,7 @@ export default {
           }
           document.getElementById("graphicuploadhandler").value = "";
         };
-      }
-       else if (ext.toLowerCase() === "shp") {
+      } else if (ext.toLowerCase() === "shp") {
         reader.readAsArrayBuffer(files[0]);
         reader.onload = function() {
           open(this.result)
@@ -750,7 +750,7 @@ export default {
       if (graphicManager.graphicManager.has(id)) {
         const manager = graphicManager.graphicManager.get(id);
         manager.destroy();
-        graphicManager.graphicManager.delete(id)
+        graphicManager.graphicManager.delete(id);
       } else {
         this.$refs.markerManager.drop(id);
       }
@@ -794,7 +794,7 @@ export default {
         if (!["MARKER", "LABEL", "MODEL", "LAYER"].includes(menu))
           //依附模型
           //几何图形要依附于模型必须开启depthTestAgainstTerrain
-          cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
+          this.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
       } else {
         //viewer.scene.globe.depthTestAgainstTerrain = this._depthTestAgainstTerrain;
       }

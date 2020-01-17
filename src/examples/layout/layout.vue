@@ -16,7 +16,7 @@
       :polygonNode="true"
       ref="draw"
     ></cesiumDrawViewer>-->
-    <cesiumDrawViewer :extendMarkerImage="imags"></cesiumDrawViewer>
+    <cesiumDrawViewer :extendMarkerImage="imags" ref='marker'></cesiumDrawViewer>
   </div>
 </template>
 
@@ -61,6 +61,7 @@ export default {
     const tileset=new Cesium.Cesium3DTileset({
       url:'static/Photogrammetry/tileset.json'
     })
+    this.$refs.marker.init(viewer);
     tileset.readyPromise.then(t=>{
       viewer.scene.primitives.add(t)
       viewer.camera.viewBoundingSphere(t.boundingSphere)

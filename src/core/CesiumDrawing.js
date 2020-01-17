@@ -182,7 +182,7 @@ class CesiumDrawing {
         options.material = this.material || options.material
         options.width = this.style.width || options.width
         const graphicManager = new CesiumPolyline(this.viewer, options);
-        this.tip.updateText('单击地图添加节点，右击结束绘制.');
+        this.tip.updateText('左键标绘，右键结束.');
         this.tip.visible = true;
         graphicManager.gvid = id
         // graphicManager.id = id
@@ -199,6 +199,10 @@ class CesiumDrawing {
             }
         })
         document.dispatchEvent(evt)
+        const self=this;
+        this.handler.setInputAction(e=>{
+            self.tip&&self.tip.updatePosition(e.endPosition);
+        },MOUSE_MOVE)
         return graphicManager
 
     }
@@ -230,7 +234,7 @@ class CesiumDrawing {
         // graphicManager.gvname = '未命名';
         graphicManager.heightReference = this.heightReference;
         this.tip.visible = true;
-        this.tip.updateText('单击地图添加节点，右击结束绘制.');
+        this.tip.updateText('左键标绘，右键结束.');
         this.graphicManager.set(id, graphicManager);
         this.editManager = graphicManager;
         const evt = new CustomEvent('addEvent', {
@@ -241,6 +245,10 @@ class CesiumDrawing {
             }
         })
         document.dispatchEvent(evt)
+        const self=this;
+        this.handler.setInputAction(e=>{
+            self.tip&&self.tip.updatePosition(e.endPosition);
+        },MOUSE_MOVE)
         return graphicManager;
 
     }
@@ -288,6 +296,8 @@ class CesiumDrawing {
                     known = self.isKnownGraphic(obj)
                     if (known && obj.id.gvtype === GraphicType.POINT) {
                         pickedObj = obj
+                        self.handler.setInputAction(mouseDownHandler, MOUSE_DOWN);
+                        self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
                         break
                     }
                 }
@@ -307,6 +317,7 @@ class CesiumDrawing {
 
                 } else {
                     self.editManager && self.editManager.stopEdit()
+                    self.handler.removeInputAction(MOUSE_MOVE);
                     self.mode = 'end'
                     self.selectedNodeIndex = -1
                     self.editManager = undefined
@@ -328,6 +339,12 @@ class CesiumDrawing {
                 }
                 cartesian = viewer.scene.pickPosition(e.position)
             }
+            //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以减少资源消耗
+            
+            if(self.graphicManager.get(self.graphicId).positions.length===0){
+                self.handler.removeInputAction(MOUSE_MOVE);
+                self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
+            }
             if (defined(cartesian) && self.graphicManager.has(self.graphicId)) {
                 self.graphicManager.get(self.graphicId).addNode(cartesian);
             }
@@ -347,6 +364,7 @@ class CesiumDrawing {
                 document.dispatchEvent(evt)
 
             }
+            self.handler.removeInputAction(MOUSE_MOVE);
         }
 
         const moseMoveHandler = function (e) {
@@ -381,6 +399,7 @@ class CesiumDrawing {
             }
         }
         const mouseDownHandler = function (e) {
+            self.handler.setInputAction(mouseUpHandler, MOUSE_UP)
             const objs = viewer.scene.drillPick(e.position);
             let isCesiumPoint = false;
             for (let obj of objs) {
@@ -401,13 +420,14 @@ class CesiumDrawing {
         const mouseUpHandler = function () {
             self.dragging = false
             viewer.scene.screenSpaceCameraController.enableRotate = true
+            self.handler.removeInputAction(MOUSE_UP);
+            self.handler.removeInputAction(MOUSE_DOWN);
         }
         this.handler.setInputAction(clickHandler, LEFT_CLICK);
-        this.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
+
         this.handler.setInputAction(rightHandler, RIGHT_CLICK);
 
-        this.handler.setInputAction(mouseDownHandler, MOUSE_DOWN)
-        this.handler.setInputAction(mouseUpHandler, MOUSE_UP)
+
 
     }
     rename(id, name) {
@@ -438,6 +458,9 @@ class CesiumDrawing {
     edit(id) {
         const self = this
         const manager = self.graphicManager.get(id);
+        this.handler.setInputAction(e=>{
+            self.tip.updatePosition(e.endPosition);
+        },MOUSE_MOVE);
         self.graphicId = id;
         if (defined(manager)) {
             // manager.zoomTo()
@@ -522,10 +545,11 @@ class CesiumDrawing {
     removeAll() {
         const values = this.graphicManager.values()
         for (let v of values) {
-            v.remove()
-            v.destroy()
+            v.remove();
+            v.destroy();
         }
         this.graphicManager.clear()
+        this.tip.visible=false;
     }
 
     destroy() {
@@ -554,6 +578,7 @@ class CesiumDrawing {
         }
 
         this.graphicId = undefined
+        this.handler.removeInputAction(MOUSE_MOVE);
 
         document.dispatchEvent(evt)
     }

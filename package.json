@@ -1,6 +1,6 @@
 {
   "name": "cesium-draw",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "add a mark,polyline,polygon base on Cesium",
   "private": false,
   "keyword": "Cesium Polygon Polyline mark interactive",

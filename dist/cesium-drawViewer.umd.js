@@ -96,20 +96,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "00fd":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("52b5");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("499e")("3c949d3c", content, true, {"sourceMap":false,"shadowMode":false});
-
-/***/ }),
-
 /***/ "014b":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -546,17 +532,6 @@ module.exports = __webpack_require__("fa99");
 
 /***/ }),
 
-/***/ "06eb":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("00fd");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_index_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "07e3":
 /***/ (function(module, exports) {
 
@@ -661,20 +636,6 @@ module.exports = function () {
   return result;
 };
 
-
-/***/ }),
-
-/***/ "0c01":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("efc8");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("499e")("460ae80d", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -11987,97 +11948,6 @@ module.exports = { "default": __webpack_require__("d8d6"), __esModule: true };
 
 /***/ }),
 
-/***/ "1991":
-/***/ (function(module, exports, __webpack_require__) {
-
-var ctx = __webpack_require__("9b43");
-var invoke = __webpack_require__("31f4");
-var html = __webpack_require__("fab2");
-var cel = __webpack_require__("230e");
-var global = __webpack_require__("7726");
-var process = global.process;
-var setTask = global.setImmediate;
-var clearTask = global.clearImmediate;
-var MessageChannel = global.MessageChannel;
-var Dispatch = global.Dispatch;
-var counter = 0;
-var queue = {};
-var ONREADYSTATECHANGE = 'onreadystatechange';
-var defer, channel, port;
-var run = function () {
-  var id = +this;
-  // eslint-disable-next-line no-prototype-builtins
-  if (queue.hasOwnProperty(id)) {
-    var fn = queue[id];
-    delete queue[id];
-    fn();
-  }
-};
-var listener = function (event) {
-  run.call(event.data);
-};
-// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
-if (!setTask || !clearTask) {
-  setTask = function setImmediate(fn) {
-    var args = [];
-    var i = 1;
-    while (arguments.length > i) args.push(arguments[i++]);
-    queue[++counter] = function () {
-      // eslint-disable-next-line no-new-func
-      invoke(typeof fn == 'function' ? fn : Function(fn), args);
-    };
-    defer(counter);
-    return counter;
-  };
-  clearTask = function clearImmediate(id) {
-    delete queue[id];
-  };
-  // Node.js 0.8-
-  if (__webpack_require__("2d95")(process) == 'process') {
-    defer = function (id) {
-      process.nextTick(ctx(run, id, 1));
-    };
-  // Sphere (JS game engine) Dispatch API
-  } else if (Dispatch && Dispatch.now) {
-    defer = function (id) {
-      Dispatch.now(ctx(run, id, 1));
-    };
-  // Browsers with MessageChannel, includes WebWorkers
-  } else if (MessageChannel) {
-    channel = new MessageChannel();
-    port = channel.port2;
-    channel.port1.onmessage = listener;
-    defer = ctx(port.postMessage, port, 1);
-  // Browsers with postMessage, skip WebWorkers
-  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
-  } else if (global.addEventListener && typeof postMessage == 'function' && !global.importScripts) {
-    defer = function (id) {
-      global.postMessage(id + '', '*');
-    };
-    global.addEventListener('message', listener, false);
-  // IE8-
-  } else if (ONREADYSTATECHANGE in cel('script')) {
-    defer = function (id) {
-      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function () {
-        html.removeChild(this);
-        run.call(id);
-      };
-    };
-  // Rest old browsers
-  } else {
-    defer = function (id) {
-      setTimeout(ctx(run, id, 1), 0);
-    };
-  }
-}
-module.exports = {
-  set: setTask,
-  clear: clearTask
-};
-
-
-/***/ }),
-
 /***/ "1af6":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13384,12 +13254,12 @@ exports.default = {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"795ded45-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=ef394bf6&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[(_vm.markMode==='marker')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createMerkerPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_vm._v("\n        添加标记\n        "),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":_vm.cancelMark}})]),_c('el-container',[_c('el-container',[_c('el-main',[_vm._v("\n            名称：\n            "),_c('el-input',{ref:"nameinput",attrs:{"id":"input_markname"},nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("描述：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_vm._v("\n             \n            "),_c('img',{attrs:{"src":_vm.selectedImage}}),_c('br'),_c('a',{staticStyle:{"margin-left":"10px"},attrs:{"href":"#","id":"imageC"},on:{"click":function($event){_vm.selectPanel=true}}},[_vm._v("更换")])])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}],staticClass:"image-list-class"},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1):_vm._e(),(_vm.markMode==='label')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.position.x+'px',top:_vm.position.y+'px'}),attrs:{"id":"createLabelPanel"}},[_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('el-button',{attrs:{"size":"mini"},on:{"click":_vm.update}},[_vm._v("确定")])],1):_vm._e(),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"795ded45-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=5ec14bf0&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[(_vm.markMode==='marker')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.panelPosition().x+'px',top:_vm.panelPosition().y+'px'}),attrs:{"id":"createMerkerPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_c('span',[_vm._v("添加标记")]),_c('span',{staticClass:"closebtn",attrs:{"id":"closespan"},on:{"click":_vm.cancelMark}})]),_c('el-container',[_c('el-container',[_c('el-main',{staticClass:"marker-main-class"},[_vm._v("\n            名称：\n            "),_c('el-input',{ref:"nameinput",nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("描述：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_c('img',{attrs:{"src":_vm.selectedImage}}),_c('br'),_c('a',{attrs:{"href":"#","id":"imageC"},on:{"click":function($event){_vm.selectPanel=true}}},[_vm._v("更换")])])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}],staticClass:"image-list-class"},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1):_vm._e(),(_vm.markMode==='label')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.panelPosition().x+'px',top:_vm.panelPosition().y+'px'}),attrs:{"id":"createLabelPanel"}},[_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('el-button',{attrs:{"size":"mini"},on:{"click":_vm.update}},[_vm._v("确定")])],1):_vm._e(),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=ef394bf6&scoped=true&
+// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=5ec14bf0&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -13435,10 +13305,6 @@ var utils = __webpack_require__("9944");
 
 // EXTERNAL MODULE: ./src/core/GraphicType.js
 var GraphicType = __webpack_require__("4ab0");
-
-// EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
-var jquery = __webpack_require__("1157");
-var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=script&lang=js&
 
@@ -13521,9 +13387,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
-//
-//
-
 
 
 
@@ -13532,6 +13395,7 @@ var defined = Cesium.defined;
 var cvt = utils["b" /* default */].CVT;
 var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
 var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
+var MOUSE_MOVE = Cesium.ScreenSpaceEventType.MOUSE_MOVE;
 var markerViewer, pickHandler, markerManager;
 /* harmony default export */ var markerViewervue_type_script_lang_js_ = ({
   name: "cesiumMarkerViewer",
@@ -13546,47 +13410,12 @@ var markerViewer, pickHandler, markerManager;
       defaultImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image,
       selectedImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image,
       popWinPosition: undefined,
-      selectedMarker: undefined,
-      activeMarker: undefined,
       markerOptions: _objectSpread({}, Graphic["a" /* CesiumBillboard */].defaultLabelStyle, {}, Graphic["c" /* CesiumModel */].defaultStyle),
       markerid: undefined,
       noImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image
     };
   },
-  computed: {
-    position: function position() {
-      if (this.activeMarker) {
-        if (this.markMode === "marker") {
-          var position = this.activeMarker.graphic.position.getValue();
-          var pixel = cvt.cartesian2Pixel(position, markerViewer);
-          var x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
-          var y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
-          return {
-            x: x,
-            y: y
-          };
-        } else {
-          var _position = this.activeMarker.graphic.position.getValue();
-
-          var _pixel = cvt.cartesian2Pixel(_position, markerViewer);
-
-          var _x = _pixel.x + 10;
-
-          var _y = _pixel.y - 25;
-
-          return {
-            x: _x,
-            y: _y
-          };
-        }
-      } else {
-        return {
-          x: 0,
-          y: 0
-        };
-      }
-    }
-  },
+  computed: {},
   components: {},
   props: {
     extendImage: {
@@ -13620,9 +13449,13 @@ var markerViewer, pickHandler, markerManager;
      * 创建markerViewer后必须调用该方法
      */
     init: function init(viewer) {
+      if (viewer instanceof Cesium.Viewer == false) {
+        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
+      }
+
       markerViewer = viewer; // this.createContext();
 
-      this.cursorTip = new utils["b" /* default */].CursorTip("单击地图添加标记,右击地图取消添加.", "marker-tip", viewer);
+      this.cursorTip = new utils["b" /* default */].CursorTip("左键标绘，右键结束.", "marker-tip", viewer);
       this.cursorTip.visible = false;
 
       if (viewer instanceof Cesium.Viewer === false) {
@@ -13675,31 +13508,13 @@ var markerViewer, pickHandler, markerManager;
       };
 
       handler.setInputAction(showTip, LEFT_CLICK);
-
-      var showContext = function showContext(e) {
-        var pickedObj = viewer.scene.pick(e.position); //其它鼠标事件发生时清除气泡
-
-        self.destroyPopPanle();
-
-        if (defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && pickedObj.id.gvtype === "MARKER") {
-          self.activeMarker = markerManager.get(pickedObj.id.gvid);
-          self.markerid = pickedObj.id.gvid;
-
-          if (!defined(self.activeMarker)) {
-            return;
-          } // $(markerViewer.container).contextMenu(true);
-
-        }
-      };
-
-      handler.setInputAction(showContext, RIGHT_CLICK);
     },
 
     /**
      * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
      * @type {String}表示何种标记,marker:billboard，label:label,model:model
      * @mode {String} 如果mode不是single，将连续添加标记
-     *
+     
      */
     pick: function pick() {
       var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "marker";
@@ -13740,13 +13555,12 @@ var markerViewer, pickHandler, markerManager;
           self.markerid = id;
           self.cursorTip.visible = false;
 
-          if (mode === "single") {
-            handler.removeInputAction(LEFT_CLICK);
-            handler.destroy(); //handler=undefined
-          }
-
           if (type === "model") {
             self.activeMarker = undefined;
+          }
+
+          if (mode === "single") {
+            handler.removeInputAction(LEFT_CLICK);
           }
         }
       };
@@ -13760,8 +13574,13 @@ var markerViewer, pickHandler, markerManager;
         self.activeMarker = undefined; //handler=undefined
       };
 
+      var updateTip = function updateTip(e) {
+        self.cursorTip.updatePosition(e.endPosition);
+      };
+
       handler.setInputAction(cancel, RIGHT_CLICK);
       handler.setInputAction(pick, LEFT_CLICK);
+      handler.setInputAction(updateTip, MOUSE_MOVE);
     },
     createMarker: function createMarker(cartesian) {
       var mp = this.markerOptions;
@@ -13770,6 +13589,38 @@ var markerViewer, pickHandler, markerManager;
         image: this.selectedImage
       }, mp);
       return marker;
+    },
+    panelPosition: function panelPosition() {
+      if (this.activeMarker) {
+        if (this.markMode === "marker") {
+          var position = this.activeMarker.graphic.position.getValue();
+          var pixel = cvt.cartesian2Pixel(position, markerViewer);
+          var x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
+          var y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
+          return {
+            x: x,
+            y: y
+          };
+        } else {
+          var _position = this.activeMarker.graphic.position.getValue();
+
+          var _pixel = cvt.cartesian2Pixel(_position, markerViewer);
+
+          var _x = _pixel.x + 10;
+
+          var _y = _pixel.y - 25;
+
+          return {
+            x: _x,
+            y: _y
+          };
+        }
+      } else {
+        return {
+          x: 0,
+          y: 0
+        };
+      }
     },
     createLabel: function createLabel(cartesian) {
       var options = this.markerOptions;
@@ -13783,15 +13634,25 @@ var markerViewer, pickHandler, markerManager;
       var marker = new Graphic["c" /* CesiumModel */](markerViewer, options);
       return marker;
     },
-    stopPick: function stopPick() {
+    removeEventListener: function removeEventListener() {
       if (pickHandler) {
         if (!pickHandler.isDestroyed()) {
           pickHandler.destroy();
           pickHandler.removeInputAction(LEFT_CLICK);
           pickHandler.removeInputAction(RIGHT_CLICK);
+          pickHandler.removeInputAction(MOUSE_MOVE);
         }
       }
+    },
+    stopPick: function stopPick() {
+      this.removeEventListener();
 
+      if (this.activeMarker) {
+        this.activeMarker.destroy();
+        this.$emit("deleteEvent", this.activeMarker.gvid);
+      }
+
+      this.visible = false;
       this.activeMarker = undefined;
     },
     zoomTo: function zoomTo(id) {
@@ -13885,26 +13746,30 @@ var markerViewer, pickHandler, markerManager;
       var coord = cvt.cartesian2Degrees(position, markerViewer);
       popdiv.style.display = "none";
       var txtdiv = document.createElement("span");
-      txtdiv.innerText = "名称:" + this.selectedMarker.name;
-      var latdiv = document.createElement("span");
-      latdiv.innerText = "纬度:" + coord.lon.toFixed(2);
-      var londiv = document.createElement("span");
-      londiv.innerText = "经度:" + coord.lat.toFixed(2);
+      txtdiv.innerText = "名称:" + (this.selectedMarker.name || "未命名");
+      var coordsdiv = document.createElement("span");
+      coordsdiv.innerText = "纬度:" + coord.lon.toFixed(2) + "  纬度:" + coord.lat.toFixed(2);
       var arrow = document.createElement("div");
       arrow.className = "arrow";
+      var closebtn = document.createElement("span");
+      closebtn.className = "iconfont icon-guanbi closebtn";
+      var self = this;
+
+      closebtn.onclick = function () {
+        self.$el.removeChild(self.popDiv);
+        self.popDiv = undefined;
+      };
+
+      popdiv.appendChild(closebtn);
       popdiv.appendChild(txtdiv);
-      popdiv.appendChild(document.createElement("br"));
-      popdiv.appendChild(latdiv);
-      popdiv.appendChild(document.createElement("br"));
-      popdiv.appendChild(londiv);
-      popdiv.appendChild(document.createElement("br"));
+      popdiv.appendChild(coordsdiv);
       popdiv.appendChild(arrow);
       this.popDiv = popdiv;
       this.$el.appendChild(this.popDiv);
     },
     import: function _import(feat) {
       if (feat.geometry.type.toUpperCase() !== "POINT") {
-        throw new Error('无效的数据类型.');
+        throw new Error("无效的数据类型.");
       }
 
       var id = this.generateId();
@@ -13929,7 +13794,7 @@ var markerViewer, pickHandler, markerManager;
       marker.gvname = feat.properties.name;
       marker.gvid = id;
       markerManager.set(id, marker);
-      this.$emit("addEvent", marker.gvid, marker.gvname || '未命名', marker.gvtype);
+      this.$emit("addEvent", marker.gvid, marker.gvname || "未命名", marker.gvtype);
     },
     export: function _export(type) {
       var managers = markerManager.values();
@@ -13974,7 +13839,7 @@ var markerViewer, pickHandler, markerManager;
       var blob = new Blob([JSON.stringify(json)], {
         type: ""
       });
-      saveAs(blob, type + parseInt(Cesium.getTimestamp()) + ".geojson");
+      window.saveAs(blob, type + parseInt(Cesium.getTimestamp()) + ".geojson");
     },
     setFont: function setFont(font) {
       this.markerOptions.font = font;
@@ -14070,6 +13935,7 @@ var markerViewer, pickHandler, markerManager;
       this.markRemark = "";
       markerManager.delete(this.markerid);
       this.markerid = undefined;
+      this.removeEventListener();
     },
     update: function update() {
       //   this.activeMarker.updateImage(this.selectedImage);
@@ -14080,6 +13946,7 @@ var markerViewer, pickHandler, markerManager;
       this.markName = "";
       this.markRemark = "";
       this.activeMarker = undefined;
+      this.removeEventListener();
     },
     changeHandler: function changeHandler(img) {
       this.selectedImage = img;
@@ -14091,25 +13958,17 @@ var markerViewer, pickHandler, markerManager;
     },
     importMarks: function importMarks() {}
   },
-  watch: {
-    visible: function visible(n) {
-      n && jquery_default()("#input_markname").focus();
-    }
-  }
+  watch: {}
 });
 // CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_markerViewervue_type_script_lang_js_ = (markerViewervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=ef394bf6&lang=scss&scoped=true&
-var markerViewervue_type_style_index_0_id_ef394bf6_lang_scss_scoped_true_ = __webpack_require__("4981");
-
-// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=1&lang=css&
-var markerViewervue_type_style_index_1_lang_css_ = __webpack_require__("06eb");
+// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=5ec14bf0&lang=scss&scoped=true&
+var markerViewervue_type_style_index_0_id_5ec14bf0_lang_scss_scoped_true_ = __webpack_require__("6fb3");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
 // CONCATENATED MODULE: ./src/components/markerViewer.vue
-
 
 
 
@@ -14124,7 +13983,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "ef394bf6",
+  "5ec14bf0",
   null
   
 )
@@ -14330,7 +14189,7 @@ function () {
       options.material = this.material || options.material;
       options.width = this.style.width || options.width;
       var graphicManager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"](this.viewer, options);
-      this.tip.updateText('单击地图添加节点，右击结束绘制.');
+      this.tip.updateText('左键标绘，右键结束.');
       this.tip.visible = true;
       graphicManager.gvid = id; // graphicManager.id = id
       // graphicManager.gvname = '未命名';
@@ -14347,6 +14206,10 @@ function () {
         }
       });
       document.dispatchEvent(evt);
+      var self = this;
+      this.handler.setInputAction(function (e) {
+        self.tip && self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
       return graphicManager;
     }
     /**
@@ -14379,7 +14242,7 @@ function () {
 
       graphicManager.heightReference = this.heightReference;
       this.tip.visible = true;
-      this.tip.updateText('单击地图添加节点，右击结束绘制.');
+      this.tip.updateText('左键标绘，右键结束.');
       this.graphicManager.set(id, graphicManager);
       this.editManager = graphicManager;
       var evt = new CustomEvent('addEvent', {
@@ -14390,6 +14253,10 @@ function () {
         }
       });
       document.dispatchEvent(evt);
+      var self = this;
+      this.handler.setInputAction(function (e) {
+        self.tip && self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
       return graphicManager;
     }
   }, {
@@ -14469,6 +14336,8 @@ function () {
 
               if (known && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
                 pickedObj = obj;
+                self.handler.setInputAction(mouseDownHandler, MOUSE_DOWN);
+                self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
                 break;
               }
             } // const pickedPosition=CVT.pixel2Cartesian(e.position,viewer)
@@ -14501,6 +14370,7 @@ function () {
             }
           } else {
             self.editManager && self.editManager.stopEdit();
+            self.handler.removeInputAction(MOUSE_MOVE);
             self.mode = 'end';
             self.selectedNodeIndex = -1;
             self.editManager = undefined;
@@ -14525,6 +14395,12 @@ function () {
           }
 
           cartesian = viewer.scene.pickPosition(e.position);
+        } //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以减少资源消耗
+
+
+        if (self.graphicManager.get(self.graphicId).positions.length === 0) {
+          self.handler.removeInputAction(MOUSE_MOVE);
+          self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
         }
 
         if (defined(cartesian) && self.graphicManager.has(self.graphicId)) {
@@ -14548,6 +14424,8 @@ function () {
           var evt = new CustomEvent('stopEdit');
           document.dispatchEvent(evt);
         }
+
+        self.handler.removeInputAction(MOUSE_MOVE);
       };
 
       var moseMoveHandler = function moseMoveHandler(e) {
@@ -14588,6 +14466,7 @@ function () {
       };
 
       var mouseDownHandler = function mouseDownHandler(e) {
+        self.handler.setInputAction(mouseUpHandler, MOUSE_UP);
         var objs = viewer.scene.drillPick(e.position);
         var isCesiumPoint = false;
         var _iteratorNormalCompletion3 = true;
@@ -14630,13 +14509,12 @@ function () {
       var mouseUpHandler = function mouseUpHandler() {
         self.dragging = false;
         viewer.scene.screenSpaceCameraController.enableRotate = true;
+        self.handler.removeInputAction(MOUSE_UP);
+        self.handler.removeInputAction(MOUSE_DOWN);
       };
 
       this.handler.setInputAction(clickHandler, LEFT_CLICK);
-      this.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
       this.handler.setInputAction(rightHandler, RIGHT_CLICK);
-      this.handler.setInputAction(mouseDownHandler, MOUSE_DOWN);
-      this.handler.setInputAction(mouseUpHandler, MOUSE_UP);
     }
   }, {
     key: "rename",
@@ -14698,6 +14576,9 @@ function () {
     value: function edit(id) {
       var self = this;
       var manager = self.graphicManager.get(id);
+      this.handler.setInputAction(function (e) {
+        self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
       self.graphicId = id;
 
       if (defined(manager)) {
@@ -14893,6 +14774,7 @@ function () {
       }
 
       this.graphicManager.clear();
+      this.tip.visible = false;
     }
   }, {
     key: "destroy",
@@ -14929,6 +14811,7 @@ function () {
       }
 
       this.graphicId = undefined;
+      this.handler.removeInputAction(MOUSE_MOVE);
       document.dispatchEvent(evt);
     }
   }, {
@@ -15105,29 +14988,6 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
     } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
   }
   return methods;
-};
-
-
-/***/ }),
-
-/***/ "31f4":
-/***/ (function(module, exports) {
-
-// fast apply, http://jsperf.lnkit.com/fast-apply/5
-module.exports = function (fn, args, that) {
-  var un = that === undefined;
-  switch (args.length) {
-    case 0: return un ? fn()
-                      : fn.call(that);
-    case 1: return un ? fn(args[0])
-                      : fn.call(that, args[0]);
-    case 2: return un ? fn(args[0], args[1])
-                      : fn.call(that, args[0], args[1]);
-    case 3: return un ? fn(args[0], args[1], args[2])
-                      : fn.call(that, args[0], args[1], args[2]);
-    case 4: return un ? fn(args[0], args[1], args[2], args[3])
-                      : fn.call(that, args[0], args[1], args[2], args[3]);
-  } return fn.apply(that, args);
 };
 
 
@@ -17486,17 +17346,6 @@ var i18n = exports.i18n = function i18n(fn) {
 };
 
 exports.default = { use: use, t: t, i18n: i18n };
-
-/***/ }),
-
-/***/ "4981":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_ef394bf6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("0c01");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_ef394bf6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_ef394bf6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_ef394bf6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -20639,21 +20488,6 @@ exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
-/***/ "52b5":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, "#popContainer,.popWin-class{width:200px;height:70px;position:fixed;color:#fff;background-color:#636363;text-align:left;padding-left:10px;padding-top:5px;border-radius:5px 5px 5px 5px;visibility:visible}.arrow{position:absolute;top:70px;left:95px;width:0;height:0;border-width:10px;border-style:solid;border-color:#636363 transparent transparent transparent}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "53e2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20823,300 +20657,6 @@ $export($export.S + $export.F * !__webpack_require__("4ee1")(function (iter) { A
 __webpack_require__("6c1c");
 __webpack_require__("1654");
 module.exports = __webpack_require__("95d5");
-
-
-/***/ }),
-
-/***/ "551c":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var LIBRARY = __webpack_require__("2d00");
-var global = __webpack_require__("7726");
-var ctx = __webpack_require__("9b43");
-var classof = __webpack_require__("23c6");
-var $export = __webpack_require__("5ca1");
-var isObject = __webpack_require__("d3f4");
-var aFunction = __webpack_require__("d8e8");
-var anInstance = __webpack_require__("f605");
-var forOf = __webpack_require__("4a59");
-var speciesConstructor = __webpack_require__("ebd6");
-var task = __webpack_require__("1991").set;
-var microtask = __webpack_require__("8079")();
-var newPromiseCapabilityModule = __webpack_require__("a5b8");
-var perform = __webpack_require__("9c80");
-var userAgent = __webpack_require__("a25f");
-var promiseResolve = __webpack_require__("bcaa");
-var PROMISE = 'Promise';
-var TypeError = global.TypeError;
-var process = global.process;
-var versions = process && process.versions;
-var v8 = versions && versions.v8 || '';
-var $Promise = global[PROMISE];
-var isNode = classof(process) == 'process';
-var empty = function () { /* empty */ };
-var Internal, newGenericPromiseCapability, OwnPromiseCapability, Wrapper;
-var newPromiseCapability = newGenericPromiseCapability = newPromiseCapabilityModule.f;
-
-var USE_NATIVE = !!function () {
-  try {
-    // correct subclassing with @@species support
-    var promise = $Promise.resolve(1);
-    var FakePromise = (promise.constructor = {})[__webpack_require__("2b4c")('species')] = function (exec) {
-      exec(empty, empty);
-    };
-    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
-    return (isNode || typeof PromiseRejectionEvent == 'function')
-      && promise.then(empty) instanceof FakePromise
-      // v8 6.6 (Node 10 and Chrome 66) have a bug with resolving custom thenables
-      // https://bugs.chromium.org/p/chromium/issues/detail?id=830565
-      // we can't detect it synchronously, so just check versions
-      && v8.indexOf('6.6') !== 0
-      && userAgent.indexOf('Chrome/66') === -1;
-  } catch (e) { /* empty */ }
-}();
-
-// helpers
-var isThenable = function (it) {
-  var then;
-  return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
-};
-var notify = function (promise, isReject) {
-  if (promise._n) return;
-  promise._n = true;
-  var chain = promise._c;
-  microtask(function () {
-    var value = promise._v;
-    var ok = promise._s == 1;
-    var i = 0;
-    var run = function (reaction) {
-      var handler = ok ? reaction.ok : reaction.fail;
-      var resolve = reaction.resolve;
-      var reject = reaction.reject;
-      var domain = reaction.domain;
-      var result, then, exited;
-      try {
-        if (handler) {
-          if (!ok) {
-            if (promise._h == 2) onHandleUnhandled(promise);
-            promise._h = 1;
-          }
-          if (handler === true) result = value;
-          else {
-            if (domain) domain.enter();
-            result = handler(value); // may throw
-            if (domain) {
-              domain.exit();
-              exited = true;
-            }
-          }
-          if (result === reaction.promise) {
-            reject(TypeError('Promise-chain cycle'));
-          } else if (then = isThenable(result)) {
-            then.call(result, resolve, reject);
-          } else resolve(result);
-        } else reject(value);
-      } catch (e) {
-        if (domain && !exited) domain.exit();
-        reject(e);
-      }
-    };
-    while (chain.length > i) run(chain[i++]); // variable length - can't use forEach
-    promise._c = [];
-    promise._n = false;
-    if (isReject && !promise._h) onUnhandled(promise);
-  });
-};
-var onUnhandled = function (promise) {
-  task.call(global, function () {
-    var value = promise._v;
-    var unhandled = isUnhandled(promise);
-    var result, handler, console;
-    if (unhandled) {
-      result = perform(function () {
-        if (isNode) {
-          process.emit('unhandledRejection', value, promise);
-        } else if (handler = global.onunhandledrejection) {
-          handler({ promise: promise, reason: value });
-        } else if ((console = global.console) && console.error) {
-          console.error('Unhandled promise rejection', value);
-        }
-      });
-      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
-      promise._h = isNode || isUnhandled(promise) ? 2 : 1;
-    } promise._a = undefined;
-    if (unhandled && result.e) throw result.v;
-  });
-};
-var isUnhandled = function (promise) {
-  return promise._h !== 1 && (promise._a || promise._c).length === 0;
-};
-var onHandleUnhandled = function (promise) {
-  task.call(global, function () {
-    var handler;
-    if (isNode) {
-      process.emit('rejectionHandled', promise);
-    } else if (handler = global.onrejectionhandled) {
-      handler({ promise: promise, reason: promise._v });
-    }
-  });
-};
-var $reject = function (value) {
-  var promise = this;
-  if (promise._d) return;
-  promise._d = true;
-  promise = promise._w || promise; // unwrap
-  promise._v = value;
-  promise._s = 2;
-  if (!promise._a) promise._a = promise._c.slice();
-  notify(promise, true);
-};
-var $resolve = function (value) {
-  var promise = this;
-  var then;
-  if (promise._d) return;
-  promise._d = true;
-  promise = promise._w || promise; // unwrap
-  try {
-    if (promise === value) throw TypeError("Promise can't be resolved itself");
-    if (then = isThenable(value)) {
-      microtask(function () {
-        var wrapper = { _w: promise, _d: false }; // wrap
-        try {
-          then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
-        } catch (e) {
-          $reject.call(wrapper, e);
-        }
-      });
-    } else {
-      promise._v = value;
-      promise._s = 1;
-      notify(promise, false);
-    }
-  } catch (e) {
-    $reject.call({ _w: promise, _d: false }, e); // wrap
-  }
-};
-
-// constructor polyfill
-if (!USE_NATIVE) {
-  // 25.4.3.1 Promise(executor)
-  $Promise = function Promise(executor) {
-    anInstance(this, $Promise, PROMISE, '_h');
-    aFunction(executor);
-    Internal.call(this);
-    try {
-      executor(ctx($resolve, this, 1), ctx($reject, this, 1));
-    } catch (err) {
-      $reject.call(this, err);
-    }
-  };
-  // eslint-disable-next-line no-unused-vars
-  Internal = function Promise(executor) {
-    this._c = [];             // <- awaiting reactions
-    this._a = undefined;      // <- checked in isUnhandled reactions
-    this._s = 0;              // <- state
-    this._d = false;          // <- done
-    this._v = undefined;      // <- value
-    this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
-    this._n = false;          // <- notify
-  };
-  Internal.prototype = __webpack_require__("dcbc")($Promise.prototype, {
-    // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
-    then: function then(onFulfilled, onRejected) {
-      var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
-      reaction.ok = typeof onFulfilled == 'function' ? onFulfilled : true;
-      reaction.fail = typeof onRejected == 'function' && onRejected;
-      reaction.domain = isNode ? process.domain : undefined;
-      this._c.push(reaction);
-      if (this._a) this._a.push(reaction);
-      if (this._s) notify(this, false);
-      return reaction.promise;
-    },
-    // 25.4.5.1 Promise.prototype.catch(onRejected)
-    'catch': function (onRejected) {
-      return this.then(undefined, onRejected);
-    }
-  });
-  OwnPromiseCapability = function () {
-    var promise = new Internal();
-    this.promise = promise;
-    this.resolve = ctx($resolve, promise, 1);
-    this.reject = ctx($reject, promise, 1);
-  };
-  newPromiseCapabilityModule.f = newPromiseCapability = function (C) {
-    return C === $Promise || C === Wrapper
-      ? new OwnPromiseCapability(C)
-      : newGenericPromiseCapability(C);
-  };
-}
-
-$export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
-__webpack_require__("7f20")($Promise, PROMISE);
-__webpack_require__("7a56")(PROMISE);
-Wrapper = __webpack_require__("8378")[PROMISE];
-
-// statics
-$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
-  // 25.4.4.5 Promise.reject(r)
-  reject: function reject(r) {
-    var capability = newPromiseCapability(this);
-    var $$reject = capability.reject;
-    $$reject(r);
-    return capability.promise;
-  }
-});
-$export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
-  // 25.4.4.6 Promise.resolve(x)
-  resolve: function resolve(x) {
-    return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
-  }
-});
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__("5cc5")(function (iter) {
-  $Promise.all(iter)['catch'](empty);
-})), PROMISE, {
-  // 25.4.4.1 Promise.all(iterable)
-  all: function all(iterable) {
-    var C = this;
-    var capability = newPromiseCapability(C);
-    var resolve = capability.resolve;
-    var reject = capability.reject;
-    var result = perform(function () {
-      var values = [];
-      var index = 0;
-      var remaining = 1;
-      forOf(iterable, false, function (promise) {
-        var $index = index++;
-        var alreadyCalled = false;
-        values.push(undefined);
-        remaining++;
-        C.resolve(promise).then(function (value) {
-          if (alreadyCalled) return;
-          alreadyCalled = true;
-          values[$index] = value;
-          --remaining || resolve(values);
-        }, reject);
-      });
-      --remaining || resolve(values);
-    });
-    if (result.e) reject(result.v);
-    return capability.promise;
-  },
-  // 25.4.4.4 Promise.race(iterable)
-  race: function race(iterable) {
-    var C = this;
-    var capability = newPromiseCapability(C);
-    var reject = capability.reject;
-    var result = perform(function () {
-      forOf(iterable, false, function (promise) {
-        C.resolve(promise).then(capability.resolve, reject);
-      });
-    });
-    if (result.e) reject(result.v);
-    return capability.promise;
-  }
-});
 
 
 /***/ }),
@@ -73981,21 +73521,6 @@ module.exports = __webpack_require__("f921");
 
 /***/ }),
 
-/***/ "67c0":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".closebtn[data-v-7b410b52]{line-height:32px;height:40px;text-align:center;display:inline-block;cursor:pointer;float:right}.closebtn[data-v-7b410b52]:hover{color:red}#drawtoolPanel[data-v-7b410b52]{position:fixed;width:400px;top:10px;right:10px;height:145px;right:7px;border-radius:3px;z-index:10;border-radius:4px}.layer-manager-class[data-v-7b410b52]{width:400px;position:absolute;top:90px}.edit-layer-manager-class[data-v-7b410b52]{top:140px}#clostbtn[data-v-7b410b52]{font-family:element-icons!important;color:red;font-size:24px;line-height:24px}.graphic-edit[data-v-7b410b52]{width:100%;height:52px;line-height:52px;position:absolute;background:#a9a9a9;color:#000}#clostbtn[data-v-7b410b52]:after{content:\"\\E6DB\"}.el-container[data-v-7b410b52]{width:400px;height:85px;color:#000;background:#a9a9a9;z-index:10}.el-header[data-v-7b410b52]{height:32px!important;line-height:32px!important;border-bottom:1px solid #a9a9a9;padding:0 5px}.el-header span[data-v-7b410b52]{margin:0 5px}.icon-class[data-v-7b410b52]{color:#000}.selected-graphic[data-v-7b410b52]{color:#2988cc!important}.graphic-draw-main[data-v-7b410b52]{height:52px;padding:0 5px;vertical-align:top;color:#000;border-bottom:1px solid #a9a9a9}.graphic-draw-main ul[data-v-7b410b52]{cursor:default;padding:0;overflow:hidden;height:43px;margin:0}.graphic-draw-main ul li[data-v-7b410b52]{cursor:pointer;float:left;padding:0 0 0;width:65px;height:100%;-webkit-box-sizing:border-box;box-sizing:border-box;list-style:none}.graphic-draw-main ul li:hover i[data-v-7b410b52],.graphic-draw-main ul li:hover span[data-v-7b410b52]{color:#2988cc}.graphic-draw-main ul li i[data-v-7b410b52]{display:block;height:16px;width:16px;background-size:contain;margin:0 auto;margin-top:8px}.graphic-draw-main ul li span[data-v-7b410b52]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block;text-align:center;font-size:12px;color:#000;line-height:22px}.el-main img[data-v-7b410b52]{display:inline-block}.edit-class[data-v-7b410b52]{height:52px;line-height:52px;vertical-align:top;padding:0 5px}.edit-class[data-v-7b410b52] .el-color-picker--mini{height:28px;width:28px}.edit-class[data-v-7b410b52] .el-color-picker__color{border:none;border-radius:4px;display:inline}.edit-class[data-v-7b410b52] .el-color-picker__trigger{height:28px;width:28px;padding:0;border:1px solid #000}.edit-class[data-v-7b410b52] .el-color-picker__color-inner{background-color:#a9a9a9!important;border-radius:4px}.edit-class[data-v-7b410b52] .el-input__inner{background-color:#a9a9a9;border:1px solid #000;color:#000}.edit-class[data-v-7b410b52] .el-color-picker__icon{line-height:28px}.edit-class span[data-v-7b410b52]{margin:0 5px}.edit-class .el-select[data-v-7b410b52]{vertical-align:top}.edit-class .el-color-picker[data-v-7b410b52]{vertical-align:top;margin:12px 5px}.marker-edit-class .el-select[data-v-7b410b52]{width:80px;margin:0 5px}.marker-edit-class img[data-v-7b410b52]{width:24px;height:24px}.polyline-edit-class .width-selector[data-v-7b410b52]{width:70px;margin:0 5px}.polyline-edit-class .style-selector[data-v-7b410b52]{width:80px;margin:0 5px}.polyline-edit-class .type-selector[data-v-7b410b52]{width:140px;margin:0 5px}.polygon-edit-class .width-selector[data-v-7b410b52]{width:70px;margin:0 5px}.polygon-edit-class .type-selector[data-v-7b410b52]{width:140px;margin:0 5px}.polygon-edit-class .outline-selected[data-v-7b410b52]{color:#fff}.polygon-edit-class .border-btn[data-v-7b410b52]{border:1px solid #000;width:28px;height:28px;display:inline-block;vertical-align:top;line-height:28px;text-align:center;border-radius:4px;box-sizing:border-box;-webkit-box-sizing:border-box;margin:12px 5px}.label-edit-class span[data-v-7b410b52]{margin:0 5px}.label-edit-class .font-selector[data-v-7b410b52]{width:120px;margin:0 5px}.label-edit-class .size-selector[data-v-7b410b52]{width:80px;margin:0 5px}.label-edit-class img[data-v-7b410b52]{width:24px;height:24px;margin:0 5px}.model-edit-class span[data-v-7b410b52]{margin:0 5px}.model-edit-class .model-selector-trigger[data-v-7b410b52]{border:1px solid #000;width:28px;height:28px;display:inline-block;vertical-align:top;line-height:28px;text-align:center;border-radius:4px;box-sizing:border-box;-webkit-box-sizing:border-box;margin:12px 5px}.model-edit-class .el-select[data-v-7b410b52]{width:100px;margin:0 5px}.model-edit-class .el-button[data-v-7b410b52]{height:28px;line-height:28px}.model-edit-class .el-slider[data-v-7b410b52]{display:inline-block;margin:0 15px;width:100px}.model-edit-class .el-slider[data-v-7b410b52] .el-slider__runway{margin-bottom:0}[data-v-7b410b52] .el-color-picker__trigger{display:block}.el-main .el-radio[data-v-7b410b52]{display:inline-block;margin:5px}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "6821":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -74025,6 +73550,20 @@ module.exports = function (it, key) {
 
 __webpack_require__("6718")('asyncIterator');
 
+
+/***/ }),
+
+/***/ "6a3a":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("fda5");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("499e")("a37da7a4", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -75709,6 +75248,17 @@ var index = (function () {
 
 /***/ }),
 
+/***/ "6fb3":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_5ec14bf0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("edd2");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_5ec14bf0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_5ec14bf0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_5ec14bf0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "71c1":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -75841,6 +75391,21 @@ aria.Dialog.prototype.trapFocus = function (event) {
 };
 
 exports.default = aria.Dialog;
+
+/***/ }),
+
+/***/ "7413":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".closebtn[data-v-5ec14bf0]{line-height:32px;height:40px;text-align:center;display:inline-block;cursor:pointer;float:right}.closebtn[data-v-5ec14bf0]:hover{color:red}#msg1[data-v-5ec14bf0],.msg[data-v-5ec14bf0]{width:150px;height:30px;position:fixed}#submit1[data-v-5ec14bf0],.submit[data-v-5ec14bf0]{position:fixed;height:34px;width:34px}.form-control[data-v-5ec14bf0]{display:block;width:100%;height:34px;padding:3px 12px;font-size:14px;line-height:1.42857143;color:#000;background-color:#a9a9a9;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out}.form-control[data-v-5ec14bf0]:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.form-control[data-v-5ec14bf0]::-moz-placeholder{color:#000;opacity:1}.form-control[data-v-5ec14bf0]:-ms-input-placeholder{color:#000}.form-control[data-v-5ec14bf0]::-webkit-input-placeholder{color:#000}.btn-primary[data-v-5ec14bf0]{color:#fff;background-color:#337ab7;border-color:#2e6da4}.marker-main-class[data-v-5ec14bf0]{color:#000}.btn[data-v-5ec14bf0]{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:0}#menu[data-v-5ec14bf0]{position:fixed;width:100px;height:70px;border:2px solid #b7b1a3;background-color:#a9a9a9;text-align:left}#createMerkerPanel[data-v-5ec14bf0] a:active,#createMerkerPanel[data-v-5ec14bf0] a:hover,#createMerkerPanel[data-v-5ec14bf0] a:link,#createMerkerPanel[data-v-5ec14bf0] a:visited{font-size:14px;text-decoration:none;color:#000}#createMerkerPanel[data-v-5ec14bf0] .el-button--primary span{color:#409eff!important}#createMerkerPanel[data-v-5ec14bf0] .el-button--primary:hover span{color:#fff!important}#createMerkerPanel[data-v-5ec14bf0] .el-button--danger span{color:#f56c6c!important}#createMerkerPanel[data-v-5ec14bf0] .el-button--danger:hover span{color:#fff!important}#menu>div[data-v-5ec14bf0]{width:80px;height:30px;line-height:30px;vertical-align:center;padding-left:20px;padding-top:0}#menu>div[data-v-5ec14bf0]:hover{background-color:#e5e5e5}.no-image-class[data-v-5ec14bf0]{width:24px;height:24px;line-height:24px}#createMerkerPanel[data-v-5ec14bf0]{left:0;top:0;width:340px;height:210px;position:fixed;border:0 solid #b7b1a3;background-color:#a9a9a9;color:#000}#createMerkerPanel .image-list-class[data-v-5ec14bf0]{display:block;padding:10px}#createMerkerPanel .el-input[data-v-5ec14bf0]{display:inline-block;height:20px;line-height:20px;margin-top:0;width:78%;margin-bottom:30px!important;margin-left:0!important}#createMerkerPanel .el-button[data-v-5ec14bf0]{display:inline-block;margin-top:20px;margin-right:20px;float:right}#createMerkerPanel .el-header[data-v-5ec14bf0]{height:45px!important;line-height:30px;color:#000;padding:0 5px}#createMerkerPanel .el-header span[data-v-5ec14bf0]{margin:0 5px;color:#000}#createMerkerPanel .el-footer[data-v-5ec14bf0]{padding-right:20%}#createMerkerPanel .el-textarea[data-v-5ec14bf0]{width:78%}#createMerkerPanel .el-aside[data-v-5ec14bf0]{width:20%!important;text-align:center;line-height:20px}#createMerkerPanel .el-aside a[data-v-5ec14bf0]{display:inline-block;width:32px}#createMerkerPanel .el-main[data-v-5ec14bf0]{width:70%;padding-left:10px!important;padding:0 0 0 0}#createMerkerPanel img[data-v-5ec14bf0]{margin-top:8px;margin-left:5px}.crusor-tip[data-v-5ec14bf0]{width:200px;height:30px;line-height:30px;vertical-align:center;border:1px solid #e5e5e5;color:#fff;background-color:rgba(0,0,0,.6);position:fixed}#createLabelPanel[data-v-5ec14bf0]{position:fixed;z-index:999;height:50px;width:320px}#createLabelPanel .el-input[data-v-5ec14bf0]{display:inline-block;width:200px;margin:0 10px}#createLabelPanel .el-button[data-v-5ec14bf0]{display:inline-block;margin:0 2px;width:92px;height:36px;background-color:#000;border:none;color:#fff;border-radius:4px;vertical-align:middle}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -76537,82 +76102,6 @@ checkbox_group.install = function (Vue) {
 /***/ })
 
 /******/ });
-
-/***/ }),
-
-/***/ "8079":
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__("7726");
-var macrotask = __webpack_require__("1991").set;
-var Observer = global.MutationObserver || global.WebKitMutationObserver;
-var process = global.process;
-var Promise = global.Promise;
-var isNode = __webpack_require__("2d95")(process) == 'process';
-
-module.exports = function () {
-  var head, last, notify;
-
-  var flush = function () {
-    var parent, fn;
-    if (isNode && (parent = process.domain)) parent.exit();
-    while (head) {
-      fn = head.fn;
-      head = head.next;
-      try {
-        fn();
-      } catch (e) {
-        if (head) notify();
-        else last = undefined;
-        throw e;
-      }
-    } last = undefined;
-    if (parent) parent.enter();
-  };
-
-  // Node.js
-  if (isNode) {
-    notify = function () {
-      process.nextTick(flush);
-    };
-  // browsers with MutationObserver, except iOS Safari - https://github.com/zloirock/core-js/issues/339
-  } else if (Observer && !(global.navigator && global.navigator.standalone)) {
-    var toggle = true;
-    var node = document.createTextNode('');
-    new Observer(flush).observe(node, { characterData: true }); // eslint-disable-line no-new
-    notify = function () {
-      node.data = toggle = !toggle;
-    };
-  // environments with maybe non-completely correct, but existent Promise
-  } else if (Promise && Promise.resolve) {
-    // Promise.resolve without an argument throws an error in LG WebOS 2
-    var promise = Promise.resolve(undefined);
-    notify = function () {
-      promise.then(flush);
-    };
-  // for other environments - macrotask based on:
-  // - setImmediate
-  // - MessageChannel
-  // - window.postMessag
-  // - onreadystatechange
-  // - setTimeout
-  } else {
-    notify = function () {
-      // strange IE + webpack dev server bug - use .call(global)
-      macrotask.call(global, flush);
-    };
-  }
-
-  return function (fn) {
-    var task = { fn: fn, next: undefined };
-    if (last) last.next = task;
-    if (!head) {
-      head = task;
-      notify();
-    } last = task;
-  };
-};
-
 
 /***/ }),
 
@@ -77815,17 +77304,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
 
 /***/ }),
 
-/***/ "8d8c":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_7b410b52_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a6bb");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_7b410b52_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_7b410b52_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_7b410b52_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "8e60":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -78403,24 +77881,22 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return moveDiv; });
+/* unused harmony export errroCatch */
 /* unused harmony export currentExtent */
-/* unused harmony export viewerCenter */
+/* unused harmony export viewCenter */
 /* unused harmony export saveCurViewerImage */
 /* unused harmony export downloadFile */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CVT; });
+/* unused harmony export CursorTip */
 /* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("d225");
 /* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("b0b4");
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("551c");
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("34ef");
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("28a5");
-/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("a481");
-/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var shapefile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("c26a");
-
-
+/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("34ef");
+/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("28a5");
+/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("1157");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -78430,11 +77906,11 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
  @Author:zhangbo
  @Date:2019-03-13 21:18:48
  @E-mail:zhangb@geovie.com.cn
- @Last Modified by:zhangbo
+ @LastEditors:zhangbo
  @Last Modified time:2019-03-13 21:18:48
  */
-var Cesium = window.Cesium;
 
+var Cesium = window.Cesium;
 /**
  * Cesium坐标转换工具
  */
@@ -78447,6 +77923,27 @@ var CVT = function () {
   };
 
   _.pixel2Cartesian = function (pixel, viewer) {
+    if (viewer.terrainProvider instanceof Cesium.EllipsoidTerrainProvider) {
+      return _.pixel2Cartesian1(pixel, viewer);
+    } else {
+      return _.pixel2Cartesian2(pixel, viewer);
+    }
+  };
+  /**
+   * 二维坐标，没有添加地形数据时调用
+   */
+
+
+  _.pixel2Cartesian1 = function (pixel, viewer) {
+    var cartesian = viewer.camera.pickEllipsoid(pixel, viewer.scene.globe.ellipsoid);
+    return cartesian;
+  };
+  /**
+   * 三维坐标，添加地形数据时调用
+   */
+
+
+  _.pixel2Cartesian2 = function (pixel, viewer) {
     var ray = viewer.camera.getPickRay(pixel);
     var cartesian = viewer.scene.globe.pick(ray, viewer.scene);
     return cartesian;
@@ -78487,76 +77984,104 @@ var CVT = function () {
     return Cesium.Cartesian3.fromRadians(position.lon, position.lat, position.height);
   };
 
-  _.pixel2Degress = function (pixel, viewer) {
+  _.pixel2Degrees = function (pixel, viewer) {
     var cartesian = _.pixel2Cartesian(pixel, viewer);
 
-    return _.cartesian2Degrees(cartesian, viewer);
+    if (Cesium.defined(cartesian)) {
+      return _.cartesian2Degrees(cartesian, viewer);
+    }
+
+    return undefined;
   };
 
   _.pixel2Radians = function (pixel, viewer) {
     var cartesian = _.pixel2Cartesian(pixel, viewer);
 
-    return _.cartesian2Radians(cartesian, viewer);
+    if (Cesium.defined(cartesian)) {
+      return _.cartesian2Radians(cartesian, viewer);
+    }
+
+    return undefined;
+  };
+
+  _.toDegrees = function (position, viewer) {
+    if (position instanceof Cesium.Cartesian3) {
+      return _.cartesian2Degrees(position, viewer);
+    } else if (position instanceof Cesium.Cartesian2) {
+      return _.pixel2Degrees(position, viewer);
+    }
+  };
+
+  _.toRadians = function (position, viewer) {
+    if (position instanceof Cesium.Cartesian3) {
+      return _.cartesian2Radians(position, viewer);
+    } else if (position instanceof Cesium.Cartesian2) {
+      return _.pixel2Radians(position, viewer);
+    }
+  };
+
+  _.toPixel = function (position, viewer) {
+    if (position instanceof Cesium.Cartesian) {
+      return _.cartesian2Pixel(position, viewer);
+    }
   };
 
   return _;
-}(); // const earthRadiusMeters = 6371000.0;
-// const radiansPerDegree = Math.PI / 180.0;
-// const degreesPerRadian = 180.0 / Math.PI;
-
+}();
 /**
- * 返回两个点之间的距离
- * @param x {Cartesian3} 起始点的地理坐标
- * @param y {Cartesian3} 结束点的地理坐标
- * @returns {string} 两点之间的直线距离(m)
+ *
+ * @param {*} container 要移到的元素
+ * @param {*} target 监听鼠标事件的元素，一般是标题栏
  */
 
 
-function moveDiv(container) {
-  var isDrag = false;
-  var startPosition = {};
-  var defaultPosition = {};
-  container.addEventListener('mousedown', function (e) {
-    isDrag = true;
-    startPosition['x'] = e.x;
-    startPosition['y'] = e.y;
-    defaultPosition['x'] = parseFloat(container.style.left.replace('px', ""));
-    defaultPosition['y'] = parseFloat(container.style.top.replace('px', ""));
+function moveDiv(container, target) {
+  if (!jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container)) {
+    throw new Error("请指定要操作的元素");
+  }
+
+  if (!target) {
+    target = container;
+  }
+
+  jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).mousedown(function (e //e鼠标事件
+  ) {
+    jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "move"); //改变鼠标指针的形状
+    // let offset = $("#" + container).offset(); //DIV在页面的位置
+
+    var offset = jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).position(); //DIV在页面的位置
+
+    var x = e.pageX - offset.left; //获得鼠标指针离DIV元素左边界的距离
+
+    var y = e.pageY - offset.top; //获得鼠标指针离DIV元素上边界的距离
+
+    jquery__WEBPACK_IMPORTED_MODULE_4___default()(document).bind("mousemove", function (ev //绑定鼠标的移动事件，因为光标在DIV元素外面也要有效果，所以要用doucment的事件，而不用DIV元素的事件
+    ) {
+      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "move");
+      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).stop(); //加上这个之后
+
+      var _x = ev.pageX - x; //获得X轴方向移动的值
+
+
+      var _y = ev.pageY - y; //获得Y轴方向移动的值
+
+
+      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).animate({
+        left: _x + "px",
+        top: _y + "px"
+      }, 10);
+    });
   });
-  container.addEventListener('mousemove', function (e) {
-    if (isDrag) {
-      var offsetX = startPosition.x - defaultPosition.x;
-      var offsetY = startPosition.y - defaultPosition.y;
-      container.style.left = e.x - offsetX + 'px';
-      container.style.top = e.y - offsetY + 'px';
-    }
-  });
-  container.addEventListener('mouseout', function () {
-    isDrag = false;
-  });
-  container.addEventListener('mouseup', function () {
-    isDrag = false;
+  jquery__WEBPACK_IMPORTED_MODULE_4___default()(document).mouseup(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "default");
+    jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).unbind("mousemove");
   });
 }
-
-var getDistance = function getDistance(x, y) {
-  var geodesic = new Cesium.EllipsoidGeodesic();
-  geodesic.setEndPoints(x, y);
-  var surfaceDist = Math.round(geodesic.surfaceDistance);
-  return surfaceDist;
-};
 /**
- * 计算空间距离
- * @param x {Cartesian3} 起始点的地理坐标
- * @param y {Cartesian3} 结束点的地理坐标
- * @returns {string} 两点之间的空间距离(m)
+ * 获得当前视野范围
+ * @param {Viewer} viewer
  */
 
-
-var getSpaceDistance = function getSpaceDistance(x, y) {
-  var surdis = getDistance(x, y);
-  return Math.sqrt(Math.pow(surdis, 2) + Math.pow(x.height - y.height, 2));
-};
 
 function currentExtent(viewer) {
   // 范围对象
@@ -78601,18 +78126,57 @@ function currentExtent(viewer) {
   extent.height = Math.ceil(viewer.camera.positionCartographic.height);
   return extent;
 }
+/**
+ * 获得当前视野中心
+ * @param {*} viewer
+ */
 
-var viewerCenter = function viewerCenter(viewer) {
-  var viewCenter = new Cesium.Cartesian2(Math.floor(viewer.canvas.clientWidth / 2), Math.floor(viewer.canvas.clientHeight / 2)); // Given the pixel in the center, get the world position
 
-  var newWorldPosition = viewer.scene.camera.pickEllipsoid(viewCenter);
-  return newWorldPosition;
+var viewCenter = function viewCenter(viewer) {
+  var inWorldCoordinates = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var result = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : new Cesium.Cartesian3();
+  var scene = viewer.scene;
+  var camera = viewer.camera;
+  var unprojectedScratch = new Cesium.Cartographic();
+  var rayScratch = new Cesium.Ray();
+
+  if (scene.mode === Cesium.SceneMode.MORPHING) {
+    return undefined;
+  } // TODO bug when tracking: if entity moves the current position should be used and not only the one when starting orbiting/rotating
+  // TODO bug when tracking: reset should reset to default view of tracked entity
+
+
+  if (Cesium.defined(viewer.trackedEntity)) {
+    result = viewer.trackedEntity.position.getValue(viewer.clock.currentTime, result);
+  } else {
+    rayScratch.origin = camera.positionWC;
+    rayScratch.direction = camera.directionWC;
+    result = scene.globe.pick(rayScratch, scene, result);
+  }
+
+  if (!Cesium.defined(result)) {
+    return undefined;
+  }
+
+  if (scene.mode === Cesium.SceneMode.SCENE2D || scene.mode === Cesium.SceneMode.COLUMBUS_VIEW) {
+    result = camera.worldToCameraCoordinatesPoint(result, result);
+
+    if (inWorldCoordinates) {
+      result = scene.globe.ellipsoid.cartographicToCartesian(scene.mapProjection.unproject(result, unprojectedScratch), result);
+    }
+  } else {
+    if (!inWorldCoordinates) {
+      result = camera.worldToCameraCoordinatesPoint(result, result);
+    }
+  }
+
+  return result;
 };
 
 var saveCurViewerImage = function saveCurViewerImage(viewer, filename) {
   viewer.render();
 
-  if (!filename || filename == '') {
+  if (!filename || filename == "") {
     filename = new Date().toLocaleString() + ".png";
   }
 
@@ -78622,7 +78186,7 @@ var saveCurViewerImage = function saveCurViewerImage(viewer, filename) {
 
 var downloadFile = function downloadFile(fileName, content) {
   //下载文件
-  var aLink = document.createElement('a');
+  var aLink = document.createElement("a");
   var blob = base64ToBlob(content); //new Blob([content]);
 
   var evt = document.createEvent("HTMLEvents");
@@ -78634,8 +78198,8 @@ var downloadFile = function downloadFile(fileName, content) {
 
   function base64ToBlob(code) {
     //base64转blob
-    var parts = code.split(';base64,');
-    var contentType = parts[0].split(':')[1];
+    var parts = code.split(";base64,");
+    var contentType = parts[0].split(":")[1];
     var raw = window.atob(parts[1]);
     var rawLength = raw.length;
     var uInt8Array = new Uint8Array(rawLength);
@@ -78660,25 +78224,6 @@ var errroCatch = function errroCatch(e, callback) {
   }
 };
 
-var shp2GeoJSON = function shp2GeoJSON(filedata) {
-  var reader = new FileReader();
-  reader.readAsArrayBuffer(filedata);
-  return new Promise(function (resolve) {
-    reader.onload = function () {
-      Object(shapefile__WEBPACK_IMPORTED_MODULE_6__[/* open */ "a"])(this.result).then(function (source) {
-        return source.read().then(function log(result) {
-          if (result.done) return false;
-          resolve(result.value);
-          console.log(result.value);
-          return source.read().then(log);
-        });
-      }).catch(function (error) {
-        return console.error(error.stack);
-      });
-    };
-  });
-};
-
 var CursorTip =
 /*#__PURE__*/
 function () {
@@ -78687,22 +78232,8 @@ function () {
 
     var tooltip = document.createElement("div");
     tooltip.id = id || "cursor-tip";
-    tooltip.style.position = 'fixed';
-    tooltip.style.border = '1px #b6aeae solid';
-    tooltip.style.height = '30px';
-    tooltip.style.lineHeight = '30px';
-    tooltip.style.paddingLeft = '10px';
-    tooltip.style.paddingRight = '20px';
-    tooltip.style.backgroundColor = '#b6aeae';
-    tooltip.style.color = '#FFF';
-    tooltip.style.borderRadius = '6px 6px 6px 0px';
-    tooltip.style.pointerEvents = 'none';
+    tooltip.className = "cursor-tip-class";
     tooltip.innerHTML = text;
-    tooltip.style.zIndex = 999;
-    tooltip.style.minWidth = '280px'; // if(oe){
-    //   document.body.removeChild(oe)
-    // }
-
     document.body.appendChild(tooltip);
     this.ele = tooltip;
     this._visible = true;
@@ -78718,8 +78249,8 @@ function () {
   Object(D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(CursorTip, [{
     key: "updatePosition",
     value: function updatePosition(pixel) {
-      this.ele.style.left = pixel.x + 10 + 'px';
-      this.ele.style.top = pixel.y + 10 + 'px';
+      this.ele.style.left = pixel.x + 10 + "px";
+      this.ele.style.top = pixel.y + 10 + "px";
     }
   }, {
     key: "updateText",
@@ -78735,9 +78266,9 @@ function () {
       this._visible = v;
 
       if (v) {
-        this.ele.style.display = 'block';
+        this.ele.style.display = "block";
       } else {
-        this.ele.style.display = 'none';
+        this.ele.style.display = "none";
       }
     }
   }]);
@@ -78749,13 +78280,10 @@ function () {
 /* harmony default export */ __webpack_exports__["b"] = ({
   moveDiv: moveDiv,
   errroCatch: errroCatch,
-  getDistance: getDistance,
-  getSpaceDistance: getSpaceDistance,
   currentExtent: currentExtent,
-  viewerCenter: viewerCenter,
+  viewCenter: viewCenter,
   saveCurViewerImage: saveCurViewerImage,
   downloadFile: downloadFile,
-  shp2GeoJSON: shp2GeoJSON,
   CVT: CVT,
   CursorTip: CursorTip
 });
@@ -78856,20 +78384,6 @@ var ArrayProto = Array.prototype;
 if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__("32e9")(ArrayProto, UNSCOPABLES, {});
 module.exports = function (key) {
   ArrayProto[UNSCOPABLES][key] = true;
-};
-
-
-/***/ }),
-
-/***/ "9c80":
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return { e: false, v: exec() };
-  } catch (e) {
-    return { e: true, v: e };
-  }
 };
 
 
@@ -80231,17 +79745,6 @@ Schema.messages = messages_messages;
 
 /***/ }),
 
-/***/ "a25f":
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__("7726");
-var navigator = global.navigator;
-
-module.exports = navigator && navigator.userAgent || '';
-
-
-/***/ }),
-
 /***/ "a293":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80315,169 +79818,14 @@ module.exports = ExecutionEnvironment;
 
 /***/ }),
 
-/***/ "a481":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "a5d0":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-var anObject = __webpack_require__("cb7c");
-var toObject = __webpack_require__("4bf8");
-var toLength = __webpack_require__("9def");
-var toInteger = __webpack_require__("4588");
-var advanceStringIndex = __webpack_require__("0390");
-var regExpExec = __webpack_require__("5f1b");
-var max = Math.max;
-var min = Math.min;
-var floor = Math.floor;
-var SUBSTITUTION_SYMBOLS = /\$([$&`']|\d\d?|<[^>]*>)/g;
-var SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&`']|\d\d?)/g;
-
-var maybeToString = function (it) {
-  return it === undefined ? it : String(it);
-};
-
-// @@replace logic
-__webpack_require__("214f")('replace', 2, function (defined, REPLACE, $replace, maybeCallNative) {
-  return [
-    // `String.prototype.replace` method
-    // https://tc39.github.io/ecma262/#sec-string.prototype.replace
-    function replace(searchValue, replaceValue) {
-      var O = defined(this);
-      var fn = searchValue == undefined ? undefined : searchValue[REPLACE];
-      return fn !== undefined
-        ? fn.call(searchValue, O, replaceValue)
-        : $replace.call(String(O), searchValue, replaceValue);
-    },
-    // `RegExp.prototype[@@replace]` method
-    // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@replace
-    function (regexp, replaceValue) {
-      var res = maybeCallNative($replace, regexp, this, replaceValue);
-      if (res.done) return res.value;
-
-      var rx = anObject(regexp);
-      var S = String(this);
-      var functionalReplace = typeof replaceValue === 'function';
-      if (!functionalReplace) replaceValue = String(replaceValue);
-      var global = rx.global;
-      if (global) {
-        var fullUnicode = rx.unicode;
-        rx.lastIndex = 0;
-      }
-      var results = [];
-      while (true) {
-        var result = regExpExec(rx, S);
-        if (result === null) break;
-        results.push(result);
-        if (!global) break;
-        var matchStr = String(result[0]);
-        if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
-      }
-      var accumulatedResult = '';
-      var nextSourcePosition = 0;
-      for (var i = 0; i < results.length; i++) {
-        result = results[i];
-        var matched = String(result[0]);
-        var position = max(min(toInteger(result.index), S.length), 0);
-        var captures = [];
-        // NOTE: This is equivalent to
-        //   captures = result.slice(1).map(maybeToString)
-        // but for some reason `nativeSlice.call(result, 1, result.length)` (called in
-        // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
-        // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
-        for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
-        var namedCaptures = result.groups;
-        if (functionalReplace) {
-          var replacerArgs = [matched].concat(captures, position, S);
-          if (namedCaptures !== undefined) replacerArgs.push(namedCaptures);
-          var replacement = String(replaceValue.apply(undefined, replacerArgs));
-        } else {
-          replacement = getSubstitution(matched, S, position, captures, namedCaptures, replaceValue);
-        }
-        if (position >= nextSourcePosition) {
-          accumulatedResult += S.slice(nextSourcePosition, position) + replacement;
-          nextSourcePosition = position + matched.length;
-        }
-      }
-      return accumulatedResult + S.slice(nextSourcePosition);
-    }
-  ];
-
-    // https://tc39.github.io/ecma262/#sec-getsubstitution
-  function getSubstitution(matched, str, position, captures, namedCaptures, replacement) {
-    var tailPos = position + matched.length;
-    var m = captures.length;
-    var symbols = SUBSTITUTION_SYMBOLS_NO_NAMED;
-    if (namedCaptures !== undefined) {
-      namedCaptures = toObject(namedCaptures);
-      symbols = SUBSTITUTION_SYMBOLS;
-    }
-    return $replace.call(replacement, symbols, function (match, ch) {
-      var capture;
-      switch (ch.charAt(0)) {
-        case '$': return '$';
-        case '&': return matched;
-        case '`': return str.slice(0, position);
-        case "'": return str.slice(tailPos);
-        case '<':
-          capture = namedCaptures[ch.slice(1, -1)];
-          break;
-        default: // \d\d?
-          var n = +ch;
-          if (n === 0) return match;
-          if (n > m) {
-            var f = floor(n / 10);
-            if (f === 0) return match;
-            if (f <= m) return captures[f - 1] === undefined ? ch.charAt(1) : captures[f - 1] + ch.charAt(1);
-            return match;
-          }
-          capture = captures[n - 1];
-      }
-      return capture === undefined ? '' : capture;
-    });
-  }
-});
-
-
-/***/ }),
-
-/***/ "a5b8":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 25.4.1.5 NewPromiseCapability(C)
-var aFunction = __webpack_require__("d8e8");
-
-function PromiseCapability(C) {
-  var resolve, reject;
-  this.promise = new C(function ($$resolve, $$reject) {
-    if (resolve !== undefined || reject !== undefined) throw TypeError('Bad Promise constructor');
-    resolve = $$resolve;
-    reject = $$reject;
-  });
-  this.resolve = aFunction(resolve);
-  this.reject = aFunction(reject);
-}
-
-module.exports.f = function (C) {
-  return new PromiseCapability(C);
-};
-
-
-/***/ }),
-
-/***/ "a6bb":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("67c0");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("499e")("4a1c68af", content, true, {"sourceMap":false,"shadowMode":false});
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1b00917f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6a3a");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1b00917f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1b00917f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1b00917f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -80754,13 +80102,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "b6da":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/nothmub.c33c5e0b.jpg";
-
-/***/ }),
-
 /***/ "b85f":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -80812,25 +80153,6 @@ module.exports = [].copyWithin || function copyWithin(target /* = 0 */, start /*
     to += inc;
     from += inc;
   } return O;
-};
-
-
-/***/ }),
-
-/***/ "bcaa":
-/***/ (function(module, exports, __webpack_require__) {
-
-var anObject = __webpack_require__("cb7c");
-var isObject = __webpack_require__("d3f4");
-var newPromiseCapability = __webpack_require__("a5b8");
-
-module.exports = function (C, x) {
-  anObject(C);
-  if (isObject(x) && x.constructor === C) return x;
-  var promiseCapability = newPromiseCapability.f(C);
-  var resolve = promiseCapability.resolve;
-  resolve(x);
-  return promiseCapability.promise;
 };
 
 
@@ -83470,7 +82792,7 @@ function (_BaseGraphic3) {
 
 Object(defineProperty["a" /* default */])(Graphic_CesiumPolyline, "defaultStyle", {
   clampToGround: true,
-  material: Cesium.Color.fromCssColorString('rgba(255,247,145,1)'),
+  material: Cesium.Color.fromCssColorString('rgba(247,224,32,1)'),
   width: 3
 });
 
@@ -83659,6 +82981,8 @@ function (_BaseGraphic4) {
         //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
         if (this.outline) {
           this.outlineGraphic.startEdit();
+          this.nodeGraphic = this.outlineGraphic.nodeGraphic;
+          this.node = true;
         } else {
           this.createNode();
         }
@@ -83964,8 +83288,8 @@ function (_BaseGraphic6) {
       }
     }
   }, {
-    key: "destory",
-    value: function destory() {
+    key: "destroy",
+    value: function destroy() {
       this.remove();
       this.options = undefined;
       this.position = undefined;
@@ -85977,9 +85301,8 @@ module.exports = (
 /* harmony import */ var _core_Graphic__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("cd53");
 /* harmony import */ var _layerManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("5eae");
 /* harmony import */ var _core_GraphicType__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("4ab0");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("21a6");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var shapefile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("c26a");
+/* harmony import */ var shapefile__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("c26a");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("9944");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("1157");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_14__);
 
@@ -86347,7 +85670,6 @@ module.exports = (
 
 var graphicManager = undefined;
 var Cesium = window.Cesium;
-var cesiumViewer;
 var console = window.console;
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "cesiumDrawViewer",
@@ -86363,7 +85685,7 @@ var console = window.console;
       markerFont: "sans-serif",
       markerOptionsVisible: false,
       markerOption: "",
-      lineColor: "rgba(255,247,145,1)",
+      lineColor: "rgba(247,224,32,1)",
       lineWidth: "3px",
       lineWidthList: ["1px", "2px", "3px", "4px", "5px", "6px", "8px", "10px", "12px"],
       lineStyleList: [{
@@ -86397,7 +85719,7 @@ var console = window.console;
         name: "空间线"
       }],
       outlineWidth: "3px",
-      outlineColor: "rgba(255,247,145,1)",
+      outlineColor: "rgba(247,224,32,1)",
       polygonColor: "rgba(247,224,32,0.5)",
       outline: true,
       imags: ["./static/images/markers/1.png", "./static/images/markers/2.png", "./static/images/markers/3.png", "./static/images/markers/4.png", "./static/images/markers/5.png", "./static/images/markers/6.png", "./static/images/markers/7.png", "./static/images/markers/8.png"],
@@ -86423,7 +85745,7 @@ var console = window.console;
   },
   computed: {
     defaultImage: function defaultImage() {
-      return 'this.src="' + __webpack_require__("b6da") + '"';
+      return 'this.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1UlEQVQ4T6XTMWgUQRQG4P/N3gaRSBpBEAMqrldkYyXu5VCMChZBEDxOsDIgKKSyECxTWERIYe2hRdoLeKV2RhCymwhy3E48b087C7EQtRDj7vyyg3dKDGyI087MN/97MyP4zyFF+5vNpnPEP3neZGlNlFwBoU/53rnBvn+AsPP+AFRWgUFNKVwgcVCAp4C0lJu10lTNiTGdYLLcyhF52e3uG8lUDVRnDXhagEP5YkM2pia9la0Jw413nhhzKfC9BxaI4t4aII3A9x6FcXJbBGNFZQ3jG3Yk0snjYMK7EelkHsBGMOEt7xSI4oQSxr3lin+8ngPG4MV2sQdgGPdvCviQkFsV/1jDAmu6f6c0wqWfm5grAiKd1EE0IbiaJ7VApN+egcF+KHWiCNhamgVekW4a9xdE4dsAeK716F7jLkJUNXOzmWq5/GG7vlggn4ji5BkEqzngQDYpXARQtdcErKRje2aq4+PfbaOJKcC5G/hH20NgPU7uU/AjJT47wD0Ao3+fSMgTBXwlOPvnBcoSweu/E/SuUdRFQ7YdwD6QopEnIzBtgfV2t8ySM5sSH3cF2D7oZD4jvpSAy0Wn5/MEPgGoDz/T6us3hx231KVgYSeAbTAx/Qs/Rdq4fXky6QAAAABJRU5ErkJggg=="';
     }
   },
   props: {
@@ -86447,15 +85769,15 @@ var console = window.console;
   },
   mounted: function mounted() {
     var self = this;
-    window.a = this.$refs.layerManager;
-    jquery__WEBPACK_IMPORTED_MODULE_14___default()(".el-color-picker__icon,.el-icon-arrow-down").addClass("iconfont iconcolor");
+    Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* moveDiv */ "c"])("drawtoolPanel", "drawtoolHead");
+    jquery__WEBPACK_IMPORTED_MODULE_14___default()("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
     document.addEventListener("addEvent", function (e) {
       self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
     });
     document.addEventListener("stopEdit", function () {
       self.menuSelected = {};
       self.editMode = false;
-      cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
+      self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
     });
     document.addEventListener("startEdit", function (e) {
       self.menuSelected = {};
@@ -86464,20 +85786,20 @@ var console = window.console;
       self.editMode = true;
 
       if (/.*MODEL.*/.test(self.graphicHeight)) {
-        cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
+        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
       }
     });
     document.addEventListener("destroyEvent", function (e) {
       //   self.menuSelected = {};
       //   self.editMode = false;
       self.$refs.layerManager.deleteNode(e.detail.gvid);
-      cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
+      self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
     });
 
     if (this.viewer instanceof Cesium.Viewer) {
       this.init(this.viewer);
-    } else if (window.cesiumViewer instanceof Cesium.Viewer) {
-      this.init(window.cesiumViewer);
+    } else if (window.viewer instanceof Cesium.Viewer) {
+      this.init(window.viewer);
     }
 
     this.$nextTick(function () {
@@ -86488,11 +85810,15 @@ var console = window.console;
   },
   methods: {
     init: function init(viewer) {
+      if (viewer instanceof Cesium.Viewer == false) {
+        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
+      }
+
       this._depthTestAgainstTerrain = viewer.scene.globe.depthTestAgainstTerrain;
       this.$refs.markerManager.init(viewer);
       graphicManager = new _core_CesiumDrawing__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"](viewer);
       this.selectedModel = this.extendMarkerModel.length ? this.extendMarkerModel[0].url : undefined;
-      cesiumViewer = viewer;
+      this.cesiumViewer = viewer;
     },
     syncColor: function syncColor(parent, color) {
       var parents = [parent]; //marker和label共用同一种颜色
@@ -86503,7 +85829,7 @@ var console = window.console;
         parents.push("labelColor");
       }
 
-      var eles = jquery__WEBPACK_IMPORTED_MODULE_14___default()(".el-color-picker__icon,.el-icon-arrow-down,.iconfont icon-seban");
+      var eles = jquery__WEBPACK_IMPORTED_MODULE_14___default()(".el-color-picker__icon,.el-icon-arrow-down,.iconfont iconcolor");
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -86543,7 +85869,7 @@ var console = window.console;
         return item.thumb;
       }
 
-      return __webpack_require__("b6da");
+      return this.defaultImage;
     },
     selectModel: function selectModel(item) {
       this.selectedModel = item.url;
@@ -86699,7 +86025,7 @@ var console = window.console;
         reader.readAsArrayBuffer(files[0]);
 
         reader.onload = function () {
-          Object(shapefile__WEBPACK_IMPORTED_MODULE_13__[/* open */ "a"])(this.result).then(function (source) {
+          Object(shapefile__WEBPACK_IMPORTED_MODULE_12__[/* open */ "a"])(this.result).then(function (source) {
             return source.read().then(function log(result) {
               if (result.done) return false;
               var feat = result.value;
@@ -86828,7 +86154,7 @@ var console = window.console;
       if (/.*MODEL*/.test(this.graphicHeight)) {
         if (!["MARKER", "LABEL", "MODEL", "LAYER"].includes(menu)) //依附模型
           //几何图形要依附于模型必须开启depthTestAgainstTerrain
-          cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
+          this.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
       } else {//viewer.scene.globe.depthTestAgainstTerrain = this._depthTestAgainstTerrain;
       }
 
@@ -89644,6 +88970,20 @@ exports[DATA_VIEW] = $DataView;
 
 /***/ }),
 
+/***/ "edd2":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("7413");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("499e")("58b34e08", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
 /***/ "eedf":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -90003,21 +89343,6 @@ src_button.install = function (Vue) {
 /***/ })
 
 /******/ });
-
-/***/ }),
-
-/***/ "efc8":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("2350")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".closebtn[data-v-ef394bf6]{line-height:32px;height:40px;text-align:center;display:inline-block;cursor:pointer;float:right}.closebtn[data-v-ef394bf6]:hover{color:red}#msg1[data-v-ef394bf6],.msg[data-v-ef394bf6]{width:150px;height:30px;position:fixed}#submit1[data-v-ef394bf6],.submit[data-v-ef394bf6]{position:fixed;height:34px;width:34px}.form-control[data-v-ef394bf6]{display:block;width:100%;height:34px;padding:3px 12px;font-size:14px;line-height:1.42857143;color:#000;background-color:#a9a9a9;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out}.form-control[data-v-ef394bf6]:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.form-control[data-v-ef394bf6]::-moz-placeholder{color:#000;opacity:1}.form-control[data-v-ef394bf6]:-ms-input-placeholder{color:#000}.form-control[data-v-ef394bf6]::-webkit-input-placeholder{color:#000}.btn-primary[data-v-ef394bf6]{color:#fff;background-color:#337ab7;border-color:#2e6da4}.btn[data-v-ef394bf6]{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:0}#menu[data-v-ef394bf6]{position:fixed;width:100px;height:70px;border:2px solid #b7b1a3;background-color:#a9a9a9;text-align:left}#createMerkerPanel[data-v-ef394bf6] a:active,#createMerkerPanel[data-v-ef394bf6] a:hover,#createMerkerPanel[data-v-ef394bf6] a:link,#createMerkerPanel[data-v-ef394bf6] a:visited{font-size:14px;text-decoration:none;color:#000}#menu>div[data-v-ef394bf6]{width:80px;height:30px;line-height:30px;vertical-align:center;padding-left:20px;padding-top:0}#menu>div[data-v-ef394bf6]:hover{background-color:#e5e5e5}.no-image-class[data-v-ef394bf6]{width:24px;height:24px;line-height:24px}#createMerkerPanel[data-v-ef394bf6]{left:0;top:0;width:340px;height:210px;position:fixed;border:0 solid #b7b1a3;background-color:#a9a9a9;color:#000}#createMerkerPanel .image-list-class[data-v-ef394bf6]{display:block}#createMerkerPanel .el-input[data-v-ef394bf6]{display:inline-block;height:20px;line-height:20px;margin-top:0;width:78%;margin-bottom:30px!important;margin-left:0!important}#createMerkerPanel .el-button[data-v-ef394bf6]{display:inline-block;margin-top:20px;margin-right:20px;float:right}#createMerkerPanel .el-header[data-v-ef394bf6]{height:45px!important;line-height:30px}#createMerkerPanel .closebtn[data-v-ef394bf6]:after{content:\"\\2716\";float:right}#createMerkerPanel .closebtn[data-v-ef394bf6]:hover{color:#00bfff}#createMerkerPanel .el-footer[data-v-ef394bf6]{padding-right:20%}#createMerkerPanel .el-textarea[data-v-ef394bf6]{width:78%}#createMerkerPanel .el-aside[data-v-ef394bf6]{width:20%!important;padding-left:10px;text-align:left;line-height:20px}#createMerkerPanel .el-main[data-v-ef394bf6]{width:70%;padding-left:10px!important;padding:0 0 0 0}#createMerkerPanel img[data-v-ef394bf6]{margin-top:8px;margin-left:5px}.crusor-tip[data-v-ef394bf6]{width:200px;height:30px;line-height:30px;vertical-align:center;border:1px solid #e5e5e5;color:#fff;background-color:rgba(0,0,0,.6);position:fixed}#createLabelPanel[data-v-ef394bf6]{position:fixed;z-index:999;height:50px;width:290px}#createLabelPanel .el-input[data-v-ef394bf6]{display:inline-block;width:200px;margin:0 10px}#createLabelPanel .el-button[data-v-ef394bf6]{display:inline-block;margin:0 5px}", ""]);
-
-// exports
-
 
 /***/ }),
 
@@ -91867,20 +91192,20 @@ var style_min = __webpack_require__("b85f");
 // EXTERNAL MODULE: ./src/assets/css/iconfont.css
 var iconfont = __webpack_require__("3a10");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"795ded45-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=7b410b52&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont icondelete",on:{"click":function($event){_vm.visible=false}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("图层")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont icon-sanweimoxing model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"795ded45-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=1b00917f&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',{attrs:{"id":"drawtoolHead"}},[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont icondelete",on:{"click":function($event){return _vm.$emit('closeEvent')}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("图层")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont icon-sanweimoxing model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=7b410b52&scoped=true&
+// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=1b00917f&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
 var cesiumDrawViewervue_type_script_lang_js_ = __webpack_require__("e167");
 
 // CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_cesiumDrawViewervue_type_script_lang_js_ = (cesiumDrawViewervue_type_script_lang_js_["a" /* default */]); 
-// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=7b410b52&lang=scss&scoped=true&
-var cesiumDrawViewervue_type_style_index_0_id_7b410b52_lang_scss_scoped_true_ = __webpack_require__("8d8c");
+// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=1b00917f&lang=scss&scoped=true&
+var cesiumDrawViewervue_type_style_index_0_id_1b00917f_lang_scss_scoped_true_ = __webpack_require__("a5d0");
 
 // EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=1&lang=scss&
 var cesiumDrawViewervue_type_style_index_1_lang_scss_ = __webpack_require__("45ea");
@@ -91904,7 +91229,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "7b410b52",
+  "1b00917f",
   null
   
 )
@@ -91946,6 +91271,21 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
 
+
+
+/***/ }),
+
+/***/ "fda5":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("2350")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".closebtn[data-v-1b00917f]{line-height:32px;height:40px;text-align:center;display:inline-block;cursor:pointer;float:right}.closebtn[data-v-1b00917f]:hover{color:red}#drawtoolPanel[data-v-1b00917f]{position:fixed;width:400px;top:10px;right:10px;height:145px;right:7px;border-radius:3px;z-index:10;border-radius:4px}.layer-manager-class[data-v-1b00917f]{width:400px;position:absolute;top:90px}.edit-layer-manager-class[data-v-1b00917f]{top:140px}#clostbtn[data-v-1b00917f]{font-family:element-icons!important;color:red;font-size:24px;line-height:24px}.graphic-edit[data-v-1b00917f]{width:100%;height:52px;line-height:52px;position:absolute;background:#a9a9a9;color:#000}#clostbtn[data-v-1b00917f]:after{content:\"\\E6DB\"}.el-container[data-v-1b00917f]{width:400px;height:85px;color:#000;background:#a9a9a9;z-index:10}.el-header[data-v-1b00917f]{height:32px!important;line-height:32px!important;border-bottom:1px solid #a9a9a9;padding:0 5px}.el-header span[data-v-1b00917f]{margin:0 5px}.icon-class[data-v-1b00917f]{color:#000}.selected-graphic[data-v-1b00917f]{color:#2988cc!important}.graphic-draw-main[data-v-1b00917f]{height:52px;padding:0 5px;vertical-align:top;color:#000;border-bottom:1px solid #a9a9a9}.graphic-draw-main ul[data-v-1b00917f]{cursor:default;padding:0;overflow:hidden;height:43px;margin:0}.graphic-draw-main ul li[data-v-1b00917f]{cursor:pointer;float:left;padding:0 0 0;width:65px;height:100%;-webkit-box-sizing:border-box;box-sizing:border-box;list-style:none}.graphic-draw-main ul li:hover i[data-v-1b00917f],.graphic-draw-main ul li:hover span[data-v-1b00917f]{color:#2988cc}.graphic-draw-main ul li i[data-v-1b00917f]{display:block;height:16px;width:16px;background-size:contain;margin:0 auto;margin-top:8px}.graphic-draw-main ul li span[data-v-1b00917f]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block;text-align:center;font-size:12px;color:#000;line-height:22px}.el-main img[data-v-1b00917f]{display:inline-block}.edit-class[data-v-1b00917f]{height:52px;line-height:52px;vertical-align:top;padding:0 5px}.edit-class[data-v-1b00917f] .el-color-picker--mini{height:28px;width:28px}.edit-class[data-v-1b00917f] .el-color-picker__color{border:none;border-radius:4px;display:inline}.edit-class[data-v-1b00917f] .el-color-picker__trigger{height:28px;width:28px;padding:0;border:1px solid #000}.edit-class[data-v-1b00917f] .el-color-picker__color-inner{background-color:#a9a9a9!important;border-radius:4px}.edit-class[data-v-1b00917f] .el-input__inner{background-color:#a9a9a9;border:1px solid #000;color:#000}.edit-class[data-v-1b00917f] .el-color-picker__icon{line-height:28px}.edit-class span[data-v-1b00917f]{margin:0 5px}.edit-class .el-select[data-v-1b00917f]{vertical-align:top}.edit-class .el-color-picker[data-v-1b00917f]{vertical-align:top;margin:12px 5px}.marker-edit-class .el-select[data-v-1b00917f]{width:80px;margin:0 5px}.marker-edit-class img[data-v-1b00917f]{width:24px;height:24px}.polyline-edit-class .width-selector[data-v-1b00917f]{width:70px;margin:0 5px}.polyline-edit-class .style-selector[data-v-1b00917f]{width:80px;margin:0 5px}.polyline-edit-class .type-selector[data-v-1b00917f]{width:140px;margin:0 5px}.polygon-edit-class .width-selector[data-v-1b00917f]{width:70px;margin:0 5px}.polygon-edit-class .type-selector[data-v-1b00917f]{width:140px;margin:0 5px}.polygon-edit-class .outline-selected[data-v-1b00917f]{color:#fff}.polygon-edit-class .border-btn[data-v-1b00917f]{border:1px solid #000;width:28px;height:28px;display:inline-block;vertical-align:top;line-height:28px;text-align:center;border-radius:4px;box-sizing:border-box;-webkit-box-sizing:border-box;margin:12px 5px}.label-edit-class span[data-v-1b00917f]{margin:0 5px}.label-edit-class .font-selector[data-v-1b00917f]{width:120px;margin:0 5px}.label-edit-class .size-selector[data-v-1b00917f]{width:80px;margin:0 5px}.label-edit-class img[data-v-1b00917f]{width:24px;height:24px;margin:0 5px}.model-edit-class span[data-v-1b00917f]{margin:0 5px}.model-edit-class .model-selector-trigger[data-v-1b00917f]{border:1px solid #000;width:28px;height:28px;display:inline-block;vertical-align:top;line-height:28px;text-align:center;border-radius:4px;box-sizing:border-box;-webkit-box-sizing:border-box;margin:12px 5px}.model-edit-class .el-select[data-v-1b00917f]{width:100px;margin:0 5px}.model-edit-class .el-button[data-v-1b00917f]{height:28px;line-height:28px}.model-edit-class .el-slider[data-v-1b00917f]{display:inline-block;margin:0 15px;width:100px}.model-edit-class .el-slider[data-v-1b00917f] .el-slider__runway{margin-bottom:0}[data-v-1b00917f] .el-color-picker__trigger{display:block}.el-main .el-radio[data-v-1b00917f]{display:inline-block;margin:5px}", ""]);
+
+// exports
 
 
 /***/ })

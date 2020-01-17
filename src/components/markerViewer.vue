@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-12-18 10:32:33
  * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-02 17:04:34
+ * @LastEditTime : 2020-01-17 10:06:06
  * @Desc: 包括点标绘、文字标绘、模型标绘
  -->
 <template>
@@ -12,32 +12,30 @@
       id="createMerkerPanel"
       v-if="markMode==='marker'"
       v-show="visible"
-      :style="{left:position.x+'px',top:position.y+'px'}"
+      :style="{left:panelPosition().x+'px',top:panelPosition().y+'px'}"
     >
       <el-container v-show="!selectPanel">
         <el-header>
-          添加标记
+          <span>添加标记</span>
           <span class="closebtn" id="closespan" @click="cancelMark"></span>
         </el-header>
 
         <el-container>
           <el-container>
-            <el-main>
+            <el-main class="marker-main-class">
               名称：
               <el-input
                 v-model="markName"
                 ref="nameinput"
                 @keyup.enter.native="update"
-                id="input_markname"
               ></el-input>
               <br />描述：
               <el-input v-model="markRemark" type="textarea"></el-input>
             </el-main>
             <el-aside>
-              &nbsp;
               <img :src="selectedImage" />
               <br />
-              <a href="#" id="imageC" @click="selectPanel=true" style="margin-left: 10px">更换</a>
+              <a href="#" id="imageC" @click="selectPanel=true">更换</a>
             </el-aside>
           </el-container>
           <el-footer>
@@ -53,7 +51,7 @@
     </div>
     <div
       id="createLabelPanel"
-      :style="{left:position.x+'px',top:position.y+'px'}"
+      :style="{left:panelPosition().x+'px',top:panelPosition().y+'px'}"
       v-if="markMode==='label'"
       v-show="visible"
     >
@@ -67,12 +65,12 @@
 import { CesiumBillboard, CesiumLabel, CesiumModel } from "../core/Graphic";
 import utils from "@/js/utils";
 import GraphicType from "../core/GraphicType";
-import $ from "jquery";
 const Cesium = window.Cesium;
 const defined = Cesium.defined;
 const cvt = utils.CVT;
 const LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
 const RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
+const MOUSE_MOVE = Cesium.ScreenSpaceEventType.MOUSE_MOVE;
 let markerViewer, pickHandler, markerManager;
 export default {
   name: "cesiumMarkerViewer",
@@ -87,8 +85,7 @@ export default {
       defaultImage: CesiumBillboard.defaultStyle.image,
       selectedImage: CesiumBillboard.defaultStyle.image,
       popWinPosition: undefined,
-      selectedMarker: undefined,
-      activeMarker: undefined,
+
       markerOptions: {
         ...CesiumBillboard.defaultLabelStyle,
         ...CesiumModel.defaultStyle
@@ -97,27 +94,7 @@ export default {
       noImage: CesiumBillboard.defaultStyle.image
     };
   },
-  computed: {
-    position() {
-      if (this.activeMarker) {
-        if (this.markMode === "marker") {
-          const position = this.activeMarker.graphic.position.getValue();
-          const pixel = cvt.cartesian2Pixel(position, markerViewer);
-          const x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
-          const y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
-          return { x: x, y: y };
-        } else {
-          const position = this.activeMarker.graphic.position.getValue();
-          const pixel = cvt.cartesian2Pixel(position, markerViewer);
-          const x = pixel.x + 10;
-          const y = pixel.y - 25;
-          return { x: x, y: y };
-        }
-      } else {
-        return { x: 0, y: 0 };
-      }
-    }
-  },
+  computed: {},
   components: {},
   props: {
     extendImage: {
@@ -152,10 +129,13 @@ export default {
      * 创建markerViewer后必须调用该方法
      */
     init(viewer) {
+      if (viewer instanceof Cesium.Viewer == false) {
+        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
+      }
       markerViewer = viewer;
       // this.createContext();
       this.cursorTip = new utils.CursorTip(
-        "单击地图添加标记,右击地图取消添加.",
+        "左键标绘，右键结束.",
         "marker-tip",
         viewer
       );
@@ -215,30 +195,12 @@ export default {
       };
 
       handler.setInputAction(showTip, LEFT_CLICK);
-      const showContext = function(e) {
-        const pickedObj = viewer.scene.pick(e.position);
-        //其它鼠标事件发生时清除气泡
-        self.destroyPopPanle();
-        if (
-          defined(pickedObj) &&
-          pickedObj.id instanceof Cesium.Entity &&
-          pickedObj.id.gvtype === "MARKER"
-        ) {
-          self.activeMarker = markerManager.get(pickedObj.id.gvid);
-          self.markerid = pickedObj.id.gvid;
-          if (!defined(self.activeMarker)) {
-            return;
-          }
-          // $(markerViewer.container).contextMenu(true);
-        }
-      };
-      handler.setInputAction(showContext, RIGHT_CLICK);
     },
     /**
      * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
      * @type {String}表示何种标记,marker:billboard，label:label,model:model
      * @mode {String} 如果mode不是single，将连续添加标记
-     *
+     
      */
     pick(type = "marker", mode = "single") {
       this.markMode = type;
@@ -273,13 +235,11 @@ export default {
           self.activeMarker = marker;
           self.markerid = id;
           self.cursorTip.visible = false;
-          if (mode === "single") {
-            handler.removeInputAction(LEFT_CLICK);
-            handler.destroy();
-            //handler=undefined
-          }
           if (type === "model") {
             self.activeMarker = undefined;
+          }
+          if (mode === "single") {
+            handler.removeInputAction(LEFT_CLICK);
           }
         }
       };
@@ -292,9 +252,13 @@ export default {
         self.activeMarker = undefined;
         //handler=undefined
       };
+      const updateTip = function(e) {
+        self.cursorTip.updatePosition(e.endPosition);
+      };
       handler.setInputAction(cancel, RIGHT_CLICK);
 
       handler.setInputAction(pick, LEFT_CLICK);
+      handler.setInputAction(updateTip, MOUSE_MOVE);
     },
     createMarker(cartesian) {
       const mp = this.markerOptions;
@@ -304,6 +268,25 @@ export default {
         mp
       );
       return marker;
+    },
+    panelPosition() {
+      if (this.activeMarker) {
+        if (this.markMode === "marker") {
+          const position = this.activeMarker.graphic.position.getValue();
+          const pixel = cvt.cartesian2Pixel(position, markerViewer);
+          const x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
+          const y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
+          return { x: x, y: y };
+        } else {
+          const position = this.activeMarker.graphic.position.getValue();
+          const pixel = cvt.cartesian2Pixel(position, markerViewer);
+          const x = pixel.x + 10;
+          const y = pixel.y - 25;
+          return { x: x, y: y };
+        }
+      } else {
+        return { x: 0, y: 0 };
+      }
     },
     createLabel(cartesian) {
       const options = this.markerOptions;
@@ -319,14 +302,25 @@ export default {
 
       return marker;
     },
-    stopPick() {
+
+    removeEventListener() {
       if (pickHandler) {
         if (!pickHandler.isDestroyed()) {
           pickHandler.destroy();
           pickHandler.removeInputAction(LEFT_CLICK);
           pickHandler.removeInputAction(RIGHT_CLICK);
+          pickHandler.removeInputAction(MOUSE_MOVE);
         }
       }
+    },
+    stopPick() {
+      this.removeEventListener();
+      if (this.activeMarker) {
+        this.activeMarker.destroy();
+        this.$emit("deleteEvent", this.activeMarker.gvid);
+      }
+      this.visible = false;
+
       this.activeMarker = undefined;
     },
     zoomTo(id) {
@@ -353,7 +347,7 @@ export default {
     drop(id) {
       const mm = markerManager.get(id);
       mm && mm.destroy();
-      markerManager.delete(id)
+      markerManager.delete(id);
     },
     rename(id, name) {
       const mm = markerManager.get(id);
@@ -396,45 +390,56 @@ export default {
       const coord = cvt.cartesian2Degrees(position, markerViewer);
       popdiv.style.display = "none";
       const txtdiv = document.createElement("span");
-      txtdiv.innerText = "名称:" + this.selectedMarker.name;
-      const latdiv = document.createElement("span");
-      latdiv.innerText = "纬度:" + coord.lon.toFixed(2);
-      const londiv = document.createElement("span");
-      londiv.innerText = "经度:" + coord.lat.toFixed(2);
+      txtdiv.innerText = "名称:" + (this.selectedMarker.name || "未命名");
+      const coordsdiv = document.createElement("span");
+      coordsdiv.innerText =
+        "纬度:" + coord.lon.toFixed(2) + "  纬度:" + coord.lat.toFixed(2);
       const arrow = document.createElement("div");
       arrow.className = "arrow";
+      const closebtn = document.createElement("span");
+      closebtn.className = "iconfont icon-guanbi closebtn";
+      const self = this;
+      closebtn.onclick = function() {
+        self.$el.removeChild(self.popDiv);
+        self.popDiv = undefined;
+      };
+      popdiv.appendChild(closebtn);
       popdiv.appendChild(txtdiv);
-      popdiv.appendChild(document.createElement("br"));
-      popdiv.appendChild(latdiv);
-      popdiv.appendChild(document.createElement("br"));
-      popdiv.appendChild(londiv);
-      popdiv.appendChild(document.createElement("br"));
+      popdiv.appendChild(coordsdiv);
       popdiv.appendChild(arrow);
       this.popDiv = popdiv;
       this.$el.appendChild(this.popDiv);
     },
     import(feat) {
-      if(feat.geometry.type.toUpperCase() !== "POINT"){
-        throw new Error('无效的数据类型.')
+      if (feat.geometry.type.toUpperCase() !== "POINT") {
+        throw new Error("无效的数据类型.");
       }
       const id = this.generateId();
-      let marker
-      if(feat.properties.gvtype === GraphicType.LABEL){
-        const lopts=CesiumLabel.defaultStyle
-        lopts.position=Cesium.Cartesian3.fromDegrees(...feat.geometry.coordinates)
-        lopts.text=feat.properties.name
-        marker=new CesiumLabel(markerViewer,lopts)
-      }else{
-        const coord={lon:feat.geometry.coordinates[0],
-        lat:feat.geometry.coordinates[1],
-        height:feat.geometry.coordinates[2]}
-        marker=CesiumBillboard.fromDegrees(markerViewer,coord)
-        
+      let marker;
+      if (feat.properties.gvtype === GraphicType.LABEL) {
+        const lopts = CesiumLabel.defaultStyle;
+        lopts.position = Cesium.Cartesian3.fromDegrees(
+          ...feat.geometry.coordinates
+        );
+        lopts.text = feat.properties.name;
+        marker = new CesiumLabel(markerViewer, lopts);
+      } else {
+        const coord = {
+          lon: feat.geometry.coordinates[0],
+          lat: feat.geometry.coordinates[1],
+          height: feat.geometry.coordinates[2]
+        };
+        marker = CesiumBillboard.fromDegrees(markerViewer, coord);
       }
-      marker.gvname=feat.properties.name
-      marker.gvid=id
-      markerManager.set(id,marker)
-      this.$emit("addEvent", marker.gvid, marker.gvname||'未命名', marker.gvtype);
+      marker.gvname = feat.properties.name;
+      marker.gvid = id;
+      markerManager.set(id, marker);
+      this.$emit(
+        "addEvent",
+        marker.gvid,
+        marker.gvname || "未命名",
+        marker.gvtype
+      );
     },
     export(type) {
       const managers = markerManager.values();
@@ -455,7 +460,7 @@ export default {
       }
       const blob = new Blob([JSON.stringify(json)], { type: "" });
 
-      saveAs(blob, type + parseInt(Cesium.getTimestamp()) + ".geojson");
+      window.saveAs(blob, type + parseInt(Cesium.getTimestamp()) + ".geojson");
     },
     setFont(font) {
       this.markerOptions.font = font;
@@ -520,6 +525,7 @@ export default {
       this.markRemark = "";
       markerManager.delete(this.markerid);
       this.markerid = undefined;
+      this.removeEventListener();
     },
     update() {
       //   this.activeMarker.updateImage(this.selectedImage);
@@ -534,6 +540,7 @@ export default {
       this.markName = "";
       this.markRemark = "";
       this.activeMarker = undefined;
+      this.removeEventListener();
     },
     changeHandler(img) {
       this.selectedImage = img;
@@ -553,11 +560,7 @@ export default {
     },
     importMarks() {}
   },
-  watch: {
-    visible(n) {
-      n && $("#input_markname").focus();
-    }
-  }
+  watch: {}
 };
 </script>
 
@@ -623,7 +626,9 @@ export default {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-
+.marker-main-class {
+  color: $color;
+}
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -666,6 +671,26 @@ export default {
       color: $color;
     }
   }
+  /deep/ .el-button--primary {
+    span {
+      color: #409eff !important;
+    }
+    &:hover {
+      span {
+        color: #ffffff !important;
+      }
+    }
+  }
+  /deep/ .el-button--danger {
+    span {
+      color: #f56c6c !important;
+    }
+    &:hover {
+      span {
+        color: #ffffff !important;
+      }
+    }
+  }
 }
 #menu > div {
   width: 80px;
@@ -696,6 +721,7 @@ export default {
   color: $color;
   .image-list-class {
     display: block;
+    padding: 10px;
   }
 }
 
@@ -719,15 +745,12 @@ export default {
 #createMerkerPanel .el-header {
   height: 45px !important;
   line-height: 30px;
-}
-
-#createMerkerPanel .closebtn:after {
-  content: "✖";
-  float: right;
-}
-
-#createMerkerPanel .closebtn:hover {
-  color: deepskyblue;
+  color: $color;
+  padding: $padding;
+  span {
+    margin: $item-margin;
+    color: $color;
+  }
 }
 
 #createMerkerPanel .el-footer {
@@ -740,9 +763,13 @@ export default {
 
 #createMerkerPanel .el-aside {
   width: 20% !important;
-  padding-left: 10px;
-  text-align: left;
+  // padding-left: 10px;
+  text-align: center;
   line-height: 20px;
+  a {
+    display: inline-block;
+    width: 32px;
+  }
 }
 
 #createMerkerPanel .el-main {
@@ -773,7 +800,7 @@ export default {
   position: fixed;
   z-index: 999;
   height: 50px;
-  width: 290px;
+  width: 320px;
   .el-input {
     display: inline-block;
     width: 200px;
@@ -782,34 +809,15 @@ export default {
   .el-button {
     display: inline-block;
     // width:60px;
-    margin: 0 5px;
+    margin: 0 2px;
+    width: 92px;
+    height: 36px;
+    background-color: $color;
+    border: none;
+    color: #ffffff;
+    border-radius: $b-radius;
+    vertical-align: middle;
   }
-}
-</style>
-<style>
-#popContainer,
-.popWin-class {
-  width: 200px;
-  height: 70px;
-  position: fixed;
-  color: white;
-  background-color: #636363;
-  text-align: left;
-  padding-left: 10px;
-  padding-top: 5px;
-  border-radius: 5px 5px 5px 5px;
-  visibility: visible;
-}
-
-.arrow {
-  position: absolute;
-  top: 70px;
-  left: 95px;
-  width: 0px;
-  height: 0px;
-  border-width: 10px;
-  border-style: solid;
-  border-color: #636363 transparent transparent transparent;
 }
 </style>
 

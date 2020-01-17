@@ -596,7 +596,7 @@ class CesiumPolyline extends BaseGraphic {
     }
     static defaultStyle = {
         clampToGround: true,
-        material: Cesium.Color.fromCssColorString('rgba(255,247,145,1)'),
+        material: Cesium.Color.fromCssColorString('rgba(247,224,32,1)'),
         width: 3
     }
     static selectedStyle = {
@@ -794,6 +794,8 @@ class CesiumPolygon extends BaseGraphic {
             //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
             if (this.outline) {
                 this.outlineGraphic.startEdit()
+                 this.nodeGraphic=this.outlineGraphic.nodeGraphic;
+                this.node=true;
             } else {
                 this.createNode()
             }
@@ -984,7 +986,7 @@ class CesiumModel extends BaseGraphic {
             this.graphic = undefined
         }
     }
-    destory() {
+    destroy() {
         this.remove()
         this.options = undefined
         this.position = undefined
