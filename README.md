@@ -75,5 +75,3 @@ npm run build
 
 ### 效果
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
-![avatar](https://img-blog.csdnimg.cn/20200102184102356.gif)
-![avatar](https://img-blog.csdnimg.cn/20200102184114146.gif)
