@@ -41,7 +41,7 @@ export default {
 }
 </script>
 ```
-大多数情况下，我们可能不会将Viewer对象存储到Vue data对象中，此时需要显式调用init方法初始化组件
+If you Cesium Viewer has not been declared in Vue's data,you need to explicitly call the init method.
 ```js
 //you-component.js
 <templete>
@@ -73,5 +73,8 @@ npm start
 npm run build
 ```
 
-### 效果
+### Blog
+https://blog.csdn.net/xtfge0915/article/details/103809055
+
+### example
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
