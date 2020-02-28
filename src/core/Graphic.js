@@ -4,14 +4,15 @@ import GraphicType from "./GraphicType";
  * @Author: zhangbo
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-12-16 19:28:45
- * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-02 15:49:26
+ * @LastEditors: zhangbo
+ * @LastEditTime: 2020-02-28 13:54:09
  * @Desc: 定义基础图形，包括点线、多边形，(圆，矩形)
  */
 // import GraphicType from './GraphicType'
-const Cesium = window.Cesium
-const defined = Cesium.defined
-import {CVT} from '@/js/utils'
+const Cesium = window.Cesium;
+const defined = Cesium.defined;
+const console=window.console;
+import {CVT} from '@/js/utils';
 class BaseGraphic {
     constructor(viewer) {
         if (viewer instanceof Cesium.Viewer === false) {
@@ -235,7 +236,19 @@ class CesiumBillboard extends BaseGraphic {
     }
 
     static defaultStyle = {
-        image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAfCAYAAAAIjIbwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAK8AAACvAAsAdHPAAAAB3RJTUUH4wEJAy0MN7YNKwAAA05JREFUSMeV1suLHFUUx/FPVVc/ZpKJozhKYkSQxOATBDdKkLgQRaKooP+DgijoTnDjNsYXIhoiCMa3ohJQEEnEiJsg+EhcRHzHiQmYOM6ju2aqr4uqmtzuTJvJ2TRV95xv/c7j3tuJyqa3bxVZhptwF27BRkxgFkexHx/hS+R10Pq9B0CyAvBKPIJ7caHR9jc+xDP4NgYnQ8DbsbMCr9Z+xKOV8uU0a7sVu7FhOKoIQb8fpGmikSTDy5uwC33sjaGb8FQMDJjLF83kubwoFP2gkSRajYaJdtPaVkuEvwg78BMOp0jxIK6NlZ2YWzA9O2eml+stFZb6fb2iMJPnjs3OOz43r+iHWPEWPIQsw3W4b6ADC10nu926kzM4iN+wMeGGfgiTp7o9CabWjMeK78GrGW6L055bXHSq26sfj+AxfIoFdJQjtgNX/dPLjTeb1raatf/FuCPDtqoEYDZfVIQgYR6Px11FFx9XvdhThDAxm+cxFLalysEG/RDkRVE//lApLD2/OhQH7lPNZl709cNAbTekmFzueKDoh7pGx5Vql4EReAF/JVgKZ0DXpcpGgDQhS1OVy6U4D/bfeLX4F+twWVD6p4OzO59WzSg7nSTaWSMekfvrhwhIuYWvgXajMQw9klb1WS7kRKupmabQxBN4GJdgHOvxAJ5EO0sT69qtGBiwL5nevnWzcntdUa+c7PacmJuvy7CEnzFdjczl1QdNjY+5YKwTQ3/BnXX6e+KVyXbL1Jrxur5ZYDNuDmwJNLM0NTU+ZrLTNmRv4vt67+/G3bi+ru35nbaxLDOb53pFuU2zNNVuNKxtNXWybBh4GC9x+kA5imeVp83yJHeyhk42JiCEIEkSZ5xRpRV4vkr/9E7Ce6Jhjy1BOhoIn1epg7S+ApRXxU6ccm42ELd+74EBpZR3z1vnCH1/OMO0pg/V5tdVAv9U9iKPOekKjofw8iqhr+Dr4ZfL0Eht7XzwLMDv4o/H8QNKo4Vjyqs3HwFcwnP4fQVBK6Zf2wf4ZMTaPrw9KvAMaPTVOTyNk0Mu/ypHaGYllWdTCl/g9aF37+Cz/wtaETo0Yi8oTyn4o6rl4iiVq1FKeVe9qPwHsgvfnC1gJHRIxRt4F6+NWB+w/wD3vCGsfC8xrQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wMS0wOVQwMzo0NToxMiswODowMKswftkAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDlUMDM6NDU6MTIrMDg6MDDabcZlAAAAQ3RFWHRzb2Z0d2FyZQAvdXNyL2xvY2FsL2ltYWdlbWFnaWNrL3NoYXJlL2RvYy9JbWFnZU1hZ2ljay03Ly9pbmRleC5odG1svbV5CgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMjMzz/MXEAAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxNTifzIcaAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE1NDY5NzY3MTKeBuyKAAAAEnRFWHRUaHVtYjo6U2l6ZQAxMDM4M0L7qH+sAAAAYnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L25ld3NpdGUvd3d3LmVhc3lpY29uLm5ldC9jZG4taW1nLmVhc3lpY29uLmNuL2ZpbGVzLzExOC8xMTg1NjU4LnBuZzaDG7oAAAAASUVORK5CYII=',
+        image: `data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACk0lEQVRYR+2WO2gUURSGv7MBsZKo
+        jY/CJkiiIviAKDuzLGqjWGiRRdEiVqKxEUUEA0ZQBFFsVLRSwaBJCi1EGw3LzsQH+ABRIphKUCs1
+        pRa7R3acjbuzs3NnZtE0TnnvOf/57j2PO8IsfzLL8WkLQPN0VQ8gRabSHiQRgNosBg4jrELpBRb4
+        gb8hPEd5C1wUhy9xgWIDqMV2hGvAEoP4Z5T94nI/DkQsALU4iTAUR3DGRhkSl1MmHyOA5liD8sok
+        FLovrJUSr6N8IwE0TydlXGBliMgw8Mhf3wLsCbF5RweWFJluBRENYHEe4UiTs1IQl7H6dbXoQxgN
+        sb0gLkfTAdg8BjY1OCvrxeVlmKBarEN4EdgbF4fNaQG+A50zzsKYlChE5VRzjKL01dlMi8P8xACa
+        p5syk4HTD4jLlUgAi4MIlxtsOuiRIu/D/FrWgOZZRLlpoOwThxuRADb9wPUGmwrLZIKPiQCqxmrz
+        BNhY5zgsDnsNALcCHfFBHJYnToEHkOM4ytlAGpo6oLbfohOuisOBdABZNpDhaUhrNXVCiw4AoV9K
+        3EwF4N2CxSRCd5OAMEaForeeIR+o/D/mwgopBYq5Tsw8ii1OIJyOynvE3og47IryNQP0Mo85PAN6
+        EkL8RMm2Glo1LSOA3w3VIors/5AUnZESgyboWAA+RPVRypoE/X3jI5ToBvyWLKCMxAQwDqzEAP4t
+        3AV2GCDuicPOmKDJfkrVZjUwDixsEeBr9fUUhzd/BcCfCwMIl0IDKIfEDTxEBpLYRVivoza3oam/
+        74jD7rgnT1UDNSfNM5cKUyhLvTXhExm6pMiPfwLgpSLLVjI88AJW2CYTPEwa/Dd7G5/anPNEHI6l
+        lWkLIG3Qer//AL8AUSKwIU5nmlMAAAAASUVORK5CYII=`,
         verticalOrigin: Cesium.VerticalOrigin.BASELINE
     }
     static defaultLabelStyle = {
@@ -793,8 +806,8 @@ class CesiumPolygon extends BaseGraphic {
             // })
             //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
             if (this.outline) {
-                this.outlineGraphic.startEdit()
-                 this.nodeGraphic=this.outlineGraphic.nodeGraphic;
+                this.outlineGraphic.startEdit();
+                this.nodeGraphic=this.outlineGraphic.nodeGraphic;
                 this.node=true;
             } else {
                 this.createNode()
