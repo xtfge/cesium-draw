@@ -1,0 +1,121 @@
+{
+  "id": "1590177",
+  "name": "my-project",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12597587",
+      "name": "layer",
+      "font_class": "layer",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "12597662",
+      "name": "marker",
+      "font_class": "marker",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12597676",
+      "name": "label",
+      "font_class": "label",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "12597679",
+      "name": "remove",
+      "font_class": "remove",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "12597688",
+      "name": "polygon",
+      "font_class": "polygon",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "12597851",
+      "name": "删除／数字面板编辑态",
+      "font_class": "delete",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12597852",
+      "name": "复位",
+      "font_class": "locate",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "12597853",
+      "name": "编辑",
+      "font_class": "edit",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "12597854",
+      "name": "重命名",
+      "font_class": "rename",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "12597984",
+      "name": "model",
+      "font_class": "model",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "12597985",
+      "name": "polyline",
+      "font_class": "polyline",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "12598030",
+      "name": "import",
+      "font_class": "import",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12598051",
+      "name": "export (1)",
+      "font_class": "export",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "12598567",
+      "name": "文件",
+      "font_class": "file",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "12598568",
+      "name": "颜色选择器 (1)",
+      "font_class": "color",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12636469",
+      "name": "边框",
+      "font_class": "outline",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    }
+  ]
+}
