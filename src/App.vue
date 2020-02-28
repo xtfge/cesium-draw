@@ -1,17 +1,36 @@
-/*
+<!--
  * @Author: zhangbo
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-10-09 19:42:40
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 13:50:56
+ * @LastEditTime: 2020-02-28 11:30:46
  * @Desc: 
- */
-import Vue from 'vue'
-import './plugins/element.js'
-import App from './App'
-import "@/assets/css/iconfont.css";
+ -->
+<template>
+  <div id="app">
+    <layout></layout>
+  </div>
+</template>
 
-Vue.config.productionTip = false
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+<script>
+import layout from '@/Apps/layout'
+export default {
+  name: 'app',
+  components:{layout}
+}
+</script>
+
+<style lang="scss">
+html, body, #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+ }
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+</style>
