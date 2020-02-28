@@ -3,26 +3,26 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 20:22:20
+ * @LastEditTime: 2020-02-28 20:23:14
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
 ## Cesium-Draw
 
-基于Vue开发的Cesium基础标绘插件，支持交互式添加BillBoard、Polyline、Polygon、Label和Model
+This is a plug-in for basic plotting of cesium,which is developed based on Vue.
+You can use it to plot basic graphics interactively.For examples point,polyline and polygon.
 
-核心功能:
-- 鼠标交互绘图
-- 对于Billboard、Label、Model支持图标，名称的编辑，图标可以任意扩展.
-- 对于Polyline和Polygon支持顶点、颜色等常见图形属性的编辑.
-- 支持导入、导出功能
-- 可以通过图层管理器管理通过该插件添加的所有图形.
-### 安装
+Key Features:
+- Add marker,polyline,polygon,label,model with mouse.
+- You can edit geometry which were added to cesium viewer by the plugin.
+- Export and import.(json,Geojson,shp)
+- Manager all geometry width layer manager.
+### Install
 
 ```sh
 npm i cesium-draw
 ```
-### 使用
+### Usage
 ```HTML
 <template>
     <div id='map'></div>
@@ -46,13 +46,13 @@ export default{
 }
 </script>
 ```
-如果你没有将Cesium Viewer对象保存到Vue data中，你必须显式调用init函数初始化组件。
+You must explicitly call the init function if you do not declare a Cesium Viewer in Vue data.
 ```js
 const viewer=new Cesium.Viewer('map')
 this.$refs.drawManager.init(viewer)
 ```
 
-#### 怎么扩展标记图标
+#### How to extend mark images
 ```html
 <cesium-draw ref='drwaManager' :extendMarkerImage="images"></cesium-draw>
 ```
@@ -68,10 +68,11 @@ data(){
     }
 }
 ```
-#### 怎么使用模型标记
-你必须通过`extendMarkerModel`属性定义用于标记的模型，才可以使用模型标记。
+#### How to extend mark model
+You must use `extendMarkerModel` define model which be used to mark,
+otherwise,you can not mark with model.
 
-比如：
+e.g.
 ```html
 <cesium-draw ref='drwaManager' :extendMarkerModel="model"></cesium-draw>
 ```
@@ -90,16 +91,16 @@ data(){
     }
 }
 ```
-#### 如何使用喜欢的主题
+#### How to use your favorite theme
 ```js
 import 'cesium-draw/dist/theme/default.css' 
 ```
-或
+or
 ```js
 import 'cesium-draw/dist/theme/dark.css'
 ```
->更多主题敬请期待。
-#### 示例
+
+#### example
 ```HTML
 <template>
     <div id='map'></div>
@@ -139,10 +140,10 @@ export default{
 }
 </script>
 ```
-### 开发&打包
+### Development
 ```sh
 npm install
 npm run build
 ```
-### 效果
+### Display
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
