@@ -3,17 +3,21 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-10-10 15:55:20
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 14:24:50
+ * @LastEditTime: 2020-03-01 13:44:07
  * @Desc: 
  */
-import Vue from 'vue'
+import _Vue from 'vue'
 import './plugins/element.js'
 import drawViewer from './components/cesiumDrawViewer'
 import "@/assets/css/iconfont.css"
 
-Vue.config.productionTip = false
+
+_Vue.config.productionTip = false
 
 drawViewer.install = Vue => {
+  if(!Vue){
+    window.Vue=Vue=_Vue;
+  }
   Vue.component(drawViewer.name, drawViewer)
 }
 

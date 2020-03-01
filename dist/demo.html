@@ -1,10 +1,45 @@
 <meta charset="utf-8">
 <title>cesiumdrawViewer demo</title>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="Cesium/Cesium.js"></script>
+<link href="Cesium/Widgets/widgets.css" rel="stylesheet" />
+
 <script src="./cesiumdrawViewer.umd.js"></script>
 
-<link rel="stylesheet" href="./cesiumdrawViewer.css">
+<link rel="stylesheet" href="./theme/dark.css">
 
+<style>
+    #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+</style>
 
-<script>
-console.log(cesiumdrawViewer)
-</script>
+<body>
+
+    <div id='app'>
+        <div id='map'></div>
+        <cesiumDrawViewer></cesiumDrawViewer>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            mounted: () => {
+                // console.log(cesiumDrawViewer)
+                const viewer = new Cesium.Viewer('map', {
+                    imageryProvider: new Cesium.UrlTemplateImageryProvider({
+                        url: "http://www.google.cn/maps/vt?lyrs=s@800&x={x}&y={y}&z={z}",
+                        tilingScheme: new Cesium.WebMercatorTilingScheme(),
+                        minimumLevel: 1,
+                        maximumLevel: 20
+                    })
+                })
+            }
+        })
+
+    </script>
+</body>
