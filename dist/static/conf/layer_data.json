@@ -1,0 +1,43 @@
+[
+    {
+        "id": "marker",
+        "text": "标记",
+        "type":"marker",
+        "children": [
+            
+        ]
+    },
+    {
+        "id": "polyline",
+        "text": "线",
+        "type":"polyline",
+        "children": [
+            
+        ]
+    },
+    {
+        "id": "polygon",
+        "text": "多边形",
+        "type":"polygon",
+        "children": [
+            
+        ]
+    },
+    {
+        "id": "label",
+        "text": "文字",
+        "type":"label",
+        "children": [
+            
+        ]
+    },
+    {
+        "id": "model",
+        "text": "模型",
+        "type":"model",
+        "children": [
+            
+        ]
+    }
+    
+]

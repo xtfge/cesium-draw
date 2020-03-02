@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 20:22:20
+ * @LastEditTime: 2020-03-02 09:42:47
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -143,6 +143,10 @@ export default{
 ```sh
 npm install
 npm run build
+```
+### 打包成组件
+```sh
+npm run lib
 ```
 ### 效果
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
