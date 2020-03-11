@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-10-10 09:54:10
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 19:37:14
+ * @LastEditTime: 2020-03-02 15:04:13
  * @Desc: 
  */
 const path = require('path');
@@ -36,7 +36,7 @@ module.exports = {
     ]
 
   },
-  publicPath: process.env.NODE_ENV === 'development' ? './' : '../dist',
+  publicPath: process.env.NODE_ENV === 'development' ? './' : './',
   assetsDir: 'theme',
   lintOnSave: true,
   // 强制内联CSS

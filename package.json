@@ -1,26 +1,29 @@
 {
   "name": "cesium-draw",
-  "version": "3.2.4",
+  "version": "3.2.7",
   "description": "add a mark,polyline,polygon base on Cesium",
   "private": false,
   "keyword": "Cesium Polygon Polyline mark interactive",
   "main": "./dist/cesiumdrawViewer.umd.min.js",
   "files": [
-    "dist"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
-    "build": "vue-cli-service build --target lib --name cesiumdrawViewer ./src/index.js",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name cesiumdrawViewer ./src/index.js",
     "lint": "vue-cli-service lint",
     "start": "vue-cli-service serve"
   },
   "dependencies": {
-    "vue": "^2.6.10",
-    "jquery": "^3.4.1",
     "core-js": "^2.6.5",
     "file-saver": "^2.0.2",
-    "shapefile": "^0.6.6"
+    "jquery": "^3.4.1",
+    "shapefile": "^0.6.6",
+    "vue": "^2.6.10"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "element-ui": "^2.12.0",
     "@vue/cli-plugin-babel": "^3.11.0",
     "node-sass": "^4.12.0",

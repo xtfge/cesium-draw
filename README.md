@@ -3,7 +3,7 @@
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 20:22:20
+ * @LastEditTime: 2020-03-02 09:42:47
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -17,9 +17,6 @@
 - 对于Polyline和Polygon支持顶点、颜色等常见图形属性的编辑.
 - 支持导入、导出功能
 - 可以通过图层管理器管理通过该插件添加的所有图形.
-### 重要说明
-由于github被墙，无法正常更新，请前往码云下载最新版本。
-https://gitee.com/xtfge0915/cesium-draw
 ### 安装
 
 ```sh
@@ -146,6 +143,10 @@ export default{
 ```sh
 npm install
 npm run build
+```
+### 打包成组件
+```sh
+npm run lib
 ```
 ### 效果
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
