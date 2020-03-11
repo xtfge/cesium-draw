@@ -1,0 +1,97 @@
+$bg-color:#FFFFFF;
+$color:#000000;
+$color-l:#C7E9FA;
+$font-color:#FFFFFF;
+$selected-color:#409EFF;
+$border-color:#E4E7ED;
+$devision-color:#DCDFE6;
+$b-radius:4px;
+$draw-panel-width:400px;
+$hover-color:#409EFF;
+$title-height:32px;
+$item-margin:0 5px;
+$item-height:40px;
+$padding:0 5px;
+$font-size:12px;
+//跟随鼠标的提示信息
+.cursor-tip-class{
+    position : fixed;
+    // border : 1px $border-color solid;
+    height : 30px;
+    line-height : 30px;
+    padding-left : 10px;
+    padding-right : 20px;
+    background-color : $bg-color;
+    color : $font-color;
+    border-radius : $b-radius;
+    pointer-events : none;
+    z-index : 999;
+    min-width:  150px;
+    font-size: $font-size;
+}
+//关闭按钮
+.closebtn{
+  text-align: center;  
+  display: inline-block!important;
+  font-size: $font-size;
+  color:$color;
+  // margin-top: 13px!important;
+  // margin-right: 13px!important;
+  cursor: pointer;
+  float: right;
+  &:hover {
+    color: #FF0000;
+  }
+}
+//滚动条
+*{
+  &::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    box-shadow: inset 0 0 2px $color;
+    background: $color;
+  }
+  &::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 2px $bg-color;
+    border-radius: 2px;
+    background: $bg-color;
+  }
+}
+//气泡
+.popWin-class {
+  min-width: 200px;
+  height: 73px;
+  position: fixed;
+  color: $font-color;
+  background-color: $bg-color;
+  text-align: left;
+  border-radius: $b-radius;
+  font-size: $font-size;
+  visibility: visible;
+  // border: 1px solid $border-color;
+  box-sizing: border-box;
+  padding: 0 12px;
+  span{
+    margin-top: 12px;
+    display: block;
+  }
+  .arrow {
+    position: absolute;
+    top: 73px;
+    left: 0px;
+    width: 0px;
+    height: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-width: 10px;
+    border-style: solid;
+    border-color: $bg-color transparent transparent transparent;
+  }
+}
+
