@@ -2,8 +2,8 @@
  * @Author: zhangbo
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-12-18 10:32:33
- * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-17 10:06:06
+ * @LastEditors: zhangbo
+ * @LastEditTime: 2020-02-28 13:48:29
  * @Desc: 包括点标绘、文字标绘、模型标绘
  -->
 <template>
@@ -17,7 +17,7 @@
       <el-container v-show="!selectPanel">
         <el-header>
           <span>添加标记</span>
-          <span class="closebtn" id="closespan" @click="cancelMark"></span>
+          <span class="closebtn iconfont icon-guanbi" @click="cancelMark"></span>
         </el-header>
 
         <el-container>
@@ -85,7 +85,6 @@ export default {
       defaultImage: CesiumBillboard.defaultStyle.image,
       selectedImage: CesiumBillboard.defaultStyle.image,
       popWinPosition: undefined,
-
       markerOptions: {
         ...CesiumBillboard.defaultLabelStyle,
         ...CesiumModel.defaultStyle
@@ -154,7 +153,7 @@ export default {
           if (!ele) {
             return;
           }
-          ele.style.left = pos.x - 100 - 7 + "px";
+          ele.style.left = pos.x - 100 - 2 + "px";
           ele.style.top = pos.y - 100 + "px";
 
           const curPos = self.popWinPosition;
@@ -200,7 +199,6 @@ export default {
      * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
      * @type {String}表示何种标记,marker:billboard，label:label,model:model
      * @mode {String} 如果mode不是single，将连续添加标记
-     
      */
     pick(type = "marker", mode = "single") {
       this.markMode = type;
@@ -210,6 +208,7 @@ export default {
       pickHandler = handler;
       const self = this;
       const id = this.generateId();
+
       const pick = function(e) {
         const cartesian = cvt.pixel2Cartesian(e.position, viewer);
         if (Cesium.defined(cartesian)) {
@@ -225,7 +224,6 @@ export default {
             //默认marker
             marker = self.createMarker(cartesian);
           }
-
           self.visible = true;
           markerManager.set(id, marker);
           marker.gvid = id;
@@ -302,7 +300,6 @@ export default {
 
       return marker;
     },
-
     removeEventListener() {
       if (pickHandler) {
         if (!pickHandler.isDestroyed()) {
@@ -320,7 +317,6 @@ export default {
         this.$emit("deleteEvent", this.activeMarker.gvid);
       }
       this.visible = false;
-
       this.activeMarker = undefined;
     },
     zoomTo(id) {
@@ -560,7 +556,8 @@ export default {
     },
     importMarks() {}
   },
-  watch: {}
+  watch: {
+  }
 };
 </script>
 
@@ -747,9 +744,9 @@ export default {
   line-height: 30px;
   color: $color;
   padding: $padding;
-  span {
-    margin: $item-margin;
-    color: $color;
+  span{
+    margin:$item-margin;
+    color:$color;
   }
 }
 
@@ -783,7 +780,9 @@ export default {
 
 #createMerkerPanel img {
   margin-top: 8px;
-  margin-left: 5px;
+  // width:32px;
+  // height:32px;
+  // margin-left: 5px;
 }
 
 .crusor-tip {
@@ -805,6 +804,15 @@ export default {
     display: inline-block;
     width: 200px;
     margin: 0 10px;
+    vertical-align: middle;
+    /deep/ .el-input__inner {
+      background-color: $bg-color;
+      border: 1px solid $border-color;
+      border-radius: $b-radius;
+      width: 199px;
+      height: 38px;
+      color: #ffffff;
+    }
   }
   .el-button {
     display: inline-block;

@@ -2,8 +2,8 @@
  * @Author: zhangbo
  * @E-mail: zhangb@geovis.com.cn
  * @Date: 2019-12-19 12:37:53
- * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-17 10:52:56
+ * @LastEditors: zhangbo
+ * @LastEditTime: 2020-02-28 18:44:03
  * @Desc: cesium标绘面板
  -->
 <template>
@@ -357,7 +357,6 @@ import { moveDiv } from "@/js/utils";
 import $ from "jquery";
 let graphicManager = undefined;
 const Cesium = window.Cesium;
-
 const console = window.console;
 export default {
   name: "cesiumDrawViewer",
@@ -468,7 +467,9 @@ export default {
   mounted() {
     const self = this;
     moveDiv("drawtoolPanel", "drawtoolHead");
-    $("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
+    this.$nextTick(() => {
+      $("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
+    });
     document.addEventListener("addEvent", function(e) {
       self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
     });
@@ -491,7 +492,7 @@ export default {
     document.addEventListener("destroyEvent", function(e) {
       //   self.menuSelected = {};
       //   self.editMode = false;
-      self.$refs.layerManager.deleteNode(e.detail.gvid);
+      self.$refs.layerManager.drop(e.detail.gvid);
       self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
@@ -529,7 +530,7 @@ export default {
         parents.push("labelColor");
       }
       const eles = $(
-        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont iconcolor"
+        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont icon-seban"
       );
       for (let e of eles) {
         const target = $(e)
@@ -615,7 +616,7 @@ export default {
     updateMarker(gvid, gvname) {
       if (gvid) {
         gvname = gvname || "未命名";
-        this.$refs.layerManager.renameNode(gvid, gvname);
+        this.$refs.layerManager.rename(null, gvid, gvname);
       }
       this.editMode = false;
       this.menuSelected = {};
@@ -709,7 +710,7 @@ export default {
     deleteMarker(id) {
       this.menuSelected["MARKER"] = false;
       this.editMode = false;
-      this.$refs.layerManager.deleteNode(id);
+      this.$refs.layerManager.drop(id);
     },
     locateGraphic(id) {
       if (graphicManager.graphicManager.has(id)) {
@@ -1015,16 +1016,20 @@ export default {
 <style lang="scss" scoped>
 #drawtoolPanel {
   position: fixed;
-  width: $g-width;
+  width: $draw-panel-width;
   top: 10px;
   right: 10px;
-  height: 145px;
+  height: 85px;
   right: 7px;
-  border-radius: 3px;
+  border-radius: $b-radius;
   /* border: 1px solid #01c5fd;
   box-shadow: 0 0 5px rgba(1, 197, 253, 0.75); */
   z-index: 10;
   border-radius: $b-radius;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  font-size: $font-size;
 }
 .layer-manager-class {
   width: 400px;
@@ -1033,17 +1038,6 @@ export default {
 }
 .edit-layer-manager-class {
   top: 140px;
-}
-
-#clostbtn {
-  font-family: element-icons !important;
-  //   float: right;
-  color: red;
-  font-size: 24px;
-  line-height: 24px;
-  //   padding: 5px 15px 5px 15px;
-
-  /* margin-right: -10px; */
 }
 .graphic-edit {
   width: 100%;
@@ -1068,10 +1062,12 @@ export default {
 .el-header {
   height: $title-height !important;
   line-height: $title-height !important;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $devision-color;
   padding: $padding;
+  border-radius: $b-radius;
   span {
     margin: $item-margin;
+    color: $color;
   }
 }
 .icon-class {
@@ -1086,12 +1082,13 @@ export default {
   // line-height: 60%;
   vertical-align: top;
   color: $color;
-  border-bottom: 1px solid $border-color;
+  border-radius: $b-radius;
   ul {
     cursor: default;
+    border-radius: $b-radius;
     padding: 0;
     overflow: hidden;
-    // border-bottom: 1px solid $border-color;
+    // border-bottom: 1px solid $devision-color;
     height: 43px;
     margin: 0;
     // margin-top: 0 0 5px 0;
@@ -1103,6 +1100,9 @@ export default {
       height: 100%;
       box-sizing: border-box;
       list-style: none;
+      span {
+        text-align: center !important;
+      }
       &:hover {
         i {
           color: $hover-color;
@@ -1127,7 +1127,6 @@ export default {
         user-select: none;
         display: block;
         text-align: center;
-        font-size: 12px;
         color: $color;
         line-height: 22px;
       }
@@ -1143,6 +1142,7 @@ export default {
   line-height: 52px;
   vertical-align: top;
   padding: 0 5px;
+  border-top: 1px solid $devision-color;
   /deep/ .el-color-picker--mini {
     height: 28px;
     width: 28px;
