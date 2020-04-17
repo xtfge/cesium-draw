@@ -1,7 +1,11 @@
 /**
  * Cesium - https://github.com/AnalyticalGraphicsInc/cesium
  *
+<<<<<<< HEAD
  * Copyright 2011-2020 Cesium Contributors
+=======
+ * Copyright 2011-2017 Cesium Contributors
+>>>>>>> e68548309368f24ea068fdd3da0161ddefe7cefd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
