@@ -160,5 +160,5 @@ npm run build
 npm run lib
 ```
 ### 效果
-e68548309368f24ea068fdd3da0161ddefe7cefd
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
+![avatar](https://img-blog.csdnimg.cn/2020041719034414.gif)
