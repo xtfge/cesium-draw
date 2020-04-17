@@ -1,18 +1,15 @@
-import GraphicType from "./GraphicType";
-
 /*
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-16 19:28:45
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 13:54:09
+ * @LastEditTime: 2020-04-17 14:16:12
  * @Desc: 定义基础图形，包括点线、多边形，(圆，矩形)
  */
-// import GraphicType from './GraphicType'
+import GraphicType from "./GraphicType";
 const Cesium = window.Cesium;
 const defined = Cesium.defined;
-const console=window.console;
-import {CVT} from '@/js/utils';
+const console = window.console;
+import { CVT } from '@/js/utils';
 class BaseGraphic {
     constructor(viewer) {
         if (viewer instanceof Cesium.Viewer === false) {
@@ -22,7 +19,14 @@ class BaseGraphic {
         this._type = undefined
         this._gvtype = undefined;
         this._gvid = undefined;
-        this._name = undefined
+        this._name = undefined;
+        this._attachment = []
+    }
+    get attachment() {
+        return this._attachment
+    }
+    set attachment(v) {
+        this._attachment = v
     }
     get type() {
         return this._type;
@@ -70,38 +74,38 @@ class BaseGraphic {
             this.viewer.flyTo(this.graphic)
         }
     }
-    coordinates(){
-        if(this.position instanceof Cesium.Cartesian3){
-            const coor=CVT.cartesian2Degrees(this.position,this.viewer)
-            return [coor.lon,coor.lat,coor.height]
-        }else if(this.positions instanceof Array){
-            const pts=[]
-            for(let p of this.positions){
-                const c=CVT.cartesian2Degrees(p,this.viewer)
-                pts.push([c.lon,c.lat,c.height])
+    coordinates() {
+        if (this.position instanceof Cesium.Cartesian3) {
+            const coor = CVT.cartesian2Degrees(this.position, this.viewer)
+            return [coor.lon, coor.lat, coor.height]
+        } else if (this.positions instanceof Array) {
+            const pts = []
+            for (let p of this.positions) {
+                const c = CVT.cartesian2Degrees(p, this.viewer)
+                pts.push([c.lon, c.lat, c.height])
             }
-            if(this.type==='POLYLINE'){
+            if (this.type === 'POLYLINE') {
                 return pts
-            }else{
+            } else {
                 return [pts]
             }
-            
+
         }
     }
     toGeoJson() {
-        const type={
-            'MARKER':'Point',
-            'POLYLINE':'Polyline',
-            'POLYGON':'Polygon',
-            'LABEL':'Point'
+        const type = {
+            'MARKER': 'Point',
+            'POLYLINE': 'LineString',
+            'POLYGON': 'POLYGON',
+            'LABEL': 'Point'
         }
         return {
             "type": "Feature",
-            "properties": { name:this.gvname,gvtype:this.gvtype },
+            "properties": { name: this.gvname, gvtype: this.gvtype },
             "geometry":
             {
                 "type": type[this.type],
-                "coordinates":this.coordinates()
+                "coordinates": this.coordinates()
             }
         }
 
@@ -129,9 +133,7 @@ class CesiumBillboard extends BaseGraphic {
             gvname: this._name,
             gvtype: this.gvtype,
             gvid: this.gvid,
-            position: new Cesium.CallbackProperty(function () {
-                return self.position
-            }, false),
+            position: self.position,
             billboard: options,
             label: labelOption
         }
@@ -206,17 +208,17 @@ class CesiumBillboard extends BaseGraphic {
         this.position = position;
     }
     stopEdit() {
-        // if (this.graphic && this.graphic.position) {
-        //     this.graphic.position = this.graphic.position.getValue();
-        // }
+        if (this.graphic && this.graphic.position) {
+            this.graphic.position = new Cesium.ConstantProperty(this.position)
+        }
     }
     startEdit() {
-        // const self = this;
-        // if (this.graphic) {
-        //     this.graphic.position = new Cesium.CallbackProperty(function () {
-        //         return self.position;
-        //     }, false)
-        // }
+        const self = this;
+        if (this.graphic) {
+            this.graphic.position = new Cesium.CallbackProperty(function () {
+                return self.position;
+            }, false)
+        }
     }
     destroy() {
         this.remove();
@@ -236,19 +238,7 @@ class CesiumBillboard extends BaseGraphic {
     }
 
     static defaultStyle = {
-        image: `data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACk0lEQVRYR+2WO2gUURSGv7MBsZKo
-        jY/CJkiiIviAKDuzLGqjWGiRRdEiVqKxEUUEA0ZQBFFsVLRSwaBJCi1EGw3LzsQH+ABRIphKUCs1
-        pRa7R3acjbuzs3NnZtE0TnnvOf/57j2PO8IsfzLL8WkLQPN0VQ8gRabSHiQRgNosBg4jrELpBRb4
-        gb8hPEd5C1wUhy9xgWIDqMV2hGvAEoP4Z5T94nI/DkQsALU4iTAUR3DGRhkSl1MmHyOA5liD8sok
-        FLovrJUSr6N8IwE0TydlXGBliMgw8Mhf3wLsCbF5RweWFJluBRENYHEe4UiTs1IQl7H6dbXoQxgN
-        sb0gLkfTAdg8BjY1OCvrxeVlmKBarEN4EdgbF4fNaQG+A50zzsKYlChE5VRzjKL01dlMi8P8xACa
-        p5syk4HTD4jLlUgAi4MIlxtsOuiRIu/D/FrWgOZZRLlpoOwThxuRADb9wPUGmwrLZIKPiQCqxmrz
-        BNhY5zgsDnsNALcCHfFBHJYnToEHkOM4ytlAGpo6oLbfohOuisOBdABZNpDhaUhrNXVCiw4AoV9K
-        3EwF4N2CxSRCd5OAMEaForeeIR+o/D/mwgopBYq5Tsw8ii1OIJyOynvE3og47IryNQP0Mo85PAN6
-        EkL8RMm2Glo1LSOA3w3VIors/5AUnZESgyboWAA+RPVRypoE/X3jI5ToBvyWLKCMxAQwDqzEAP4t
-        3AV2GCDuicPOmKDJfkrVZjUwDixsEeBr9fUUhzd/BcCfCwMIl0IDKIfEDTxEBpLYRVivoza3oam/
-        74jD7rgnT1UDNSfNM5cKUyhLvTXhExm6pMiPfwLgpSLLVjI88AJW2CYTPEwa/Dd7G5/anPNEHI6l
-        lWkLIG3Qer//AL8AUSKwIU5nmlMAAAAASUVORK5CYII=`,
+        image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJEN0VBRDA0MzJCRTExRUE5MjY2QTg3OUVFNjUyQzhCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJEN0VBRDA1MzJCRTExRUE5MjY2QTg3OUVFNjUyQzhCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkQ3RUFEMDIzMkJFMTFFQTkyNjZBODc5RUU2NTJDOEIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkQ3RUFEMDMzMkJFMTFFQTkyNjZBODc5RUU2NTJDOEIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6qzlgwAAADR0lEQVR42uxXTUhUURQ+88aZ93JSZyiDCCkt+0VLtGzRn/QntotMoqBEol1Ui9JVtNCsoKJNSFgQREjRKiXF/mxToIQK2YBZIRKlaE1pb+Y5M33n+dRJfTN3ZoLZdOG7986dc75z5v6cc8YSDAYpkU2iBLeEO5AUpfxy4BCwHVgLLDTWh4B3wEvgPvBBlNAy1x1w3fP89XnkcOoyDJeBA6wTgZMJHwJnwfNpBk/0DkCpFEM9kKL6iR591qixX6OukQB9+x3QZRbNkyjXJdG+DBvtX2ojxaov/wQqwPUgZgegUIHhFss19o9TVYdK/aOBsD8/wyHRxXwFziRN7sZx8NWbOWB6CSFchKGOjZ9/q9KRtrGIxrmxDMuyjnFcdQaX+B3g7QZ6gCWXur1U2+WN6YZX5sp0Lkfm6YBxaT2iO3CKjbcP+elKtzfmJ8a6zMFcwGnRHVB4J/mJFbeM0ptBf1zvvDDdSk/2OCafagagRtqBvWy8c9gft3FuzMFcRswoFjmC3dy1DIybktqhVVugUF9pCn0EeG4PE1NDuHaJOFDA3auv5r/+Qp5CJ1bZyWW3kBPgedV62VQ+hGujiANZ3Lk95g6UZdlmrR1dYTeVD+HKFHHAyd2w+u/SdAiXS8QBXVpJMg/5DX3arLW7vZqpvGyd4lJFHOCsRuuc5reKo1yd20fffUEdPK/pVE3lc1xTXL0i6fgxsKEs02b6DH2IyJXtqg6RdjDTFsodMRAtBvq8AVJ2NP2i9z8CcZ3/6jSJXpTMJ1nSt58v+JdIR8AC1VCg21uSKdVmidk469aDQ56wUj3TeLhkxHvWCmx7jWMoez5GHi0YtfGGomTanK4XB21GENKEkhHyt2ZUP24maC120Mo08fKRZVnHMO5mLoNTvB6AwiCGnZyWs1MlegbC8mx72HqMvzuGgMSyrIPWzRwGV/RVMRQ5j2/laOpAXLi6SaEmZLb8BdZZsrzG310rVMgxEUOesq7BEXdRynG2Bjij66BrQol2o2eiVji5RqYSlGCW6UB2nesR8PjiLkpnEHCqvmM8VTJ5QeXQbzbRnyPuwoEo4QRuAv7gdPMba85o+WJxYBJ5QDPQYsxj4rH8/3OaaAf+CDAAVvn1VEy/MOwAAAAASUVORK5CYII=',
         verticalOrigin: Cesium.VerticalOrigin.BASELINE
     }
     static defaultLabelStyle = {
@@ -258,7 +248,7 @@ class CesiumBillboard extends BaseGraphic {
         style: Cesium.LabelStyle.FILL_AND_OUTLINE,
         // outlineWidth: 2,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-        pixelOffset: new Cesium.Cartesian2(20, -20),
+        pixelOffset: new Cesium.Cartesian2(20, -30),
         heightReference: Cesium.HeightReference.NONE
     }
 }
@@ -332,6 +322,20 @@ class CesiumPoint extends BaseGraphic {
             this.viewer.entities.remove(this.graphic);
         }
         this.graphic = undefined;
+    }
+    startEdit() {
+        if (this.graphic instanceof Cesium.Entity) {
+            this.graphic.position = new Cesium.CallbackProperty(() => {
+                return this.positions;
+            }, false)
+        } else if (this.graphic instanceof Array) {
+            const count = this.graphic.length
+            for (let i = 0; i < count; i++) {
+                this.graphic[i].position = new Cesium.CallbackProperty(() => {
+                    return this.positions[i];
+                }, false)
+            }
+        }
     }
     /**
      * 在确定点的位置之后，将CallBackProperty重置为一个普通对象
@@ -475,8 +479,10 @@ class CesiumPolyline extends BaseGraphic {
             gvname: this._name,
             gvid: this._gvid,
             gvtype: this._gvtype,
-            polyline: options
+            polyline: options,
+            properties: options.properties
         };
+        delete options.properties
         this.options.polyline.positions = new Cesium.CallbackProperty(_update, false);
         this.graphic = undefined;
         this.nodeGraphic = undefined;
@@ -496,6 +502,17 @@ class CesiumPolyline extends BaseGraphic {
         }
         return undefined
 
+    }
+    get properties() {
+        if (this.graphic) {
+            return this.graphic.properties
+        }
+        return false
+    }
+    set properties(v) {
+        if (this.graphic) {
+            return this.graphic.properties = v
+        }
     }
     addNode(node) {
         if (node instanceof Cesium.Cartesian3) {
@@ -552,10 +569,12 @@ class CesiumPolyline extends BaseGraphic {
         // }
         //this.graphic.polyline.material = CesiumPolyline.selectedStyle.material
 
-        // this.graphic.polyline.positions = new Cesium.CallbackProperty(function () {
-        //     return self.positions
-        // }, false)
-        this.createNode()
+        this.graphic.polyline.positions = new Cesium.CallbackProperty(() => {
+            return this.positions
+        }, false)
+        if (this.node === false) {
+            this.createNode()
+        }
         // const evt = new CustomEvent('startEdit', {
         //     detail: { graphicType: 'POLYLINE' }
         // })
@@ -564,8 +583,8 @@ class CesiumPolyline extends BaseGraphic {
     }
     stopEdit() {
         if (this.graphic instanceof Cesium.Entity) {
-            //this.graphic.polyline.positions = this.positions;
-            //this.graphic.polyline.material = this.options.polyline.material
+            this.graphic.polyline.positions = this.positions;
+            // this.graphic.polyline.material = this.options.polyline.material
         }
         this.removeNode()
         // const endEvent = new CustomEvent('stopEdit')
@@ -591,12 +610,14 @@ class CesiumPolyline extends BaseGraphic {
         this.graphic.polyline.material = material
     }
 
-    static fromDegrees(viewer, positions) {
+    static fromDegrees(viewer, positions, properties = {}) {
         positions = positions.map(_ => {
             return Cesium.Cartesian3.fromDegrees(_.lon, _.lat, _.height);
         })
-        const options = { positions, ...CesiumPolyline.defaultStyle };
+        const options = { positions, ...CesiumPolyline.defaultStyle, properties };
+
         const pl = new CesiumPolyline(viewer, options);
+        pl.stopEdit()
         return pl;
     }
     static fromRadians(viewer, positions) {
@@ -652,14 +673,28 @@ class CesiumPolygon extends BaseGraphic {
                     return new Cesium.PolygonHierarchy(self.positions)
                 }, false),
                 ...options
-            }
+            },
+            properties: options.properties
         };
+        delete options.properties
         this.node = false;
         this.graphic = undefined;
         this.nodeGraphic = undefined;
         this.outlineGraphic = undefined;
         this.outline = options.outline;
         this.create();
+    }
+    get properties() {
+        if (this.graphic) {
+            return this.graphic.properties
+        }
+        return false
+    }
+    set properties(v) {
+        if (this.graphic) {
+            return this.graphic.properties = v
+        }
+        return false
     }
     get outlineStyle() {
         if (this.outlineGraphic) {
@@ -798,17 +833,17 @@ class CesiumPolygon extends BaseGraphic {
      * 4.如果多边形定义了outline，outline也要高亮,outline的positions要变为CallbackProperty
      */
     startEdit() {
-        // const positions = this.positions
+        const positions = this.positions
         // const nodePositions = this.nodePositions
         if (this.graphic instanceof Cesium.Entity) {
-            // this.graphic.polygon.hierarchy = new Cesium.CallbackProperty(function () {
-            //     return new Cesium.PolygonHierarchy(positions);
-            // })
+            this.graphic.polygon.hierarchy = new Cesium.CallbackProperty(function () {
+                return new Cesium.PolygonHierarchy(positions);
+            })
             //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
             if (this.outline) {
                 this.outlineGraphic.startEdit();
-                this.nodeGraphic=this.outlineGraphic.nodeGraphic;
-                this.node=true;
+                this.nodeGraphic = this.outlineGraphic.nodeGraphic;
+                this.node = true;
             } else {
                 this.createNode()
             }
@@ -817,7 +852,7 @@ class CesiumPolygon extends BaseGraphic {
     }
     stopEdit() {
         if (this.graphic instanceof Cesium.Entity) {
-            //this.graphic.polygon.hierarchy = new Cesium.PolygonHierarchy(this.positions);
+            this.graphic.polygon.hierarchy = new Cesium.PolygonHierarchy(this.positions);
             //this.graphic.polygon.material = this.options.polygon.material
         }
         this.removeNode()
@@ -874,7 +909,7 @@ class CesiumPolygon extends BaseGraphic {
         outline: true,
         outlineColor: new Cesium.Color.fromCssColorString('rgba(255,247,145,1)'),
         outlineWidth: 2,
-        perPositionHeight:false
+        perPositionHeight: false
         // height:0,
         // HeightReference: Cesium.HeightReference.CLAMP_TO_GROUND
         //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
@@ -887,13 +922,16 @@ class CesiumPolygon extends BaseGraphic {
         outlineColor: Cesium.Color.AQUA.withAlpha(0.4)
         //heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
     }
-    static fromDegrees(viewer, positions) {
+    static fromDegrees(viewer, positions, properties = {}) {
         positions = positions.map(_ => {
             return Cesium.Cartesian3.fromDegrees(_.lon, _.lat, _.height);
         });
         const options = CesiumPolygon.defaultStyle;
         options.positions = positions;
-        return new CesiumPolygon(viewer, options);
+        options.properties = properties
+        const pg = new CesiumPolygon(viewer, options);
+        pg.stopEdit()
+        return pg
 
     }
     static fromRadians(viewer, positions) {
@@ -952,6 +990,18 @@ class CesiumLabel extends BaseGraphic {
 
         this.graphic = this.viewer.entities.add(this.options);
     }
+    startEdit() {
+        if (this.graphic) {
+            this.graphic.label.position = new Cesium.CallbackProperty(() => {
+                return this.position
+            }, false)
+        }
+    }
+    stopEdit() {
+        if (this.graphic) {
+            this.graphic.label.position = this.position
+        }
+    }
     remove() {
         this.viewer && this.viewer.entities.remove(this.graphic);
         this.graphic = undefined;
@@ -993,6 +1043,18 @@ class CesiumModel extends BaseGraphic {
     create() {
         this.graphic = this.viewer.entities.add(this.options)
     }
+    startEdit() {
+        if (this.graphic) {
+            this.graphic.label.position = new Cesium.CallbackProperty(() => {
+                return this.position
+            }, false)
+        }
+    }
+    stopEdit() {
+        if (this.graphic) {
+            this.graphic.label.position = this.position
+        }
+    }
     remove() {
         if (this.viewer) {
             this.viewer.entities.remove(this.graphic)
@@ -1032,3 +1094,6 @@ class CesiumModel extends BaseGraphic {
     }
 }
 export { CesiumPoint, CesiumPolyline, CesiumPolygon, CesiumLabel, CesiumBillboard, CesiumModel }
+export default {
+    CesiumPoint, CesiumPolyline, CesiumPolygon, CesiumLabel, CesiumBillboard, CesiumModel
+}
