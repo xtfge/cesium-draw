@@ -96,6 +96,21 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ "013f":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _assertThisInitialized; });
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+/***/ }),
+
 /***/ "014b":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -590,6 +605,29 @@ module.exports = function (TYPE, $create) {
     }
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
+};
+
+
+/***/ }),
+
+/***/ "0b64":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("f772");
+var isArray = __webpack_require__("9003");
+var SPECIES = __webpack_require__("5168")('species');
+
+module.exports = function (original) {
+  var C;
+  if (isArray(original)) {
+    C = original.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  } return C === undefined ? Array : C;
 };
 
 
@@ -11360,6 +11398,18 @@ module.exports = Array.isArray || function isArray(arg) {
 
 /***/ }),
 
+/***/ "1173":
+/***/ (function(module, exports) {
+
+module.exports = function (it, Constructor, name, forbiddenField) {
+  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {
+    throw TypeError(name + ': incorrect invocation!');
+  } return it;
+};
+
+
+/***/ }),
+
 /***/ "11e9":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13119,30 +13169,15 @@ exports.default = {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"612c7166-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=183d3c36&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"markerContainer"}},[(_vm.markMode==='marker')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.panelPosition().x+'px',top:_vm.panelPosition().y+'px'}),attrs:{"id":"createMerkerPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_c('span',[_vm._v("添加标记")]),_c('span',{staticClass:"closebtn iconfont icon-guanbi",on:{"click":_vm.cancelMark}})]),_c('el-container',[_c('el-container',[_c('el-main',{staticClass:"marker-main-class"},[_vm._v("\n            名称：\n            "),_c('el-input',{ref:"nameinput",nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("描述：\n            "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_c('img',{attrs:{"src":_vm.selectedImage}}),_c('br'),_c('a',{attrs:{"href":"#","id":"imageC"},on:{"click":function($event){_vm.selectPanel=true}}},[_vm._v("更换")])])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}],staticClass:"image-list-class"},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1):_vm._e(),(_vm.markMode==='label')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.panelPosition().x+'px',top:_vm.panelPosition().y+'px'}),attrs:{"id":"createLabelPanel"}},[_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('el-button',{attrs:{"size":"mini"},on:{"click":_vm.update}},[_vm._v("确定")])],1):_vm._e(),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=360943b8&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({left:_vm.winPos.x+'px',top:_vm.winPos.y+'px'}),attrs:{"id":"markerContainer"}},[_c('el-dialog',{attrs:{"title":_vm.markName+'附件',"visible":_vm.dialogVisible,"modal-append-to-body":false},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('el-upload',{ref:"upload",staticClass:"upload-class",attrs:{"action":_vm.attachment.action,"on-remove":_vm.attachment.delete,"on-success":_vm.attachment.success,"file-list":_vm.attachment.fileList,"on-preview":_vm.attachment.download,"auto-upload":false}},[_c('el-button',{attrs:{"slot":"trigger","size":"small","type":"primary"},slot:"trigger"},[_vm._v("选取文件")]),_c('el-button',{staticStyle:{"margin-left":"10px"},attrs:{"size":"small","type":"success"},on:{"click":function($event){return _vm.$refs.upload.submit()}}},[_vm._v("上传到服务器")])],1)],1),(_vm.markMode==='marker')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"createMerkerPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_c('span',[_vm._v("添加标记")]),(_vm.attachment.enabled)?_c('i',{staticClass:"el-icon-paperclip",staticStyle:{"font-size":"16px"},attrs:{"title":"附件"},on:{"click":function($event){_vm.dialogVisible=true}}}):_vm._e(),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":function($event){_vm.visible=false}}})]),_c('el-container',{attrs:{"id":"marker-panel"}},[_c('el-container',[_c('el-main',{staticClass:"marker-main-class"},[_vm._v("\r\n                        名称：\r\n                        "),_c('el-input',{ref:"nameinput",nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("描述：\r\n                        "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_c('img',{attrs:{"src":_vm.selectedImage}}),_c('br'),_c('a',{attrs:{"href":"#","id":"imageC"},on:{"click":function($event){_vm.selectPanel=true}}},[_vm._v("更换")])])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}],staticClass:"image-list-class"},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1):_vm._e(),(_vm.markMode==='label')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.winPos.x+'px',top:_vm.winPos.y+'px'}),attrs:{"id":"createLabelPanel"}},[_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('el-button',{attrs:{"size":"mini"},on:{"click":_vm.update}},[_vm._v("确定")])],1):_vm._e(),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=183d3c36&scoped=true&
+// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=360943b8&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
-var es6_regexp_to_string = __webpack_require__("6b54");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
-var es6_object_keys = __webpack_require__("456d");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
-var es6_function_name = __webpack_require__("7f7f");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
-var es7_symbol_async_iterator = __webpack_require__("ac4d");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.symbol.js
-var es6_symbol = __webpack_require__("8a81");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -13150,11 +13185,8 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.iterator.js
-var es6_string_iterator = __webpack_require__("5df3");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.map.js
-var es6_map = __webpack_require__("f400");
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
+var es6_object_keys = __webpack_require__("456d");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js + 3 modules
 var toConsumableArray = __webpack_require__("75fc");
@@ -13162,16 +13194,46 @@ var toConsumableArray = __webpack_require__("75fc");
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js
 var defineProperty = __webpack_require__("bd86");
 
-// EXTERNAL MODULE: ./src/core/Graphic.js + 6 modules
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
+var es6_function_name = __webpack_require__("7f7f");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
+var es6_regexp_to_string = __webpack_require__("6b54");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
+var es7_symbol_async_iterator = __webpack_require__("ac4d");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.symbol.js
+var es6_symbol = __webpack_require__("8a81");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.iterator.js
+var es6_string_iterator = __webpack_require__("5df3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.map.js
+var es6_map = __webpack_require__("f400");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js
+var classCallCheck = __webpack_require__("d225");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js
+var createClass = __webpack_require__("b0b4");
+
+// EXTERNAL MODULE: ./src/core/Graphic.js
 var Graphic = __webpack_require__("cd53");
 
-// EXTERNAL MODULE: ./src/js/utils.js
+// EXTERNAL MODULE: ./src/js/utils.js + 3 modules
 var utils = __webpack_require__("9944");
 
 // EXTERNAL MODULE: ./src/core/GraphicType.js
 var GraphicType = __webpack_require__("4ab0");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=script&lang=js&
+// EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
+var jquery = __webpack_require__("1157");
+var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
+
+// CONCATENATED MODULE: ./src/core/MarkerManager.js
+
+
 
 
 
@@ -13189,146 +13251,96 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/*
+ * @Author: zhangbo
+ * @E-mail: xtfge_0915@163.com
+ * @Date: 2020-03-30 19:50:05
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-09 17:23:52
+ * @Desc: 
+ */
+
 
 
 
 var Cesium = window.Cesium;
 var defined = Cesium.defined;
-var cvt = utils["b" /* default */].CVT;
+var cvt = utils["d" /* default */].CVT;
 var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
 var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
 var MOUSE_MOVE = Cesium.ScreenSpaceEventType.MOUSE_MOVE;
-var markerViewer, pickHandler, markerManager;
-/* harmony default export */ var markerViewervue_type_script_lang_js_ = ({
-  name: "cesiumMarkerViewer",
-  data: function data() {
-    return {
-      visible: false,
-      selectPanel: false,
-      markName: "",
-      markRemark: "",
-      images: [],
-      markMode: "marker",
-      defaultImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image,
-      selectedImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image,
-      popWinPosition: undefined,
-      markerOptions: _objectSpread({}, Graphic["a" /* CesiumBillboard */].defaultLabelStyle, {}, Graphic["c" /* CesiumModel */].defaultStyle),
-      markerid: undefined,
-      noImage: Graphic["a" /* CesiumBillboard */].defaultStyle.image
-    };
-  },
-  computed: {},
-  components: {},
-  props: {
-    extendImage: {
-      type: Array,
-      default: function _default() {
-        return [];
-      }
+
+function setString(str, len) {
+  var strlen = 0;
+  var s = "";
+
+  for (var i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) > 128) {
+      strlen += 2;
+    } else {
+      strlen++;
     }
-  },
-  directives: {
-    focus: {
-      bind: function bind(el) {
-        el.focus();
-      },
-      updated: function updated(el) {
-        el.focus();
-      },
-      inserted: function inserted(el) {
-        el.focus();
-      }
+
+    s += str.charAt(i);
+
+    if (strlen >= len) {
+      return s + "...";
     }
-  },
-  mounted: function mounted() {
-    this.images = [this.defaultImage].concat(Object(toConsumableArray["a" /* default */])(this.extendImage));
-    markerManager = new Map();
-    this.selectedImage = this.defaultImage;
-  },
-  methods: {
+  }
+
+  return s;
+}
+
+var MarkerManager_MarkerManager =
+/*#__PURE__*/
+function () {
+  function MarkerManager(viewer) {
+    var markerOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Graphic["a" /* CesiumBillboard */].defaultStyle;
+    var labelOptions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Graphic["a" /* CesiumBillboard */].defaultLabelStyle;
+    var modelOptions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : Graphic["c" /* CesiumModel */].defaultStyle;
+
+    Object(classCallCheck["a" /* default */])(this, MarkerManager);
+
+    if (viewer instanceof Cesium.Viewer) {
+      this._viewer = viewer;
+    }
+
+    if (!Cesium.defined(this._viewer)) {
+      return;
+    }
     /**
-     * 初始化
-     * 创建markerViewer后必须调用该方法
+     * 表示当前添加的标记类型,marker,label,model
      */
-    init: function init(viewer) {
-      if (viewer instanceof Cesium.Viewer == false) {
-        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
-      }
 
-      markerViewer = viewer; // this.createContext();
 
-      this.cursorTip = new utils["b" /* default */].CursorTip("左键标绘，右键结束.", "marker-tip", viewer);
-      this.cursorTip.visible = false;
+    this.markName = '';
+    this.markRemark = '';
+    this.markMode = 'marker';
+    this.defaultImage = Graphic["a" /* CesiumBillboard */].defaultStyle.image;
+    this.selectedImage = undefined;
+    this.popWinPosition = undefined;
+    this.markerid = undefined;
+    this.markerOptions = markerOptions;
+    this.labelOptions = labelOptions;
+    this.modelOptions = modelOptions;
+    this.cursorTip = new utils["d" /* default */].CursorTip("左键标绘，右键结束.", "marker-tip", viewer);
+    this.cursorTip.visible = false;
+    this.handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
+    this.manager = new Map();
+    this.pickHandler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
+    this.init(this._viewer);
+  }
 
+  Object(createClass["a" /* default */])(MarkerManager, [{
+    key: "init",
+    value: function init(viewer) {
       if (viewer instanceof Cesium.Viewer === false) {
         throw new Error("viewer不是一个有效的Cesium Viewer对象.");
       }
 
-      var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
-      var self = this; //气泡跟随地球移动
+      var handler = this.handler;
+      var self = this;
+      var manager = this.manager; //气泡跟随地球移动
 
       viewer.scene.postRender.addEventListener(function () {
         if (defined(self.popWinPosition)) {
@@ -13339,14 +13351,11 @@ var markerViewer, pickHandler, markerManager;
             return;
           }
 
-          ele.style.left = pos.x - 100 - 2 + "px";
-          ele.style.top = pos.y - 100 + "px";
-          var curPos = self.popWinPosition;
-          var cameraPos = viewer.camera.position;
-          var n = viewer.scene.globe.ellipsoid.cartesianToCartographic(cameraPos).height;
-          var radius = viewer.scene.globe.ellipsoid.maximumRadius; //标记转到地球背面隐藏气泡
+          ele.style.left = pos.x - 100 - 5 + "px";
+          ele.style.top = pos.y - 110 + "px";
+          var curPos = self.popWinPosition; //标记转到地球背面隐藏气泡
 
-          if (!(n += 1 * radius, Cesium.Cartesian3.distance(curPos, cameraPos) > n)) {
+          if (utils["d" /* default */].pointVisibilityOnEarth(curPos, self._viewer)) {
             ele.style.display = "block";
           } else {
             ele.style.display = "none";
@@ -13360,7 +13369,7 @@ var markerViewer, pickHandler, markerManager;
 
         if (defined(obj) && obj.id instanceof Cesium.Entity && obj.id.gvtype === GraphicType["a" /* default */].MARKER) {
           //   self.popWinPosition = cvt.pixel2Cartesian(e.position, viewer);
-          self.selectedMarker = markerManager.get(obj.id.gvid);
+          self.selectedMarker = manager.get(obj.id.gvid);
 
           if (self.popDiv) {
             self.destroyPopPanle();
@@ -13373,23 +13382,26 @@ var markerViewer, pickHandler, markerManager;
       };
 
       handler.setInputAction(showTip, LEFT_CLICK);
-    },
-
+    }
     /**
-     * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
-     * @type {String}表示何种标记,marker:billboard，label:label,model:model
-     * @mode {String} 如果mode不是single，将连续添加标记
-     */
-    pick: function pick() {
+    * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
+    * @param {string} type表示何种标记,marker:billboard，label:label,model:model
+    * @param {string} mode如果mode不是single，将连续添加标记
+    */
+
+  }, {
+    key: "pick",
+    value: function pick() {
       var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "marker";
       var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "single";
       this.markMode = type;
-      var viewer = markerViewer;
+      var viewer = this._viewer;
       this.cursorTip.visible = true;
-      var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
-      pickHandler = handler;
+      var handler = this.pickHandler;
       var self = this;
       var id = this.generateId();
+      self.markerid = id;
+      var manager = this.manager;
 
       var pick = function pick(e) {
         var cartesian = cvt.pixel2Cartesian(e.position, viewer);
@@ -13410,13 +13422,11 @@ var markerViewer, pickHandler, markerManager;
           }
 
           self.visible = true;
-          markerManager.set(id, marker);
+          manager.set(id, marker);
           marker.gvid = id; // marker.gvname = "未命名" + viewer.entities.values.length;
 
-          self.$emit("addEvent", marker.gvid, marker.gvname, marker.gvtype);
           self.selectedMarker = marker;
           self.activeMarker = marker;
-          self.markerid = id;
           self.cursorTip.visible = false;
 
           if (type === "model") {
@@ -13425,16 +13435,35 @@ var markerViewer, pickHandler, markerManager;
 
           if (mode === "single") {
             handler.removeInputAction(LEFT_CLICK);
+            handler.removeInputAction(RIGHT_CLICK);
           }
+
+          var evt = new CustomEvent('marker-add', {
+            detail: {
+              id: marker.gvid,
+              name: marker.gvname || '未命名',
+              description: marker.description,
+              type: marker.gvtype,
+              position: cvt.toDegrees(cartesian, self._viewer)
+            }
+          });
+          window.dispatchEvent(evt);
+          marker = undefined;
         }
       };
 
       var cancel = function cancel() {
         handler.removeInputAction(LEFT_CLICK);
-        handler.removeInputAction(RIGHT_CLICK);
-        handler.destroy();
-        self.$emit("deleteEvent");
+        handler.removeInputAction(RIGHT_CLICK); // handler.destroy();
+
         self.cursorTip.visible = false;
+        var id = self.activeMarker ? self.activeMarker.id : undefined;
+        var evt = new CustomEvent('marker-delete', {
+          detail: {
+            id: id
+          }
+        });
+        window.dispatchEvent(evt);
         self.activeMarker = undefined; //handler=undefined
       };
 
@@ -13445,20 +13474,46 @@ var markerViewer, pickHandler, markerManager;
       handler.setInputAction(cancel, RIGHT_CLICK);
       handler.setInputAction(pick, LEFT_CLICK);
       handler.setInputAction(updateTip, MOUSE_MOVE);
-    },
-    createMarker: function createMarker(cartesian) {
-      var mp = this.markerOptions;
-      var marker = new Graphic["a" /* CesiumBillboard */](markerViewer, {
+    }
+  }, {
+    key: "get",
+    value: function get(id) {
+      if (this.has(id)) {
+        return this.manager.get(id);
+      }
+    }
+  }, {
+    key: "has",
+    value: function has(id) {
+      if (this.manager) {
+        return this.manager.has(id);
+      }
+
+      return false;
+    }
+  }, {
+    key: "createMarker",
+    value: function createMarker(cartesian) {
+      var mp = this.labelOptions;
+      var marker = new Graphic["a" /* CesiumBillboard */](this._viewer, _objectSpread({}, this.markerOptions, {
         position: cartesian,
         image: this.selectedImage
-      }, mp);
+      }), mp);
       return marker;
-    },
-    panelPosition: function panelPosition() {
+    }
+  }, {
+    key: "changeHandler",
+    value: function changeHandler(img) {
+      this.selectedImage = img;
+      this.activeMarker.updateImage(this.selectedImage);
+    }
+  }, {
+    key: "panelPosition",
+    value: function panelPosition() {
       if (this.activeMarker) {
         if (this.markMode === "marker") {
           var position = this.activeMarker.graphic.position.getValue();
-          var pixel = cvt.cartesian2Pixel(position, markerViewer);
+          var pixel = cvt.cartesian2Pixel(position, this._viewer);
           var x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
           var y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
           return {
@@ -13468,7 +13523,7 @@ var markerViewer, pickHandler, markerManager;
         } else {
           var _position = this.activeMarker.graphic.position.getValue();
 
-          var _pixel = cvt.cartesian2Pixel(_position, markerViewer);
+          var _pixel = cvt.cartesian2Pixel(_position, this._viewer);
 
           var _x = _pixel.x + 10;
 
@@ -13485,49 +13540,71 @@ var markerViewer, pickHandler, markerManager;
           y: 0
         };
       }
-    },
-    createLabel: function createLabel(cartesian) {
-      var options = this.markerOptions;
+    }
+  }, {
+    key: "createLabel",
+    value: function createLabel(cartesian) {
+      var options = this.labelOptions;
       options.position = cartesian;
-      var marker = new Graphic["b" /* CesiumLabel */](markerViewer, options);
+      var marker = new Graphic["b" /* CesiumLabel */](this._viewer, options);
       return marker;
-    },
-    createModel: function createModel(cartesian) {
-      var options = this.markerOptions;
+    }
+  }, {
+    key: "createModel",
+    value: function createModel(cartesian) {
+      var options = this.modelOptions;
       options.position = cartesian;
-      var marker = new Graphic["c" /* CesiumModel */](markerViewer, options);
+      var marker = new Graphic["c" /* CesiumModel */](this._viewer, options);
       return marker;
-    },
-    removeEventListener: function removeEventListener() {
+    }
+  }, {
+    key: "removeEventListener",
+    value: function removeEventListener() {
+      var pickHandler = this.pickHandler;
+
       if (pickHandler) {
         if (!pickHandler.isDestroyed()) {
-          pickHandler.destroy();
+          // pickHandler.destroy();
           pickHandler.removeInputAction(LEFT_CLICK);
           pickHandler.removeInputAction(RIGHT_CLICK);
           pickHandler.removeInputAction(MOUSE_MOVE);
         }
       }
-    },
-    stopPick: function stopPick() {
+    }
+  }, {
+    key: "stopPick",
+    value: function stopPick() {
       this.removeEventListener();
 
       if (this.activeMarker) {
         this.activeMarker.destroy();
-        this.$emit("deleteEvent", this.activeMarker.gvid);
+        var evt = new CustomEvent('marker-delete', {
+          detail: {
+            id: this.activeMarker.gvid
+          }
+        });
+        window.dispatchEvent(evt);
       }
 
-      this.visible = false;
       this.activeMarker = undefined;
-    },
-    zoomTo: function zoomTo(id) {
-      if (markerManager.has(id)) {
-        markerManager.get(id).zoomTo();
+      this.cursorTip.visible = false;
+    }
+  }, {
+    key: "zoomTo",
+    value: function zoomTo(id) {
+      if (this.manager.has(id)) {
+        this.manager.get(id).zoomTo();
       }
-    },
-    edit: function edit(id) {
-      if (markerManager.has(id)) {
-        var mm = markerManager.get(id);
-        this.activeMarker = markerManager.get(id);
+    }
+  }, {
+    key: "edit",
+    value: function edit(id) {
+      var manager = this.manager;
+
+      if (manager.has(id)) {
+        var mm = manager.get(id);
+        this.activeMarker = mm;
+        mm.startEdit();
 
         if (mm.gvtype === GraphicType["a" /* default */].MARKER || mm.gvtype === GraphicType["a" /* default */].LABEL) {
           this.markName = this.activeMarker.gvname;
@@ -13536,21 +13613,36 @@ var markerViewer, pickHandler, markerManager;
         } // this.activeMarker.zoomTo();
 
 
-        this.$emit("editEvent", this.activeMarker.type);
+        var pixel = this.panelPosition();
+        var evt = new CustomEvent('marker-edit', {
+          detail: {
+            name: this.markName,
+            remark: this.markRemark,
+            type: this.activeMarker.type,
+            pos: pixel
+          }
+        });
+        window.dispatchEvent(evt);
       }
-    },
-    drop: function drop(id) {
-      var mm = markerManager.get(id);
+    }
+  }, {
+    key: "drop",
+    value: function drop(id) {
+      var mm = this.manager.get(id);
       mm && mm.destroy();
-      markerManager.delete(id);
-    },
-    rename: function rename(id, name) {
-      var mm = markerManager.get(id);
+      this.manager.delete(id);
+    }
+  }, {
+    key: "rename",
+    value: function rename(id, name) {
+      var mm = this.manager.get(id);
       mm.gvname = name;
-    },
-    select: function select(type, id, status) {
+    }
+  }, {
+    key: "select",
+    value: function select(type, id, status) {
       if (defined(id)) {
-        var manager = markerManager.get(id);
+        var manager = this.manager.get(id);
 
         if (defined(manager)) {
           manager.show = status;
@@ -13558,7 +13650,7 @@ var markerViewer, pickHandler, markerManager;
       }
 
       if (defined(type)) {
-        var values = markerManager.values();
+        var values = this.manager.values();
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
@@ -13586,14 +13678,37 @@ var markerViewer, pickHandler, markerManager;
           }
         }
       }
-    },
-    destroyPopPanle: function destroyPopPanle() {
+    }
+  }, {
+    key: "destroyPopPanle",
+    value: function destroyPopPanle() {
       if (this.popDiv) {
-        this.$el.removeChild(this.popDiv);
+        jquery_default()(this.popDiv).remove();
         this.popDiv = undefined;
       }
-    },
-    createPopPanel: function createPopPanel() {
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.removeAll();
+      this.destroyPopPanle();
+
+      if (!this.pickHandler.isDestroyed()) {
+        this.pickHandler.destroy();
+      }
+
+      if (!this.handler.isDestroyed()) {
+        this.handler.destroy();
+      }
+
+      this._viewer = undefined;
+      this.labelOptions = undefined;
+      this.markerOptions = undefined;
+      this.modelOptions = undefined;
+    }
+  }, {
+    key: "createPopPanel",
+    value: function createPopPanel() {
       if (!defined(this.selectedMarker)) {
         return;
       }
@@ -13604,34 +13719,45 @@ var markerViewer, pickHandler, markerManager;
 
       var popdiv = document.createElement("div");
       popdiv.id = "popContainer";
-      popdiv.className = "popWin-class";
+      popdiv.className = "marker-popWin-class";
       var position = this.selectedMarker.position;
       this.popWinPosition = position;
-      var coord = cvt.cartesian2Degrees(position, markerViewer);
-      popdiv.style.display = "none";
-      var txtdiv = document.createElement("span");
-      txtdiv.innerText = "名称:" + (this.selectedMarker.name || "未命名");
+      var coord = cvt.cartesian2Degrees(position, this._viewer);
+      popdiv.style.display = "none"; // const txtdiv = document.createElement("span");
+      // txtdiv.innerText = "名称:" + (this.selectedMarker.name || "未命名");
+
+      var remarkdiv;
+      remarkdiv = document.createElement('span');
+      remarkdiv.title = this.selectedMarker.description;
+      remarkdiv.innerText = "描述:" + setString(this.selectedMarker.description || '暂无', 14);
       var coordsdiv = document.createElement("span");
       coordsdiv.innerText = "纬度:" + coord.lon.toFixed(2) + "  纬度:" + coord.lat.toFixed(2);
       var arrow = document.createElement("div");
       arrow.className = "arrow";
       var closebtn = document.createElement("span");
-      closebtn.className = "iconfont icon-guanbi closebtn";
+      closebtn.className = "iconfont iconclose closebtn";
       var self = this;
 
       closebtn.onclick = function () {
-        self.$el.removeChild(self.popDiv);
+        jquery_default()(self.popDiv).remove();
         self.popDiv = undefined;
       };
 
-      popdiv.appendChild(closebtn);
-      popdiv.appendChild(txtdiv);
+      popdiv.appendChild(closebtn); // popdiv.appendChild(txtdiv);
+
+      if (remarkdiv) {
+        popdiv.appendChild(remarkdiv);
+      }
+
       popdiv.appendChild(coordsdiv);
       popdiv.appendChild(arrow);
       this.popDiv = popdiv;
-      this.$el.appendChild(this.popDiv);
-    },
-    import: function _import(feat) {
+
+      this._viewer.container.appendChild(this.popDiv);
+    }
+  }, {
+    key: "import",
+    value: function _import(feat) {
       if (feat.geometry.type.toUpperCase() !== "POINT") {
         throw new Error("无效的数据类型.");
       }
@@ -13645,23 +13771,44 @@ var markerViewer, pickHandler, markerManager;
         var lopts = Graphic["b" /* CesiumLabel */].defaultStyle;
         lopts.position = (_Cesium$Cartesian = Cesium.Cartesian3).fromDegrees.apply(_Cesium$Cartesian, Object(toConsumableArray["a" /* default */])(feat.geometry.coordinates));
         lopts.text = feat.properties.name;
-        marker = new Graphic["b" /* CesiumLabel */](markerViewer, lopts);
+        marker = new Graphic["b" /* CesiumLabel */](this._viewer, lopts);
       } else {
         var coord = {
           lon: feat.geometry.coordinates[0],
           lat: feat.geometry.coordinates[1],
           height: feat.geometry.coordinates[2]
         };
-        marker = Graphic["a" /* CesiumBillboard */].fromDegrees(markerViewer, coord);
+        marker = Graphic["a" /* CesiumBillboard */].fromDegrees(this._viewer, coord);
       }
 
       marker.gvname = feat.properties.name;
       marker.gvid = id;
-      markerManager.set(id, marker);
-      this.$emit("addEvent", marker.gvid, marker.gvname || "未命名", marker.gvtype);
-    },
-    export: function _export(type) {
-      var managers = markerManager.values();
+      this.manager.set(id, marker);
+      var evt = new CustomEvent('marker-add', {
+        detail: {
+          id: marker.gvid,
+          name: marker.gvname || '未命名',
+          type: marker.gvtype,
+          description: marker.description,
+          properties: feat.properties,
+          position: {
+            lon: feat.geometry.coordinates[0],
+            lat: feat.geometry.coordinates[1],
+            height: feat.geometry.coordinates[2]
+          }
+        }
+      });
+      window.dispatchEvent(evt);
+    }
+  }, {
+    key: "addMarker",
+    value: function addMarker(marker) {
+      this.manager.set(marker.gvid, marker);
+    }
+  }, {
+    key: "export",
+    value: function _export(type) {
+      var managers = this.manager.values();
       var json = {
         type: "FeatureCollection",
         name: "graphic",
@@ -13704,64 +13851,11 @@ var markerViewer, pickHandler, markerManager;
         type: ""
       });
       window.saveAs(blob, type + parseInt(Cesium.getTimestamp()) + ".geojson");
-    },
-    setFont: function setFont(font) {
-      this.markerOptions.font = font;
-
-      if (this.activeMarker) {
-        this.activeMarker.font = font;
-      }
-    },
-    getFont: function getFont() {
-      if (this.activeMarker) {
-        return this.activeMarker.font;
-      }
-
-      return undefined;
-    },
-    setColor: function setColor(color) {
-      this.markerOptions.fillColor = color;
-
-      if (this.activeMarker) {
-        this.activeMarker.color = color;
-      }
-    },
-    setLabel: function setLabel(option) {
-      var keys = Object.keys(option);
-
-      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
-        var key = _keys[_i];
-        this.markerOptions[key] = option[key];
-      } // this.markerOptions=[...this.markerOptions,...option]
-
-
-      if (this.activeMarker) {
-        this.activeMarker.setLabel(this.markerOptions);
-      }
-    },
-    setModel: function setModel(options) {
-      this.markerOptions = _objectSpread({}, this.markerOptions, {}, options);
-
-      if (this.activeMarker) {
-        if (options.uri) {
-          this.activeMarker.uri = options.uri;
-        }
-
-        if (options.color) {
-          this.activeMarker.color = options.color;
-        }
-
-        if (options.mode != undefined) {
-          this.activeMarker.model = options.mode;
-        }
-
-        if (options.mixed != undefined) {
-          this.activeMarker.mixed = options.mixed;
-        }
-      }
-    },
-    removeAll: function removeAll() {
-      var values = markerManager.values();
+    }
+  }, {
+    key: "removeAll",
+    value: function removeAll() {
+      var values = this.manager.values();
       var _iteratorNormalCompletion3 = true;
       var _didIteratorError3 = false;
       var _iteratorError3 = undefined;
@@ -13787,38 +13881,437 @@ var markerViewer, pickHandler, markerManager;
         }
       }
 
-      markerManager.clear();
-    },
-    cancelMark: function cancelMark() {
+      this.manager.clear();
+    }
+  }, {
+    key: "cancelMark",
+    value: function cancelMark() {
       this.activeMarker && this.activeMarker.destroy();
       this.activeMarker = undefined;
-      this.visible = false;
       this.cursorTip.visible = false;
-      this.$emit("deleteEvent", this.markerid);
+      var evt = new CustomEvent('marker-delete', {
+        detail: {
+          id: this.markerid
+        }
+      });
+      window.dispatchEvent(evt);
       this.markName = "";
       this.markRemark = "";
-      markerManager.delete(this.markerid);
+      this.manager.delete(this.markerid);
       this.markerid = undefined;
       this.removeEventListener();
-    },
-    update: function update() {
-      //   this.activeMarker.updateImage(this.selectedImage);
+    }
+  }, {
+    key: "update",
+    value: function update(name, remark) {
+      this.markName = name;
+      this.markRemark = remark;
       this.activeMarker.updateText(this.markName, this.markRemark);
-      this.visible = false;
       this.cursorTip.visible = false;
-      this.$emit("updateEvent", this.activeMarker.gvid, this.activeMarker.gvname);
-      this.markName = "";
-      this.markRemark = "";
+      this.activeMarker.stopEdit();
+      var evt = new CustomEvent('marker-update', {
+        detail: {
+          id: this.activeMarker.gvid,
+          name: this.activeMarker.gvname,
+          description: this.activeMarker.description,
+          position: cvt.toDegrees(this.activeMarker.position, this._viewer)
+        }
+      });
+      window.dispatchEvent(evt);
       this.activeMarker = undefined;
       this.removeEventListener();
+    }
+  }, {
+    key: "generateId",
+    value: function generateId() {
+      return (Math.random() * 10000000).toString(16).substr(0, 4) + "-" + new Date().getTime() + "-" + Math.random().toString().substr(2, 5);
+    }
+  }, {
+    key: "font",
+    set: function set(font) {
+      this.labelOptions.font = font;
+
+      if (this.activeMarker) {
+        this.activeMarker.font = font;
+      }
+    },
+    get: function get() {
+      if (this.activeMarker) {
+        return this.activeMarker.font;
+      }
+
+      return undefined;
+    }
+  }, {
+    key: "color",
+    set: function set(color) {
+      this.labelOptions.fillColor = color;
+
+      if (this.activeMarker) {
+        this.activeMarker.color = color;
+      }
+    }
+  }, {
+    key: "label",
+    set: function set(option) {
+      var keys = Object.keys(option);
+
+      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+        var key = _keys[_i];
+        this.labelOptions[key] = option[key];
+      } // this.modelAndLabelOptions=[...this.modelAndLabelOptions,...option]
+
+
+      if (this.activeMarker) {
+        this.activeMarker.setLabel(this.labelOptions);
+      }
+    }
+  }, {
+    key: "model",
+    set: function set(options) {
+      this.modelOptions = _objectSpread({}, this.modelOptions, {}, options);
+
+      if (this.activeMarker) {
+        if (options.uri) {
+          this.activeMarker.uri = options.uri;
+        }
+
+        if (options.color) {
+          this.activeMarker.color = options.color;
+        }
+
+        if (options.mode != undefined) {
+          this.activeMarker.model = options.mode;
+        }
+
+        if (options.mixed != undefined) {
+          this.activeMarker.mixed = options.mixed;
+        }
+      }
+    }
+  }]);
+
+  return MarkerManager;
+}();
+
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=script&lang=js&
+
+
+
+
+
+
+
+
+function markerViewervue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function markerViewervue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { markerViewervue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { markerViewervue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ var markerViewervue_type_script_lang_js_ = ({
+  name: "cesiumMarkerViewer",
+  data: function data() {
+    return {
+      visible: false,
+      selectPanel: false,
+      markName: "",
+      markRemark: "",
+      images: [],
+      markMode: "",
+      winPos: {
+        x: 0,
+        y: 0
+      },
+      dialogVisible: false,
+      fileList: []
+    };
+  },
+  computed: {},
+  components: {},
+  props: {
+    extendImage: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    },
+    attachment: {
+      default: function _default() {
+        return {
+          enabled: false,
+          method: ""
+        };
+      }
+    }
+  },
+  directives: {
+    focus: {
+      bind: function bind(el) {
+        el.focus();
+      },
+      updated: function updated(el) {
+        el.focus();
+      },
+      inserted: function inserted(el) {
+        el.focus();
+      }
+    }
+  },
+  mounted: function mounted() {
+    var self = this;
+    window.addEventListener("marker-edit", function (e) {
+      var type = e.detail.type;
+      self.visible = true;
+      self.markName = e.detail.name;
+      self.markRemark = e.detail.remark;
+      self.winPos = markerViewervue_type_script_lang_js_objectSpread({}, e.detail.pos);
+      self.$emit("editEvent", type);
+    });
+    window.addEventListener("marker-add", function (e) {
+      self.winPos = self.markerManager.panelPosition();
+      self.visible = true;
+      self.$emit("addEvent", e.detail.id, e.detail.name, e.detail.type);
+    });
+    window.addEventListener("marker-delete", function (e) {
+      self.visible = false;
+      self.$emit("deleteEvent", e.detail.id);
+      self.markName = "";
+      self.markRemark = "";
+    });
+    window.addEventListener("marker-update", function (e) {
+      self.$emit("updateEvent", e.detail.id, e.detail.name);
+      self.markName = "";
+      self.markRemark = "";
+    });
+    this.$nextTick(function () {
+      utils["d" /* default */].moveDiv("markerContainer");
+    });
+  },
+  methods: {
+    init: function init(viewer) {
+      if (this._viewer) {
+        return;
+      }
+
+      Object(utils["c" /* checkViewer */])(viewer);
+      this._viewer = viewer;
+      !this.markerManager && (this.markerManager = new MarkerManager_MarkerManager(viewer));
+      this.images = [this.markerManager.defaultImage].concat(Object(toConsumableArray["a" /* default */])(this.extendImage));
+      this.selectedImage = this.markerManager.defaultImage;
+    },
+    pick: function pick() {
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "marker";
+      var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "single";
+      Object(utils["b" /* checkComponent */])(this);
+
+      if (this.markerManager) {
+        this.markMode = type;
+        return this.markerManager.pick(type, mode);
+      }
+    },
+    createMarker: function createMarker(cartesian) {
+      if (this.markerManager) {
+        return this.markerManager.createMarker(cartesian);
+      }
+    },
+    panelPosition: function panelPosition() {
+      if (this.markerManager) {
+        return this.markerManager.panelPosition();
+      }
+    },
+    createLabel: function createLabel(cartesian) {
+      if (this.markerManager) {
+        return this.markerManager.createLabel(cartesian);
+      }
+    },
+    createModel: function createModel(cartesian) {
+      if (this.markerManager) {
+        return this.markerManager.createLabel(cartesian);
+      }
+    },
+    removeEventListener: function removeEventListener() {
+      if (this.markerManager) {
+        return this.markerManager.removeEventListener();
+      }
+    },
+    stopPick: function stopPick() {
+      if (this.markerManager) {
+        this.markerManager.stopPick();
+      }
+    },
+    zoomTo: function zoomTo(id) {
+      if (this.markerManager) {
+        this.markerManager.zoomTo(id);
+      }
+    },
+    edit: function edit(id) {
+      if (this.markerManager) {
+        this.markerManager.edit(id);
+      }
+    },
+    drop: function drop(id) {
+      if (this.markerManager) {
+        this.markerManager.drop(id);
+      }
+    },
+    rename: function rename(id, name) {
+      if (this.markerManager) {
+        this.markerManager.rename(id, name);
+      }
+    },
+    select: function select(type, id, status) {
+      if (this.markerManager) {
+        this.markerManager.select(type, id, status);
+      }
+    },
+    destroyPopPanle: function destroyPopPanle() {
+      if (this.markerManager) {
+        this.markerManager.destroyPopPanle();
+      }
+    },
+    createPopPanel: function createPopPanel() {
+      if (this.markerManager) {
+        this.markerManager.createPopPanel();
+      }
+    },
+    import: function _import(feat) {
+      if (this.markerManager) {
+        this.markerManager.createPopPanel();
+        this.markerManager.import(feat);
+      }
+    },
+    export: function _export(type) {
+      if (this.markerManager) {
+        this.markerManager.export(type);
+      }
+    },
+    setFont: function setFont(font) {
+      if (this.markerManager) {
+        this.markerManager.font = font;
+      }
+    },
+    getFont: function getFont() {
+      if (this.activeMarker) {
+        return this.markerManager.font;
+      }
+
+      return undefined;
+    },
+    setColor: function setColor(color) {
+      if (this.markerManager) {
+        this.markerManager.color = color;
+      }
+    },
+    setLabel: function setLabel(option) {
+      if (this.markerManager) {
+        this.markerManager.label = option;
+      }
+    },
+    setModel: function setModel(options) {
+      if (this.markerManager) {
+        this.markerManager.model = options;
+      }
+    },
+    removeAll: function removeAll() {
+      if (this.markerManager) {
+        this.markerManager.removeAll();
+      }
+    },
+    cancelMark: function cancelMark() {
+      if (this.markerManager) {
+        this.markerManager.cancelMark();
+      }
+    },
+    update: function update() {
+      if (this.markerManager) {
+        this.markerManager.update(this.markName, this.markRemark);
+        this.visible = false;
+      }
     },
     changeHandler: function changeHandler(img) {
-      this.selectedImage = img;
-      this.activeMarker.updateImage(this.selectedImage);
+      if (this.markerManager) {
+        this.markerManager.changeHandler(img);
+        this.selectedImage = img;
+      }
+
       this.selectPanel = false;
     },
     generateId: function generateId() {
-      return (Math.random() * 10000000).toString(16).substr(0, 4) + "-" + new Date().getTime() + "-" + Math.random().toString().substr(2, 5);
+      if (this.markerManager) {
+        return this.markerManager.generateId();
+      }
+    },
+    getById: function getById(id) {
+      if (this.has(id)) {
+        return this.markerManager.get(id);
+      }
+    },
+    has: function has(id) {
+      if (this.markerManager) {
+        return this.markerManager.has(id);
+      }
+
+      return false;
     },
     importMarks: function importMarks() {}
   },
@@ -13826,8 +14319,8 @@ var markerViewer, pickHandler, markerManager;
 });
 // CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_markerViewervue_type_script_lang_js_ = (markerViewervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=183d3c36&lang=scss&scoped=true&
-var markerViewervue_type_style_index_0_id_183d3c36_lang_scss_scoped_true_ = __webpack_require__("48b4");
+// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=360943b8&lang=scss&scoped=true&
+var markerViewervue_type_style_index_0_id_360943b8_lang_scss_scoped_true_ = __webpack_require__("676c");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
@@ -13847,12 +14340,12 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "183d3c36",
+  "360943b8",
   null
   
 )
 
-/* harmony default export */ var components_markerViewer = __webpack_exports__["a"] = (component.exports);
+/* harmony default export */ var markerViewer = __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 
@@ -13861,6 +14354,13 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 module.exports = false;
 
+
+/***/ }),
+
+/***/ "2d7d":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("5037");
 
 /***/ }),
 
@@ -13896,888 +14396,72 @@ $export($export.P + $export.F * __webpack_require__("5147")(INCLUDES), 'String',
 
 /***/ }),
 
-/***/ "3015":
+/***/ "3024":
+/***/ (function(module, exports) {
+
+// fast apply, http://jsperf.lnkit.com/fast-apply/5
+module.exports = function (fn, args, that) {
+  var un = that === undefined;
+  switch (args.length) {
+    case 0: return un ? fn()
+                      : fn.call(that);
+    case 1: return un ? fn(args[0])
+                      : fn.call(that, args[0]);
+    case 2: return un ? fn(args[0], args[1])
+                      : fn.call(that, args[0], args[1]);
+    case 3: return un ? fn(args[0], args[1], args[2])
+                      : fn.call(that, args[0], args[1], args[2]);
+    case 4: return un ? fn(args[0], args[1], args[2], args[3])
+                      : fn.call(that, args[0], args[1], args[2], args[3]);
+  } return fn.apply(that, args);
+};
+
+
+/***/ }),
+
+/***/ "308d":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("456d");
-/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("7f7f");
-/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("ac4d");
-/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("8a81");
-/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("6b54");
-/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("ac6a");
-/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("cadf");
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5df3");
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("f400");
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("d225");
-/* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("b0b4");
-/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("cd53");
-/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("9944");
-/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("4ab0");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("21a6");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_14__);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol/iterator.js
+var iterator = __webpack_require__("5d58");
+var iterator_default = /*#__PURE__*/__webpack_require__.n(iterator);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol.js
+var symbol = __webpack_require__("67bb");
+var symbol_default = /*#__PURE__*/__webpack_require__.n(symbol);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js
 
 
-
-
-
-
-
-
-
-
-
-
-/*
- * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
- * @Date: 2019-12-17 16:48:49
- * @LastEditors  : zhangbo
- * @LastEditTime : 2020-01-13 18:50:43
- * @Desc: 绘图类，定义了交互绘图的相关操作
- */
-
-
-
-
-
-var Cesium = window.Cesium;
-var defined = Cesium.defined;
-var console = window.console;
-var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
-var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
-var MOUSE_MOVE = Cesium.ScreenSpaceEventType.MOUSE_MOVE;
-var MOUSE_DOWN = Cesium.ScreenSpaceEventType.LEFT_DOWN;
-var MOUSE_UP = Cesium.ScreenSpaceEventType.LEFT_UP;
-
-var CesiumDrawing =
-/*#__PURE__*/
-function () {
-  /**
-   * 鼠标交互绘制线和多边形
-   * @param {Viewer}} viewer Cesium Viewer
-   * @param {*} options 预留参数，目前不需要关注
-   */
-  function CesiumDrawing(viewer) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    Object(D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(this, CesiumDrawing);
-
-    if (viewer instanceof Cesium.Viewer === false) {
-      throw new Error('viewer不是一个有效的Cesium Viewer');
-    }
-
-    this.viewer = viewer;
-    this.options = options;
-    /*heightReference 定义几何图形的高程基准
-    *CLAMP_TO_GROUND:依附地形
-    *CLAMP_TO_MODEL:依附模型
-    *NONE:空间线
-    */
-
-    this._heightReference = 'CLAMP_TO_GROUND';
-    this._material = undefined;
-    this._style = {};
-    this.graphicId = undefined;
-    this.handler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
-    this.graphicType = undefined;
-    this.positions = [];
-    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* default */ "b"].CursorTip('');
-    this.tip.visible = false;
-    this.mode = 'ready';
-    this.dragging = false; // this.init()
-
-    this.addEventListener(); //当前正在编辑的graphic
-
-    this.editManager = undefined;
-    this.selectedNodeIndex = -1; //Graphic集合
-
-    this.graphicManager = new Map();
-    var self = this;
-
-    document.onkeydown = function (event) {
-      if (self.mode !== 'edit') return;
-      var e = event || window.event || arguments.callee.caller.arguments[0];
-
-      if (e && e.keyCode == 46) {
-        // 按 delete 
-        if (self.selectedNodeIndex > -1 && self.editManager) {
-          self.editManager.dropNode(self.selectedNodeIndex);
-          self.highlightedNode(undefined, self.editManager.nodeGraphic);
-          self.selectedNodeIndex = -1;
-        } else if (self.editManager) {
-          self.editManager.destroy();
-          self.graphicManager.delete(self.editManager.id);
-          self.mode = 'end';
-          self.tip.visible = false;
-          var evt = new CustomEvent('destroyEvent', {
-            detail: {
-              gvid: self.editManager ? self.editManager.gvid : undefined
-            }
-          });
-          document.dispatchEvent(evt);
-          self.editManager = undefined;
-        }
-      }
-    }; // this.tip.style.display='none'
-
+function typeof_typeof(obj) {
+  if (typeof symbol_default.a === "function" && typeof iterator_default.a === "symbol") {
+    typeof_typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    typeof_typeof = function _typeof(obj) {
+      return obj && typeof symbol_default.a === "function" && obj.constructor === symbol_default.a && obj !== symbol_default.a.prototype ? "symbol" : typeof obj;
+    };
   }
 
-  Object(D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(CesiumDrawing, [{
-    key: "createPolyline",
+  return typeof_typeof(obj);
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__("013f");
 
-    /**
-     * 
-     * @param {Object} options 定义一个CesiumPolyline
-     */
-    value: function createPolyline() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE;
-      var id = this.generateId();
-      options.positions = this.positions;
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _possibleConstructorReturn; });
 
-      if (/.*GROUND.*/.test(this._heightReference)) {
-        options.clampToGround = true;
-      } else {
-        options.clampToGround = false;
-      }
 
-      options.material = this.material || options.material;
-      options.width = this.style.width || options.width;
-      var graphicManager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"](this.viewer, options);
-      this.tip.updateText('左键标绘，右键结束.');
-      this.tip.visible = true;
-      graphicManager.gvid = id; // graphicManager.id = id
-      // graphicManager.gvname = '未命名';
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
 
-      graphicManager.heightReference = this.heightReference;
-      this.graphicManager.set(id, graphicManager);
-      this.graphicId = id;
-      this.editManager = graphicManager;
-      var evt = new CustomEvent('addEvent', {
-        detail: {
-          gvid: graphicManager.gvid,
-          gvtype: graphicManager.gvtype,
-          gvname: graphicManager.gvname
-        }
-      });
-      document.dispatchEvent(evt);
-      var self = this;
-      this.handler.setInputAction(function (e) {
-        self.tip && self.tip.updatePosition(e.endPosition);
-      }, MOUSE_MOVE);
-      return graphicManager;
-    }
-    /**
-     * 
-     * @param {Object} options 定义一个CesiumPolygon
-     */
-
-  }, {
-    key: "createPolygon",
-    value: function createPolygon() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON;
-      var id = this.generateId();
-      this.graphicId = id;
-      options.positions = this.positions;
-
-      if (/.*GROUND.*/.test(this._heightReference)) {
-        options.perPositionHeight = false; // options.heightReference = Cesium.HeightReference.CLAMP_TO_GROUND;
-      } else {
-        options.perPositionHeight = true; // options.heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND;
-        // options.height = 0
-      }
-
-      options.material = this.material || options.material;
-      options.outlineWidth = this.style.outlineWidth || options.outlineWidth;
-      options.outlineColor = this.style.outlineColor || options.outlineColor;
-      var graphicManager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"](this.viewer, options);
-      graphicManager.gvid = id; // graphicManager.id = id;
-      // graphicManager.gvname = '未命名';
-
-      graphicManager.heightReference = this.heightReference;
-      this.tip.visible = true;
-      this.tip.updateText('左键标绘，右键结束.');
-      this.graphicManager.set(id, graphicManager);
-      this.editManager = graphicManager;
-      var evt = new CustomEvent('addEvent', {
-        detail: {
-          gvid: graphicManager.gvid,
-          gvtype: graphicManager.gvtype,
-          gvname: graphicManager.gvname
-        }
-      });
-      document.dispatchEvent(evt);
-      var self = this;
-      this.handler.setInputAction(function (e) {
-        self.tip && self.tip.updatePosition(e.endPosition);
-      }, MOUSE_MOVE);
-      return graphicManager;
-    }
-  }, {
-    key: "generateId",
-    value: function generateId() {
-      return (Math.random() * 10000000).toString(16).substr(0, 4) + '-' + new Date().getTime() + '-' + Math.random().toString().substr(2, 5);
-    }
-  }, {
-    key: "isKnownGraphic",
-    value: function isKnownGraphic(pickedObj) {
-      if (defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT)) {
-        return true;
-      }
-
-      return false;
-    }
-    /**
-     * 将当前选中的点设为高亮
-     * @param {Cartesian3} node 
-     * @param {CesiumPoint} cp 
-     */
-
-  }, {
-    key: "highlightedNode",
-    value: function highlightedNode(node, cp) {
-      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].selectedStyle;
-      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].defaultStyle;
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = cp.graphic[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var n = _step.value;
-
-          if (n === node) {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, soption);
-          } else {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, doption);
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-    }
-  }, {
-    key: "addEventListener",
-    value: function addEventListener() {
-      var self = this;
-      var viewer = this.viewer;
-
-      var clickHandler = function clickHandler(e) {
-        if (self.mode === 'edit') {
-          var nodeGraphic = self.editManager.nodeGraphic || self.editManager.outlineGraphic.nodeGraphic;
-          var pickedObjs = viewer.scene.drillPick(e.position);
-          var known = false,
-              pickedObj = undefined;
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
-
-          try {
-            for (var _iterator2 = pickedObjs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var obj = _step2.value;
-              known = self.isKnownGraphic(obj);
-
-              if (known && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
-                pickedObj = obj;
-                self.handler.setInputAction(mouseDownHandler, MOUSE_DOWN);
-                self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
-                break;
-              }
-            } // const pickedPosition=CVT.pixel2Cartesian(e.position,viewer)
-
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
-          }
-
-          if (pickedObj && known) {
-            if (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
-              self.selectedNodeIndex = nodeGraphic.contain(pickedObj.id);
-
-              if (self.selectedNodeIndex !== -1) {
-                self.highlightedNode(pickedObj.id, nodeGraphic);
-              }
-            } else {
-              self.highlightedNode(pickedObj.id, self.editManager.nodeGraphic);
-              self.selectedNodeIndex = -1;
-            }
-          } else {
-            self.editManager && self.editManager.stopEdit();
-            self.handler.removeInputAction(MOUSE_MOVE);
-            self.mode = 'end';
-            self.selectedNodeIndex = -1;
-            self.editManager = undefined;
-            self.tip.visible = false;
-            var evt = new CustomEvent('stopEdit');
-            document.dispatchEvent(evt);
-          }
-
-          return;
-        }
-
-        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON) {
-          return;
-        }
-
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
-
-        if (/.*MODEL.*/.test(self._heightReference)) {
-          if (!viewer.scene.pickPositionSupported) {
-            console.log('This browser does not support pickPosition.');
-            return;
-          }
-
-          cartesian = viewer.scene.pickPosition(e.position);
-        } //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以减少资源消耗
-
-
-        if (self.graphicManager.get(self.graphicId).positions.length === 0) {
-          self.handler.removeInputAction(MOUSE_MOVE);
-          self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
-        }
-
-        if (defined(cartesian) && self.graphicManager.has(self.graphicId)) {
-          self.graphicManager.get(self.graphicId).addNode(cartesian);
-        }
-
-        self.mode = 'create';
-      };
-
-      var rightHandler = function rightHandler() {
-        var manager = self.graphicManager.get(self.graphicId);
-
-        if (self.mode === 'create' && manager) {
-          manager.stopEdit();
-          self.graphicType = undefined;
-          self.graphicId = undefined;
-          self.positions = [];
-          self.mode = 'end';
-          self.tip.visible = false;
-          self.editManager = undefined;
-          var evt = new CustomEvent('stopEdit');
-          document.dispatchEvent(evt);
-        }
-
-        self.handler.removeInputAction(MOUSE_MOVE);
-      };
-
-      var moseMoveHandler = function moseMoveHandler(e) {
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
-
-        if (/.*MODEL.*/.test(self._heightReference)) {
-          if (!viewer.scene.pickPositionSupported) {
-            console.log('This browser does not support pickPosition.');
-            return;
-          }
-
-          cartesian = viewer.scene.pickPosition(e.endPosition);
-        }
-
-        if (!defined(cartesian)) {
-          return;
-        }
-
-        self.tip.updatePosition(e.endPosition);
-
-        if (self.mode === 'create') {
-          //如果当前是create模式，创建辅助线
-          if (self.positions.length > 1) {
-            self.graphicManager.get(self.graphicId).popNode();
-          } //添加临时节点
-          //再添加第一个节点前，不拾取鼠标移动的坐标
-
-
-          if (self.positions.length > 0) {
-            // self.positions.push(cartesian);
-            self.graphicManager.get(self.graphicId).addNode(cartesian);
-          }
-        } else if (self.mode == 'edit' && self.dragging) {
-          if (self.selectedNodeIndex !== -1) {
-            self.editManager.updateNode(self.selectedNodeIndex, cartesian);
-          }
-        }
-      };
-
-      var mouseDownHandler = function mouseDownHandler(e) {
-        self.handler.setInputAction(mouseUpHandler, MOUSE_UP);
-        var objs = viewer.scene.drillPick(e.position);
-        var isCesiumPoint = false;
-        var _iteratorNormalCompletion3 = true;
-        var _didIteratorError3 = false;
-        var _iteratorError3 = undefined;
-
-        try {
-          for (var _iterator3 = objs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var obj = _step3.value;
-
-            if (_Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
-              isCesiumPoint = true;
-            }
-          }
-        } catch (err) {
-          _didIteratorError3 = true;
-          _iteratorError3 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-              _iterator3.return();
-            }
-          } finally {
-            if (_didIteratorError3) {
-              throw _iteratorError3;
-            }
-          }
-        }
-
-        if (isCesiumPoint == false) {
-          return;
-        }
-
-        if (self.mode === 'edit' && self.selectedNodeIndex != -1) {
-          self.dragging = true;
-          viewer.scene.screenSpaceCameraController.enableRotate = false;
-        }
-      };
-
-      var mouseUpHandler = function mouseUpHandler() {
-        self.dragging = false;
-        viewer.scene.screenSpaceCameraController.enableRotate = true;
-        self.handler.removeInputAction(MOUSE_UP);
-        self.handler.removeInputAction(MOUSE_DOWN);
-      };
-
-      this.handler.setInputAction(clickHandler, LEFT_CLICK);
-      this.handler.setInputAction(rightHandler, RIGHT_CLICK);
-    }
-  }, {
-    key: "rename",
-    value: function rename(id, name) {
-      var graphic = this.graphicManager.get(id);
-
-      if (defined(graphic)) {
-        graphic.gvname = name;
-      }
-    }
-  }, {
-    key: "has",
-    value: function has(id) {
-      return this.graphicManager.has(id);
-    }
-  }, {
-    key: "select",
-    value: function select(type, id, status) {
-      if (defined(id)) {
-        var manager = this.graphicManager.get(id);
-
-        if (manager) {
-          manager.show = status;
-        }
-      }
-
-      if (defined(type)) {
-        var values = this.graphicManager.values();
-        var _iteratorNormalCompletion4 = true;
-        var _didIteratorError4 = false;
-        var _iteratorError4 = undefined;
-
-        try {
-          for (var _iterator4 = values[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-            var v = _step4.value;
-
-            if (v.gvtype === type) {
-              v.show = status;
-            }
-          }
-        } catch (err) {
-          _didIteratorError4 = true;
-          _iteratorError4 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-              _iterator4.return();
-            }
-          } finally {
-            if (_didIteratorError4) {
-              throw _iteratorError4;
-            }
-          }
-        }
-      }
-    }
-  }, {
-    key: "edit",
-    value: function edit(id) {
-      var self = this;
-      var manager = self.graphicManager.get(id);
-      this.handler.setInputAction(function (e) {
-        self.tip.updatePosition(e.endPosition);
-      }, MOUSE_MOVE);
-      self.graphicId = id;
-
-      if (defined(manager)) {
-        // manager.zoomTo()
-        self.mode = 'edit';
-        manager.startEdit();
-        self.tip.visible = true;
-        self.tip.updateText('拖动节点编辑，按del删除.');
-        self.editManager = manager;
-        var evt = new CustomEvent('startEdit', {
-          detail: {
-            graphicType: self.editManager.type,
-            material: self.editManager.material,
-            width: self.editManager.width,
-            outline: self.editManager.outline,
-            outlineColor: self.editManager.outlineColor,
-            outlineWidth: self.editManager.outlineWidth,
-            heightReference: self.editManager.heightReference
-          }
-        });
-        document.dispatchEvent(evt);
-      }
-    }
-  }, {
-    key: "export",
-    value: function _export(type) {
-      var json = {
-        type: "FeatureCollection",
-        name: "graphic",
-        crs: {
-          type: "name",
-          properties: {
-            name: "urn:ogc:def:crs:OGC:1.3:CRS84"
-          }
-        },
-        features: []
-      };
-      var managers = this.graphicManager.values();
-      var _iteratorNormalCompletion5 = true;
-      var _didIteratorError5 = false;
-      var _iteratorError5 = undefined;
-
-      try {
-        for (var _iterator5 = managers[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-          var m = _step5.value;
-
-          if (m.type === type) {
-            json.features.push(m.toGeoJson());
-          }
-        }
-      } catch (err) {
-        _didIteratorError5 = true;
-        _iteratorError5 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-            _iterator5.return();
-          }
-        } finally {
-          if (_didIteratorError5) {
-            throw _iteratorError5;
-          }
-        }
-      }
-
-      var blob = new Blob([JSON.stringify(json)], {
-        type: ""
-      });
-      Object(file_saver__WEBPACK_IMPORTED_MODULE_14__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
-    }
-  }, {
-    key: "import",
-    value: function _import(feat) {
-      var id = this.generateId();
-      var graphic,
-          coordinates,
-          positions = [];
-
-      if (feat.geometry.type.toUpperCase() === 'LineString'.toUpperCase()) {
-        coordinates = feat.geometry.coordinates;
-        var _iteratorNormalCompletion6 = true;
-        var _didIteratorError6 = false;
-        var _iteratorError6 = undefined;
-
-        try {
-          for (var _iterator6 = coordinates[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-            var c = _step6.value;
-            positions.push({
-              lon: c[0],
-              lat: c[1],
-              height: c[2]
-            });
-          }
-        } catch (err) {
-          _didIteratorError6 = true;
-          _iteratorError6 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
-              _iterator6.return();
-            }
-          } finally {
-            if (_didIteratorError6) {
-              throw _iteratorError6;
-            }
-          }
-        }
-
-        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions);
-      } else if (feat.geometry.type.toUpperCase() === "POLYGON") {
-        coordinates = feat.geometry.coordinates[0];
-        var _iteratorNormalCompletion7 = true;
-        var _didIteratorError7 = false;
-        var _iteratorError7 = undefined;
-
-        try {
-          for (var _iterator7 = coordinates[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-            var _c = _step7.value;
-            positions.push({
-              lon: _c[0],
-              lat: _c[1],
-              height: _c[2]
-            });
-          }
-        } catch (err) {
-          _didIteratorError7 = true;
-          _iteratorError7 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
-              _iterator7.return();
-            }
-          } finally {
-            if (_didIteratorError7) {
-              throw _iteratorError7;
-            }
-          }
-        }
-
-        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions);
-      } else {
-        throw new Error('不能识别的数据源.');
-      }
-
-      graphic.gvid = id;
-      graphic.gvname = feat.properties.name;
-      this.graphicManager.set(id, graphic);
-      var evt = new CustomEvent('addEvent', {
-        detail: {
-          gvid: graphic.gvid,
-          gvtype: graphic.gvtype,
-          gvname: graphic.gvname || '未命名'
-        }
-      });
-      document.dispatchEvent(evt);
-    }
-  }, {
-    key: "removeEventListener",
-    value: function removeEventListener() {
-      this.handler.removeInputAction(LEFT_CLICK);
-      this.handler.removeInputAction(MOUSE_MOVE);
-      this.handler.removeInputAction(RIGHT_CLICK);
-      this.handler.removeInputAction(MOUSE_DOWN);
-      this.handler.removeInputAction(MOUSE_UP);
-    }
-  }, {
-    key: "removeAll",
-    value: function removeAll() {
-      var values = this.graphicManager.values();
-      var _iteratorNormalCompletion8 = true;
-      var _didIteratorError8 = false;
-      var _iteratorError8 = undefined;
-
-      try {
-        for (var _iterator8 = values[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-          var v = _step8.value;
-          v.remove();
-          v.destroy();
-        }
-      } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
-            _iterator8.return();
-          }
-        } finally {
-          if (_didIteratorError8) {
-            throw _iteratorError8;
-          }
-        }
-      }
-
-      this.graphicManager.clear();
-      this.tip.visible = false;
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      this.activeManager = undefined;
-      this.graphicManager = undefined;
-      this.editManager = undefined;
-      this.removeEventListener();
-
-      if (!this.handler.isDestroyed) {
-        this.handler.destroy();
-        this.handler = undefined;
-      }
-    }
-  }, {
-    key: "destroyManager",
-    value: function destroyManager() {
-      var manager = this.editManager;
-      var evt = new CustomEvent('destroyEvent', {
-        detail: {
-          gvid: manager ? manager.gvid : undefined
-        }
-      });
-
-      if (manager) {
-        if (this.mode === 'edit') {
-          manager && manager.stopEdit();
-        } else {
-          manager && manager.destroy();
-          this.graphicManager.delete(this.graphicId);
-        }
-
-        this.editManager = undefined;
-      }
-
-      this.graphicId = undefined;
-      this.handler.removeInputAction(MOUSE_MOVE);
-      document.dispatchEvent(evt);
-    }
-  }, {
-    key: "heightReference",
-    get: function get() {
-      return this._heightReference;
-    },
-    set: function set(h) {
-      this._heightReference = h;
-
-      if (this.editManager) {
-        this.editManager.heightReference = h;
-
-        if (this.editManager.type === 'POLYLINE') {
-          this.editManager.graphic.polyline.clampToGround = /.*GROUND.*/.test(h);
-          this.editManager.options.polyline.clampToGround = /.*GROUND.*/.test(h);
-        } else if (this.editManager.type === 'POLYGON') {
-          var graphic = this.editManager.graphic;
-          var options = this.editManager.options;
-
-          if (/.*GROUND.*/.test(h)) {
-            graphic.polygon.perPositionHeight = false;
-
-            if (this.editManager.outline) {
-              this.editManager.outlineGraphic.graphic.polyline.clampToGround = true;
-            } // polygon.heightReference = Cesium.HeightReference.CLAMP_TO_GROUND
-            // options.polygon.heightReference= Cesium.HeightReference.CLAMP_TO_GROUND
-
-
-            options.polygon.perPositionHeight = false;
-          } else {
-            graphic.polygon.perPositionHeight = true;
-
-            if (this.editManager.outline) {
-              this.editManager.outlineGraphic.graphic.polyline.clampToGround = false;
-            } // polygon.heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND
-            // options.polygon.heightReference= Cesium.HeightReference.RELATIVE_TO_GROUND
-
-
-            options.polygon.perPositionHeight = true;
-          }
-        }
-      }
-    }
-  }, {
-    key: "material",
-    get: function get() {
-      return this._material;
-    },
-    set: function set(v) {
-      this._material = v;
-
-      if (this.editManager) {
-        if (this.editManager.type === 'POLYLINE') {
-          this.editManager.graphic.polyline.material = this._material;
-          this.editManager.options.polyline.material = this._material;
-        } else if (this.editManager.type === 'POLYGON') {
-          this.editManager.graphic.polygon.material = this._material;
-          this.editManager.options.polygon.material = this._material;
-        }
-      }
-    }
-  }, {
-    key: "style",
-    get: function get() {
-      return this._style;
-    },
-    set: function set(option) {
-      this._style = option;
-
-      if (!this.editManager) {
-        return;
-      }
-
-      var keys = Object.keys(option);
-
-      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
-        var key = _keys[_i];
-
-        if (this.editManager.type === 'POLYLINE') {
-          this.editManager.graphic.polyline[key] = option[key];
-          this.editManager.options.polyline[key] = option[key];
-        } else if (this.editManager.type === 'POLYGON') {
-          if (key !== 'outline') {
-            this.editManager.graphic.polygon[key] = option[key];
-          }
-
-          this.editManager.options.polygon[key] = option[key];
-        }
-      }
-
-      if (this.editManager.type === 'POLYGON') {
-        this.editManager.outlineStyle = option;
-      }
-    }
-  }]);
-
-  return CesiumDrawing;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (CesiumDrawing);
+  return Object(assertThisInitialized["a" /* default */])(self);
+}
 
 /***/ }),
 
@@ -14919,6 +14603,13 @@ __webpack_require__("ec30")('Uint8', 1, function (init) {
   };
 });
 
+
+/***/ }),
+
+/***/ "354a":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -15432,6 +15123,20 @@ var _util = __webpack_require__("8122");
 function isVNode(node) {
   return node !== null && (typeof node === 'undefined' ? 'undefined' : _typeof(node)) === 'object' && (0, _util.hasOwn)(node, 'componentOptions');
 };
+
+/***/ }),
+
+/***/ "4517":
+/***/ (function(module, exports, __webpack_require__) {
+
+var forOf = __webpack_require__("a22a");
+
+module.exports = function (iter, ITERATOR) {
+  var result = [];
+  forOf(iter, false, result.push, result, ITERATOR);
+  return result;
+};
+
 
 /***/ }),
 
@@ -17186,17 +16891,6 @@ exports.default = { use: use, t: t, i18n: i18n };
 
 /***/ }),
 
-/***/ "48b4":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_183d3c36_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("d12e");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_183d3c36_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_183d3c36_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_183d3c36_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "4a59":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17242,7 +16936,7 @@ module.exports = __webpack_require__("dc62");
 "use strict";
 /*
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-17 18:35:25
  * @LastEditors: zhangbo
  * @LastEditTime: 2020-02-18 18:47:08
@@ -17488,10 +17182,1008 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "4c95":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var global = __webpack_require__("e53d");
+var core = __webpack_require__("584a");
+var dP = __webpack_require__("d9f6");
+var DESCRIPTORS = __webpack_require__("8e60");
+var SPECIES = __webpack_require__("5168")('species');
+
+module.exports = function (KEY) {
+  var C = typeof core[KEY] == 'function' ? core[KEY] : global[KEY];
+  if (DESCRIPTORS && C && !C[SPECIES]) dP.f(C, SPECIES, {
+    configurable: true,
+    get: function () { return this; }
+  });
+};
+
+
+/***/ }),
+
 /***/ "4d16":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("25b0");
+
+/***/ }),
+
+/***/ "4e00":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("456d");
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("7f7f");
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("ac4d");
+/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("8a81");
+/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("6b54");
+/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("ac6a");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("cadf");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5df3");
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("f400");
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("d225");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("b0b4");
+/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("cd53");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("9944");
+/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("4ab0");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("21a6");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_14__);
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * @Author: zhangbo
+ * @E-mail: xtfge_0915@163.com
+ * @Date: 2019-12-17 16:48:49
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-09 17:15:25
+ * @Desc: 绘图类，定义了交互绘图的相关操作
+ */
+
+
+
+
+
+var Cesium = window.Cesium;
+var defined = Cesium.defined;
+var console = window.console;
+var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
+var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
+var MOUSE_MOVE = Cesium.ScreenSpaceEventType.MOUSE_MOVE;
+var MOUSE_DOWN = Cesium.ScreenSpaceEventType.LEFT_DOWN;
+var MOUSE_UP = Cesium.ScreenSpaceEventType.LEFT_UP;
+
+var GraphicManager =
+/*#__PURE__*/
+function () {
+  /**
+   * 鼠标交互绘制线和多边形
+   * @param {Viewer}} viewer Cesium Viewer
+   * @param {*} options 预留参数，目前不需要关注
+   */
+  function GraphicManager(viewer) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(this, GraphicManager);
+
+    if (viewer instanceof Cesium.Viewer === false) {
+      throw new Error('viewer不是一个有效的Cesium Viewer');
+    }
+
+    this.viewer = viewer;
+    this.options = options;
+    /*heightReference 定义几何图形的高程基准
+    *CLAMP_TO_GROUND:依附地形
+    *CLAMP_TO_MODEL:依附模型
+    *NONE:空间线
+    */
+
+    this._heightReference = 'CLAMP_TO_GROUND';
+    this._material = undefined;
+    this._style = {};
+    this.graphicId = undefined;
+    this.handler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
+    this.graphicType = undefined;
+    this.positions = [];
+    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* default */ "d"].CursorTip('');
+    this.tip.visible = false;
+    this.mode = 'ready';
+    this.dragging = false; // this.init()
+    // this.addEventListener()
+    //当前正在编辑的graphic
+
+    this.editManager = undefined;
+    this.selectedNodeIndex = -1; //Graphic集合
+
+    this.manager = new Map();
+    var self = this;
+
+    document.onkeydown = function (event) {
+      if (self.mode !== 'edit') return;
+      var e = event || window.event || arguments.callee.caller.arguments[0];
+
+      if (e && e.keyCode == 46) {
+        // 按 delete 
+        if (self.selectedNodeIndex > -1 && self.editManager) {
+          self.editManager.dropNode(self.selectedNodeIndex);
+          self.highlightedNode(undefined, self.editManager.nodeGraphic);
+          self.selectedNodeIndex = -1;
+        } else if (self.editManager) {
+          self.editManager.destroy();
+          self.manager.delete(self.editManager.id);
+          self.mode = 'end';
+          self.tip.visible = false;
+          var evt = new CustomEvent('deleteEvent', {
+            detail: {
+              gvid: self.editManager ? self.editManager.gvid : undefined
+            }
+          });
+          document.dispatchEvent(evt);
+          self.editManager = undefined; // self.removeEventListener();
+        }
+      }
+    }; // this.tip.style.display='none'
+
+  }
+
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(GraphicManager, [{
+    key: "createPolyline",
+
+    /**
+     * 
+     * @param {Object} options 定义一个CesiumPolyline
+     */
+    value: function createPolyline() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE;
+      var id = this.generateId();
+      options.positions = this.positions;
+
+      if (/.*GROUND.*/.test(this._heightReference)) {
+        options.clampToGround = true;
+      } else {
+        options.clampToGround = false;
+      }
+
+      options.material = this.material || options.material;
+      options.width = this.style.width || options.width;
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"](this.viewer, options);
+      this.tip.updateText('左键标绘，右键结束.');
+      this.tip.visible = true;
+      manager.gvid = id; // manager.id = id
+      // manager.gvname = '未命名';
+
+      manager.heightReference = this.heightReference;
+      this.manager.set(id, manager);
+      this.graphicId = id;
+      this.editManager = manager;
+      var evt = new CustomEvent('addEvent', {
+        detail: {
+          gvid: manager.gvid,
+          gvtype: manager.gvtype,
+          gvname: manager.gvname
+        }
+      });
+      document.dispatchEvent(evt);
+      var self = this;
+      this.handler.setInputAction(function (e) {
+        self.tip && self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
+      this.addEventListener();
+      return manager;
+    }
+    /**
+     * 
+     * @param {Object} options 定义一个CesiumPolygon
+     */
+
+  }, {
+    key: "createPolygon",
+    value: function createPolygon() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON;
+      var id = this.generateId();
+      this.graphicId = id;
+      options.positions = this.positions;
+
+      if (/.*GROUND.*/.test(this._heightReference)) {
+        options.perPositionHeight = false; // options.heightReference = Cesium.HeightReference.CLAMP_TO_GROUND;
+      } else {
+        options.perPositionHeight = true; // options.heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND;
+        // options.height = 0
+      }
+
+      options.material = this.material || options.material;
+      options.outlineWidth = this.style.outlineWidth || options.outlineWidth;
+      options.outlineColor = this.style.outlineColor || options.outlineColor;
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"](this.viewer, options);
+      manager.gvid = id; // manager.id = id;
+      // manager.gvname = '未命名';
+
+      manager.heightReference = this.heightReference;
+      this.tip.visible = true;
+      this.tip.updateText('左键标绘，右键结束.');
+      this.manager.set(id, manager);
+      this.editManager = manager;
+      var evt = new CustomEvent('addEvent', {
+        detail: {
+          gvid: manager.gvid,
+          gvtype: manager.gvtype,
+          gvname: manager.gvname
+        }
+      });
+      document.dispatchEvent(evt);
+      var self = this;
+      this.handler.setInputAction(function (e) {
+        self.tip && self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
+      this.addEventListener();
+      return manager;
+    }
+  }, {
+    key: "generateId",
+    value: function generateId() {
+      return (Math.random() * 10000000).toString(16).substr(0, 4) + '-' + new Date().getTime() + '-' + Math.random().toString().substr(2, 5);
+    }
+  }, {
+    key: "isKnownGraphic",
+    value: function isKnownGraphic(pickedObj) {
+      if (defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT)) {
+        return true;
+      }
+
+      return false;
+    }
+    /**
+     * 将当前选中的点设为高亮
+     * @param {Cartesian3} node 
+     * @param {CesiumPoint} cp 
+     */
+
+  }, {
+    key: "highlightedNode",
+    value: function highlightedNode(node, cp) {
+      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].selectedStyle;
+      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].defaultStyle;
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = cp.graphic[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var n = _step.value;
+
+          if (n === node) {
+            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, soption);
+          } else {
+            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, doption);
+          }
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+  }, {
+    key: "addEventListener",
+    value: function addEventListener() {
+      var self = this;
+      var viewer = this.viewer;
+
+      var clickHandler = function clickHandler(e) {
+        //编辑要素
+        if (self.mode === 'edit') {
+          if (!self.editManager) {
+            self.removeEventListener();
+            return;
+          }
+
+          var nodeGraphic = self.editManager.nodeGraphic || self.editManager.outlineGraphic.nodeGraphic;
+          var pickedObjs = viewer.scene.drillPick(e.position);
+          var known = false,
+              pickedObj = undefined;
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = pickedObjs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var obj = _step2.value;
+              known = self.isKnownGraphic(obj);
+
+              if (known && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+                pickedObj = obj; //再事件监听之前移除上次的监听
+
+                self.handler.removeInputAction(MOUSE_DOWN);
+                self.handler.removeInputAction(MOUSE_MOVE);
+                self.handler.setInputAction(mouseDownHandler, MOUSE_DOWN);
+                self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
+                break;
+              }
+            } // const pickedPosition=CVT.pixel2Cartesian(e.position,viewer)
+
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                _iterator2.return();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
+          }
+
+          if (pickedObj && known) {
+            if (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+              self.selectedNodeIndex = nodeGraphic.contain(pickedObj.id);
+
+              if (self.selectedNodeIndex !== -1) {
+                self.highlightedNode(pickedObj.id, nodeGraphic);
+              }
+            } else {
+              self.highlightedNode(pickedObj.id, self.editManager.nodeGraphic);
+              self.selectedNodeIndex = -1;
+            }
+          } else {
+            self.editManager && self.editManager.stopEdit(); // self.handler.removeInputAction(MOUSE_MOVE);
+
+            self.removeEventListener();
+            self.mode = 'end';
+            self.selectedNodeIndex = -1;
+            self.editManager = undefined;
+            self.tip.visible = false;
+            var evt = new CustomEvent('stopEdit');
+            document.dispatchEvent(evt);
+          }
+
+          return;
+        } //非法的要素类型
+
+
+        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON) {
+          return;
+        }
+
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
+
+        if (/.*MODEL.*/.test(self._heightReference)) {
+          if (!viewer.scene.pickPositionSupported) {
+            console.log('This browser does not support pickPosition.');
+            return;
+          }
+
+          cartesian = viewer.scene.pickPosition(e.position);
+        } //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以免不必要的事件监听
+
+
+        if (self.manager.get(self.graphicId).positions.length === 0) {
+          self.handler.removeInputAction(MOUSE_MOVE);
+          self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
+        }
+
+        if (defined(cartesian) && self.manager.has(self.graphicId)) {
+          self.manager.get(self.graphicId).addNode(cartesian);
+        }
+
+        self.mode = 'create';
+      };
+
+      var rightHandler = function rightHandler() {
+        var manager = self.manager.get(self.graphicId);
+
+        if (self.mode === 'create' && manager) {
+          manager.stopEdit();
+          self.graphicType = undefined;
+          self.graphicId = undefined;
+          self.positions = [];
+          self.mode = 'end';
+          self.tip.visible = false;
+          self.editManager = undefined;
+
+          var _evt = new CustomEvent('stopEdit');
+
+          document.dispatchEvent(_evt);
+        } else if (self.mode === 'ready') {
+          self.cancel();
+        } else if (self.mode === 'edit') {
+          self.editManager && self.editManager.stopEdit(); // self.handler.removeInputAction(MOUSE_MOVE);
+
+          self.removeEventListener();
+          self.mode = 'end';
+          self.selectedNodeIndex = -1;
+          self.editManager = undefined;
+          self.tip.visible = false;
+        } // self.handler.removeInputAction(MOUSE_MOVE);
+
+
+        var evt = new CustomEvent('stopEdit');
+        document.dispatchEvent(evt);
+        self.removeEventListener();
+      };
+
+      var moseMoveHandler = function moseMoveHandler(e) {
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
+
+        if (/.*MODEL.*/.test(self._heightReference)) {
+          if (!viewer.scene.pickPositionSupported) {
+            console.log('This browser does not support pickPosition.');
+            return;
+          }
+
+          cartesian = viewer.scene.pickPosition(e.endPosition);
+        }
+
+        if (!defined(cartesian)) {
+          return;
+        }
+
+        self.tip.updatePosition(e.endPosition);
+
+        if (self.mode === 'create') {
+          //如果当前是create模式，创建辅助线
+          if (self.positions.length > 1) {
+            self.manager.get(self.graphicId).popNode();
+          } //添加临时节点
+          //再添加第一个节点前，不拾取鼠标移动的坐标
+
+
+          if (self.positions.length > 0) {
+            // self.positions.push(cartesian);
+            self.manager.get(self.graphicId).addNode(cartesian);
+          }
+        } else if (self.mode == 'edit' && self.dragging) {
+          if (self.selectedNodeIndex !== -1) {
+            self.editManager.updateNode(self.selectedNodeIndex, cartesian);
+          }
+        }
+      };
+
+      var mouseDownHandler = function mouseDownHandler(e) {
+        self.handler.setInputAction(mouseUpHandler, MOUSE_UP);
+        var objs = viewer.scene.drillPick(e.position);
+        var isCesiumPoint = false;
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
+
+        try {
+          for (var _iterator3 = objs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var obj = _step3.value;
+
+            if (_Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
+              isCesiumPoint = true;
+            }
+          }
+        } catch (err) {
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+              _iterator3.return();
+            }
+          } finally {
+            if (_didIteratorError3) {
+              throw _iteratorError3;
+            }
+          }
+        }
+
+        if (isCesiumPoint == false) {
+          return;
+        }
+
+        if (self.mode === 'edit' && self.selectedNodeIndex != -1) {
+          self.dragging = true;
+          viewer.scene.screenSpaceCameraController.enableRotate = false;
+        }
+      };
+
+      var mouseUpHandler = function mouseUpHandler() {
+        self.dragging = false;
+        viewer.scene.screenSpaceCameraController.enableRotate = true;
+        self.handler.removeInputAction(MOUSE_UP); // self.handler.removeInputAction(MOUSE_DOWN);
+      };
+
+      this.handler.setInputAction(clickHandler, LEFT_CLICK);
+      this.handler.setInputAction(rightHandler, RIGHT_CLICK);
+    }
+  }, {
+    key: "rename",
+    value: function rename(id, name) {
+      var graphic = this.manager.get(id);
+
+      if (defined(graphic)) {
+        graphic.gvname = name;
+      }
+    }
+  }, {
+    key: "has",
+    value: function has(id) {
+      if (this.manager) {
+        return this.manager.has(id);
+      }
+
+      return false;
+    }
+  }, {
+    key: "get",
+    value: function get(id) {
+      if (this.has(id)) {
+        return this.manager.get(id);
+      }
+    }
+    /**
+     * 当图形处于ready状态时，不想画了
+     */
+
+  }, {
+    key: "cancel",
+    value: function cancel() {
+      var manager = this.manager.get(this.graphicId);
+      manager && manager.stopEdit();
+      manager && manager.destroy();
+      this.graphicType = undefined;
+      this.graphicId = undefined;
+      this.positions = [];
+      this.mode = 'end';
+      this.tip.visible = false;
+      this.editManager = undefined;
+    }
+  }, {
+    key: "select",
+    value: function select(type, id, status) {
+      if (defined(id)) {
+        var manager = this.manager.get(id);
+
+        if (manager) {
+          manager.show = status;
+        }
+      }
+
+      if (defined(type)) {
+        var values = this.manager.values();
+        var _iteratorNormalCompletion4 = true;
+        var _didIteratorError4 = false;
+        var _iteratorError4 = undefined;
+
+        try {
+          for (var _iterator4 = values[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var v = _step4.value;
+
+            if (v.gvtype === type) {
+              v.show = status;
+            }
+          }
+        } catch (err) {
+          _didIteratorError4 = true;
+          _iteratorError4 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+              _iterator4.return();
+            }
+          } finally {
+            if (_didIteratorError4) {
+              throw _iteratorError4;
+            }
+          }
+        }
+      }
+    }
+  }, {
+    key: "edit",
+    value: function edit(id) {
+      var self = this;
+      var manager = self.manager.get(id);
+      this.handler.setInputAction(function (e) {
+        self.tip.updatePosition(e.endPosition);
+      }, MOUSE_MOVE);
+      self.graphicId = id;
+
+      if (defined(manager)) {
+        // manager.zoomTo()
+        self.mode = 'edit';
+        manager.startEdit();
+        self.tip.visible = true;
+        self.tip.updateText('拖动节点编辑，按del删除.');
+        self.editManager = manager;
+        var evt = new CustomEvent('startEdit', {
+          detail: {
+            graphicType: self.editManager.type,
+            material: self.editManager.material,
+            width: self.editManager.width,
+            outline: self.editManager.outline,
+            outlineColor: self.editManager.outlineColor,
+            outlineWidth: self.editManager.outlineWidth,
+            heightReference: self.editManager.heightReference
+          }
+        });
+        document.dispatchEvent(evt);
+        self.addEventListener();
+      }
+    }
+  }, {
+    key: "export",
+    value: function _export(type) {
+      var json = {
+        type: "FeatureCollection",
+        name: "graphic",
+        crs: {
+          type: "name",
+          properties: {
+            name: "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        },
+        features: []
+      };
+      var managers = this.manager.values();
+      var _iteratorNormalCompletion5 = true;
+      var _didIteratorError5 = false;
+      var _iteratorError5 = undefined;
+
+      try {
+        for (var _iterator5 = managers[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          var m = _step5.value;
+
+          if (m.type === type) {
+            json.features.push(m.toGeoJson());
+          }
+        }
+      } catch (err) {
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
+            _iterator5.return();
+          }
+        } finally {
+          if (_didIteratorError5) {
+            throw _iteratorError5;
+          }
+        }
+      }
+
+      var blob = new Blob([JSON.stringify(json)], {
+        type: ""
+      });
+      Object(file_saver__WEBPACK_IMPORTED_MODULE_14__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
+    }
+  }, {
+    key: "import",
+    value: function _import(feat) {
+      var id = this.generateId();
+      var graphic,
+          coordinates,
+          positions = [];
+
+      if (feat.geometry.type.toUpperCase() === 'LineString'.toUpperCase()) {
+        coordinates = feat.geometry.coordinates;
+        var _iteratorNormalCompletion6 = true;
+        var _didIteratorError6 = false;
+        var _iteratorError6 = undefined;
+
+        try {
+          for (var _iterator6 = coordinates[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+            var c = _step6.value;
+            positions.push({
+              lon: c[0],
+              lat: c[1],
+              height: c[2]
+            });
+          }
+        } catch (err) {
+          _didIteratorError6 = true;
+          _iteratorError6 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
+              _iterator6.return();
+            }
+          } finally {
+            if (_didIteratorError6) {
+              throw _iteratorError6;
+            }
+          }
+        }
+
+        try {
+          graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions, feat.properties);
+        } catch (e) {
+          console.log(e);
+        }
+      } else if (feat.geometry.type.toUpperCase() === "POLYGON") {
+        coordinates = feat.geometry.coordinates[0];
+        var _iteratorNormalCompletion7 = true;
+        var _didIteratorError7 = false;
+        var _iteratorError7 = undefined;
+
+        try {
+          for (var _iterator7 = coordinates[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+            var _c = _step7.value;
+            positions.push({
+              lon: _c[0],
+              lat: _c[1],
+              height: _c[2]
+            });
+          }
+        } catch (err) {
+          _didIteratorError7 = true;
+          _iteratorError7 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
+              _iterator7.return();
+            }
+          } finally {
+            if (_didIteratorError7) {
+              throw _iteratorError7;
+            }
+          }
+        }
+
+        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions, feat.properties);
+      } else {
+        throw new Error('不能识别的数据源.');
+      }
+
+      if (graphic) {
+        graphic.gvid = id;
+        graphic.gvname = feat.properties.name;
+        this.manager.set(id, graphic);
+        var evt = new CustomEvent('addEvent', {
+          detail: {
+            gvid: graphic.gvid,
+            gvtype: graphic.gvtype,
+            gvname: graphic.gvname || '未命名'
+          }
+        });
+        document.dispatchEvent(evt);
+      }
+
+      return graphic;
+    }
+  }, {
+    key: "removeEventListener",
+    value: function removeEventListener() {
+      this.handler.removeInputAction(LEFT_CLICK);
+      this.handler.removeInputAction(MOUSE_MOVE);
+      this.handler.removeInputAction(RIGHT_CLICK);
+      this.handler.removeInputAction(MOUSE_DOWN);
+      this.handler.removeInputAction(MOUSE_UP);
+    }
+  }, {
+    key: "removeAll",
+    value: function removeAll() {
+      var values = this.manager.values();
+      var _iteratorNormalCompletion8 = true;
+      var _didIteratorError8 = false;
+      var _iteratorError8 = undefined;
+
+      try {
+        for (var _iterator8 = values[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+          var v = _step8.value;
+          v.remove();
+          v.destroy();
+        }
+      } catch (err) {
+        _didIteratorError8 = true;
+        _iteratorError8 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
+            _iterator8.return();
+          }
+        } finally {
+          if (_didIteratorError8) {
+            throw _iteratorError8;
+          }
+        }
+      }
+
+      this.manager.clear();
+      this.tip.visible = false;
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.activeManager = undefined;
+      this.manager = undefined;
+      this.editManager = undefined;
+      this.removeEventListener();
+
+      if (!this.handler.isDestroyed) {
+        this.handler.destroy();
+        this.handler = undefined;
+      }
+    }
+  }, {
+    key: "destroyManager",
+    value: function destroyManager() {
+      var manager = this.editManager;
+      var evt = new CustomEvent('destroyEvent', {
+        detail: {
+          gvid: manager ? manager.gvid : undefined
+        }
+      });
+
+      if (manager) {
+        if (this.mode === 'edit') {
+          manager && manager.stopEdit();
+        } else {
+          manager && manager.destroy();
+          this.manager.delete(this.graphicId);
+        }
+
+        this.editManager = undefined;
+      }
+
+      this.graphicId = undefined;
+      this.handler.removeInputAction(MOUSE_MOVE);
+      document.dispatchEvent(evt);
+    }
+  }, {
+    key: "heightReference",
+    get: function get() {
+      return this._heightReference;
+    },
+    set: function set(h) {
+      this._heightReference = h;
+
+      if (this.editManager) {
+        this.editManager.heightReference = h;
+
+        if (this.editManager.type === 'POLYLINE') {
+          this.editManager.graphic.polyline.clampToGround = /.*GROUND.*/.test(h);
+          this.editManager.options.polyline.clampToGround = /.*GROUND.*/.test(h);
+        } else if (this.editManager.type === 'POLYGON') {
+          var graphic = this.editManager.graphic;
+          var options = this.editManager.options;
+
+          if (/.*GROUND.*/.test(h)) {
+            graphic.polygon.perPositionHeight = false;
+
+            if (this.editManager.outline) {
+              this.editManager.outlineGraphic.graphic.polyline.clampToGround = true;
+            } // polygon.heightReference = Cesium.HeightReference.CLAMP_TO_GROUND
+            // options.polygon.heightReference= Cesium.HeightReference.CLAMP_TO_GROUND
+
+
+            options.polygon.perPositionHeight = false;
+          } else {
+            graphic.polygon.perPositionHeight = true;
+
+            if (this.editManager.outline) {
+              this.editManager.outlineGraphic.graphic.polyline.clampToGround = false;
+            } // polygon.heightReference = Cesium.HeightReference.RELATIVE_TO_GROUND
+            // options.polygon.heightReference= Cesium.HeightReference.RELATIVE_TO_GROUND
+
+
+            options.polygon.perPositionHeight = true;
+          }
+        }
+      }
+    }
+  }, {
+    key: "material",
+    get: function get() {
+      return this._material;
+    },
+    set: function set(v) {
+      this._material = v;
+
+      if (this.editManager) {
+        if (this.editManager.type === 'POLYLINE') {
+          this.editManager.graphic.polyline.material = this._material;
+          this.editManager.options.polyline.material = this._material;
+        } else if (this.editManager.type === 'POLYGON') {
+          this.editManager.graphic.polygon.material = this._material;
+          this.editManager.options.polygon.material = this._material;
+        }
+      }
+    }
+  }, {
+    key: "style",
+    get: function get() {
+      return this._style;
+    },
+    set: function set(option) {
+      this._style = option;
+
+      if (!this.editManager) {
+        return;
+      }
+
+      var keys = Object.keys(option);
+
+      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+        var key = _keys[_i];
+
+        if (this.editManager.type === 'POLYLINE') {
+          this.editManager.graphic.polyline[key] = option[key];
+          this.editManager.options.polyline[key] = option[key];
+        } else if (this.editManager.type === 'POLYGON') {
+          if (key !== 'outline') {
+            this.editManager.graphic.polygon[key] = option[key];
+          }
+
+          this.editManager.options.polygon[key] = option[key];
+        }
+      }
+
+      if (this.editManager.type === 'POLYGON') {
+        this.editManager.outlineStyle = option;
+      }
+    }
+  }]);
+
+  return GraphicManager;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (GraphicManager);
+
+/***/ }),
+
+/***/ "4e2b":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _inherits; });
+/* harmony import */ var _core_js_object_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4aa6");
+/* harmony import */ var _core_js_object_create__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_create__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _setPrototypeOf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("54b6");
+
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = _core_js_object_create__WEBPACK_IMPORTED_MODULE_0___default()(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object(_setPrototypeOf__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(subClass, superClass);
+}
 
 /***/ }),
 
@@ -19730,6 +20422,21 @@ module.exports = function (exec, skipClosing) {
 
 /***/ }),
 
+/***/ "5037":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("c207");
+__webpack_require__("1654");
+__webpack_require__("6c1c");
+__webpack_require__("837d");
+__webpack_require__("5cb6");
+__webpack_require__("fe1e");
+__webpack_require__("7554");
+module.exports = __webpack_require__("584a").Map;
+
+
+/***/ }),
+
 /***/ "50ed":
 /***/ (function(module, exports) {
 
@@ -20273,6 +20980,25 @@ module.exports = __webpack_require__("95d5");
 
 /***/ }),
 
+/***/ "54b6":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _setPrototypeOf; });
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4d16");
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__);
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0___default.a || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
 /***/ "5537":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20299,6 +21025,57 @@ var shared = __webpack_require__("dbdb")('keys');
 var uid = __webpack_require__("62a0");
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+
+/***/ "57b1":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 0 -> Array#forEach
+// 1 -> Array#map
+// 2 -> Array#filter
+// 3 -> Array#some
+// 4 -> Array#every
+// 5 -> Array#find
+// 6 -> Array#findIndex
+var ctx = __webpack_require__("d864");
+var IObject = __webpack_require__("335c");
+var toObject = __webpack_require__("241e");
+var toLength = __webpack_require__("b447");
+var asc = __webpack_require__("bfac");
+module.exports = function (TYPE, $create) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  var create = $create || asc;
+  return function ($this, callbackfn, that) {
+    var O = toObject($this);
+    var self = IObject(O);
+    var f = ctx(callbackfn, that, 3);
+    var length = toLength(self.length);
+    var index = 0;
+    var result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
+    var val, res;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      val = self[index];
+      res = f(val, index, O);
+      if (TYPE) {
+        if (IS_MAP) result[index] = res;   // map
+        else if (res) switch (TYPE) {
+          case 3: return true;             // some
+          case 5: return val;              // find
+          case 6: return index;            // findIndex
+          case 2: result.push(val);        // filter
+        } else if (IS_EVERY) return false; // every
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
+  };
 };
 
 
@@ -20652,6 +21429,158 @@ module.exports = function ( delay, noTrailing, callback, debounceMode ) {
 
 /***/ }),
 
+/***/ "5aee":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var dP = __webpack_require__("d9f6").f;
+var create = __webpack_require__("a159");
+var redefineAll = __webpack_require__("5c95");
+var ctx = __webpack_require__("d864");
+var anInstance = __webpack_require__("1173");
+var forOf = __webpack_require__("a22a");
+var $iterDefine = __webpack_require__("30f1");
+var step = __webpack_require__("50ed");
+var setSpecies = __webpack_require__("4c95");
+var DESCRIPTORS = __webpack_require__("8e60");
+var fastKey = __webpack_require__("ebfd").fastKey;
+var validate = __webpack_require__("9f79");
+var SIZE = DESCRIPTORS ? '_s' : 'size';
+
+var getEntry = function (that, key) {
+  // fast case
+  var index = fastKey(key);
+  var entry;
+  if (index !== 'F') return that._i[index];
+  // frozen object case
+  for (entry = that._f; entry; entry = entry.n) {
+    if (entry.k == key) return entry;
+  }
+};
+
+module.exports = {
+  getConstructor: function (wrapper, NAME, IS_MAP, ADDER) {
+    var C = wrapper(function (that, iterable) {
+      anInstance(that, C, NAME, '_i');
+      that._t = NAME;         // collection type
+      that._i = create(null); // index
+      that._f = undefined;    // first entry
+      that._l = undefined;    // last entry
+      that[SIZE] = 0;         // size
+      if (iterable != undefined) forOf(iterable, IS_MAP, that[ADDER], that);
+    });
+    redefineAll(C.prototype, {
+      // 23.1.3.1 Map.prototype.clear()
+      // 23.2.3.2 Set.prototype.clear()
+      clear: function clear() {
+        for (var that = validate(this, NAME), data = that._i, entry = that._f; entry; entry = entry.n) {
+          entry.r = true;
+          if (entry.p) entry.p = entry.p.n = undefined;
+          delete data[entry.i];
+        }
+        that._f = that._l = undefined;
+        that[SIZE] = 0;
+      },
+      // 23.1.3.3 Map.prototype.delete(key)
+      // 23.2.3.4 Set.prototype.delete(value)
+      'delete': function (key) {
+        var that = validate(this, NAME);
+        var entry = getEntry(that, key);
+        if (entry) {
+          var next = entry.n;
+          var prev = entry.p;
+          delete that._i[entry.i];
+          entry.r = true;
+          if (prev) prev.n = next;
+          if (next) next.p = prev;
+          if (that._f == entry) that._f = next;
+          if (that._l == entry) that._l = prev;
+          that[SIZE]--;
+        } return !!entry;
+      },
+      // 23.2.3.6 Set.prototype.forEach(callbackfn, thisArg = undefined)
+      // 23.1.3.5 Map.prototype.forEach(callbackfn, thisArg = undefined)
+      forEach: function forEach(callbackfn /* , that = undefined */) {
+        validate(this, NAME);
+        var f = ctx(callbackfn, arguments.length > 1 ? arguments[1] : undefined, 3);
+        var entry;
+        while (entry = entry ? entry.n : this._f) {
+          f(entry.v, entry.k, this);
+          // revert to the last existing entry
+          while (entry && entry.r) entry = entry.p;
+        }
+      },
+      // 23.1.3.7 Map.prototype.has(key)
+      // 23.2.3.7 Set.prototype.has(value)
+      has: function has(key) {
+        return !!getEntry(validate(this, NAME), key);
+      }
+    });
+    if (DESCRIPTORS) dP(C.prototype, 'size', {
+      get: function () {
+        return validate(this, NAME)[SIZE];
+      }
+    });
+    return C;
+  },
+  def: function (that, key, value) {
+    var entry = getEntry(that, key);
+    var prev, index;
+    // change existing entry
+    if (entry) {
+      entry.v = value;
+    // create new entry
+    } else {
+      that._l = entry = {
+        i: index = fastKey(key, true), // <- index
+        k: key,                        // <- key
+        v: value,                      // <- value
+        p: prev = that._l,             // <- previous entry
+        n: undefined,                  // <- next entry
+        r: false                       // <- removed
+      };
+      if (!that._f) that._f = entry;
+      if (prev) prev.n = entry;
+      that[SIZE]++;
+      // add to index
+      if (index !== 'F') that._i[index] = entry;
+    } return that;
+  },
+  getEntry: getEntry,
+  setStrong: function (C, NAME, IS_MAP) {
+    // add .keys, .values, .entries, [@@iterator]
+    // 23.1.3.4, 23.1.3.8, 23.1.3.11, 23.1.3.12, 23.2.3.5, 23.2.3.8, 23.2.3.10, 23.2.3.11
+    $iterDefine(C, NAME, function (iterated, kind) {
+      this._t = validate(iterated, NAME); // target
+      this._k = kind;                     // kind
+      this._l = undefined;                // previous
+    }, function () {
+      var that = this;
+      var kind = that._k;
+      var entry = that._l;
+      // revert to the last existing entry
+      while (entry && entry.r) entry = entry.p;
+      // get next entry
+      if (!that._t || !(that._l = entry = entry ? entry.n : that._t._f)) {
+        // or finish the iteration
+        that._t = undefined;
+        return step(1);
+      }
+      // return step by kind
+      if (kind == 'keys') return step(0, entry.k);
+      if (kind == 'values') return step(0, entry.v);
+      return step(0, [entry.k, entry.v]);
+    }, IS_MAP ? 'entries' : 'values', !IS_MAP, true);
+
+    // add [@@species], 23.1.2.2, 23.2.2.2
+    setSpecies(NAME);
+  }
+};
+
+
+/***/ }),
+
 /***/ "5b4e":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20677,6 +21606,20 @@ module.exports = function (IS_INCLUDES) {
       if (O[index] === el) return IS_INCLUDES || index || 0;
     } return !IS_INCLUDES && -1;
   };
+};
+
+
+/***/ }),
+
+/***/ "5c95":
+/***/ (function(module, exports, __webpack_require__) {
+
+var hide = __webpack_require__("35e8");
+module.exports = function (target, src, safe) {
+  for (var key in src) {
+    if (safe && target[key]) target[key] = src[key];
+    else hide(target, key, src[key]);
+  } return target;
 };
 
 
@@ -62338,6 +63281,17 @@ module.exports = $export;
 
 /***/ }),
 
+/***/ "5cb6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var $export = __webpack_require__("63b6");
+
+$export($export.P + $export.R, 'Map', { toJSON: __webpack_require__("f228")('Map') });
+
+
+/***/ }),
+
 /***/ "5cc5":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -62415,14 +63369,14 @@ __webpack_require__("01f9")(String, 'String', function (iterated) {
 
 /***/ }),
 
-/***/ "5e29":
+/***/ "5e10":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_c699ecac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a211");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_c699ecac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_c699ecac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1f0fb613_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("bcf1");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1f0fb613_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1f0fb613_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_c699ecac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_1f0fb613_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -62431,15 +63385,15 @@ __webpack_require__("01f9")(String, 'String', function (iterated) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"612c7166-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/layerManager.vue?vue&type=template&id=c699ecac&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"layer-manager-box",attrs:{"id":"layer-manager-box"}},[_c('div',{staticClass:"layer-manager-header",attrs:{"id":"layer-manager-header"}},[_c('i',{staticClass:"iconfont icon-guanbi1"}),_c('span',[_vm._v("标绘清单")]),_c('span',{staticClass:"closebtn iconfont icon-guanbi",on:{"click":_vm.closeLayerManaer}})]),_c('div',{staticClass:"layer-manager-tools"},[_c('span',{staticClass:"el-dropdown-link",on:{"click":_vm.importHandler}},[_vm._m(0)]),_c('el-dropdown',{attrs:{"trigger":"click"},on:{"command":_vm.exportHandler}},[_c('span',{staticClass:"el-dropdown-link"},[_c('i',{staticClass:"iconfont iconexport action-icon-class"},[_c('span',[_vm._v("导出")])])]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{staticClass:"iconfont iconmarker",attrs:{"command":"MARKER"}},[_vm._v("标记")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolyline",attrs:{"command":"POLYLINE"}},[_vm._v("线")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolygon",attrs:{"command":"POLYGON"}},[_vm._v("多边形")]),_c('el-dropdown-item',{staticClass:"iconfont iconlabel",attrs:{"command":"LABEL"}},[_vm._v("书签")])],1)],1),_c('i',{staticClass:"iconfont iconremove action-icon-last-class",on:{"click":_vm.removeAll}},[_c('span',[_vm._v("清空")])])],1),_c('div',{staticClass:"graphic-draw-layer-manager-class",attrs:{"id":"layerTree"}},[_c('el-tree',{ref:"tree",attrs:{"data":_vm.json,"show-checkbox":"","node-key":"id","default-expanded-keys":['marker','polyline','polygon']},on:{"check":_vm.checkAction},scopedSlots:_vm._u([{key:"default",fn:function(ref){
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/layerManager.vue?vue&type=template&id=47c69614&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"layer-manager-box",attrs:{"id":"layer-manager-box"}},[_c('div',{staticClass:"layer-manager-header",attrs:{"id":"layer-manager-header"}},[_c('i',{staticClass:"iconfont iconclose1"}),_c('span',[_vm._v("标绘清单")]),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":_vm.closeLayerManaer}})]),_c('div',{staticClass:"layer-manager-tools"},[_c('span',{staticClass:"el-dropdown-link",on:{"click":_vm.importHandler}},[_vm._m(0)]),_c('el-dropdown',{attrs:{"trigger":"click"},on:{"command":_vm.exportHandler}},[_c('span',{staticClass:"el-dropdown-link"},[_c('i',{staticClass:"iconfont iconexport action-icon-class"},[_c('span',[_vm._v("导出")])])]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{staticClass:"iconfont iconmarker",attrs:{"command":"MARKER"}},[_vm._v("标记")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolyline",attrs:{"command":"POLYLINE"}},[_vm._v("线")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolygon",attrs:{"command":"POLYGON"}},[_vm._v("多边形")]),_c('el-dropdown-item',{staticClass:"iconfont iconlabel",attrs:{"command":"LABEL"}},[_vm._v("书签")])],1)],1),_c('i',{staticClass:"iconfont iconremove action-icon-last-class",on:{"click":_vm.removeAll}},[_c('span',[_vm._v("清空")])])],1),_c('div',{staticClass:"graphic-draw-layer-manager-class",attrs:{"id":"layerTree"}},[_c('el-tree',{ref:"tree",attrs:{"data":_vm.json,"show-checkbox":"","node-key":"id","default-expanded-keys":['marker','polyline','polygon']},on:{"check":_vm.checkAction},scopedSlots:_vm._u([{key:"default",fn:function(ref){
 var node = ref.node;
 var data = ref.data;
-return _c('span',{staticClass:"custom-tree-node"},[(!data.edit)?_c('i',{staticClass:"action-item",class:data.icon}):_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.renameAction(data)}},model:{value:(_vm.newName),callback:function ($$v) {_vm.newName=$$v},expression:"newName"}}),_c('span',{staticClass:"node-name action-item"},[_vm._v(_vm._s(data.text))]),(!data.children)?_c('span',{staticClass:"action-class"},[_c('i',{staticClass:"iconfont iconlocate action-item",on:{"click":function($event){return _vm.locate(data.id)}}}),_c('i',{staticClass:"iconfont iconrename action-item",on:{"click":function($event){return _vm.rename(data)}}}),_c('i',{staticClass:"iconfont iconedit action-item",on:{"click":function($event){return _vm.edit(data.id)}}}),_c('i',{staticClass:"iconfont icondelete action-item",on:{"click":function($event){return _vm.drop(data.id)}}})]):_vm._e()],1)}}])})],1)])}
+return _c('span',{staticClass:"custom-tree-node"},[_c('i',{staticClass:"action-item",class:data.icon}),(data.edit)?_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.renameAction(data)}},model:{value:(_vm.newName),callback:function ($$v) {_vm.newName=$$v},expression:"newName"}}):_c('span',{staticClass:"node-name action-item"},[_vm._v(_vm._s(data.text))]),(!data.children)?_c('span',{staticClass:"action-class"},_vm._l((_vm.tools),function(tool){return _c('i',{key:tool.id,staticClass:"iconfont action-item",class:[tool.icon],attrs:{"title":tool.text},on:{"click":function($event){return tool.action(data)}}})}),0):_vm._e()],1)}}])})],1)])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('i',{staticClass:"iconfont iconimport action-icon-class"},[_c('span',[_vm._v("导入")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=template&id=c699ecac&scoped=true&
+// CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=template&id=47c69614&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
 var es7_symbol_async_iterator = __webpack_require__("ac4d");
@@ -62536,6 +63490,10 @@ var es6_map = __webpack_require__("f400");
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ var layerManagervue_type_script_lang_js_ = ({
   data: function data() {
     return {
@@ -62551,7 +63509,7 @@ var es6_map = __webpack_require__("f400");
         id: "marker",
         text: "标记",
         type: "marker",
-        icon: "iconfont iconmarker",
+        icon: "iconfont icon-lujing",
         children: []
       }, {
         id: "polyline",
@@ -62577,21 +63535,50 @@ var es6_map = __webpack_require__("f400");
         text: "模型",
         type: "model",
         children: []
-      }]
+      }],
+      defaultTools: {
+        locate: {
+          text: "定位",
+          icon: "iconlocate",
+          action: this.locate
+        },
+        rename: {
+          text: "重命名",
+          icon: "iconrename",
+          action: this.rename
+        },
+        edit: {
+          text: "编辑",
+          icon: "iconedit",
+          action: this.edit
+        },
+        drop: {
+          text: "删除",
+          icon: "iconremove",
+          action: this.drop
+        }
+      }
     };
+  },
+  props: {
+    tools: {
+      default: function _default() {
+        return this.defaultTools;
+      }
+    }
   },
   mounted: function mounted() {},
   computed: {},
   methods: {
     checkAction: function checkAction(data, node) {
       if (node.checkedKeys.includes(data.id)) {
-        this.$emit('select', data.id, true);
+        this.$emit("select", data.id, true);
       } else {
-        this.$emit('select', data.id, false);
+        this.$emit("select", data.id, false);
       }
     },
-    locate: function locate(id) {
-      this.$emit("locate", id);
+    locate: function locate(data) {
+      this.$emit("locate", data.id);
     },
     rename: function rename(data, id, text) {
       // data.edit=true;
@@ -62654,16 +63641,17 @@ var es6_map = __webpack_require__("f400");
       this.$emit("rename", data.id, this.newName);
       data.text = this.newName;
     },
-    edit: function edit(id) {
-      this.$emit("edit", id);
+    edit: function edit(data) {
+      this.$emit("edit", data.id);
     },
-    drop: function drop(id) {
+    drop: function drop(data) {
       var _this = this;
 
-      this.$emit("delete", id);
-      var index = this.checked.indexOf(id);
+      if (!data) return;
+      this.$emit("delete", data.id);
+      var index = this.checked.indexOf(data.id);
 
-      if (id > -1) {
+      if (data.id > -1) {
         this.checked.splice(index, 1);
       }
 
@@ -62686,7 +63674,7 @@ var es6_map = __webpack_require__("f400");
             for (var _iterator4 = ls.children[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
               var l = _step4.value;
 
-              if (l.id === id) {
+              if (l.id === data.id) {
                 ls.children.splice(i, 1);
                 break;
               }
@@ -62782,8 +63770,8 @@ var es6_map = __webpack_require__("f400");
 });
 // CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_layerManagervue_type_script_lang_js_ = (layerManagervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=0&id=c699ecac&lang=scss&scoped=true&
-var layerManagervue_type_style_index_0_id_c699ecac_lang_scss_scoped_true_ = __webpack_require__("5e29");
+// EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=0&id=47c69614&lang=scss&scoped=true&
+var layerManagervue_type_style_index_0_id_47c69614_lang_scss_scoped_true_ = __webpack_require__("e6c9");
 
 // EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=1&lang=scss&
 var layerManagervue_type_style_index_1_lang_scss_ = __webpack_require__("a293");
@@ -62807,7 +63795,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "c699ecac",
+  "47c69614",
   null
   
 )
@@ -64268,6 +65256,17 @@ __webpack_require__("9c6c")('includes');
 
 /***/ }),
 
+/***/ "676c":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("9a76");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "67ab":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -64343,6 +65342,42 @@ var IObject = __webpack_require__("626a");
 var defined = __webpack_require__("be13");
 module.exports = function (it) {
   return IObject(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "68f7":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://tc39.github.io/proposal-setmap-offrom/
+var $export = __webpack_require__("63b6");
+var aFunction = __webpack_require__("79aa");
+var ctx = __webpack_require__("d864");
+var forOf = __webpack_require__("a22a");
+
+module.exports = function (COLLECTION) {
+  $export($export.S, COLLECTION, { from: function from(source /* , mapFn, thisArg */) {
+    var mapFn = arguments[1];
+    var mapping, A, n, cb;
+    aFunction(this);
+    mapping = mapFn !== undefined;
+    if (mapping) aFunction(mapFn);
+    if (source == undefined) return new this();
+    A = [];
+    if (mapping) {
+      n = 0;
+      cb = ctx(mapFn, arguments[2], 2);
+      forOf(source, false, function (nextItem) {
+        A.push(cb(nextItem, n++));
+      });
+    } else {
+      forOf(source, false, A.push, A);
+    }
+    return new this(A);
+  } });
 };
 
 
@@ -65081,6 +66116,26 @@ exports.default = {
     }
   }
 };
+
+/***/ }),
+
+/***/ "6bb5":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _getPrototypeOf; });
+/* harmony import */ var _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("061b");
+/* harmony import */ var _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("4d16");
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1___default.a ? _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default.a : function _getPrototypeOf(o) {
+    return o.__proto__ || _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default()(o);
+  };
+  return _getPrototypeOf(o);
+}
 
 /***/ }),
 
@@ -66048,6 +67103,26 @@ var index = (function () {
 
 /***/ }),
 
+/***/ "7075":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://tc39.github.io/proposal-setmap-offrom/
+var $export = __webpack_require__("63b6");
+
+module.exports = function (COLLECTION) {
+  $export($export.S, COLLECTION, { of: function of() {
+    var length = arguments.length;
+    var A = new Array(length);
+    while (length--) A[length] = arguments[length];
+    return new this(A);
+  } });
+};
+
+
+/***/ }),
+
 /***/ "71c1":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66180,6 +67255,69 @@ aria.Dialog.prototype.trapFocus = function (event) {
 };
 
 exports.default = aria.Dialog;
+
+/***/ }),
+
+/***/ "733c":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 26.1.2 Reflect.construct(target, argumentsList [, newTarget])
+var $export = __webpack_require__("63b6");
+var create = __webpack_require__("a159");
+var aFunction = __webpack_require__("79aa");
+var anObject = __webpack_require__("e4ae");
+var isObject = __webpack_require__("f772");
+var fails = __webpack_require__("294c");
+var bind = __webpack_require__("c189");
+var rConstruct = (__webpack_require__("e53d").Reflect || {}).construct;
+
+// MS Edge supports only 2 arguments and argumentsList argument is optional
+// FF Nightly sets third argument as `new.target`, but does not create `this` from it
+var NEW_TARGET_BUG = fails(function () {
+  function F() { /* empty */ }
+  return !(rConstruct(function () { /* empty */ }, [], F) instanceof F);
+});
+var ARGS_BUG = !fails(function () {
+  rConstruct(function () { /* empty */ });
+});
+
+$export($export.S + $export.F * (NEW_TARGET_BUG || ARGS_BUG), 'Reflect', {
+  construct: function construct(Target, args /* , newTarget */) {
+    aFunction(Target);
+    anObject(args);
+    var newTarget = arguments.length < 3 ? Target : aFunction(arguments[2]);
+    if (ARGS_BUG && !NEW_TARGET_BUG) return rConstruct(Target, args, newTarget);
+    if (Target == newTarget) {
+      // w/o altered newTarget, optimization for 0-4 arguments
+      switch (args.length) {
+        case 0: return new Target();
+        case 1: return new Target(args[0]);
+        case 2: return new Target(args[0], args[1]);
+        case 3: return new Target(args[0], args[1], args[2]);
+        case 4: return new Target(args[0], args[1], args[2], args[3]);
+      }
+      // w/o altered newTarget, lot of arguments case
+      var $args = [null];
+      $args.push.apply($args, args);
+      return new (bind.apply(Target, $args))();
+    }
+    // with altered newTarget, not support built-in constructors
+    var proto = newTarget.prototype;
+    var instance = create(isObject(proto) ? proto : Object.prototype);
+    var result = Function.apply.call(Target, instance, args);
+    return isObject(result) ? result : instance;
+  }
+});
+
+
+/***/ }),
+
+/***/ "7554":
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
+__webpack_require__("68f7")('Map');
+
 
 /***/ }),
 
@@ -67129,6 +68267,33 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 /***/ }),
 
+/***/ "837d":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strong = __webpack_require__("5aee");
+var validate = __webpack_require__("9f79");
+var MAP = 'Map';
+
+// 23.1 Map Objects
+module.exports = __webpack_require__("ada4")(MAP, function (get) {
+  return function Map() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
+}, {
+  // 23.1.3.6 Map.prototype.get(key)
+  get: function get(key) {
+    var entry = strong.getEntry(validate(this, MAP), key);
+    return entry && entry.v;
+  },
+  // 23.1.3.9 Map.prototype.set(key, value)
+  set: function set(key, value) {
+    return strong.def(validate(this, MAP), key === 0 ? 0 : key, value);
+  }
+}, strong, true);
+
+
+/***/ }),
+
 /***/ "8436":
 /***/ (function(module, exports) {
 
@@ -67700,13 +68865,6 @@ setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
 
-
-/***/ }),
-
-/***/ "8b20":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -68607,7 +69765,126 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return moveDiv; });
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js + 1 modules
+var possibleConstructorReturn = __webpack_require__("308d");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js
+var getPrototypeOf = __webpack_require__("6bb5");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js
+var inherits = __webpack_require__("4e2b");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/create.js
+var create = __webpack_require__("4aa6");
+var create_default = /*#__PURE__*/__webpack_require__.n(create);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/map.js
+var map = __webpack_require__("2d7d");
+var map_default = /*#__PURE__*/__webpack_require__.n(map);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/setPrototypeOf.js
+var setPrototypeOf = __webpack_require__("54b6");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/isNativeFunction.js
+function _isNativeFunction(fn) {
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/reflect/construct.js
+var construct = __webpack_require__("a5b2");
+var construct_default = /*#__PURE__*/__webpack_require__.n(construct);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/construct.js
+
+
+
+function isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !construct_default.a) return false;
+  if (construct_default.a.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(construct_default()(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function construct_construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    construct_construct = construct_default.a;
+  } else {
+    construct_construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) Object(setPrototypeOf["a" /* default */])(instance, Class.prototype);
+      return instance;
+    };
+  }
+
+  return construct_construct.apply(null, arguments);
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/wrapNativeSuper.js
+
+
+
+
+
+
+function wrapNativeSuper_wrapNativeSuper(Class) {
+  var _cache = typeof map_default.a === "function" ? new map_default.a() : undefined;
+
+  wrapNativeSuper_wrapNativeSuper = function _wrapNativeSuper(Class) {
+    if (Class === null || !_isNativeFunction(Class)) return Class;
+
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    if (typeof _cache !== "undefined") {
+      if (_cache.has(Class)) return _cache.get(Class);
+
+      _cache.set(Class, Wrapper);
+    }
+
+    function Wrapper() {
+      return construct_construct(Class, arguments, Object(getPrototypeOf["a" /* default */])(this).constructor);
+    }
+
+    Wrapper.prototype = create_default()(Class.prototype, {
+      constructor: {
+        value: Wrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    return Object(setPrototypeOf["a" /* default */])(Wrapper, Class);
+  };
+
+  return wrapNativeSuper_wrapNativeSuper(Class);
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js
+var classCallCheck = __webpack_require__("d225");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js
+var createClass = __webpack_require__("b0b4");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.typed.uint8-array.js
+var es6_typed_uint8_array = __webpack_require__("34ef");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.split.js
+var es6_regexp_split = __webpack_require__("28a5");
+
+// EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
+var jquery = __webpack_require__("1157");
+var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
+
+// CONCATENATED MODULE: ./src/js/utils.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return moveDiv; });
 /* unused harmony export errroCatch */
 /* unused harmony export currentExtent */
 /* unused harmony export viewCenter */
@@ -68615,14 +69892,12 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
 /* unused harmony export downloadFile */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CVT; });
 /* unused harmony export CursorTip */
-/* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("d225");
-/* harmony import */ var D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("b0b4");
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("34ef");
-/* harmony import */ var core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_typed_uint8_array__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("28a5");
-/* harmony import */ var core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_split__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("1157");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return checkComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return checkViewer; });
+
+
+
+
 
 
 
@@ -68762,7 +70037,7 @@ var CVT = function () {
 
 
 function moveDiv(container, target) {
-  if (!jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container)) {
+  if (!jquery_default()("#" + container)) {
     throw new Error("请指定要操作的元素");
   }
 
@@ -68770,21 +70045,21 @@ function moveDiv(container, target) {
     target = container;
   }
 
-  jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).mousedown(function (e //e鼠标事件
+  jquery_default()("#" + target).mousedown(function (e //e鼠标事件
   ) {
-    jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "move"); //改变鼠标指针的形状
+    jquery_default()("#" + target).css("cursor", "move"); //改变鼠标指针的形状
     // let offset = $("#" + container).offset(); //DIV在页面的位置
 
-    var offset = jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).position(); //DIV在页面的位置
+    var offset = jquery_default()("#" + container).position(); //DIV在页面的位置
 
     var x = e.pageX - offset.left; //获得鼠标指针离DIV元素左边界的距离
 
     var y = e.pageY - offset.top; //获得鼠标指针离DIV元素上边界的距离
 
-    jquery__WEBPACK_IMPORTED_MODULE_4___default()(document).bind("mousemove", function (ev //绑定鼠标的移动事件，因为光标在DIV元素外面也要有效果，所以要用doucment的事件，而不用DIV元素的事件
+    jquery_default()(document).bind("mousemove", function (ev //绑定鼠标的移动事件，因为光标在DIV元素外面也要有效果，所以要用doucment的事件，而不用DIV元素的事件
     ) {
-      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "move");
-      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).stop(); //加上这个之后
+      jquery_default()("#" + target).css("cursor", "move");
+      jquery_default()("#" + container).stop(); //加上这个之后
 
       var _x = ev.pageX - x; //获得X轴方向移动的值
 
@@ -68792,15 +70067,15 @@ function moveDiv(container, target) {
       var _y = ev.pageY - y; //获得Y轴方向移动的值
 
 
-      jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + container).animate({
+      jquery_default()("#" + container).animate({
         left: _x + "px",
         top: _y + "px"
       }, 10);
     });
   });
-  jquery__WEBPACK_IMPORTED_MODULE_4___default()(document).mouseup(function () {
-    jquery__WEBPACK_IMPORTED_MODULE_4___default()("#" + target).css("cursor", "default");
-    jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).unbind("mousemove");
+  jquery_default()(document).mouseup(function () {
+    jquery_default()("#" + target).css("cursor", "default");
+    jquery_default()(this).unbind("mousemove");
   });
 }
 /**
@@ -68950,11 +70225,11 @@ var errroCatch = function errroCatch(e, callback) {
   }
 };
 
-var CursorTip =
+var utils_CursorTip =
 /*#__PURE__*/
 function () {
   function CursorTip(text, id, viewer) {
-    Object(D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(this, CursorTip);
+    Object(classCallCheck["a" /* default */])(this, CursorTip);
 
     var tooltip = document.createElement("div");
     tooltip.id = id || "cursor-tip";
@@ -68972,7 +70247,7 @@ function () {
     }
   }
 
-  Object(D_zhangbo_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(CursorTip, [{
+  Object(createClass["a" /* default */])(CursorTip, [{
     key: "updatePosition",
     value: function updatePosition(pixel) {
       this.ele.style.left = pixel.x + 10 + "px";
@@ -69002,8 +70277,40 @@ function () {
   return CursorTip;
 }();
 
+function checkViewer(viewer) {
+  if (viewer instanceof Cesium.Viewer === false) {
+    throw new utils_GVError(viewer + "不是一个有效的Cesium Viewer对象");
+  }
+}
 
-/* harmony default export */ __webpack_exports__["b"] = ({
+function checkComponent(component, object) {
+  if (component && component._viewer instanceof Cesium.Viewer === false) {
+    throw new utils_GVError('组件尚未初始化' + component._uid);
+  } else if (!component && !window.Cesium.defined(object)) {
+    throw new utils_GVError('组件尚未初始化');
+  }
+}
+
+var utils_GVError =
+/*#__PURE__*/
+function (_Error) {
+  Object(inherits["a" /* default */])(GVError, _Error);
+
+  function GVError(message) {
+    var _this;
+
+    Object(classCallCheck["a" /* default */])(this, GVError);
+
+    _this = Object(possibleConstructorReturn["a" /* default */])(this, Object(getPrototypeOf["a" /* default */])(GVError).call(this, message));
+    _this.name = 'GVError';
+    return _this;
+  }
+
+  return GVError;
+}(wrapNativeSuper_wrapNativeSuper(Error));
+
+
+/* harmony default export */ var utils = __webpack_exports__["d"] = ({
   moveDiv: moveDiv,
   errroCatch: errroCatch,
   currentExtent: currentExtent,
@@ -69011,8 +70318,15 @@ function () {
   saveCurViewerImage: saveCurViewerImage,
   downloadFile: downloadFile,
   CVT: CVT,
-  CursorTip: CursorTip
+  CursorTip: utils_CursorTip
 });
+
+/***/ }),
+
+/***/ "9a76":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -69148,6 +70462,18 @@ module.exports = function (it) {
 module.exports = !__webpack_require__("79e5")(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
+
+
+/***/ }),
+
+/***/ "9f79":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("f772");
+module.exports = function (it, TYPE) {
+  if (!isObject(it) || it._t !== TYPE) throw TypeError('Incompatible receiver, ' + TYPE + ' required!');
+  return it;
+};
 
 
 /***/ }),
@@ -70428,10 +71754,35 @@ Schema.messages = messages_messages;
 
 /***/ }),
 
-/***/ "a211":
+/***/ "a22a":
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
+var ctx = __webpack_require__("d864");
+var call = __webpack_require__("b0dc");
+var isArrayIter = __webpack_require__("3702");
+var anObject = __webpack_require__("e4ae");
+var toLength = __webpack_require__("b447");
+var getIterFn = __webpack_require__("7cd6");
+var BREAK = {};
+var RETURN = {};
+var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) {
+  var iterFn = ITERATOR ? function () { return iterable; } : getIterFn(iterable);
+  var f = ctx(fn, that, entries ? 2 : 1);
+  var index = 0;
+  var length, step, iterator, result;
+  if (typeof iterFn != 'function') throw TypeError(iterable + ' is not iterable!');
+  // fast case for arrays with default iterator
+  if (isArrayIter(iterFn)) for (length = toLength(iterable.length); length > index; index++) {
+    result = entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
+    if (result === BREAK || result === RETURN) return result;
+  } else for (iterator = iterFn.call(iterable); !(step = iterator.next()).done;) {
+    result = call(iterator, f, step.value, entries);
+    if (result === BREAK || result === RETURN) return result;
+  }
+};
+exports.BREAK = BREAK;
+exports.RETURN = RETURN;
+
 
 /***/ }),
 
@@ -70508,6 +71859,13 @@ module.exports = ExecutionEnvironment;
 
 /***/ }),
 
+/***/ "a5b2":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("aa28");
+
+/***/ }),
+
 /***/ "a742":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -70549,6 +71907,15 @@ var isDefined = exports.isDefined = function isDefined(val) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("f410");
+
+/***/ }),
+
+/***/ "aa28":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("733c");
+module.exports = __webpack_require__("584a").Reflect.construct;
+
 
 /***/ }),
 
@@ -70636,6 +72003,73 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
     if (explicit) for (key in $iterators) if (!proto[key]) redefine(proto, key, $iterators[key], true);
   }
 }
+
+
+/***/ }),
+
+/***/ "ada4":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var global = __webpack_require__("e53d");
+var $export = __webpack_require__("63b6");
+var meta = __webpack_require__("ebfd");
+var fails = __webpack_require__("294c");
+var hide = __webpack_require__("35e8");
+var redefineAll = __webpack_require__("5c95");
+var forOf = __webpack_require__("a22a");
+var anInstance = __webpack_require__("1173");
+var isObject = __webpack_require__("f772");
+var setToStringTag = __webpack_require__("45f2");
+var dP = __webpack_require__("d9f6").f;
+var each = __webpack_require__("57b1")(0);
+var DESCRIPTORS = __webpack_require__("8e60");
+
+module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
+  var Base = global[NAME];
+  var C = Base;
+  var ADDER = IS_MAP ? 'set' : 'add';
+  var proto = C && C.prototype;
+  var O = {};
+  if (!DESCRIPTORS || typeof C != 'function' || !(IS_WEAK || proto.forEach && !fails(function () {
+    new C().entries().next();
+  }))) {
+    // create collection constructor
+    C = common.getConstructor(wrapper, NAME, IS_MAP, ADDER);
+    redefineAll(C.prototype, methods);
+    meta.NEED = true;
+  } else {
+    C = wrapper(function (target, iterable) {
+      anInstance(target, C, NAME, '_c');
+      target._c = new Base();
+      if (iterable != undefined) forOf(iterable, IS_MAP, target[ADDER], target);
+    });
+    each('add,clear,delete,forEach,get,has,set,keys,values,entries,toJSON'.split(','), function (KEY) {
+      var IS_ADDER = KEY == 'add' || KEY == 'set';
+      if (KEY in proto && !(IS_WEAK && KEY == 'clear')) hide(C.prototype, KEY, function (a, b) {
+        anInstance(this, C, KEY);
+        if (!IS_ADDER && IS_WEAK && !isObject(a)) return KEY == 'get' ? undefined : false;
+        var result = this._c[KEY](a === 0 ? 0 : a, b);
+        return IS_ADDER ? this : result;
+      });
+    });
+    IS_WEAK || dP(C.prototype, 'size', {
+      get: function () {
+        return this._c.size;
+      }
+    });
+  }
+
+  setToStringTag(C, NAME);
+
+  O[NAME] = C;
+  $export($export.G + $export.W + $export.F, O);
+
+  if (!IS_WEAK) common.setStrong(C, NAME, IS_MAP);
+
+  return C;
+};
 
 
 /***/ }),
@@ -70786,6 +72220,13 @@ module.exports = [].copyWithin || function copyWithin(target /* = 0 */, start /*
 
 /***/ }),
 
+/***/ "bcf1":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "bd86":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70846,10 +72287,56 @@ exports.f = __webpack_require__("8e60") ? gOPD : function getOwnPropertyDescript
 
 /***/ }),
 
+/***/ "bfac":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 9.4.2.3 ArraySpeciesCreate(originalArray, length)
+var speciesConstructor = __webpack_require__("0b64");
+
+module.exports = function (original, length) {
+  return new (speciesConstructor(original))(length);
+};
+
+
+/***/ }),
+
 /***/ "c098":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("d4af");
+
+
+/***/ }),
+
+/***/ "c189":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var aFunction = __webpack_require__("79aa");
+var isObject = __webpack_require__("f772");
+var invoke = __webpack_require__("3024");
+var arraySlice = [].slice;
+var factories = {};
+
+var construct = function (F, len, args) {
+  if (!(len in factories)) {
+    for (var n = [], i = 0; i < len; i++) n[i] = 'a[' + i + ']';
+    // eslint-disable-next-line no-new-func
+    factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');
+  } return factories[len](F, args);
+};
+
+module.exports = Function.bind || function bind(that /* , ...args */) {
+  var fn = aFunction(this);
+  var partArgs = arraySlice.call(arguments, 1);
+  var bound = function (/* args... */) {
+    var args = partArgs.concat(arraySlice.call(arguments));
+    return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
+  };
+  if (isObject(fn.prototype)) bound.prototype = fn.prototype;
+  return bound;
+};
 
 
 /***/ }),
@@ -72444,140 +73931,34 @@ module.exports = function (original, length) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
-var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js + 3 modules
-var toConsumableArray = __webpack_require__("75fc");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
-var es6_object_keys = __webpack_require__("456d");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol/iterator.js
-var iterator = __webpack_require__("5d58");
-var iterator_default = /*#__PURE__*/__webpack_require__.n(iterator);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol.js
-var symbol = __webpack_require__("67bb");
-var symbol_default = /*#__PURE__*/__webpack_require__.n(symbol);
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js
-
-
-function typeof_typeof(obj) {
-  if (typeof symbol_default.a === "function" && typeof iterator_default.a === "symbol") {
-    typeof_typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    typeof_typeof = function _typeof(obj) {
-      return obj && typeof symbol_default.a === "function" && obj.constructor === symbol_default.a && obj !== symbol_default.a.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return typeof_typeof(obj);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js
-
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/get-prototype-of.js
-var get_prototype_of = __webpack_require__("061b");
-var get_prototype_of_default = /*#__PURE__*/__webpack_require__.n(get_prototype_of);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/set-prototype-of.js
-var set_prototype_of = __webpack_require__("4d16");
-var set_prototype_of_default = /*#__PURE__*/__webpack_require__.n(set_prototype_of);
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js
-
-
-function getPrototypeOf_getPrototypeOf(o) {
-  getPrototypeOf_getPrototypeOf = set_prototype_of_default.a ? get_prototype_of_default.a : function _getPrototypeOf(o) {
-    return o.__proto__ || get_prototype_of_default()(o);
-  };
-  return getPrototypeOf_getPrototypeOf(o);
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/create.js
-var create = __webpack_require__("4aa6");
-var create_default = /*#__PURE__*/__webpack_require__.n(create);
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/setPrototypeOf.js
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = set_prototype_of_default.a || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js
-
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = create_default()(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js
-var defineProperty = __webpack_require__("bd86");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
-var es7_symbol_async_iterator = __webpack_require__("ac4d");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.symbol.js
-var es6_symbol = __webpack_require__("8a81");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
-var web_dom_iterable = __webpack_require__("ac6a");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js
-var classCallCheck = __webpack_require__("d225");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js
-var createClass = __webpack_require__("b0b4");
-
-// EXTERNAL MODULE: ./src/core/GraphicType.js
-var GraphicType = __webpack_require__("4ab0");
-
-// EXTERNAL MODULE: ./src/js/utils.js
-var utils = __webpack_require__("9944");
-
-// CONCATENATED MODULE: ./src/core/Graphic.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Graphic_CesiumPoint; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Graphic_CesiumPolyline; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Graphic_CesiumPolygon; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Graphic_CesiumLabel; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Graphic_CesiumBillboard; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Graphic_CesiumModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CesiumPoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CesiumPolyline; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CesiumPolygon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CesiumLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CesiumBillboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CesiumModel; });
+/* harmony import */ var core_js_modules_es7_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8e6e");
+/* harmony import */ var core_js_modules_es7_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("75fc");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("cadf");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("456d");
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("308d");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("6bb5");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("013f");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("4e2b");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("bd86");
+/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("ac4d");
+/* harmony import */ var core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_symbol_async_iterator__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("8a81");
+/* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("ac6a");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("d225");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("b0b4");
+/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("4ab0");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("9944");
 
 
 
@@ -72595,15 +73976,15 @@ var utils = __webpack_require__("9944");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 /*
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-16 19:28:45
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 13:54:09
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-16 17:54:17
  * @Desc: 定义基础图形，包括点线、多边形，(圆，矩形)
  */
 // import GraphicType from './GraphicType'
@@ -72613,11 +73994,11 @@ var defined = Cesium.defined;
 var console = window.console;
 
 
-var Graphic_BaseGraphic =
+var BaseGraphic =
 /*#__PURE__*/
 function () {
   function BaseGraphic(viewer) {
-    Object(classCallCheck["a" /* default */])(this, BaseGraphic);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, BaseGraphic);
 
     if (viewer instanceof Cesium.Viewer === false) {
       throw new Error('viewer不是一个有效的Cesium Viewer对象.');
@@ -72628,9 +74009,10 @@ function () {
     this._gvtype = undefined;
     this._gvid = undefined;
     this._name = undefined;
+    this._attachment = [];
   }
 
-  Object(createClass["a" /* default */])(BaseGraphic, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(BaseGraphic, [{
     key: "zoomTo",
     value: function zoomTo() {
       if (this.graphic) {
@@ -72641,7 +74023,7 @@ function () {
     key: "coordinates",
     value: function coordinates() {
       if (this.position instanceof Cesium.Cartesian3) {
-        var coor = utils["a" /* CVT */].cartesian2Degrees(this.position, this.viewer);
+        var coor = _js_utils__WEBPACK_IMPORTED_MODULE_15__[/* CVT */ "a"].cartesian2Degrees(this.position, this.viewer);
         return [coor.lon, coor.lat, coor.height];
       } else if (this.positions instanceof Array) {
         var pts = [];
@@ -72652,7 +74034,7 @@ function () {
         try {
           for (var _iterator = this.positions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var p = _step.value;
-            var c = utils["a" /* CVT */].cartesian2Degrees(p, this.viewer);
+            var c = _js_utils__WEBPACK_IMPORTED_MODULE_15__[/* CVT */ "a"].cartesian2Degrees(p, this.viewer);
             pts.push([c.lon, c.lat, c.height]);
           }
         } catch (err) {
@@ -72682,8 +74064,8 @@ function () {
     value: function toGeoJson() {
       var type = {
         'MARKER': 'Point',
-        'POLYLINE': 'Polyline',
-        'POLYGON': 'Polygon',
+        'POLYLINE': 'LineString',
+        'POLYGON': 'POLYGON',
         'LABEL': 'Point'
       };
       return {
@@ -72697,6 +74079,14 @@ function () {
           "coordinates": this.coordinates()
         }
       };
+    }
+  }, {
+    key: "attachment",
+    get: function get() {
+      return this._attachment;
+    },
+    set: function set(v) {
+      this._attachment = v;
     }
   }, {
     key: "type",
@@ -72758,10 +74148,10 @@ function () {
   return BaseGraphic;
 }();
 
-var Graphic_CesiumBillboard =
+var CesiumBillboard =
 /*#__PURE__*/
 function (_BaseGraphic) {
-  _inherits(CesiumBillboard, _BaseGraphic);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumBillboard, _BaseGraphic);
 
   /**
    * Cesium Marker
@@ -72774,26 +74164,24 @@ function (_BaseGraphic) {
 
     var labelOption = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : CesiumBillboard.defaultLabelStyle;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumBillboard);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumBillboard);
 
-    _this = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumBillboard).call(this, viewer));
+    _this = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumBillboard).call(this, viewer));
     _this.viewer = viewer;
     _this._type = 'MARKER';
-    _this.gvtype = GraphicType["a" /* default */].MARKER;
+    _this.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MARKER;
     _this.position = options.position;
     options.image = options.image || CesiumBillboard.defaultStyle.image;
     labelOption.text = options.label;
     _this.labelOptions = labelOption;
 
-    var self = _assertThisInitialized(_this);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this);
 
     _this.options = {
       gvname: _this._name,
       gvtype: _this.gvtype,
       gvid: _this.gvid,
-      position: new Cesium.CallbackProperty(function () {
-        return self.position;
-      }, false),
+      position: self.position,
       billboard: options,
       label: labelOption
     };
@@ -72806,7 +74194,7 @@ function (_BaseGraphic) {
     return _this;
   }
 
-  Object(createClass["a" /* default */])(CesiumBillboard, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumBillboard, [{
     key: "setLabel",
 
     /**
@@ -72869,18 +74257,21 @@ function (_BaseGraphic) {
     }
   }, {
     key: "stopEdit",
-    value: function stopEdit() {// if (this.graphic && this.graphic.position) {
-      //     this.graphic.position = this.graphic.position.getValue();
-      // }
+    value: function stopEdit() {
+      if (this.graphic && this.graphic.position) {
+        this.graphic.position = new Cesium.ConstantProperty(this.position);
+      }
     }
   }, {
     key: "startEdit",
-    value: function startEdit() {// const self = this;
-      // if (this.graphic) {
-      //     this.graphic.position = new Cesium.CallbackProperty(function () {
-      //         return self.position;
-      //     }, false)
-      // }
+    value: function startEdit() {
+      var self = this;
+
+      if (this.graphic) {
+        this.graphic.position = new Cesium.CallbackProperty(function () {
+          return self.position;
+        }, false);
+      }
     }
   }, {
     key: "destroy",
@@ -72932,28 +74323,28 @@ function (_BaseGraphic) {
   }]);
 
   return CesiumBillboard;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumBillboard, "defaultStyle", {
-  image: "data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACk0lEQVRYR+2WO2gUURSGv7MBsZKo\n        jY/CJkiiIviAKDuzLGqjWGiRRdEiVqKxEUUEA0ZQBFFsVLRSwaBJCi1EGw3LzsQH+ABRIphKUCs1\n        pRa7R3acjbuzs3NnZtE0TnnvOf/57j2PO8IsfzLL8WkLQPN0VQ8gRabSHiQRgNosBg4jrELpBRb4\n        gb8hPEd5C1wUhy9xgWIDqMV2hGvAEoP4Z5T94nI/DkQsALU4iTAUR3DGRhkSl1MmHyOA5liD8sok\n        FLovrJUSr6N8IwE0TydlXGBliMgw8Mhf3wLsCbF5RweWFJluBRENYHEe4UiTs1IQl7H6dbXoQxgN\n        sb0gLkfTAdg8BjY1OCvrxeVlmKBarEN4EdgbF4fNaQG+A50zzsKYlChE5VRzjKL01dlMi8P8xACa\n        p5syk4HTD4jLlUgAi4MIlxtsOuiRIu/D/FrWgOZZRLlpoOwThxuRADb9wPUGmwrLZIKPiQCqxmrz\n        BNhY5zgsDnsNALcCHfFBHJYnToEHkOM4ytlAGpo6oLbfohOuisOBdABZNpDhaUhrNXVCiw4AoV9K\n        3EwF4N2CxSRCd5OAMEaForeeIR+o/D/mwgopBYq5Tsw8ii1OIJyOynvE3og47IryNQP0Mo85PAN6\n        EkL8RMm2Glo1LSOA3w3VIors/5AUnZESgyboWAA+RPVRypoE/X3jI5ToBvyWLKCMxAQwDqzEAP4t\n        3AV2GCDuicPOmKDJfkrVZjUwDixsEeBr9fUUhzd/BcCfCwMIl0IDKIfEDTxEBpLYRVivoza3oam/\n        74jD7rgnT1UDNSfNM5cKUyhLvTXhExm6pMiPfwLgpSLLVjI88AJW2CYTPEwa/Dd7G5/anPNEHI6l\n        lWkLIG3Qer//AL8AUSKwIU5nmlMAAAAASUVORK5CYII=",
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumBillboard, "defaultStyle", {
+  image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJEN0VBRDA0MzJCRTExRUE5MjY2QTg3OUVFNjUyQzhCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJEN0VBRDA1MzJCRTExRUE5MjY2QTg3OUVFNjUyQzhCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkQ3RUFEMDIzMkJFMTFFQTkyNjZBODc5RUU2NTJDOEIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkQ3RUFEMDMzMkJFMTFFQTkyNjZBODc5RUU2NTJDOEIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6qzlgwAAADR0lEQVR42uxXTUhUURQ+88aZ93JSZyiDCCkt+0VLtGzRn/QntotMoqBEol1Ui9JVtNCsoKJNSFgQREjRKiXF/mxToIQK2YBZIRKlaE1pb+Y5M33n+dRJfTN3ZoLZdOG7986dc75z5v6cc8YSDAYpkU2iBLeEO5AUpfxy4BCwHVgLLDTWh4B3wEvgPvBBlNAy1x1w3fP89XnkcOoyDJeBA6wTgZMJHwJnwfNpBk/0DkCpFEM9kKL6iR591qixX6OukQB9+x3QZRbNkyjXJdG+DBvtX2ojxaov/wQqwPUgZgegUIHhFss19o9TVYdK/aOBsD8/wyHRxXwFziRN7sZx8NWbOWB6CSFchKGOjZ9/q9KRtrGIxrmxDMuyjnFcdQaX+B3g7QZ6gCWXur1U2+WN6YZX5sp0Lkfm6YBxaT2iO3CKjbcP+elKtzfmJ8a6zMFcwGnRHVB4J/mJFbeM0ptBf1zvvDDdSk/2OCafagagRtqBvWy8c9gft3FuzMFcRswoFjmC3dy1DIybktqhVVugUF9pCn0EeG4PE1NDuHaJOFDA3auv5r/+Qp5CJ1bZyWW3kBPgedV62VQ+hGujiANZ3Lk95g6UZdlmrR1dYTeVD+HKFHHAyd2w+u/SdAiXS8QBXVpJMg/5DX3arLW7vZqpvGyd4lJFHOCsRuuc5reKo1yd20fffUEdPK/pVE3lc1xTXL0i6fgxsKEs02b6DH2IyJXtqg6RdjDTFsodMRAtBvq8AVJ2NP2i9z8CcZ3/6jSJXpTMJ1nSt58v+JdIR8AC1VCg21uSKdVmidk469aDQ56wUj3TeLhkxHvWCmx7jWMoez5GHi0YtfGGomTanK4XB21GENKEkhHyt2ZUP24maC120Mo08fKRZVnHMO5mLoNTvB6AwiCGnZyWs1MlegbC8mx72HqMvzuGgMSyrIPWzRwGV/RVMRQ5j2/laOpAXLi6SaEmZLb8BdZZsrzG310rVMgxEUOesq7BEXdRynG2Bjij66BrQol2o2eiVji5RqYSlGCW6UB2nesR8PjiLkpnEHCqvmM8VTJ5QeXQbzbRnyPuwoEo4QRuAv7gdPMba85o+WJxYBJ5QDPQYsxj4rH8/3OaaAf+CDAAVvn1VEy/MOwAAAAASUVORK5CYII=',
   verticalOrigin: Cesium.VerticalOrigin.BASELINE
 });
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumBillboard, "defaultLabelStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumBillboard, "defaultLabelStyle", {
   font: '28px sans-serif',
   fillColor: Cesium.Color.WHITE,
   showBackground: true,
   style: Cesium.LabelStyle.FILL_AND_OUTLINE,
   // outlineWidth: 2,
   verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-  pixelOffset: new Cesium.Cartesian2(20, -20),
+  pixelOffset: new Cesium.Cartesian2(20, -30),
   heightReference: Cesium.HeightReference.NONE
 });
 
-var Graphic_CesiumPoint =
+var CesiumPoint =
 /*#__PURE__*/
 function (_BaseGraphic2) {
-  _inherits(CesiumPoint, _BaseGraphic2);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumPoint, _BaseGraphic2);
 
   /**
    * Cesium PointGraphic
@@ -72967,15 +74358,15 @@ function (_BaseGraphic2) {
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumPoint.defaultStyle;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumPoint);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumPoint);
 
-    _this2 = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumPoint).call(this, viewer));
+    _this2 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPoint).call(this, viewer));
     _this2._type = 'POINT';
-    _this2.gvtype = GraphicType["a" /* default */].POINT; //allow mutiple to be created points at one time
+    _this2.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT; //allow mutiple to be created points at one time
 
     _this2.positions = options.positions; //only one point
 
-    var self = _assertThisInitialized(_this2);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this2);
 
     if (_this2.positions instanceof Cesium.Cartesian3) {
       _this2.options = {
@@ -73019,7 +74410,7 @@ function (_BaseGraphic2) {
     return _this2;
   }
 
-  Object(createClass["a" /* default */])(CesiumPoint, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumPoint, [{
     key: "create",
     value: function create() {
       var _this3 = this;
@@ -73048,6 +74439,29 @@ function (_BaseGraphic2) {
       }
 
       this.graphic = undefined;
+    }
+  }, {
+    key: "startEdit",
+    value: function startEdit() {
+      var _this5 = this;
+
+      if (this.graphic instanceof Cesium.Entity) {
+        this.graphic.position = new Cesium.CallbackProperty(function () {
+          return _this5.positions;
+        }, false);
+      } else if (this.graphic instanceof Array) {
+        var count = this.graphic.length;
+
+        var _loop2 = function _loop2(i) {
+          _this5.graphic[i].position = new Cesium.CallbackProperty(function () {
+            return _this5.positions[i];
+          }, false);
+        };
+
+        for (var i = 0; i < count; i++) {
+          _loop2(i);
+        }
+      }
     }
     /**
      * 在确定点的位置之后，将CallBackProperty重置为一个普通对象
@@ -73166,7 +74580,7 @@ function (_BaseGraphic2) {
   }, {
     key: "isCesiumPoint",
     value: function isCesiumPoint(obj) {
-      if (defined(obj) && obj.id && obj.id.gvtype === GraphicType["a" /* default */].POINT) {
+      if (defined(obj) && obj.id && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT) {
         return true;
       }
 
@@ -73175,9 +74589,9 @@ function (_BaseGraphic2) {
   }]);
 
   return CesiumPoint;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPoint, "defaultStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPoint, "defaultStyle", {
   color: Cesium.Color.RED,
   pixelSize: 5,
   outlineColor: Cesium.Color.WHITE,
@@ -73185,7 +74599,7 @@ Object(defineProperty["a" /* default */])(Graphic_CesiumPoint, "defaultStyle", {
   heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
 });
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPoint, "editStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPoint, "editStyle", {
   color: Cesium.Color.RED,
   pixelSize: 5,
   outlineColor: Cesium.Color.AQUA,
@@ -73193,17 +74607,17 @@ Object(defineProperty["a" /* default */])(Graphic_CesiumPoint, "editStyle", {
   heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
 });
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPoint, "selectedStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPoint, "selectedStyle", {
   color: Cesium.Color.AQUA,
   pixelSize: 5,
   outlineColor: Cesium.Color.AQUA,
   outlineWidth: 3
 });
 
-var Graphic_CesiumPolyline =
+var CesiumPolyline =
 /*#__PURE__*/
 function (_BaseGraphic3) {
-  _inherits(CesiumPolyline, _BaseGraphic3);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumPolyline, _BaseGraphic3);
 
   /**
    * Cesium PolylineGraphic
@@ -73212,40 +74626,42 @@ function (_BaseGraphic3) {
    * 属性定义遵循和Cesium.PolylineGraphic相同的定义方式。
    */
   function CesiumPolyline(viewer) {
-    var _this5;
+    var _this6;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumPolyline.defaultStyle;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumPolyline);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumPolyline);
 
-    _this5 = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumPolyline).call(this, viewer));
-    _this5._type = 'POLYLINE';
-    _this5.gvtype = GraphicType["a" /* default */].POLYLINE;
-    _this5.positions = options.positions || [];
+    _this6 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolyline).call(this, viewer));
+    _this6._type = 'POLYLINE';
+    _this6.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE;
+    _this6.positions = options.positions || [];
 
-    var self = _assertThisInitialized(_this5);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this6);
 
     var _update = function _update() {
       return self.positions;
     };
 
-    _this5.options = {
-      gvname: _this5._name,
-      gvid: _this5._gvid,
-      gvtype: _this5._gvtype,
-      polyline: options
+    _this6.options = {
+      gvname: _this6._name,
+      gvid: _this6._gvid,
+      gvtype: _this6._gvtype,
+      polyline: options,
+      properties: options.properties
     };
-    _this5.options.polyline.positions = new Cesium.CallbackProperty(_update, false);
-    _this5.graphic = undefined;
-    _this5.nodeGraphic = undefined;
-    _this5.node = false;
+    delete options.properties;
+    _this6.options.polyline.positions = new Cesium.CallbackProperty(_update, false);
+    _this6.graphic = undefined;
+    _this6.nodeGraphic = undefined;
+    _this6.node = false;
 
-    _this5.create();
+    _this6.create();
 
-    return _this5;
+    return _this6;
   }
 
-  Object(createClass["a" /* default */])(CesiumPolyline, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumPolyline, [{
     key: "addNode",
     value: function addNode(node) {
       if (node instanceof Cesium.Cartesian3) {
@@ -73291,10 +74707,10 @@ function (_BaseGraphic3) {
   }, {
     key: "createNode",
     value: function createNode() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Graphic_CesiumPoint.defaultStyle;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : CesiumPoint.defaultStyle;
       options.positions = this.positions;
       options.clampToGround = this.options.polyline.clampToGround;
-      this.nodeGraphic = new Graphic_CesiumPoint(this.viewer, options);
+      this.nodeGraphic = new CesiumPoint(this.viewer, options);
       this.node = true;
     }
     /**
@@ -73307,6 +74723,8 @@ function (_BaseGraphic3) {
   }, {
     key: "startEdit",
     value: function startEdit() {
+      var _this7 = this;
+
       if (!defined(this.graphic)) {
         return;
       } // this.remove()
@@ -73316,21 +74734,25 @@ function (_BaseGraphic3) {
       //     this.graphic.polyline[attr] = CesiumPolyline.selectedStyle[attr]
       // }
       //this.graphic.polyline.material = CesiumPolyline.selectedStyle.material
-      // this.graphic.polyline.positions = new Cesium.CallbackProperty(function () {
-      //     return self.positions
-      // }, false)
 
 
-      this.createNode(); // const evt = new CustomEvent('startEdit', {
+      this.graphic.polyline.positions = new Cesium.CallbackProperty(function () {
+        return _this7.positions;
+      }, false);
+
+      if (this.node === false) {
+        this.createNode();
+      } // const evt = new CustomEvent('startEdit', {
       //     detail: { graphicType: 'POLYLINE' }
       // })
       // document.dispatchEvent(evt)
+
     }
   }, {
     key: "stopEdit",
     value: function stopEdit() {
-      if (this.graphic instanceof Cesium.Entity) {//this.graphic.polyline.positions = this.positions;
-        //this.graphic.polyline.material = this.options.polyline.material
+      if (this.graphic instanceof Cesium.Entity) {
+        this.graphic.polyline.positions = this.positions; // this.graphic.polyline.material = this.options.polyline.material
       }
 
       this.removeNode(); // const endEvent = new CustomEvent('stopEdit')
@@ -73392,18 +74814,36 @@ function (_BaseGraphic3) {
 
       return undefined;
     }
+  }, {
+    key: "properties",
+    get: function get() {
+      if (this.graphic) {
+        return this.graphic.properties;
+      }
+
+      return false;
+    },
+    set: function set(v) {
+      if (this.graphic) {
+        return this.graphic.properties = v;
+      }
+    }
   }], [{
     key: "fromDegrees",
     value: function fromDegrees(viewer, positions) {
+      var properties = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       positions = positions.map(function (_) {
         return Cesium.Cartesian3.fromDegrees(_.lon, _.lat, _.height);
       });
 
       var options = _objectSpread({
         positions: positions
-      }, CesiumPolyline.defaultStyle);
+      }, CesiumPolyline.defaultStyle, {
+        properties: properties
+      });
 
       var pl = new CesiumPolyline(viewer, options);
+      pl.stopEdit();
       return pl;
     }
   }, {
@@ -73423,24 +74863,24 @@ function (_BaseGraphic3) {
   }]);
 
   return CesiumPolyline;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPolyline, "defaultStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPolyline, "defaultStyle", {
   clampToGround: true,
   material: Cesium.Color.fromCssColorString('rgba(247,224,32,1)'),
   width: 3
 });
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPolyline, "selectedStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPolyline, "selectedStyle", {
   clampToGround: true,
   material: Cesium.Color.AQUA,
   width: 3
 });
 
-var Graphic_CesiumPolygon =
+var CesiumPolygon =
 /*#__PURE__*/
 function (_BaseGraphic4) {
-  _inherits(CesiumPolygon, _BaseGraphic4);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumPolygon, _BaseGraphic4);
 
   /**
    * Cesium PolygonGraphic
@@ -73449,41 +74889,43 @@ function (_BaseGraphic4) {
    * positions定义其位置信息， 属性信息遵循和Cesium.PolygonGraphic相同的定义方式
    */
   function CesiumPolygon(viewer) {
-    var _this6;
+    var _this8;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumPolygon.defaultStyle;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumPolygon);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumPolygon);
 
-    _this6 = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumPolygon).call(this, viewer));
-    _this6._type = 'POLYGON';
-    _this6.gvtype = GraphicType["a" /* default */].POLYGON;
-    _this6.positions = options.positions || [];
-    _this6.nodePositions = Object(toConsumableArray["a" /* default */])(_this6.positions);
+    _this8 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolygon).call(this, viewer));
+    _this8._type = 'POLYGON';
+    _this8.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON;
+    _this8.positions = options.positions || [];
+    _this8.nodePositions = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(_this8.positions);
 
-    var self = _assertThisInitialized(_this6);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this8);
 
-    _this6.options = {
-      gvid: _this6.gvid,
-      gvtype: _this6.gvtype,
+    _this8.options = {
+      gvid: _this8.gvid,
+      gvtype: _this8.gvtype,
       polygon: _objectSpread({
         hierarchy: new Cesium.CallbackProperty(function () {
           return new Cesium.PolygonHierarchy(self.positions);
         }, false)
-      }, options)
+      }, options),
+      properties: options.properties
     };
-    _this6.node = false;
-    _this6.graphic = undefined;
-    _this6.nodeGraphic = undefined;
-    _this6.outlineGraphic = undefined;
-    _this6.outline = options.outline;
+    delete options.properties;
+    _this8.node = false;
+    _this8.graphic = undefined;
+    _this8.nodeGraphic = undefined;
+    _this8.outlineGraphic = undefined;
+    _this8.outline = options.outline;
 
-    _this6.create();
+    _this8.create();
 
-    return _this6;
+    return _this8;
   }
 
-  Object(createClass["a" /* default */])(CesiumPolygon, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumPolygon, [{
     key: "addNode",
     value: function addNode(node) {
       if (node instanceof Cesium.Cartesian3) {
@@ -73566,11 +75008,11 @@ function (_BaseGraphic4) {
   }, {
     key: "createNode",
     value: function createNode() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Graphic_CesiumPoint.defaultStyle;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : CesiumPoint.defaultStyle;
       this.node = true;
       options.positions = this.positions;
       options.clampToGround = this.graphic.polygon.perPositionHeight.getValue();
-      this.nodeGraphic = new Graphic_CesiumPoint(this.viewer, options);
+      this.nodeGraphic = new CesiumPoint(this.viewer, options);
     }
     /**
      * 创建多边形边框
@@ -73588,12 +75030,12 @@ function (_BaseGraphic4) {
         return;
       }
 
-      options.width = this.options.polygon.outlineWidth || Graphic_CesiumPolyline.defaultStyle.width;
-      options.material = this.options.polygon.outlineColor || Graphic_CesiumPolyline.defaultStyle.material; // options.show=this.options.outline
+      options.width = this.options.polygon.outlineWidth || CesiumPolyline.defaultStyle.width;
+      options.material = this.options.polygon.outlineColor || CesiumPolyline.defaultStyle.material; // options.show=this.options.outline
 
       options.clampToGround = !this.graphic.polygon.perPositionHeight.getValue();
       options.positions = this.nodePositions;
-      this.outlineGraphic = new Graphic_CesiumPolyline(this.viewer, options);
+      this.outlineGraphic = new CesiumPolyline(this.viewer, options);
       this.outline = true;
     }
     /**
@@ -73607,13 +75049,13 @@ function (_BaseGraphic4) {
   }, {
     key: "startEdit",
     value: function startEdit() {
-      // const positions = this.positions
-      // const nodePositions = this.nodePositions
+      var positions = this.positions; // const nodePositions = this.nodePositions
+
       if (this.graphic instanceof Cesium.Entity) {
-        // this.graphic.polygon.hierarchy = new Cesium.CallbackProperty(function () {
-        //     return new Cesium.PolygonHierarchy(positions);
-        // })
-        //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
+        this.graphic.polygon.hierarchy = new Cesium.CallbackProperty(function () {
+          return new Cesium.PolygonHierarchy(positions);
+        }); //this.graphic.polygon.material = CesiumPolygon.selectedStyle.material;
+
         if (this.outline) {
           this.outlineGraphic.startEdit();
           this.nodeGraphic = this.outlineGraphic.nodeGraphic;
@@ -73626,8 +75068,8 @@ function (_BaseGraphic4) {
   }, {
     key: "stopEdit",
     value: function stopEdit() {
-      if (this.graphic instanceof Cesium.Entity) {//this.graphic.polygon.hierarchy = new Cesium.PolygonHierarchy(this.positions);
-        //this.graphic.polygon.material = this.options.polygon.material
+      if (this.graphic instanceof Cesium.Entity) {
+        this.graphic.polygon.hierarchy = new Cesium.PolygonHierarchy(this.positions); //this.graphic.polygon.material = this.options.polygon.material
       }
 
       this.removeNode();
@@ -73691,6 +75133,22 @@ function (_BaseGraphic4) {
      */
 
   }, {
+    key: "properties",
+    get: function get() {
+      if (this.graphic) {
+        return this.graphic.properties;
+      }
+
+      return false;
+    },
+    set: function set(v) {
+      if (this.graphic) {
+        return this.graphic.properties = v;
+      }
+
+      return false;
+    }
+  }, {
     key: "outlineStyle",
     get: function get() {
       if (this.outlineGraphic) {
@@ -73744,12 +75202,16 @@ function (_BaseGraphic4) {
   }], [{
     key: "fromDegrees",
     value: function fromDegrees(viewer, positions) {
+      var properties = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       positions = positions.map(function (_) {
         return Cesium.Cartesian3.fromDegrees(_.lon, _.lat, _.height);
       });
       var options = CesiumPolygon.defaultStyle;
       options.positions = positions;
-      return new CesiumPolygon(viewer, options);
+      options.properties = properties;
+      var pg = new CesiumPolygon(viewer, options);
+      pg.stopEdit();
+      return pg;
     }
   }, {
     key: "fromRadians",
@@ -73764,9 +75226,9 @@ function (_BaseGraphic4) {
   }]);
 
   return CesiumPolygon;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPolygon, "defaultStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPolygon, "defaultStyle", {
   material: new Cesium.Color.fromCssColorString('rgba(247,224,32,0.5)'),
   outline: true,
   outlineColor: new Cesium.Color.fromCssColorString('rgba(255,247,145,1)'),
@@ -73777,7 +75239,7 @@ Object(defineProperty["a" /* default */])(Graphic_CesiumPolygon, "defaultStyle",
 
 });
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumPolygon, "selectedStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumPolygon, "selectedStyle", {
   // material: new Cesium.ColorMaterialProperty(Cesium.Color.GREEN.withAlpha(0.4)),
   //material: new Cesium.ColorMaterialProperty(new Cesium.Color(205, 139, 14, 1)),
   material: new Cesium.ColorMaterialProperty(Cesium.Color.AQUA.withAlpha(0.4)),
@@ -73785,10 +75247,10 @@ Object(defineProperty["a" /* default */])(Graphic_CesiumPolygon, "selectedStyle"
 
 });
 
-var Graphic_CesiumLabel =
+var CesiumLabel =
 /*#__PURE__*/
 function (_BaseGraphic5) {
-  _inherits(CesiumLabel, _BaseGraphic5);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumLabel, _BaseGraphic5);
 
   /**
    * 
@@ -73798,33 +75260,51 @@ function (_BaseGraphic5) {
    * label属性的定义遵循Cesium LabelGraphic的定义方式
    */
   function CesiumLabel(viewer) {
-    var _this7;
+    var _this9;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumLabel.defaultStyle;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumLabel);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumLabel);
 
-    _this7 = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumLabel).call(this, viewer));
-    _this7._type = 'LABEL';
-    _this7._gvtype = GraphicType["a" /* default */].LABEL;
-    _this7.position = options.position;
-    _this7.options = {
-      gvid: _this7._gvid,
-      gvtype: _this7._gvtype,
-      position: _this7.position,
+    _this9 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumLabel).call(this, viewer));
+    _this9._type = 'LABEL';
+    _this9._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].LABEL;
+    _this9.position = options.position;
+    _this9.options = {
+      gvid: _this9._gvid,
+      gvtype: _this9._gvtype,
+      position: _this9.position,
       label: options
     };
-    _this7.graphic = undefined;
+    _this9.graphic = undefined;
 
-    _this7.create();
+    _this9.create();
 
-    return _this7;
+    return _this9;
   }
 
-  Object(createClass["a" /* default */])(CesiumLabel, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumLabel, [{
     key: "create",
     value: function create() {
       this.graphic = this.viewer.entities.add(this.options);
+    }
+  }, {
+    key: "startEdit",
+    value: function startEdit() {
+      var _this10 = this;
+
+      if (this.graphic) {
+        this.graphic.label.position = new Cesium.CallbackProperty(function () {
+          return _this10.position;
+        }, false);
+      }
+    }
+  }, {
+    key: "stopEdit",
+    value: function stopEdit() {
+      if (this.graphic) {
+        this.graphic.label.position = this.position;
+      }
     }
   }, {
     key: "remove",
@@ -73874,45 +75354,63 @@ function (_BaseGraphic5) {
   }]);
 
   return CesiumLabel;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumLabel, "defaultStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumLabel, "defaultStyle", {
   color: Cesium.Color.WHITE,
   font: '28px sans-serif',
   showBackground: true
 });
 
-var Graphic_CesiumModel =
+var CesiumModel =
 /*#__PURE__*/
 function (_BaseGraphic6) {
-  _inherits(CesiumModel, _BaseGraphic6);
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumModel, _BaseGraphic6);
 
   function CesiumModel(viewer, options) {
-    var _this8;
+    var _this11;
 
-    Object(classCallCheck["a" /* default */])(this, CesiumModel);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumModel);
 
-    _this8 = _possibleConstructorReturn(this, getPrototypeOf_getPrototypeOf(CesiumModel).call(this, viewer));
-    _this8._type = 'MODEL';
-    _this8._gvtype = GraphicType["a" /* default */].MODEL;
-    _this8.position = options.position; // this.gvname = '未命名'
+    _this11 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumModel).call(this, viewer));
+    _this11._type = 'MODEL';
+    _this11._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MODEL;
+    _this11.position = options.position; // this.gvname = '未命名'
 
-    _this8.options = {
-      gvid: _this8._gvid,
-      gvtype: _this8._gvtype,
-      position: _this8.position,
+    _this11.options = {
+      gvid: _this11._gvid,
+      gvtype: _this11._gvtype,
+      position: _this11.position,
       model: options
     };
 
-    _this8.create();
+    _this11.create();
 
-    return _this8;
+    return _this11;
   }
 
-  Object(createClass["a" /* default */])(CesiumModel, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumModel, [{
     key: "create",
     value: function create() {
       this.graphic = this.viewer.entities.add(this.options);
+    }
+  }, {
+    key: "startEdit",
+    value: function startEdit() {
+      var _this12 = this;
+
+      if (this.graphic) {
+        this.graphic.label.position = new Cesium.CallbackProperty(function () {
+          return _this12.position;
+        }, false);
+      }
+    }
+  }, {
+    key: "stopEdit",
+    value: function stopEdit() {
+      if (this.graphic) {
+        this.graphic.label.position = this.position;
+      }
     }
   }, {
     key: "remove",
@@ -73960,9 +75458,9 @@ function (_BaseGraphic6) {
   }]);
 
   return CesiumModel;
-}(Graphic_BaseGraphic);
+}(BaseGraphic);
 
-Object(defineProperty["a" /* default */])(Graphic_CesiumModel, "defaultStyle", {
+Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(CesiumModel, "defaultStyle", {
   colorBlendMode: Cesium.ColorBlendMode.HIGHLIGHT,
   color: Cesium.Color.WHITE,
   colorBlendAmount: 0.5,
@@ -73970,6 +75468,14 @@ Object(defineProperty["a" /* default */])(Graphic_CesiumModel, "defaultStyle", {
 });
 
 
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+  CesiumPoint: CesiumPoint,
+  CesiumPolyline: CesiumPolyline,
+  CesiumPolygon: CesiumPolygon,
+  CesiumLabel: CesiumLabel,
+  CesiumBillboard: CesiumBillboard,
+  CesiumModel: CesiumModel
+});
 
 /***/ }),
 
@@ -74054,13 +75560,6 @@ exports.default = {
     }
   }
 };
-
-/***/ }),
-
-/***/ "d12e":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -74761,17 +76260,6 @@ __webpack_require__("1654");
 __webpack_require__("6c1c");
 module.exports = __webpack_require__("ccb9").f('iterator');
 
-
-/***/ }),
-
-/***/ "d8db":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_6e20b6b6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8b20");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_6e20b6b6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_6e20b6b6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_6e20b6b6_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -75933,7 +77421,7 @@ module.exports = (
 /* harmony import */ var core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("ac6a");
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _core_CesiumDrawing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("3015");
+/* harmony import */ var _core_GraphicManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("4e00");
 /* harmony import */ var _components_markerViewer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("2c79");
 /* harmony import */ var _core_Graphic__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("cd53");
 /* harmony import */ var _layerManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("5eae");
@@ -76295,8 +77783,7 @@ module.exports = (
 //
 //
 //
-//
-//
+
 
 
 
@@ -76386,6 +77873,7 @@ var console = window.console;
     }
   },
   props: {
+    attachment: undefined,
     extendMarkerImage: {
       type: Array,
       default: function _default() {
@@ -76398,6 +77886,9 @@ var console = window.console;
         return [];
       }
     },
+    tools: {
+      default: undefined
+    },
     viewer: {}
   },
   components: {
@@ -76406,33 +77897,9 @@ var console = window.console;
   },
   mounted: function mounted() {
     var self = this;
-    Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* moveDiv */ "c"])("drawtoolPanel", "drawtoolHead");
     this.$nextTick(function () {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* moveDiv */ "e"])("drawtoolPanel", "drawtoolHead");
       jquery__WEBPACK_IMPORTED_MODULE_14___default()("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
-    });
-    document.addEventListener("addEvent", function (e) {
-      self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
-    });
-    document.addEventListener("stopEdit", function () {
-      self.menuSelected = {};
-      self.editMode = false;
-      self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
-    });
-    document.addEventListener("startEdit", function (e) {
-      self.menuSelected = {};
-      self.menuSelected[e.detail.graphicType] = true;
-      self.setControlByEvent(e);
-      self.editMode = true;
-
-      if (/.*MODEL.*/.test(self.graphicHeight)) {
-        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
-      }
-    });
-    document.addEventListener("destroyEvent", function (e) {
-      //   self.menuSelected = {};
-      //   self.editMode = false;
-      self.$refs.layerManager.drop(e.detail.gvid);
-      self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
     });
 
     if (this.viewer instanceof Cesium.Viewer) {
@@ -76449,15 +77916,53 @@ var console = window.console;
   },
   methods: {
     init: function init(viewer) {
-      if (viewer instanceof Cesium.Viewer == false) {
-        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkViewer */ "c"])(viewer);
+
+      if (this._viewer) {
+        return;
       }
 
+      var self = this;
       this._depthTestAgainstTerrain = viewer.scene.globe.depthTestAgainstTerrain;
       this.$refs.markerManager.init(viewer);
-      graphicManager = new _core_CesiumDrawing__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"](viewer);
+      graphicManager = new _core_GraphicManager__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"](viewer);
       this.selectedModel = this.extendMarkerModel.length ? this.extendMarkerModel[0].url : undefined;
       this.cesiumViewer = viewer;
+      this._viewer = viewer;
+      document.addEventListener("addEvent", function (e) {
+        if (graphicManager.has(e.detail.gvid) || self.$refs.markerManager.has(e.detail.gvid)) {
+          self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
+        }
+      });
+      document.addEventListener("stopEdit", function () {
+        self.menuSelected = {};
+        self.editMode = false;
+        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
+      });
+      document.addEventListener("startEdit", function (e) {
+        self.menuSelected = {};
+        self.menuSelected[e.detail.graphicType] = true;
+        self.setControlByEvent(e);
+        self.editMode = true;
+
+        if (/.*MODEL.*/.test(self.graphicHeight)) {
+          self.cesiumViewer.scene.globe.depthTestAgainstTerrain = true;
+        }
+      });
+      document.addEventListener("destroyEvent", function (e) {
+        self.$refs.layerManager.drop({
+          id: e.detail.gvid
+        });
+        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
+      });
+      document.addEventListener("deleteEvent", function (e) {
+        self.menuSelected = {};
+        self.editMode = false;
+        self.$refs.layerManager.drop({
+          id: e.detail.gvid
+        });
+        self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
+      });
     },
     syncColor: function syncColor(parent, color) {
       var parents = [parent]; //marker和label共用同一种颜色
@@ -76468,7 +77973,7 @@ var console = window.console;
         parents.push("labelColor");
       }
 
-      var eles = jquery__WEBPACK_IMPORTED_MODULE_14___default()(".el-color-picker__icon,.el-icon-arrow-down,.iconfont icon-seban");
+      var eles = jquery__WEBPACK_IMPORTED_MODULE_14___default()(".el-color-picker__icon,.el-icon-arrow-down,.iconfont iconcolor");
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -76498,10 +78003,8 @@ var console = window.console;
       }
     },
     pushLayerManaer: function pushLayerManaer(type, id, name) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       this.$refs.layerManager.insertLayer(type, id, name);
-    },
-    dropLayerManager: function dropLayerManager(id) {
-      console.log(id);
     },
     modelThumb: function modelThumb(item) {
       if (item.thumb) {
@@ -76510,14 +78013,30 @@ var console = window.console;
 
       return this.defaultImage;
     },
+    getById: function getById(id) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
+      if (graphicManager && graphicManager.has(id)) {
+        return graphicManager.get(id);
+      } else if (this.$refs.markerManager) {
+        return this.$refs.markerManager.getById(id);
+      }
+    },
     selectModel: function selectModel(item) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       this.selectedModel = item.url;
       this.modelSelectPanelvisible = false;
       this.$refs.markerManager.setModel({
         uri: item.url
       });
     },
+
+    /**
+     * 设置当前要素的样式
+     */
     setControlByEvent: function setControlByEvent(e) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
       if (e.detail.graphicType === "POLYGON") {
         var material = e.detail.material;
         var outlineColor = e.detail.outlineColor;
@@ -76553,14 +78072,16 @@ var console = window.console;
       }
     },
     stopOthers: function stopOthers() {
-      //   this.menuSelected = {};
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this); //   this.menuSelected = {};
       //   const manager = graphicManager.editManager;
       //   manager && manager.destroy();
+
       this.$refs.markerManager.stopPick();
       graphicManager.destroyManager();
       graphicManager.editManager = undefined;
     },
     setLabel: function setLabel() {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       var option;
 
       try {
@@ -76573,6 +78094,8 @@ var console = window.console;
       this.markerOptionsVisible = false;
     },
     updateMarker: function updateMarker(gvid, gvname) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
       if (gvid) {
         gvname = gvname || "未命名";
         this.$refs.layerManager.rename(null, gvid, gvname);
@@ -76582,6 +78105,7 @@ var console = window.console;
       this.menuSelected = {};
     },
     addMarker: function addMarker(gvid, gvname, gvtype) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       this.pushLayerManaer(gvtype, gvid, gvname);
 
       if (gvtype === _core_GraphicType__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"].MODEL) {
@@ -76593,6 +78117,8 @@ var console = window.console;
       this.layerManagerVisible = false;
     },
     exportGraphic: function exportGraphic(type) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
       if (type === "MARKER" || type === "LABEL") {
         this.$refs.markerManager.export(type);
       } else {
@@ -76600,9 +78126,11 @@ var console = window.console;
       }
     },
     importGraphic: function importGraphic() {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       document.getElementById("graphicuploadhandler").click();
     },
     importfp: function importfp() {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       var self = this;
       var evt = event ? event : window.event; // const cvt = convertTool(_this.viewer)
 
@@ -76686,6 +78214,7 @@ var console = window.console;
       }
     },
     editMarker: function editMarker(type) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       this.editMode = true; // this.stopOthers();
 
       if (graphicManager.editManager) {
@@ -76701,27 +78230,38 @@ var console = window.console;
       graphicManager.removeAll();
     },
     deleteMarker: function deleteMarker(id) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       this.menuSelected["MARKER"] = false;
       this.editMode = false;
       this.$refs.layerManager.drop(id);
     },
     locateGraphic: function locateGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        var manager = graphicManager.graphicManager.get(id);
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
+      if (graphicManager.manager.has(id)) {
+        var manager = graphicManager.manager.get(id);
         manager.zoomTo();
       } else {
         this.$refs.markerManager.zoomTo(id);
       }
+
+      this.$emit("locateEvent", id);
     },
     editGraphic: function editGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        // const manager = graphicManager.graphicManager.get(id);
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
+      if (graphicManager.manager.has(id)) {
+        // const manager = graphicManager.manager.get(id);
         graphicManager.edit(id);
       } else {
         this.$refs.markerManager.edit(id);
       }
+
+      this.$emit("editEvent", id);
     },
     selectGraphic: function selectGraphic(id, state) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
       if (id === "marker") {
         this.$refs.markerManager.select(_core_GraphicType__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"].MARKER, undefined, state);
       } else if (id === "label") {
@@ -76733,24 +78273,30 @@ var console = window.console;
       } else if (id === "label") {
         graphicManager.select(_core_GraphicType__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"].POLYGON, undefined, state);
       } else {
-        if (graphicManager.graphicManager.has(id)) {
+        if (graphicManager.manager.has(id)) {
           graphicManager.select(undefined, id, state);
         } else {
           this.$refs.markerManager.select(undefined, id, state);
         }
       }
+
+      this.$emit("selectEvent", id, state);
     },
     deleteGraphic: function deleteGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        var manager = graphicManager.graphicManager.get(id);
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
+      if (graphicManager.manager.has(id)) {
+        var manager = graphicManager.manager.get(id);
         manager.destroy();
-        graphicManager.graphicManager.delete(id);
+        graphicManager.manager.delete(id);
       } else {
         this.$refs.markerManager.drop(id);
-      } // this.$refs.layerManager.deleteNode(id)
+      }
 
+      this.$emit("deleteEvent", id); // this.$refs.layerManager.deleteNode(id)
     },
     renameGraphic: function renameGraphic(id, name) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       var attr = /(.*?)</g.exec(name);
       name = /(.*?)</g.test(name) ? attr[1] : name;
 
@@ -76758,17 +78304,24 @@ var console = window.console;
         name = "";
       }
 
+      var oname;
+
       if (graphicManager.has(id)) {
+        oname = graphicManager.get(id).gvname;
         graphicManager.rename(id, name);
       } else {
+        oname = this.$refs.markerManager.markerManager.get(id).gvname;
         this.$refs.markerManager.rename(id, name);
       }
+
+      this.$emit("renameEvent", id, oname);
     },
     menuAction: function menuAction(menu) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
       var graphic = ["MARKER", "POLYLINE", "POLYGON", "LABEL", "MODEL"];
       var bool = this.menuSelected[menu];
       this.menuSelected = {};
-      graphicManager.tip.visible = false;
+      graphicManager && (graphicManager.tip.visible = false);
 
       if (bool) {
         this.menuSelected[menu] = false;
@@ -76867,6 +78420,8 @@ var console = window.console;
       }
     },
     setLineMaterial: function setLineMaterial(material, color) {
+      Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+
       switch (material) {
         case "solid":
           graphicManager.material = color;
@@ -77990,6 +79545,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var scrollBarWidth = void 0;
 
 ;
+
+/***/ }),
+
+/***/ "e6c9":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("354a");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -80117,6 +81683,22 @@ module.exports = function (object, index, value) {
 
 /***/ }),
 
+/***/ "f228":
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var classof = __webpack_require__("40c3");
+var from = __webpack_require__("4517");
+module.exports = function (NAME) {
+  return function toJSON() {
+    if (classof(this) != NAME) throw TypeError(NAME + "#toJSON isn't generic");
+    return from(this);
+  };
+};
+
+
+/***/ }),
+
 /***/ "f3ad":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -81801,20 +83383,20 @@ var theme_chalk = __webpack_require__("0fae");
 
 
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(element_ui_common_default.a);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"612c7166-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=6e20b6b6&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',{attrs:{"id":"drawtoolHead"}},[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont icondelete",on:{"click":function($event){return _vm.$emit('closeEvent')}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("图层")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont icon-sanweimoxing model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=1f0fb613&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',{attrs:{"id":"drawtoolHead"}},[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":function($event){return _vm.$emit('closeEvent')}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("图层")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont iconmodel model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"attachment":_vm.attachment,"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},attrs:{"tools":_vm.tools},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=6e20b6b6&scoped=true&
+// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=1f0fb613&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
 var cesiumDrawViewervue_type_script_lang_js_ = __webpack_require__("e167");
 
 // CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_cesiumDrawViewervue_type_script_lang_js_ = (cesiumDrawViewervue_type_script_lang_js_["a" /* default */]); 
-// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=6e20b6b6&lang=scss&scoped=true&
-var cesiumDrawViewervue_type_style_index_0_id_6e20b6b6_lang_scss_scoped_true_ = __webpack_require__("d8db");
+// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=1f0fb613&lang=scss&scoped=true&
+var cesiumDrawViewervue_type_style_index_0_id_1f0fb613_lang_scss_scoped_true_ = __webpack_require__("5e10");
 
 // EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=1&lang=scss&
 var cesiumDrawViewervue_type_style_index_1_lang_scss_ = __webpack_require__("45ea");
@@ -81838,7 +83420,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "6e20b6b6",
+  "1f0fb613",
   null
   
 )
@@ -81852,7 +83434,7 @@ var iconfont = __webpack_require__("3a10");
 
 /*
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-10-10 15:55:20
  * @LastEditors: zhangbo
  * @LastEditTime: 2020-03-01 13:44:07
@@ -81882,6 +83464,15 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
 
+
+
+/***/ }),
+
+/***/ "fe1e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
+__webpack_require__("7075")('Map');
 
 
 /***/ })

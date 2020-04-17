@@ -52,16 +52,10 @@ export default {
       shadows: false,
       skyAtmosphere: false,
       imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        url: "http://www.google.cn/maps/vt?lyrs=s@800&x={x}&y={y}&z={z}",
-        tilingScheme: new Cesium.WebMercatorTilingScheme(),
-        minimumLevel: 1,
-        maximumLevel: 20
-      }),
-      terrainProvider: Cesium.createWorldTerrain()
+        url: "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
+      })
     };
-    Cesium.Ion.defaultAccessToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwYTBiYzJiMy1hMWYzLTQ4MWMtOWI5ZC1lYTI3MjEwNjUwZjkiLCJpZCI6ODMxOSwic2NvcGVzIjpbImFzciIsImdjIl0sImlhdCI6MTU1MTc0OTk5OX0.CVjmJ3X9IL_jjuT1dsV75dGhUPEAz6mH2zVLmXZHlrM";
-    //设置Veiwer属性
+    
     for (let property in _this.viewerProperty) {
       _this.viewerDefaultProperty[property] = _this.viewerProperty[property];
     }
@@ -86,8 +80,7 @@ export default {
         tilingScheme: new Cesium.WebMercatorTilingScheme(),
         minimumLevel: 1,
         maximumLevel: 20
-      }),
-      terrainProvider: Cesium.createWorldTerrain()
+      })
     });
     window.cesiumViewer = viewer;
 

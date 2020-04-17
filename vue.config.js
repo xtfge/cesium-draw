@@ -1,9 +1,9 @@
 /*
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-10-10 09:54:10
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-03-02 15:04:13
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-17 14:11:13
  * @Desc: 
  */
 const path = require('path');
@@ -13,7 +13,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const theme='default'
+const theme='light'
 module.exports = {
   configureWebpack: {
 

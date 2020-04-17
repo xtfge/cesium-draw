@@ -1,17 +1,17 @@
 <!--
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-23 16:34:02
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 11:44:11
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-17 14:04:54
  * @Desc: 
  -->
 <template>
   <div class="layer-manager-box" id="layer-manager-box">
     <div class="layer-manager-header" id="layer-manager-header">
-      <i class="iconfont icon-guanbi1"></i>
+      <i class="iconfont iconclose1"></i>
       <span>标绘清单</span>
-      <span class="closebtn iconfont icon-guanbi" @click="closeLayerManaer"></span>
+      <span class="closebtn iconfont iconclose" @click="closeLayerManaer"></span>
     </div>
     <div class="layer-manager-tools">
       <span class="el-dropdown-link" @click="importHandler">
@@ -42,18 +42,22 @@
         show-checkbox
         node-key="id"
         ref="tree"
-        @check='checkAction'
+        @check="checkAction"
         :default-expanded-keys="['marker','polyline','polygon']"
       >
         <span class="custom-tree-node" slot-scope="{ node, data }">
-          <i :class="data.icon" v-if="!data.edit" class="action-item"></i>
-          <el-input v-model="newName" v-else @keypress.enter.native="renameAction(data)"></el-input>
-          <span class="node-name action-item">{{ data.text }}</span>
+          <i :class="data.icon" class="action-item"></i>
+          <el-input v-model="newName" v-if="data.edit" @keypress.enter.native="renameAction(data)"></el-input>
+          <span class="node-name action-item" v-else>{{ data.text }}</span>
           <span v-if="!data.children" class="action-class">
-            <i class="iconfont iconlocate action-item" @click="locate(data.id)"></i>
-            <i class="iconfont iconrename action-item" @click="rename(data)"></i>
-            <i class="iconfont iconedit action-item" @click="edit(data.id)"></i>
-            <i class="iconfont icondelete action-item" @click="drop(data.id)"></i>
+            <i
+              v-for="tool in tools"
+              :key="tool.id"
+              class="iconfont action-item"
+              :class="[tool.icon]"
+              :title="tool.text"
+              @click="tool.action(data)"
+            ></i>
           </span>
         </span>
       </el-tree>
@@ -77,7 +81,7 @@ export default {
           id: "marker",
           text: "标记",
           type: "marker",
-          icon: "iconfont iconmarker",
+          icon: "iconfont icon-lujing",
           children: []
         },
         {
@@ -108,21 +112,38 @@ export default {
           type: "model",
           children: []
         }
-      ]
+      ],
+      defaultTools: {
+        locate: { text: "定位", icon: "iconlocate", action: this.locate },
+        rename: {
+          text: "重命名",
+          icon: "iconrename",
+          action: this.rename
+        },
+        edit: { text: "编辑", icon: "iconedit", action: this.edit },
+        drop: { text: "删除", icon: "iconremove", action: this.drop }
+      }
     };
+  },
+  props: {
+    tools: {
+      default: function() {
+        return this.defaultTools;
+      }
+    }
   },
   mounted() {},
   computed: {},
   methods: {
-    checkAction(data,node){
-      if(node.checkedKeys.includes(data.id)){
-        this.$emit('select',data.id,true)
-      }else{
-        this.$emit('select',data.id,false)
+    checkAction(data, node) {
+      if (node.checkedKeys.includes(data.id)) {
+        this.$emit("select", data.id, true);
+      } else {
+        this.$emit("select", data.id, false);
       }
     },
-    locate(id) {
-      this.$emit("locate", id);
+    locate(data) {
+      this.$emit("locate", data.id);
     },
     rename(data, id, text) {
       // data.edit=true;
@@ -144,13 +165,14 @@ export default {
       this.$emit("rename", data.id, this.newName);
       data.text = this.newName;
     },
-    edit(id) {
-      this.$emit("edit", id);
+    edit(data) {
+      this.$emit("edit", data.id);
     },
-    drop(id) {
-      this.$emit("delete", id);
-      const index = this.checked.indexOf(id);
-      if (id > -1) {
+    drop(data) {
+      if (!data) return;
+      this.$emit("delete", data.id);
+      const index = this.checked.indexOf(data.id);
+      if (data.id > -1) {
         this.checked.splice(index, 1);
       }
       this.$nextTick(() => {
@@ -160,7 +182,7 @@ export default {
       for (let ls of this.json) {
         let i = 0;
         for (let l of ls.children) {
-          if (l.id === id) {
+          if (l.id === data.id) {
             ls.children.splice(i, 1);
             break;
           }
@@ -170,7 +192,7 @@ export default {
     },
     removeAll() {
       this.$emit("clear");
-      for(let ls of this.json){
+      for (let ls of this.json) {
         ls.children.splice(0);
       }
       this.$nextTick(() => {
@@ -207,12 +229,13 @@ export default {
   background-color: $bg-color;
   color: $color;
   height: 400px;
+  ::v-deep span {
+    font-size: $font-size;
+    display: inline-block;
+    vertical-align: top;
+  }
 }
-/deep/ span {
-  font-size: $font-size;
-  display: inline-block;
-  vertical-align: top;
-}
+
 .graphic-draw-layer-manager-class {
   height: 328px;
   z-index: 99;
@@ -221,20 +244,20 @@ export default {
   border-radius: $b-radius;
   overflow: auto;
   background-color: $bg-color;
-  /deep/ .el-checkbox__inner {
+  ::v-deep .el-checkbox__inner {
     border: 1px solid $border-color;
   }
-  /deep/ .action-item {
+  ::v-deep .action-item {
     margin: $item-margin;
     &:hover {
       color: $hover-color !important;
     }
   }
-  /deep/ .action-class {
+  ::v-deep .action-class {
     right: 20px;
     position: absolute;
   }
-  /deep/ * {
+  ::v-deep * {
     color: $color !important;
     background-color: $bg-color !important;
     font-size: $font-size !important;
@@ -297,43 +320,10 @@ export default {
     color: $color;
   }
 }
-
-/deep/ .jstree-clicked,
-/deep/ .jstree-hovered {
-  background: $bg-color !important;
-  box-shadow: none !important;
-}
-/deep/ .jstree-hovered {
-  color: $hover-color !important;
-}
-/deep/ .jstree-default .jstree-checkbox {
-  background-position: -164px 5px;
-}
-/deep/ .jstree-default .jstree-anchor > .jstree-undetermined {
-  background-position: -196px 6px;
-}
-/deep/
-  .jstree-default.jstree-checkbox-selection
-  .jstree-clicked
-  > .jstree-checkbox,
-.jstree-default .jstree-checked > .jstree-checkbox {
-  background-position: -228px 5px;
-}
-/deep/ .jstree-default > .jstree-no-dots .jstree-closed > .jstree-ocl {
-  background-position: -4px 0px;
-}
-/deep/ .jstree-default > .jstree-no-dots .jstree-open > .jstree-ocl {
-  background-position: -34px 0px;
-}
-/deep/ .jstree-default .jstree-checkbox:hover {
-  background-position: -164px -26px;
-}
-/deep/
-  .jstree-default.jstree-checkbox-selection
-  .jstree-clicked
-  > .jstree-checkbox:hover,
-.jstree-default .jstree-checked > .jstree-checkbox:hover {
-  background-position: -228px -26px;
+.el-input {
+  width: 120px;
+  display: inline-block;
+  vertical-align: middle;
 }
 </style>
 <style lang='scss'>
@@ -353,8 +343,5 @@ export default {
   &:hover {
     color: $hover-color;
   }
-}
-.jstree-default-contextmenu {
-  z-index: 100;
 }
 </style>

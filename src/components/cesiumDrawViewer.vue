@@ -1,9 +1,9 @@
 <!--
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-19 12:37:53
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 18:44:03
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-17 13:41:44
  * @Desc: cesium标绘面板
  -->
 <template>
@@ -11,7 +11,7 @@
     <el-container>
       <el-header id="drawtoolHead">
         <span>基础标绘</span>
-        <span class="closebtn iconfont icondelete" @click="$emit('closeEvent')"></span>
+        <span class="closebtn iconfont iconclose" @click="$emit('closeEvent')"></span>
         <!-- <span class="clostbtn" @click="measurePanelShow=false"></span> -->
       </el-header>
       <el-main class="graphic-draw-main">
@@ -282,11 +282,7 @@
               :onerror="defaultImage"
             />
           </div>
-          <i
-            class="iconfont icon-sanweimoxing model-selector-trigger"
-            slot="reference"
-            title="选择模型"
-          ></i>
+          <i class="iconfont iconmodel model-selector-trigger" slot="reference" title="选择模型"></i>
         </el-popover>
         <el-select
           v-model="modelMode"
@@ -316,6 +312,7 @@
     </div>
     <MarkerViewer
       ref="markerManager"
+      :attachment="attachment"
       @deleteEvent="deleteMarker"
       @editEvent="editMarker"
       @addEvent="addMarker"
@@ -333,6 +330,7 @@
       @close="closeLayerManager"
       @import="importGraphic"
       @export="exportGraphic"
+      :tools="tools"
       v-show="layerManagerVisible"
       class="layer-manager-class"
       :class="{'edit-layer-manager-class':editMode}"
@@ -347,14 +345,15 @@
   </div>
 </template>
 <script>
-import CesiumDrawing from "../core/CesiumDrawing";
+import GraphicManager from "../core/GraphicManager";
 import MarkerViewer from "../components/markerViewer";
 import { CesiumPolygon } from "../core/Graphic";
 import layerManager from "./layerManager";
 import GraphicType from "../core/GraphicType";
 import { open } from "shapefile";
-import { moveDiv } from "@/js/utils";
+import { moveDiv } from "../js/utils";
 import $ from "jquery";
+import {checkComponent,checkViewer} from "../js/utils";
 let graphicManager = undefined;
 const Cesium = window.Cesium;
 const console = window.console;
@@ -446,6 +445,7 @@ export default {
     }
   },
   props: {
+    attachment: undefined,
     extendMarkerImage: {
       type: Array,
       default: function() {
@@ -458,6 +458,9 @@ export default {
         return [];
       }
     },
+    tools: {
+      default: undefined
+    },
     viewer: {}
   },
   components: {
@@ -466,12 +469,44 @@ export default {
   },
   mounted() {
     const self = this;
-    moveDiv("drawtoolPanel", "drawtoolHead");
     this.$nextTick(() => {
+      moveDiv("drawtoolPanel", "drawtoolHead");
       $("#drawtoolPanel .el-color-picker__icon").addClass("iconfont iconcolor");
     });
-    document.addEventListener("addEvent", function(e) {
-      self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
+    if (this.viewer instanceof Cesium.Viewer) {
+      this.init(this.viewer);
+    } else if (window.viewer instanceof Cesium.Viewer) {
+      this.init(window.viewer);
+    }
+    this.$nextTick(() => {
+      self.syncColor("markerColor", self.markerColor);
+      self.syncColor("lineColor", self.lineColor);
+      self.syncColor("polygonColor", self.polygonColor);
+    });
+  },
+  methods: {
+    init(viewer) {
+      checkViewer(viewer);
+      if(this._viewer){
+        return;
+      }
+      const self=this;
+      this._depthTestAgainstTerrain =
+        viewer.scene.globe.depthTestAgainstTerrain;
+      this.$refs.markerManager.init(viewer);
+      graphicManager = new GraphicManager(viewer);
+      this.selectedModel = this.extendMarkerModel.length
+        ? this.extendMarkerModel[0].url
+        : undefined;
+      this.cesiumViewer = viewer;
+      this._viewer=viewer
+      document.addEventListener("addEvent", function(e) {
+      if (
+        graphicManager.has(e.detail.gvid) ||
+        self.$refs.markerManager.has(e.detail.gvid)
+      ) {
+        self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
+      }
     });
     document.addEventListener("stopEdit", function() {
       self.menuSelected = {};
@@ -490,36 +525,17 @@ export default {
       }
     });
     document.addEventListener("destroyEvent", function(e) {
-      //   self.menuSelected = {};
-      //   self.editMode = false;
-      self.$refs.layerManager.drop(e.detail.gvid);
+      self.$refs.layerManager.drop({id:e.detail.gvid});      
       self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
-    if (this.viewer instanceof Cesium.Viewer) {
-      this.init(this.viewer);
-    } else if (window.viewer instanceof Cesium.Viewer) {
-      this.init(window.viewer);
-    }
-    this.$nextTick(() => {
-      self.syncColor("markerColor", self.markerColor);
-      self.syncColor("lineColor", self.lineColor);
-      self.syncColor("polygonColor", self.polygonColor);
+    document.addEventListener("deleteEvent", function(e) {
+      self.menuSelected = {};
+      self.editMode = false;
+      self.$refs.layerManager.drop({id:e.detail.gvid});      
+      self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
+        self._depthTestAgainstTerrain;
     });
-  },
-  methods: {
-    init(viewer) {
-      if (viewer instanceof Cesium.Viewer == false) {
-        throw new Error("viewer 不是一个有效的Cesium Viewer对象");
-      }
-      this._depthTestAgainstTerrain =
-        viewer.scene.globe.depthTestAgainstTerrain;
-      this.$refs.markerManager.init(viewer);
-      graphicManager = new CesiumDrawing(viewer);
-      this.selectedModel = this.extendMarkerModel.length
-        ? this.extendMarkerModel[0].url
-        : undefined;
-      this.cesiumViewer = viewer;
     },
     syncColor(parent, color) {
       const parents = [parent];
@@ -530,7 +546,7 @@ export default {
         parents.push("labelColor");
       }
       const eles = $(
-        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont icon-seban"
+        ".el-color-picker__icon,.el-icon-arrow-down,.iconfont iconcolor"
       );
       for (let e of eles) {
         const target = $(e)
@@ -541,11 +557,10 @@ export default {
         }
       }
     },
+
     pushLayerManaer(type, id, name) {
+      checkComponent(this)
       this.$refs.layerManager.insertLayer(type, id, name);
-    },
-    dropLayerManager(id) {
-      console.log(id);
     },
     modelThumb(item) {
       if (item.thumb) {
@@ -553,12 +568,25 @@ export default {
       }
       return this.defaultImage;
     },
+    getById(id) {
+      checkComponent(this)
+      if (graphicManager && graphicManager.has(id)) {
+        return graphicManager.get(id);
+      } else if (this.$refs.markerManager) {
+        return this.$refs.markerManager.getById(id);
+      }
+    },
     selectModel(item) {
+      checkComponent(this)
       this.selectedModel = item.url;
       this.modelSelectPanelvisible = false;
       this.$refs.markerManager.setModel({ uri: item.url });
     },
+    /**
+     * 设置当前要素的样式
+     */
     setControlByEvent(e) {
+      checkComponent(this)
       if (e.detail.graphicType === "POLYGON") {
         const material = e.detail.material;
         const outlineColor = e.detail.outlineColor;
@@ -596,6 +624,7 @@ export default {
       }
     },
     stopOthers() {
+      checkComponent(this)
       //   this.menuSelected = {};
       //   const manager = graphicManager.editManager;
       //   manager && manager.destroy();
@@ -604,6 +633,7 @@ export default {
       graphicManager.editManager = undefined;
     },
     setLabel() {
+      checkComponent(this)
       let option;
       try {
         option = eval("(" + this.markerOption + ")");
@@ -614,6 +644,7 @@ export default {
       this.markerOptionsVisible = false;
     },
     updateMarker(gvid, gvname) {
+      checkComponent(this)
       if (gvid) {
         gvname = gvname || "未命名";
         this.$refs.layerManager.rename(null, gvid, gvname);
@@ -622,6 +653,7 @@ export default {
       this.menuSelected = {};
     },
     addMarker(gvid, gvname, gvtype) {
+      checkComponent(this)
       this.pushLayerManaer(gvtype, gvid, gvname);
       if (gvtype === GraphicType.MODEL) {
         this.editMode = false;
@@ -632,6 +664,7 @@ export default {
       this.layerManagerVisible = false;
     },
     exportGraphic(type) {
+      checkComponent(this)
       if (type === "MARKER" || type === "LABEL") {
         this.$refs.markerManager.export(type);
       } else {
@@ -639,9 +672,11 @@ export default {
       }
     },
     importGraphic() {
+      checkComponent(this)
       document.getElementById("graphicuploadhandler").click();
     },
     importfp() {
+      checkComponent(this)
       const self = this;
       const evt = event ? event : window.event;
       // const cvt = convertTool(_this.viewer)
@@ -694,6 +729,7 @@ export default {
       }
     },
     editMarker(type) {
+      checkComponent(this)
       this.editMode = true;
       // this.stopOthers();
       if (graphicManager.editManager) {
@@ -708,27 +744,33 @@ export default {
       graphicManager.removeAll();
     },
     deleteMarker(id) {
+      checkComponent(this)
       this.menuSelected["MARKER"] = false;
       this.editMode = false;
       this.$refs.layerManager.drop(id);
     },
     locateGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        const manager = graphicManager.graphicManager.get(id);
+      checkComponent(this)
+      if (graphicManager.manager.has(id)) {
+        const manager = graphicManager.manager.get(id);
         manager.zoomTo();
       } else {
         this.$refs.markerManager.zoomTo(id);
       }
+      this.$emit("locateEvent", id);
     },
     editGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        // const manager = graphicManager.graphicManager.get(id);
+      checkComponent(this)
+      if (graphicManager.manager.has(id)) {
+        // const manager = graphicManager.manager.get(id);
         graphicManager.edit(id);
       } else {
         this.$refs.markerManager.edit(id);
       }
+      this.$emit("editEvent", id);
     },
     selectGraphic(id, state) {
+      checkComponent(this)
       if (id === "marker") {
         this.$refs.markerManager.select(GraphicType.MARKER, undefined, state);
       } else if (id === "label") {
@@ -740,40 +782,49 @@ export default {
       } else if (id === "label") {
         graphicManager.select(GraphicType.POLYGON, undefined, state);
       } else {
-        if (graphicManager.graphicManager.has(id)) {
+        if (graphicManager.manager.has(id)) {
           graphicManager.select(undefined, id, state);
         } else {
           this.$refs.markerManager.select(undefined, id, state);
         }
       }
+      this.$emit("selectEvent", id, state);
     },
     deleteGraphic(id) {
-      if (graphicManager.graphicManager.has(id)) {
-        const manager = graphicManager.graphicManager.get(id);
+      checkComponent(this)
+      if (graphicManager.manager.has(id)) {
+        const manager = graphicManager.manager.get(id);
         manager.destroy();
-        graphicManager.graphicManager.delete(id);
+        graphicManager.manager.delete(id);
       } else {
         this.$refs.markerManager.drop(id);
       }
+      this.$emit("deleteEvent", id);
       // this.$refs.layerManager.deleteNode(id)
     },
     renameGraphic(id, name) {
+      checkComponent(this)
       const attr = /(.*?)</g.exec(name);
       name = /(.*?)</g.test(name) ? attr[1] : name;
       if (name === "未命名") {
         name = "";
       }
+      let oname
       if (graphicManager.has(id)) {
+        oname=graphicManager.get(id).gvname;
         graphicManager.rename(id, name);
       } else {
+        oname=this.$refs.markerManager.markerManager.get(id).gvname
         this.$refs.markerManager.rename(id, name);
       }
+      this.$emit("renameEvent", id, oname);
     },
     menuAction(menu) {
+      checkComponent(this)
       const graphic = ["MARKER", "POLYLINE", "POLYGON", "LABEL", "MODEL"];
       const bool = this.menuSelected[menu];
       this.menuSelected = {};
-      graphicManager.tip.visible = false;
+      graphicManager && (graphicManager.tip.visible = false);
       if (bool) {
         this.menuSelected[menu] = false;
       } else {
@@ -863,6 +914,7 @@ export default {
       }
     },
     setLineMaterial(material, color) {
+      checkComponent(this)
       switch (material) {
         case "solid":
           graphicManager.material = color;
@@ -1100,9 +1152,6 @@ export default {
       height: 100%;
       box-sizing: border-box;
       list-style: none;
-      span {
-        text-align: center !important;
-      }
       &:hover {
         i {
           color: $hover-color;
@@ -1143,31 +1192,32 @@ export default {
   vertical-align: top;
   padding: 0 5px;
   border-top: 1px solid $devision-color;
-  /deep/ .el-color-picker--mini {
+  ::v-deep .el-color-picker--mini {
     height: 28px;
     width: 28px;
   }
-  /deep/ .el-color-picker__color {
+  ::v-deep .el-color-picker__color {
     border: none;
     border-radius: $b-radius;
     display: inline;
   }
-  /deep/ .el-color-picker__trigger {
+  ::v-deep .el-color-picker__trigger {
     height: 28px;
     width: 28px;
     padding: 0px;
     border: 1px solid $color;
+    display: block;
   }
-  /deep/ .el-color-picker__color-inner {
+  ::v-deep .el-color-picker__color-inner {
     background-color: $bg-color !important;
     border-radius: $b-radius;
   }
-  /deep/ .el-input__inner {
+  ::v-deep .el-input__inner {
     background-color: $bg-color;
     border: 1px solid $color;
     color: $color;
   }
-  /deep/ .el-color-picker__icon {
+  ::v-deep .el-color-picker__icon {
     line-height: 28px;
   }
   span {
@@ -1282,15 +1332,12 @@ export default {
     display: inline-block;
     margin: 0 15px;
     width: 100px;
-    /deep/ .el-slider__runway {
+    ::v-deep .el-slider__runway {
       margin-bottom: 0px;
     }
   }
 }
-/deep/ .el-color-picker__trigger {
-  // box-sizing: unset !important;
-  display: block;
-}
+
 .el-main .el-radio {
   display: inline-block;
   margin: 5px;

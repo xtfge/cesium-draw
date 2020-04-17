@@ -340,6 +340,25 @@ class CursorTip {
     }
   }
 }
+function checkViewer(viewer){
+    if(viewer instanceof Cesium.Viewer === false){
+        throw new GVError(viewer+"不是一个有效的Cesium Viewer对象")
+    }
+}
+function checkComponent(component,object){
+    if(component&&component._viewer instanceof Cesium.Viewer === false){
+        throw new GVError('组件尚未初始化'+component._uid)
+    }
+    else if(!component&&!window.Cesium.defined(object)){
+        throw new GVError('组件尚未初始化')
+    }
+}
+class GVError extends Error{
+    constructor(message){
+        super(message);
+        this.name='GVError'
+    }
+}
 export {
   moveDiv,
   errroCatch,
@@ -348,7 +367,9 @@ export {
   saveCurViewerImage,
   downloadFile,
   CVT,
-  CursorTip
+  CursorTip,
+  checkComponent,
+  checkViewer
 };
 export default {
   moveDiv,

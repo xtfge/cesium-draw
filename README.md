@@ -1,9 +1,9 @@
 <!--
  * @Author: zhangbo
- * @E-mail: zhangb@geovis.com.cn
+ * @E-mail: xtfge_0915@163.com
  * @Date: 2020-01-03 09:54:57
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-03-02 09:42:47
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-17 13:37:15
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -139,6 +139,17 @@ export default{
 }
 </script>
 ```
+### Methods
+- `getById(gvid)` 根据id返回图形要素
+### Events
+事件|说明|回调
+---|---|---
+deleteEvent|要素删除事件|参数为删除要素的id
+locateEvent|要素定位事件|定位要素的id
+editEvent|要素编辑事件|要素的id
+renameEvent|要素重命名事件|两个参数,依次为要素id,要素更新前的名称
+selectEvent|checkbox点击事件|两个参数,依次为要素id,checkbox状态
+closeEvent|标绘面板关闭事件|无
 ### 开发&打包
 ```sh
 npm install
