@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-17 19:00:52
+ * @LastEditTime: 2020-04-19 22:20:38
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -29,7 +29,7 @@ npm i cesium-draw
     <cesium-draw ref='drwaManager' :viewer="viewer"></cesium-draw>
 </template>
 <script>
-import {cesiumDrawViewer} from 'cesium-draw'
+import cesiumDrawViewer from 'cesium-draw'
 import 'cesium-draw/dist/theme/default.css'
 //import 'cesium-draw/dist/theme/dark.css'
 export default{
@@ -39,7 +39,7 @@ export default{
             viewer:null
         }
     }
-    components:{cesium-draw},
+    components:{'cesium-draw':cesiumDrawViewer},
     mounted(){
         this.viewer=new Cesium.Viewer('map')
     }
@@ -160,5 +160,4 @@ npm run build
 npm run lib
 ```
 ### 效果
-e68548309368f24ea068fdd3da0161ddefe7cefd
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
