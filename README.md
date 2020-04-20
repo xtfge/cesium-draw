@@ -160,4 +160,9 @@ npm run build
 npm run lib
 ```
 ### 效果
+<<<<<<< HEAD
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
+=======
+![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
+![avatar](https://img-blog.csdnimg.cn/2020041719034414.gif)
+>>>>>>> b47b705d137b77c7cd8c84ac068cb61a78ddffc4
