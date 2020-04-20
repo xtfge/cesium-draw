@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-19 22:20:38
+ * @LastEditTime: 2020-04-20 09:25:27
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -29,7 +29,7 @@ npm i cesium-draw
     <cesium-draw ref='drwaManager' :viewer="viewer"></cesium-draw>
 </template>
 <script>
-import cesiumDrawViewer from 'cesium-draw'
+import cesiumDraw from 'cesium-draw'
 import 'cesium-draw/dist/theme/default.css'
 //import 'cesium-draw/dist/theme/dark.css'
 export default{
@@ -39,7 +39,7 @@ export default{
             viewer:null
         }
     }
-    components:{'cesium-draw':cesiumDrawViewer},
+    components:{cesiumDraw},
     mounted(){
         this.viewer=new Cesium.Viewer('map')
     }
@@ -106,7 +106,7 @@ import 'cesium-draw/dist/theme/dark.css'
     <cesium-draw ref='drwaManager' :extendMarkerImage="images" :extendMarkerModel='model' ></cesium-draw>
 </template>
 <script>
-import cesium-draw from 'cesium-draw'
+import cesiumDraw from 'cesium-draw'
 //You can use theme
 import 'cesium-draw/dist/theme/dark.css'
 //import 'cesium-draw/dist/theme/default.css'
@@ -131,7 +131,7 @@ export default{
                 }]
         }
     }
-    components:{cesium-draw},
+    components:{cesiumDraw},
     mounted(){
         const viewer=new Cesium.Viewer('map')
         this.$refs.drawManager.init(viewer)
