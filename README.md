@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-20 09:25:27
+ * @LastEditTime: 2020-04-27 10:27:38
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -160,9 +160,5 @@ npm run build
 npm run lib
 ```
 ### 效果
-<<<<<<< HEAD
-![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
-=======
 ![avatar](https://img-blog.csdnimg.cn/20200102184048249.gif)
 ![avatar](https://img-blog.csdnimg.cn/2020041719034414.gif)
->>>>>>> b47b705d137b77c7cd8c84ac068cb61a78ddffc4
