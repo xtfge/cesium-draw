@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2020-01-03 09:54:57
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 17:19:11
+ * @LastEditTime: 2020-06-18 17:23:43
  * @Desc: Cesium基础标绘组件说明文档
  -->
 
@@ -39,7 +39,7 @@ export default{
             viewer:null
         }
     }
-    components:{cesium-draw},
+    components:{cesiumDraw},
     mounted(){
         this.viewer=new Cesium.Viewer('map')
     }
