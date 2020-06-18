@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-19 12:37:53
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-17 13:41:44
+ * @LastEditTime: 2020-06-18 11:54:04
  * @Desc: cesium标绘面板
  -->
 <template>
@@ -95,7 +95,7 @@
             <span
               :class="{'selected-graphic':layerManagerVisible}"
               @click="layerManagerVisible=!layerManagerVisible"
-            >图层</span>
+            >清单</span>
           </li>
         </ul>
       </el-main>
