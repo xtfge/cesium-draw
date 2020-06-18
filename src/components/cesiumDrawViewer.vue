@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2019-12-19 12:37:53
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 11:54:04
+ * @LastEditTime: 2020-06-18 17:10:26
  * @Desc: cesium标绘面板
  -->
 <template>
@@ -11,7 +11,7 @@
     <el-container>
       <el-header id="drawtoolHead">
         <span>基础标绘</span>
-        <span class="closebtn iconfont iconclose" @click="$emit('closeEvent')"></span>
+        <span class="closebtn iconfont icondelete" @click="$emit('closeEvent')"></span>
         <!-- <span class="clostbtn" @click="measurePanelShow=false"></span> -->
       </el-header>
       <el-main class="graphic-draw-main">

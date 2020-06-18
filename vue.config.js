@@ -3,7 +3,7 @@
  * @E-mail: xtfge_0915@163.com
  * @Date: 2019-10-10 09:54:10
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 11:58:19
+ * @LastEditTime: 2020-06-18 17:09:00
  * @Desc: 
  */
 const path = require('path');
@@ -13,7 +13,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const theme='light'
+const theme='default'
 module.exports = {
   configureWebpack: {
 

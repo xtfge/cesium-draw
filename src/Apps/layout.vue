@@ -54,7 +54,7 @@ export default {
     this.$refs.marker.init(viewer);
     tileset.readyPromise.then(t=>{
       viewer.scene.primitives.add(t)
-      viewer.camera.viewBoundingSphere(t.boundingSphere)
+      // viewer.camera.viewBoundingSphere(t.boundingSphere)
     })
   },
   methods: {

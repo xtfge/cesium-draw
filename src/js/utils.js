@@ -359,6 +359,10 @@ class GVError extends Error{
         this.name='GVError'
     }
 }
+function pointVisibilityOnEarth(point, viewer) {
+  return new Cesium.EllipsoidalOccluder(Cesium.Ellipsoid.WGS84, viewer.camera.position)
+    .isPointVisible(point);
+}
 export {
   moveDiv,
   errroCatch,
@@ -366,6 +370,7 @@ export {
   viewCenter,
   saveCurViewerImage,
   downloadFile,
+  pointVisibilityOnEarth,
   CVT,
   CursorTip,
   checkComponent,
@@ -379,5 +384,6 @@ export default {
   saveCurViewerImage,
   downloadFile,
   CVT,
-  CursorTip
+  CursorTip,
+  pointVisibilityOnEarth
 };
