@@ -17,8 +17,10 @@ npm i cesium-draw
 ### 使用
 ```HTML
 <template>
-    <div id='map'></div>
-    <cesium-draw ref='drwaManager' :viewer="viewer"></cesium-draw>
+    <div>
+     <div id='map'></div>
+     <cesium-draw ref='drwaManager' :viewer="viewer"></cesium-draw>
+    </div>
 </template>
 <script>
 import cesiumDraw from 'cesium-draw'
@@ -94,8 +96,10 @@ import 'cesium-draw/dist/theme/dark.css'
 #### 示例
 ```HTML
 <template>
-    <div id='map'></div>
-    <cesium-draw ref='drwaManager' :extendMarkerImage="images" :extendMarkerModel='model' ></cesium-draw>
+  <div>
+   <div id='map'></div>
+   <cesium-draw ref='drwaManager' :extendMarkerImage="images" :extendMarkerModel='model' ></cesium-draw>
+ </div>
 </template>
 <script>
 import cesiumDraw from 'cesium-draw'
