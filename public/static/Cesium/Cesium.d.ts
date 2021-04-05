@@ -2751,7 +2751,7 @@ export class CatmullRomSpline {
  * @example
  * // Create Arctic DEM terrain with normals.
  * var viewer = new Cesium.Viewer('cesiumContainer', {
- *     terrainProvider : new Cesium.CesiumTerrainProvider({
+ *     terrainProvider : new CesiumTerrainProvider({
  *         url : Cesium.IonResource.fromAssetId(3956),
  *         requestVertexNormals : true
  *     })
@@ -8181,7 +8181,7 @@ export class IonResource extends Resource {
      * Asynchronously creates an instance.
      * @example
      * //Load a Cesium3DTileset with asset ID of 124624234
-     * viewer.scene.primitives.add(new Cesium.Cesium3DTileset({ url: Cesium.IonResource.fromAssetId(124624234) }));
+     * viewer.scene.primitives.add(new Cesium3DTileset({ url: Cesium.IonResource.fromAssetId(124624234) }));
      * @example
      * //Load a CZML file with asset ID of 10890
      * Cesium.IonResource.fromAssetId(10890)
@@ -26477,7 +26477,7 @@ export class Cesium3DTileContent {
  * // On mouse over, display all the properties for a feature in the console log.
  * handler.setInputAction(function(movement) {
  *     var feature = scene.pick(movement.endPosition);
- *     if (feature instanceof Cesium.Cesium3DTileFeature) {
+ *     if (feature instanceof Cesium3DTileFeature) {
  *         var propertyNames = feature.getPropertyNames();
  *         var length = propertyNames.length;
  *         for (var i = 0; i < length; ++i) {
@@ -26579,7 +26579,7 @@ export class Cesium3DTileFeature {
  * // On mouse over, display all the properties for a feature in the console log.
  * handler.setInputAction(function(movement) {
  *     var feature = scene.pick(movement.endPosition);
- *     if (feature instanceof Cesium.Cesium3DTilePointFeature) {
+ *     if (feature instanceof Cesium3DTilePointFeature) {
  *         var propertyNames = feature.getPropertyNames();
  *         var length = propertyNames.length;
  *         for (var i = 0; i < length; ++i) {
@@ -26808,7 +26808,7 @@ export class Cesium3DTilePointFeature {
  * {@link https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling|3D Tiles Styling language}.
  * </p>
  * @example
- * tileset.style = new Cesium.Cesium3DTileStyle({
+ * tileset.style = new Cesium3DTileStyle({
  *     color : {
  *         conditions : [
  *             ['${Height} >= 100', 'color("purple", 0.5)'],
@@ -26822,7 +26822,7 @@ export class Cesium3DTilePointFeature {
  *     }
  * });
  * @example
- * tileset.style = new Cesium.Cesium3DTileStyle({
+ * tileset.style = new Cesium3DTileStyle({
  *     color : 'vec4(${Temperature})',
  *     pointSize : '${Temperature} * 2.0'
  * });
@@ -26859,7 +26859,7 @@ export class Cesium3DTileStyle {
      * });
      * style.show.evaluate(feature); // returns true or false depending on the feature's properties
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override show expression with a custom function
      * style.show = {
      *     evaluate : function(feature) {
@@ -26867,17 +26867,17 @@ export class Cesium3DTileStyle {
      *     }
      * };
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override show expression with a boolean
      * style.show = true;
      * };
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override show expression with a string
      * style.show = '${Height} > 0';
      * };
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override show expression with a condition
      * style.show = {
      *     conditions: [
@@ -26902,7 +26902,7 @@ export class Cesium3DTileStyle {
      * });
      * style.color.evaluateColor(feature, result); // returns a Cesium.Color object
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override color expression with a custom function
      * style.color = {
      *     evaluateColor : function(feature, result) {
@@ -26910,11 +26910,11 @@ export class Cesium3DTileStyle {
      *     }
      * };
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override color expression with a string
      * style.color = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override color expression with a condition
      * style.color = {
      *     conditions : [
@@ -26939,7 +26939,7 @@ export class Cesium3DTileStyle {
      * });
      * style.pointSize.evaluate(feature); // returns a Number
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointSize expression with a custom function
      * style.pointSize = {
      *     evaluate : function(feature) {
@@ -26947,15 +26947,15 @@ export class Cesium3DTileStyle {
      *     }
      * };
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointSize expression with a number
      * style.pointSize = 1.0;
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointSize expression with a string
      * style.pointSize = '${height} / 10';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointSize expression with a condition
      * style.pointSize =  {
      *     conditions : [
@@ -26975,11 +26975,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointOutlineColor expression with a string
      * style.pointOutlineColor = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointOutlineColor expression with a condition
      * style.pointOutlineColor = {
      *     conditions : [
@@ -26999,11 +26999,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointOutlineWidth expression with a string
      * style.pointOutlineWidth = '5';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override pointOutlineWidth expression with a condition
      * style.pointOutlineWidth = {
      *     conditions : [
@@ -27023,11 +27023,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelColor expression with a string
      * style.labelColor = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelColor expression with a condition
      * style.labelColor = {
      *     conditions : [
@@ -27047,11 +27047,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelOutlineColor expression with a string
      * style.labelOutlineColor = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelOutlineColor expression with a condition
      * style.labelOutlineColor = {
      *     conditions : [
@@ -27071,11 +27071,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelOutlineWidth expression with a string
      * style.labelOutlineWidth = '5';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelOutlineWidth expression with a condition
      * style.labelOutlineWidth = {
      *     conditions : [
@@ -27100,7 +27100,7 @@ export class Cesium3DTileStyle {
      * });
      * style.font.evaluate(feature); // returns a String
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override font expression with a custom function
      * style.font = {
      *     evaluate : function(feature) {
@@ -27124,7 +27124,7 @@ export class Cesium3DTileStyle {
      * });
      * style.labelStyle.evaluate(feature); // returns a LabelStyle
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelStyle expression with a custom function
      * style.labelStyle = {
      *     evaluate : function(feature) {
@@ -27148,7 +27148,7 @@ export class Cesium3DTileStyle {
      * });
      * style.labelText.evaluate(feature); // returns a String
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelText expression with a custom function
      * style.labelText = {
      *     evaluate : function(feature) {
@@ -27167,11 +27167,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override backgroundColor expression with a string
      * style.backgroundColor = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override backgroundColor expression with a condition
      * style.backgroundColor = {
      *     conditions : [
@@ -27191,7 +27191,7 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override backgroundPadding expression with a string
      * style.backgroundPadding = 'vec2(5.0, 7.0)';
      * style.backgroundPadding.evaluate(feature); // returns a Cartesian2
@@ -27207,11 +27207,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override backgroundEnabled expression with a string
      * style.backgroundEnabled = 'true';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override backgroundEnabled expression with a condition
      * style.backgroundEnabled = {
      *     conditions : [
@@ -27231,7 +27231,7 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override scaleByDistance expression with a string
      * style.scaleByDistance = 'vec4(1.5e2, 2.0, 1.5e7, 0.5)';
      * style.scaleByDistance.evaluate(feature); // returns a Cartesian4
@@ -27247,7 +27247,7 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override translucencyByDistance expression with a string
      * style.translucencyByDistance = 'vec4(1.5e2, 1.0, 1.5e7, 0.2)';
      * style.translucencyByDistance.evaluate(feature); // returns a Cartesian4
@@ -27263,7 +27263,7 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override distanceDisplayCondition expression with a string
      * style.distanceDisplayCondition = 'vec2(0.0, 5.5e6)';
      * style.distanceDisplayCondition.evaluate(feature); // returns a Cartesian2
@@ -27279,11 +27279,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override heightOffset expression with a string
      * style.heightOffset = '2.0';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override heightOffset expression with a condition
      * style.heightOffset = {
      *     conditions : [
@@ -27303,11 +27303,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override anchorLineEnabled expression with a string
      * style.anchorLineEnabled = 'true';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override anchorLineEnabled expression with a condition
      * style.anchorLineEnabled = {
      *     conditions : [
@@ -27327,11 +27327,11 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override anchorLineColor expression with a string
      * style.anchorLineColor = 'color("blue")';
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override anchorLineColor expression with a condition
      * style.anchorLineColor = {
      *     conditions : [
@@ -27356,7 +27356,7 @@ export class Cesium3DTileStyle {
      * });
      * style.image.evaluate(feature); // returns a String
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override image expression with a custom function
      * style.image = {
      *     evaluate : function(feature) {
@@ -27375,7 +27375,7 @@ export class Cesium3DTileStyle {
      * This expression is only applicable to point features in a Vector tile.
      * </p>
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override disableDepthTestDistance expression with a string
      * style.disableDepthTestDistance = '1000.0';
      * style.disableDepthTestDistance.evaluate(feature); // returns a Number
@@ -27396,7 +27396,7 @@ export class Cesium3DTileStyle {
      * });
      * style.horizontalOrigin.evaluate(feature); // returns a HorizontalOrigin
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override horizontalOrigin expression with a custom function
      * style.horizontalOrigin = {
      *     evaluate : function(feature) {
@@ -27420,7 +27420,7 @@ export class Cesium3DTileStyle {
      * });
      * style.verticalOrigin.evaluate(feature); // returns a VerticalOrigin
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override verticalOrigin expression with a custom function
      * style.verticalOrigin = {
      *     evaluate : function(feature) {
@@ -27444,7 +27444,7 @@ export class Cesium3DTileStyle {
      * });
      * style.labelHorizontalOrigin.evaluate(feature); // returns a HorizontalOrigin
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelHorizontalOrigin expression with a custom function
      * style.labelHorizontalOrigin = {
      *     evaluate : function(feature) {
@@ -27468,7 +27468,7 @@ export class Cesium3DTileStyle {
      * });
      * style.labelVerticalOrigin.evaluate(feature); // returns a VerticalOrigin
      * @example
-     * var style = new Cesium.Cesium3DTileStyle();
+     * var style = new Cesium3DTileStyle();
      * // Override labelVerticalOrigin expression with a custom function
      * style.labelVerticalOrigin = {
      *     evaluate : function(feature) {
@@ -27495,12 +27495,12 @@ export class Cesium3DTileStyle {
  * A {@link https://github.com/CesiumGS/3d-tiles/tree/master/specification|3D Tiles tileset},
  * used for streaming massive heterogeneous 3D geospatial datasets.
  * @example
- * var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+ * var tileset = scene.primitives.add(new Cesium3DTileset({
  *      url : 'http://localhost:8002/tilesets/Seattle/tileset.json'
  * }));
  * @example
  * // Common setting for the skipLevelOfDetail optimization
- * var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+ * var tileset = scene.primitives.add(new Cesium3DTileset({
  *      url : 'http://localhost:8002/tilesets/Seattle/tileset.json',
  *      skipLevelOfDetail : true,
  *      baseScreenSpaceError : 1024,
@@ -27512,7 +27512,7 @@ export class Cesium3DTileStyle {
  * }));
  * @example
  * // Common settings for the dynamicScreenSpaceError optimization
- * var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+ * var tileset = scene.primitives.add(new Cesium3DTileset({
  *      url : 'http://localhost:8002/tilesets/Seattle/tileset.json',
  *      dynamicScreenSpaceError : true,
  *      dynamicScreenSpaceErrorDensity : 0.00278,
@@ -27844,7 +27844,7 @@ export class Cesium3DTileset {
      * });
      * @example
      * // Apply a red style and then manually set random colors for every other feature when the tile becomes visible.
-     * tileset.style = new Cesium.Cesium3DTileStyle({
+     * tileset.style = new Cesium3DTileStyle({
      *     color : 'color("red")'
      * });
      * tileset.tileVisible.addEventListener(function(tile) {
@@ -28090,7 +28090,7 @@ export class Cesium3DTileset {
      * a new style is assigned any manually set properties are overwritten.
      * </p>
      * @example
-     * tileset.style = new Cesium.Cesium3DTileStyle({
+     * tileset.style = new Cesium3DTileStyle({
      *    color : {
      *        conditions : [
      *            ['${Height} >= 100', 'color("purple", 0.5)'],
@@ -28146,7 +28146,7 @@ export class Cesium3DTileset {
     /**
      * The tileset's bounding sphere.
      * @example
-     * var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+     * var tileset = viewer.scene.primitives.add(new Cesium3DTileset({
      *     url : 'http://localhost:8002/tilesets/Seattle/tileset.json'
      * }));
      *
@@ -36907,7 +36907,7 @@ export class Scene {
      * // On mouse over, color the feature yellow.
      * handler.setInputAction(function(movement) {
      *     var feature = scene.pick(movement.endPosition);
-     *     if (feature instanceof Cesium.Cesium3DTileFeature) {
+     *     if (feature instanceof Cesium3DTileFeature) {
      *         feature.color = Cesium.Color.YELLOW;
      *     }
      * }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
@@ -38241,7 +38241,7 @@ export class TimeDynamicPointCloud {
      * appearance of the point cloud to its default when no style was applied.
      * </p>
      * @example
-     * pointCloud.style = new Cesium.Cesium3DTileStyle({
+     * pointCloud.style = new Cesium3DTileStyle({
      *    color : {
      *        conditions : [
      *            ['${Classification} === 0', 'color("purple", 0.5)'],
@@ -39306,7 +39306,7 @@ export class WebMapTileServiceImageryProvider {
  * // Create Cesium OSM Buildings with a custom style highlighting
  * // schools and hospitals.
  * viewer.scene.primitives.add(Cesium.createOsmBuildings({
- *   style: new Cesium.Cesium3DTileStyle({
+ *   style: new Cesium3DTileStyle({
  *     color: {
  *       conditions: [
  *         ["${feature['building']} === 'hospital'", "color('#0000FF')"],
@@ -39611,7 +39611,7 @@ export namespace AnimationViewModel {
  *  }));
  *
  * //Create a CesiumWidget without imagery, if you haven't already done so.
- * var cesiumWidget = new Cesium.CesiumWidget('cesiumContainer', { imageryProvider: false });
+ * var cesiumWidget = new CesiumWidget('cesiumContainer', { imageryProvider: false });
  *
  * //Finally, create the baseLayerPicker widget using our view models.
  * var layers = cesiumWidget.imageryLayers;
@@ -40326,10 +40326,10 @@ export class CesiumInspectorViewModel {
  * // and in the body, include: <div id="cesiumContainer"></div>
  *
  * //Widget with no terrain and default Bing Maps imagery provider.
- * var widget = new Cesium.CesiumWidget('cesiumContainer');
+ * var widget = new CesiumWidget('cesiumContainer');
  *
  * //Widget with ion imagery and Cesium World Terrain.
- * var widget = new Cesium.CesiumWidget('cesiumContainer', {
+ * var widget = new CesiumWidget('cesiumContainer', {
  *     imageryProvider : Cesium.createWorldImagery(),
  *     terrainProvider : Cesium.createWorldTerrain(),
  *     skyBox : new Cesium.SkyBox({

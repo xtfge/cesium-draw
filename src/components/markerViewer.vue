@@ -1,11 +1,3 @@
-<!--
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-12-18 10:32:33
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-17 13:42:02
- * @Desc: 包括点标绘、文字标绘、模型标绘
- -->
 <template>
 <div id="markerContainer" :style="{left:winPos.x+'px',top:winPos.y+'px'}">
     <el-dialog :title="markName+'附件'" :visible.sync="dialogVisible" :modal-append-to-body="false">
@@ -585,7 +577,7 @@ export default {
             border-radius: $b-radius;
             width: 199px;
             height: 38px;
-            color: #ffffff;
+            color: $color;
         }
     }
 
@@ -595,9 +587,9 @@ export default {
         margin: 0 2px;
         width: 92px;
         height: 36px;
-        background-color: $color;
+        background-color: $bg-color;
         border: none;
-        color: #ffffff;
+        color: $color;
         border-radius: $b-radius;
         vertical-align: middle;
     }

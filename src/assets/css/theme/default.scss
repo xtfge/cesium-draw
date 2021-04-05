@@ -1,7 +1,7 @@
-$bg-color:#171E26;
-$color:#3A89DD;
+$bg-color:#FFFFFF;
+$color:#000000;
 $color-l:#C7E9FA;
-$font-color:$color;
+$font-color:#000000;
 $selected-color:#409EFF;
 $border-color:#E4E7ED;
 $devision-color:#DCDFE6;
@@ -31,7 +31,7 @@ $font-size:12px;
 }
 //关闭按钮
 .closebtn{
-  text-align: center;  
+  text-align: center;
   display: inline-block!important;
   font-size: $font-size;
   color:$color;
@@ -94,4 +94,3 @@ $font-size:12px;
     border-color: $bg-color transparent transparent transparent;
   }
 }
-

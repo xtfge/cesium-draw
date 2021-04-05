@@ -1,16 +1,9 @@
-/**
- @Author:zhangbo
- @Date:2019-03-13 21:18:48
- @E-mail:zhangb@geovie.com.cn
- @LastEditors:zhangbo
- @Last Modified time:2019-03-13 21:18:48
- */
 import $ from "jquery";
 
-const Cesium = window.Cesium;
 /**
- * Cesium坐标转换工具
- */
+*
+  Cesium坐标转换工具
+*/
 const CVT = (function() {
   function _() {}
   _.cartesian2Pixel = function(cartesian, viewer) {
@@ -53,14 +46,22 @@ const CVT = (function() {
     const lon = cartographic.longitude;
     const lat = cartographic.latitude;
     const height = cartographic.height;
-    return { lon, lat, height };
+    return {
+      lon,
+      lat,
+      height
+    };
   };
   _.cartesian2Degrees = function(cartesian, viewer) {
     const coords = _.cartesian2Radians(cartesian, viewer);
     const lon = Cesium.Math.toDegrees(coords.lon);
     const lat = Cesium.Math.toDegrees(coords.lat);
     const height = coords.height;
-    return { lon, lat, height };
+    return {
+      lon,
+      lat,
+      height
+    };
   };
   _.degrees2Cartesian = function(position) {
     const cartesian = Cesium.Cartesian3.fromDegrees(
@@ -139,7 +140,10 @@ function moveDiv(container, target) {
       $("#" + container).stop(); //加上这个之后
       let _x = ev.pageX - x; //获得X轴方向移动的值
       let _y = ev.pageY - y; //获得Y轴方向移动的值
-      $("#" + container).animate({ left: _x + "px", top: _y + "px" }, 10);
+      $("#" + container).animate({
+        left: _x + "px",
+        top: _y + "px"
+      }, 10);
     });
   });
   $(document).mouseup(function() {
@@ -281,6 +285,7 @@ const downloadFile = (fileName, content) => {
   aLink.download = fileName;
   aLink.href = URL.createObjectURL(blob);
   aLink.click();
+
   function base64ToBlob(code) {
     //base64转blob
     let parts = code.split(";base64,");
@@ -293,7 +298,9 @@ const downloadFile = (fileName, content) => {
     for (let i = 0; i < rawLength; ++i) {
       uInt8Array[i] = raw.charCodeAt(i);
     }
-    return new Blob([uInt8Array], { type: contentType });
+    return new Blob([uInt8Array], {
+      type: contentType
+    });
   }
 };
 const errroCatch = function(e, callback) {
@@ -340,25 +347,27 @@ class CursorTip {
     }
   }
 }
-function checkViewer(viewer){
-    if(viewer instanceof Cesium.Viewer === false){
-        throw new GVError(viewer+"不是一个有效的Cesium Viewer对象")
-    }
+
+function checkViewer(viewer) {
+  if (viewer instanceof Cesium.Viewer === false) {
+    throw new CesiumDrawError(viewer + "不是一个有效的Cesium Viewer对象")
+  }
 }
-function checkComponent(component,object){
-    if(component&&component._viewer instanceof Cesium.Viewer === false){
-        throw new GVError('组件尚未初始化'+component._uid)
-    }
-    else if(!component&&!window.Cesium.defined(object)){
-        throw new GVError('组件尚未初始化')
-    }
+
+function checkComponent(component, object) {
+  if (component && component._viewer instanceof Cesium.Viewer === false) {
+    throw new CesiumDrawError('组件尚未初始化' + component._uid)
+  } else if (!component && !Cesium.defined(object)) {
+    throw new CesiumDrawError('组件尚未初始化')
+  }
 }
-class GVError extends Error{
-    constructor(message){
-        super(message);
-        this.name='GVError'
-    }
+class CesiumDrawError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'CesiumDrawError'
+  }
 }
+
 function pointVisibilityOnEarth(point, viewer) {
   return new Cesium.EllipsoidalOccluder(Cesium.Ellipsoid.WGS84, viewer.camera.position)
     .isPointVisible(point);

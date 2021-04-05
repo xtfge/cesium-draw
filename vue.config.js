@@ -1,11 +1,3 @@
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-10-10 09:54:10
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 17:09:00
- * @Desc: 
- */
 const path = require('path');
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,10 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const theme='default'
+const theme = 'default'
 module.exports = {
+  outputDir: "dist",
   configureWebpack: {
-
     plugins: [
 
       new webpack.ProvidePlugin({
@@ -82,8 +74,10 @@ module.exports = {
     config.module
       .rule('images')
       .use('url-loader')
-      .loader('url-loader')      
-      .tap(options => Object.assign(options, { limit: 10000 }))
+      .loader('url-loader')
+      .tap(options => Object.assign(options, {
+        limit: 10000
+      }))
     config.resolve.alias
       .set('@', resolve('src'))
   }

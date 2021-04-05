@@ -11455,6 +11455,13 @@ exports.default = function (ref) {
 
 /***/ }),
 
+/***/ "1332":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "1495":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13088,6 +13095,17 @@ $exports.store = store;
 
 /***/ }),
 
+/***/ "2b84":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_32acc14e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a144");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_32acc14e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_32acc14e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_32acc14e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "2bb5":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13169,12 +13187,12 @@ exports.default = {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=360943b8&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6f1d55ac-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/markerViewer.vue?vue&type=template&id=fcd09e58&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({left:_vm.winPos.x+'px',top:_vm.winPos.y+'px'}),attrs:{"id":"markerContainer"}},[_c('el-dialog',{attrs:{"title":_vm.markName+'附件',"visible":_vm.dialogVisible,"modal-append-to-body":false},on:{"update:visible":function($event){_vm.dialogVisible=$event}}},[_c('el-upload',{ref:"upload",staticClass:"upload-class",attrs:{"action":_vm.attachment.action,"on-remove":_vm.attachment.delete,"on-success":_vm.attachment.success,"file-list":_vm.attachment.fileList,"on-preview":_vm.attachment.download,"auto-upload":false}},[_c('el-button',{attrs:{"slot":"trigger","size":"small","type":"primary"},slot:"trigger"},[_vm._v("选取文件")]),_c('el-button',{staticStyle:{"margin-left":"10px"},attrs:{"size":"small","type":"success"},on:{"click":function($event){return _vm.$refs.upload.submit()}}},[_vm._v("上传到服务器")])],1)],1),(_vm.markMode==='marker')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"createMerkerPanel"}},[_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectPanel),expression:"!selectPanel"}]},[_c('el-header',[_c('span',[_vm._v("添加标记")]),(_vm.attachment.enabled)?_c('i',{staticClass:"el-icon-paperclip",staticStyle:{"font-size":"16px"},attrs:{"title":"附件"},on:{"click":function($event){_vm.dialogVisible=true}}}):_vm._e(),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":function($event){_vm.visible=false}}})]),_c('el-container',{attrs:{"id":"marker-panel"}},[_c('el-container',[_c('el-main',{staticClass:"marker-main-class"},[_vm._v("\r\n                        名称：\r\n                        "),_c('el-input',{ref:"nameinput",nativeOn:{"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('br'),_vm._v("描述：\r\n                        "),_c('el-input',{attrs:{"type":"textarea"},model:{value:(_vm.markRemark),callback:function ($$v) {_vm.markRemark=$$v},expression:"markRemark"}})],1),_c('el-aside',[_c('img',{attrs:{"src":_vm.selectedImage}}),_c('br'),_c('a',{attrs:{"href":"#","id":"imageC"},on:{"click":function($event){_vm.selectPanel=true}}},[_vm._v("更换")])])],1),_c('el-footer',[_c('el-button',{attrs:{"type":"danger","id":"cancelbtn","plain":"","size":"mini"},on:{"click":_vm.cancelMark}},[_vm._v("删除")]),_c('el-button',{attrs:{"type":"primary","plain":"","size":"mini","id":"submitbtn"},on:{"click":_vm.update}},[_vm._v("确定")])],1)],1)],1),_c('el-container',{directives:[{name:"show",rawName:"v-show",value:(_vm.selectPanel),expression:"selectPanel"}],staticClass:"image-list-class"},_vm._l((_vm.images),function(img,index){return _c('img',{key:index,attrs:{"src":img},on:{"click":function($event){return _vm.changeHandler(img)}}})}),0)],1):_vm._e(),(_vm.markMode==='label')?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],style:({left:_vm.winPos.x+'px',top:_vm.winPos.y+'px'}),attrs:{"id":"createLabelPanel"}},[_c('el-input',{nativeOn:{"keypress":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.update($event)}},model:{value:(_vm.markName),callback:function ($$v) {_vm.markName=$$v},expression:"markName"}}),_c('el-button',{attrs:{"size":"mini"},on:{"click":_vm.update}},[_vm._v("确定")])],1):_vm._e(),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"uploadhandler","accept":".json"},on:{"change":_vm.importMarks}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=360943b8&scoped=true&
+// CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=template&id=fcd09e58&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -13251,20 +13269,10 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2020-03-30 19:50:05
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-09 17:23:52
- * @Desc: 
- */
 
 
 
 
-var Cesium = window.Cesium;
-var defined = Cesium.defined;
 var cvt = utils["d" /* default */].CVT;
 var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
 var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
@@ -13338,12 +13346,13 @@ function () {
         throw new Error("viewer不是一个有效的Cesium Viewer对象.");
       }
 
+      this.viewer = viewer;
       var handler = this.handler;
       var self = this;
       var manager = this.manager; //气泡跟随地球移动
 
       viewer.scene.postRender.addEventListener(function () {
-        if (defined(self.popWinPosition)) {
+        if (Cesium.defined(self.popWinPosition)) {
           var pos = cvt.cartesian2Pixel(self.popWinPosition, viewer);
           var ele = document.getElementById("popContainer");
 
@@ -13367,9 +13376,9 @@ function () {
       var showTip = function showTip(e) {
         var obj = viewer.scene.pick(e.position);
 
-        if (defined(obj) && obj.id instanceof Cesium.Entity && obj.id.gvtype === GraphicType["a" /* default */].MARKER) {
+        if (Cesium.defined(obj) && obj.id instanceof Cesium.Entity && obj.id.mtype === GraphicType["a" /* default */].MARKER) {
           //   self.popWinPosition = cvt.pixel2Cartesian(e.position, viewer);
-          self.selectedMarker = manager.get(obj.id.gvid);
+          self.selectedMarker = manager.get(obj.id.mid);
 
           if (self.popDiv) {
             self.destroyPopPanle();
@@ -13384,10 +13393,10 @@ function () {
       handler.setInputAction(showTip, LEFT_CLICK);
     }
     /**
-    * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
-    * @param {string} type表示何种标记,marker:billboard，label:label,model:model
-    * @param {string} mode如果mode不是single，将连续添加标记
-    */
+     * 开始拾取marker，调用该方法后开始监听鼠标单击，添加标记
+     * @param {string} type表示何种标记,marker:billboard，label:label,model:model
+     * @param {string} mode如果mode不是single，将连续添加标记
+     */
 
   }, {
     key: "pick",
@@ -13423,7 +13432,7 @@ function () {
 
           self.visible = true;
           manager.set(id, marker);
-          marker.gvid = id; // marker.gvname = "未命名" + viewer.entities.values.length;
+          marker.mid = id; // marker.mname = "未命名" + viewer.entities.values.length;
 
           self.selectedMarker = marker;
           self.activeMarker = marker;
@@ -13440,10 +13449,10 @@ function () {
 
           var evt = new CustomEvent('marker-add', {
             detail: {
-              id: marker.gvid,
-              name: marker.gvname || '未命名',
+              id: marker.mid,
+              name: marker.mname || '未命名',
               description: marker.description,
-              type: marker.gvtype,
+              type: marker.mtype,
               position: cvt.toDegrees(cartesian, self._viewer)
             }
           });
@@ -13512,7 +13521,7 @@ function () {
     value: function panelPosition() {
       if (this.activeMarker) {
         if (this.markMode === "marker") {
-          var position = this.activeMarker.graphic.position.getValue();
+          var position = this.activeMarker.graphic.position.getValue(this.viewer.clock.currentTime);
           var pixel = cvt.cartesian2Pixel(position, this._viewer);
           var x = pixel.x > 170 ? pixel.x - 170 : pixel.x + 10;
           var y = pixel.y > 210 ? pixel.y - 240 : pixel.y + 50;
@@ -13521,7 +13530,7 @@ function () {
             y: y
           };
         } else {
-          var _position = this.activeMarker.graphic.position.getValue();
+          var _position = this.activeMarker.graphic.position.getValue(this.viewer.clock.currentTime);
 
           var _pixel = cvt.cartesian2Pixel(_position, this._viewer);
 
@@ -13580,7 +13589,7 @@ function () {
         this.activeMarker.destroy();
         var evt = new CustomEvent('marker-delete', {
           detail: {
-            id: this.activeMarker.gvid
+            id: this.activeMarker.mid
           }
         });
         window.dispatchEvent(evt);
@@ -13606,8 +13615,8 @@ function () {
         this.activeMarker = mm;
         mm.startEdit();
 
-        if (mm.gvtype === GraphicType["a" /* default */].MARKER || mm.gvtype === GraphicType["a" /* default */].LABEL) {
-          this.markName = this.activeMarker.gvname;
+        if (mm.mtype === GraphicType["a" /* default */].MARKER || mm.mtype === GraphicType["a" /* default */].LABEL) {
+          this.markName = this.activeMarker.mname;
           this.markRemark = this.activeMarker.description;
           this.visible = true;
         } // this.activeMarker.zoomTo();
@@ -13636,20 +13645,20 @@ function () {
     key: "rename",
     value: function rename(id, name) {
       var mm = this.manager.get(id);
-      mm.gvname = name;
+      mm.mname = name;
     }
   }, {
     key: "select",
     value: function select(type, id, status) {
-      if (defined(id)) {
+      if (Cesium.defined(id)) {
         var manager = this.manager.get(id);
 
-        if (defined(manager)) {
+        if (Cesium.defined(manager)) {
           manager.show = status;
         }
       }
 
-      if (defined(type)) {
+      if (Cesium.defined(type)) {
         var values = this.manager.values();
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -13659,7 +13668,7 @@ function () {
           for (var _iterator = values[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var v = _step.value;
 
-            if (v.gvtype === type) {
+            if (v.mtype === type) {
               v.show = status;
             }
           }
@@ -13709,7 +13718,7 @@ function () {
   }, {
     key: "createPopPanel",
     value: function createPopPanel() {
-      if (!defined(this.selectedMarker)) {
+      if (!Cesium.defined(this.selectedMarker)) {
         return;
       }
 
@@ -13765,7 +13774,7 @@ function () {
       var id = this.generateId();
       var marker;
 
-      if (feat.properties.gvtype === GraphicType["a" /* default */].LABEL) {
+      if (feat.properties.mtype === GraphicType["a" /* default */].LABEL) {
         var _Cesium$Cartesian;
 
         var lopts = Graphic["b" /* CesiumLabel */].defaultStyle;
@@ -13781,14 +13790,14 @@ function () {
         marker = Graphic["a" /* CesiumBillboard */].fromDegrees(this._viewer, coord);
       }
 
-      marker.gvname = feat.properties.name;
-      marker.gvid = id;
+      marker.mname = feat.properties.name;
+      marker.mid = id;
       this.manager.set(id, marker);
       var evt = new CustomEvent('marker-add', {
         detail: {
-          id: marker.gvid,
-          name: marker.gvname || '未命名',
-          type: marker.gvtype,
+          id: marker.mid,
+          name: marker.mname || '未命名',
+          type: marker.mtype,
           description: marker.description,
           properties: feat.properties,
           position: {
@@ -13803,7 +13812,7 @@ function () {
   }, {
     key: "addMarker",
     value: function addMarker(marker) {
-      this.manager.set(marker.gvid, marker);
+      this.manager.set(marker.mid, marker);
     }
   }, {
     key: "export",
@@ -13911,8 +13920,8 @@ function () {
       this.activeMarker.stopEdit();
       var evt = new CustomEvent('marker-update', {
         detail: {
-          id: this.activeMarker.gvid,
-          name: this.activeMarker.gvname,
+          id: this.activeMarker.mid,
+          name: this.activeMarker.mname,
           description: this.activeMarker.description,
           position: cvt.toDegrees(this.activeMarker.position, this._viewer)
         }
@@ -14008,14 +14017,6 @@ function markerViewervue_type_script_lang_js_ownKeys(object, enumerableOnly) { v
 
 function markerViewervue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { markerViewervue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { markerViewervue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -14319,8 +14320,8 @@ function markerViewervue_type_script_lang_js_objectSpread(target) { for (var i =
 });
 // CONCATENATED MODULE: ./src/components/markerViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_markerViewervue_type_script_lang_js_ = (markerViewervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=360943b8&lang=scss&scoped=true&
-var markerViewervue_type_style_index_0_id_360943b8_lang_scss_scoped_true_ = __webpack_require__("676c");
+// EXTERNAL MODULE: ./src/components/markerViewer.vue?vue&type=style&index=0&id=fcd09e58&lang=scss&scoped=true&
+var markerViewervue_type_style_index_0_id_fcd09e58_lang_scss_scoped_true_ = __webpack_require__("e1ff");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
@@ -14340,7 +14341,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "360943b8",
+  "fcd09e58",
   null
   
 )
@@ -14373,17 +14374,6 @@ module.exports = function (it) {
   return toString.call(it).slice(8, -1);
 };
 
-
-/***/ }),
-
-/***/ "2e19":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_015cfe9e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("d278");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_015cfe9e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_015cfe9e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_015cfe9e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -14614,13 +14604,6 @@ __webpack_require__("ec30")('Uint8', 1, function (init) {
   };
 });
 
-
-/***/ }),
-
-/***/ "354a":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -16945,14 +16928,6 @@ module.exports = __webpack_require__("dc62");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-12-17 18:35:25
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-18 18:47:08
- * @Desc: 定义几何图形类型
- */
 var GraphicType = function () {
   function _() {}
 
@@ -17238,19 +17213,17 @@ module.exports = __webpack_require__("25b0");
 /* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("ac6a");
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("cadf");
-/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5df3");
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("f400");
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("d225");
-/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("b0b4");
-/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("cd53");
-/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("9944");
-/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("4ab0");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("21a6");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("5df3");
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("f400");
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("d225");
+/* harmony import */ var D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("b0b4");
+/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("cd53");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("9944");
+/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("4ab0");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("21a6");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_13__);
 
 
 
@@ -17263,21 +17236,9 @@ module.exports = __webpack_require__("25b0");
 
 
 
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-12-17 16:48:49
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-09 17:15:25
- * @Desc: 绘图类，定义了交互绘图的相关操作
- */
 
 
 
-
-
-var Cesium = window.Cesium;
-var defined = Cesium.defined;
 var console = window.console;
 var LEFT_CLICK = Cesium.ScreenSpaceEventType.LEFT_CLICK;
 var RIGHT_CLICK = Cesium.ScreenSpaceEventType.RIGHT_CLICK;
@@ -17296,7 +17257,7 @@ function () {
   function GraphicManager(viewer) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(this, GraphicManager);
+    Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(this, GraphicManager);
 
     if (viewer instanceof Cesium.Viewer === false) {
       throw new Error('viewer不是一个有效的Cesium Viewer');
@@ -17305,10 +17266,10 @@ function () {
     this.viewer = viewer;
     this.options = options;
     /*heightReference 定义几何图形的高程基准
-    *CLAMP_TO_GROUND:依附地形
-    *CLAMP_TO_MODEL:依附模型
-    *NONE:空间线
-    */
+     *CLAMP_TO_GROUND:依附地形
+     *CLAMP_TO_MODEL:依附模型
+     *NONE:空间线
+     */
 
     this._heightReference = 'CLAMP_TO_GROUND';
     this._material = undefined;
@@ -17317,7 +17278,7 @@ function () {
     this.handler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
     this.graphicType = undefined;
     this.positions = [];
-    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* default */ "d"].CursorTip('');
+    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_11__[/* default */ "d"].CursorTip('');
     this.tip.visible = false;
     this.mode = 'ready';
     this.dragging = false; // this.init()
@@ -17335,7 +17296,7 @@ function () {
       var e = event || window.event || arguments.callee.caller.arguments[0];
 
       if (e && e.keyCode == 46) {
-        // 按 delete 
+        // 按 delete
         if (self.selectedNodeIndex > -1 && self.editManager) {
           self.editManager.dropNode(self.selectedNodeIndex);
           self.highlightedNode(undefined, self.editManager.nodeGraphic);
@@ -17347,7 +17308,7 @@ function () {
           self.tip.visible = false;
           var evt = new CustomEvent('deleteEvent', {
             detail: {
-              gvid: self.editManager ? self.editManager.gvid : undefined
+              mid: self.editManager ? self.editManager.mid : undefined
             }
           });
           document.dispatchEvent(evt);
@@ -17358,16 +17319,16 @@ function () {
 
   }
 
-  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(GraphicManager, [{
+  Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(GraphicManager, [{
     key: "createPolyline",
 
     /**
-     * 
+     *
      * @param {Object} options 定义一个CesiumPolyline
      */
     value: function createPolyline() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolyline */ "f"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYLINE;
       var id = this.generateId();
       options.positions = this.positions;
 
@@ -17379,11 +17340,11 @@ function () {
 
       options.material = this.material || options.material;
       options.width = this.style.width || options.width;
-      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"](this.viewer, options);
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolyline */ "f"](this.viewer, options);
       this.tip.updateText('左键标绘，右键结束.');
       this.tip.visible = true;
-      manager.gvid = id; // manager.id = id
-      // manager.gvname = '未命名';
+      manager.mid = id; // manager.id = id
+      // manager.mname = '未命名';
 
       manager.heightReference = this.heightReference;
       this.manager.set(id, manager);
@@ -17391,9 +17352,9 @@ function () {
       this.editManager = manager;
       var evt = new CustomEvent('addEvent', {
         detail: {
-          gvid: manager.gvid,
-          gvtype: manager.gvtype,
-          gvname: manager.gvname
+          mid: manager.mid,
+          mtype: manager.mtype,
+          mname: manager.mname
         }
       });
       document.dispatchEvent(evt);
@@ -17405,15 +17366,15 @@ function () {
       return manager;
     }
     /**
-     * 
+     *
      * @param {Object} options 定义一个CesiumPolygon
      */
 
   }, {
     key: "createPolygon",
     value: function createPolygon() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolygon */ "e"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYGON;
       var id = this.generateId();
       this.graphicId = id;
       options.positions = this.positions;
@@ -17428,9 +17389,9 @@ function () {
       options.material = this.material || options.material;
       options.outlineWidth = this.style.outlineWidth || options.outlineWidth;
       options.outlineColor = this.style.outlineColor || options.outlineColor;
-      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"](this.viewer, options);
-      manager.gvid = id; // manager.id = id;
-      // manager.gvname = '未命名';
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolygon */ "e"](this.viewer, options);
+      manager.mid = id; // manager.id = id;
+      // manager.mname = '未命名';
 
       manager.heightReference = this.heightReference;
       this.tip.visible = true;
@@ -17439,9 +17400,9 @@ function () {
       this.editManager = manager;
       var evt = new CustomEvent('addEvent', {
         detail: {
-          gvid: manager.gvid,
-          gvtype: manager.gvtype,
-          gvname: manager.gvname
+          mid: manager.mid,
+          mtype: manager.mtype,
+          mname: manager.mname
         }
       });
       document.dispatchEvent(evt);
@@ -17460,7 +17421,7 @@ function () {
   }, {
     key: "isKnownGraphic",
     value: function isKnownGraphic(pickedObj) {
-      if (defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON || pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT)) {
+      if (Cesium.defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYLINE || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYGON || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POINT)) {
         return true;
       }
 
@@ -17468,15 +17429,15 @@ function () {
     }
     /**
      * 将当前选中的点设为高亮
-     * @param {Cartesian3} node 
-     * @param {CesiumPoint} cp 
+     * @param {Cartesian3} node
+     * @param {CesiumPoint} cp
      */
 
   }, {
     key: "highlightedNode",
     value: function highlightedNode(node, cp) {
-      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].selectedStyle;
-      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].defaultStyle;
+      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPoint */ "d"].selectedStyle;
+      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPoint */ "d"].defaultStyle;
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -17486,9 +17447,9 @@ function () {
           var n = _step.value;
 
           if (n === node) {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, soption);
+            _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPoint */ "d"].setStyle(n, soption);
           } else {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, doption);
+            _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPoint */ "d"].setStyle(n, doption);
           }
         }
       } catch (err) {
@@ -17533,7 +17494,7 @@ function () {
               var obj = _step2.value;
               known = self.isKnownGraphic(obj);
 
-              if (known && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+              if (known && obj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POINT) {
                 pickedObj = obj; //再事件监听之前移除上次的监听
 
                 self.handler.removeInputAction(MOUSE_DOWN);
@@ -17560,7 +17521,7 @@ function () {
           }
 
           if (pickedObj && known) {
-            if (pickedObj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+            if (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POINT) {
               self.selectedNodeIndex = nodeGraphic.contain(pickedObj.id);
 
               if (self.selectedNodeIndex !== -1) {
@@ -17586,11 +17547,11 @@ function () {
         } //非法的要素类型
 
 
-        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON) {
+        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"].POLYGON) {
           return;
         }
 
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_11__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
 
         if (/.*MODEL.*/.test(self._heightReference)) {
           if (!viewer.scene.pickPositionSupported) {
@@ -17607,7 +17568,7 @@ function () {
           self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
         }
 
-        if (defined(cartesian) && self.manager.has(self.graphicId)) {
+        if (Cesium.defined(cartesian) && self.manager.has(self.graphicId)) {
           self.manager.get(self.graphicId).addNode(cartesian);
         }
 
@@ -17648,7 +17609,7 @@ function () {
       };
 
       var moseMoveHandler = function moseMoveHandler(e) {
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_11__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
 
         if (/.*MODEL.*/.test(self._heightReference)) {
           if (!viewer.scene.pickPositionSupported) {
@@ -17659,7 +17620,7 @@ function () {
           cartesian = viewer.scene.pickPosition(e.endPosition);
         }
 
-        if (!defined(cartesian)) {
+        if (!Cesium.defined(cartesian)) {
           return;
         }
 
@@ -17696,7 +17657,7 @@ function () {
           for (var _iterator3 = objs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
             var obj = _step3.value;
 
-            if (_Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
+            if (_Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
               isCesiumPoint = true;
             }
           }
@@ -17739,8 +17700,8 @@ function () {
     value: function rename(id, name) {
       var graphic = this.manager.get(id);
 
-      if (defined(graphic)) {
-        graphic.gvname = name;
+      if (Cesium.defined(graphic)) {
+        graphic.mname = name;
       }
     }
   }, {
@@ -17779,7 +17740,7 @@ function () {
   }, {
     key: "select",
     value: function select(type, id, status) {
-      if (defined(id)) {
+      if (Cesium.defined(id)) {
         var manager = this.manager.get(id);
 
         if (manager) {
@@ -17787,7 +17748,7 @@ function () {
         }
       }
 
-      if (defined(type)) {
+      if (Cesium.defined(type)) {
         var values = this.manager.values();
         var _iteratorNormalCompletion4 = true;
         var _didIteratorError4 = false;
@@ -17797,7 +17758,7 @@ function () {
           for (var _iterator4 = values[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
             var v = _step4.value;
 
-            if (v.gvtype === type) {
+            if (v.mtype === type) {
               v.show = status;
             }
           }
@@ -17827,7 +17788,7 @@ function () {
       }, MOUSE_MOVE);
       self.graphicId = id;
 
-      if (defined(manager)) {
+      if (Cesium.defined(manager)) {
         // manager.zoomTo()
         self.mode = 'edit';
         manager.startEdit();
@@ -17894,7 +17855,7 @@ function () {
       var blob = new Blob([JSON.stringify(json)], {
         type: ""
       });
-      Object(file_saver__WEBPACK_IMPORTED_MODULE_14__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
+      Object(file_saver__WEBPACK_IMPORTED_MODULE_13__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
     }
   }, {
     key: "import",
@@ -17935,7 +17896,7 @@ function () {
         }
 
         try {
-          graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions, feat.properties);
+          graphic = _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions, feat.properties);
         } catch (e) {
           console.log(e);
         }
@@ -17969,20 +17930,20 @@ function () {
           }
         }
 
-        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions, feat.properties);
+        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_10__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions, feat.properties);
       } else {
         throw new Error('不能识别的数据源.');
       }
 
       if (graphic) {
-        graphic.gvid = id;
-        graphic.gvname = feat.properties.name;
+        graphic.mid = id;
+        graphic.mname = feat.properties.name;
         this.manager.set(id, graphic);
         var evt = new CustomEvent('addEvent', {
           detail: {
-            gvid: graphic.gvid,
-            gvtype: graphic.gvtype,
-            gvname: graphic.gvname || '未命名'
+            mid: graphic.mid,
+            mtype: graphic.mtype,
+            mname: graphic.mname || '未命名'
           }
         });
         document.dispatchEvent(evt);
@@ -18050,7 +18011,7 @@ function () {
       var manager = this.editManager;
       var evt = new CustomEvent('destroyEvent', {
         detail: {
-          gvid: manager ? manager.gvid : undefined
+          mid: manager ? manager.mid : undefined
         }
       });
 
@@ -63385,7 +63346,7 @@ __webpack_require__("01f9")(String, 'String', function (iterated) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/layerManager.vue?vue&type=template&id=47c69614&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6f1d55ac-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/layerManager.vue?vue&type=template&id=2766dec8&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"layer-manager-box",attrs:{"id":"layer-manager-box"}},[_c('div',{staticClass:"layer-manager-header",attrs:{"id":"layer-manager-header"}},[_c('i',{staticClass:"iconfont iconclose1"}),_c('span',[_vm._v("标绘清单")]),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":_vm.closeLayerManaer}})]),_c('div',{staticClass:"layer-manager-tools"},[_c('span',{staticClass:"el-dropdown-link",on:{"click":_vm.importHandler}},[_vm._m(0)]),_c('el-dropdown',{attrs:{"trigger":"click"},on:{"command":_vm.exportHandler}},[_c('span',{staticClass:"el-dropdown-link"},[_c('i',{staticClass:"iconfont iconexport action-icon-class"},[_c('span',[_vm._v("导出")])])]),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',{staticClass:"iconfont iconmarker",attrs:{"command":"MARKER"}},[_vm._v("标记")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolyline",attrs:{"command":"POLYLINE"}},[_vm._v("线")]),_c('el-dropdown-item',{staticClass:"iconfont iconpolygon",attrs:{"command":"POLYGON"}},[_vm._v("多边形")]),_c('el-dropdown-item',{staticClass:"iconfont iconlabel",attrs:{"command":"LABEL"}},[_vm._v("书签")])],1)],1),_c('i',{staticClass:"iconfont iconremove action-icon-last-class",on:{"click":_vm.removeAll}},[_c('span',[_vm._v("清空")])])],1),_c('div',{staticClass:"graphic-draw-layer-manager-class",attrs:{"id":"layerTree"}},[_c('el-tree',{ref:"tree",attrs:{"data":_vm.json,"show-checkbox":"","node-key":"id","default-expanded-keys":['marker','polyline','polygon']},on:{"check":_vm.checkAction},scopedSlots:_vm._u([{key:"default",fn:function(ref){
 var node = ref.node;
 var data = ref.data;
@@ -63393,7 +63354,7 @@ return _c('span',{staticClass:"custom-tree-node"},[_c('i',{staticClass:"action-i
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('i',{staticClass:"iconfont iconimport action-icon-class"},[_c('span',[_vm._v("导入")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=template&id=47c69614&scoped=true&
+// CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=template&id=2766dec8&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
 var es7_symbol_async_iterator = __webpack_require__("ac4d");
@@ -63428,14 +63389,6 @@ var es6_map = __webpack_require__("f400");
 
 
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -63770,8 +63723,8 @@ var es6_map = __webpack_require__("f400");
 });
 // CONCATENATED MODULE: ./src/components/layerManager.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_layerManagervue_type_script_lang_js_ = (layerManagervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=0&id=47c69614&lang=scss&scoped=true&
-var layerManagervue_type_style_index_0_id_47c69614_lang_scss_scoped_true_ = __webpack_require__("e6c9");
+// EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=0&id=2766dec8&lang=scss&scoped=true&
+var layerManagervue_type_style_index_0_id_2766dec8_lang_scss_scoped_true_ = __webpack_require__("86d6");
 
 // EXTERNAL MODULE: ./src/components/layerManager.vue?vue&type=style&index=1&lang=scss&
 var layerManagervue_type_style_index_1_lang_scss_ = __webpack_require__("a293");
@@ -63795,7 +63748,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "47c69614",
+  "2766dec8",
   null
   
 )
@@ -65253,17 +65206,6 @@ $export($export.P, 'Array', {
 
 __webpack_require__("9c6c")('includes');
 
-
-/***/ }),
-
-/***/ "676c":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("9a76");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_360943b8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -68614,6 +68556,17 @@ exports.f = __webpack_require__("9e1e") ? Object.defineProperty : function defin
 
 /***/ }),
 
+/***/ "86d6":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_2766dec8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("af77");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_2766dec8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_2766dec8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_2766dec8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "8a81":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69890,6 +69843,7 @@ var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 /* unused harmony export viewCenter */
 /* unused harmony export saveCurViewerImage */
 /* unused harmony export downloadFile */
+/* unused harmony export pointVisibilityOnEarth */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CVT; });
 /* unused harmony export CursorTip */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return checkComponent; });
@@ -69904,17 +69858,9 @@ var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
 
 
 /**
- @Author:zhangbo
- @Date:2019-03-13 21:18:48
- @E-mail:zhangb@geovie.com.cn
- @LastEditors:zhangbo
- @Last Modified time:2019-03-13 21:18:48
- */
-
-var Cesium = window.Cesium;
-/**
- * Cesium坐标转换工具
- */
+*
+  Cesium坐标转换工具
+*/
 
 var CVT = function () {
   function _() {}
@@ -70279,35 +70225,39 @@ function () {
 
 function checkViewer(viewer) {
   if (viewer instanceof Cesium.Viewer === false) {
-    throw new utils_GVError(viewer + "不是一个有效的Cesium Viewer对象");
+    throw new utils_CesiumDrawError(viewer + "不是一个有效的Cesium Viewer对象");
   }
 }
 
 function checkComponent(component, object) {
   if (component && component._viewer instanceof Cesium.Viewer === false) {
-    throw new utils_GVError('组件尚未初始化' + component._uid);
-  } else if (!component && !window.Cesium.defined(object)) {
-    throw new utils_GVError('组件尚未初始化');
+    throw new utils_CesiumDrawError('组件尚未初始化' + component._uid);
+  } else if (!component && !Cesium.defined(object)) {
+    throw new utils_CesiumDrawError('组件尚未初始化');
   }
 }
 
-var utils_GVError =
+var utils_CesiumDrawError =
 /*#__PURE__*/
 function (_Error) {
-  Object(inherits["a" /* default */])(GVError, _Error);
+  Object(inherits["a" /* default */])(CesiumDrawError, _Error);
 
-  function GVError(message) {
+  function CesiumDrawError(message) {
     var _this;
 
-    Object(classCallCheck["a" /* default */])(this, GVError);
+    Object(classCallCheck["a" /* default */])(this, CesiumDrawError);
 
-    _this = Object(possibleConstructorReturn["a" /* default */])(this, Object(getPrototypeOf["a" /* default */])(GVError).call(this, message));
-    _this.name = 'GVError';
+    _this = Object(possibleConstructorReturn["a" /* default */])(this, Object(getPrototypeOf["a" /* default */])(CesiumDrawError).call(this, message));
+    _this.name = 'CesiumDrawError';
     return _this;
   }
 
-  return GVError;
+  return CesiumDrawError;
 }(wrapNativeSuper_wrapNativeSuper(Error));
+
+function pointVisibilityOnEarth(point, viewer) {
+  return new Cesium.EllipsoidalOccluder(Cesium.Ellipsoid.WGS84, viewer.camera.position).isPointVisible(point);
+}
 
 
 /* harmony default export */ var utils = __webpack_exports__["d"] = ({
@@ -70318,15 +70268,9 @@ function (_Error) {
   saveCurViewerImage: saveCurViewerImage,
   downloadFile: downloadFile,
   CVT: CVT,
-  CursorTip: utils_CursorTip
+  CursorTip: utils_CursorTip,
+  pointVisibilityOnEarth: pointVisibilityOnEarth
 });
-
-/***/ }),
-
-/***/ "9a76":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -70479,6 +70423,13 @@ module.exports = function (it, TYPE) {
 /***/ }),
 
 /***/ "a04d":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "a144":
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
@@ -72086,6 +72037,13 @@ module.exports = function (bitmap, value) {
   };
 };
 
+
+/***/ }),
+
+/***/ "af77":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -73971,16 +73929,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-12-16 19:28:45
- * @LastEditTime: 2020-04-17 14:16:12
- * @Desc: 定义基础图形，包括点线、多边形，(圆，矩形)
- */
 
-var Cesium = window.Cesium;
-var defined = Cesium.defined;
 var console = window.console;
 
 
@@ -74061,8 +74010,8 @@ function () {
       return {
         "type": "Feature",
         "properties": {
-          name: this.gvname,
-          gvtype: this.gvtype
+          name: this.mname,
+          mtype: this.mtype
         },
         "geometry": {
           "type": type[this.type],
@@ -74084,7 +74033,7 @@ function () {
       return this._type;
     }
   }, {
-    key: "gvtype",
+    key: "mtype",
     get: function get() {
       return this._gvtype;
     },
@@ -74092,7 +74041,7 @@ function () {
       this._gvtype = v;
     }
   }, {
-    key: "gvid",
+    key: "mid",
     get: function get() {
       return this._gvid;
     },
@@ -74100,11 +74049,11 @@ function () {
       this._gvid = v;
 
       if (this.graphic) {
-        this.graphic.gvid = this._gvid;
+        this.graphic.mid = this._gvid;
       }
     }
   }, {
-    key: "gvname",
+    key: "mname",
     get: function get() {
       return this._name;
     },
@@ -74112,7 +74061,7 @@ function () {
       this._name = v;
 
       if (this.graphic) {
-        this.graphic.gvname = this.gvname;
+        this.graphic.mname = this.mname;
 
         if (this.graphic.label) {
           this.graphic.label.text = v;
@@ -74146,7 +74095,7 @@ function (_BaseGraphic) {
   /**
    * Cesium Marker
    * @param {Viewer} viewer Cesium Viewer
-   * @param {*} options describles a billboard. 
+   * @param {*} options describles a billboard.
    * 遵循和Cesium BillboardGraphic相同的方式.
    */
   function CesiumBillboard(viewer, options) {
@@ -74159,7 +74108,7 @@ function (_BaseGraphic) {
     _this = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumBillboard).call(this, viewer));
     _this.viewer = viewer;
     _this._type = 'MARKER';
-    _this.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MARKER;
+    _this.mtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MARKER;
     _this.position = options.position;
     options.image = options.image || CesiumBillboard.defaultStyle.image;
     labelOption.text = options.label;
@@ -74168,9 +74117,9 @@ function (_BaseGraphic) {
     var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this);
 
     _this.options = {
-      gvname: _this._name,
-      gvtype: _this.gvtype,
-      gvid: _this.gvid,
+      mname: _this._name,
+      mtype: _this.mtype,
+      mid: _this.mid,
       position: self.position,
       billboard: options,
       label: labelOption
@@ -74188,7 +74137,7 @@ function (_BaseGraphic) {
     key: "setLabel",
 
     /**
-     * 
+     *
      * @param {*} option 定义一个LabelGraphic
      */
     value: function setLabel(option) {
@@ -74224,7 +74173,7 @@ function (_BaseGraphic) {
         this.graphic.label.text = text;
         this.name = text;
         this.description = description;
-        this.gvname = text;
+        this.mname = text;
       }
     }
   }, {
@@ -74278,12 +74227,12 @@ function (_BaseGraphic) {
     },
     set: function set(v) {
       this.graphic.label.text = v;
-      this.gvname = v;
+      this.mname = v;
     }
   }, {
     key: "font",
     get: function get() {
-      return this.graphic.label.font.getValue();
+      return this.graphic.label.font.getValue(this.viewer.clock.currentTime);
     },
     set: function set(font) {
       this.graphic.label.font = font;
@@ -74352,7 +74301,7 @@ function (_BaseGraphic2) {
 
     _this2 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPoint).call(this, viewer));
     _this2._type = 'POINT';
-    _this2.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT; //allow mutiple to be created points at one time
+    _this2.mtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT; //allow mutiple to be created points at one time
 
     _this2.positions = options.positions; //only one point
 
@@ -74360,9 +74309,9 @@ function (_BaseGraphic2) {
 
     if (_this2.positions instanceof Cesium.Cartesian3) {
       _this2.options = {
-        gvname: _this2._name,
-        gvid: _this2._gvid,
-        gvtype: _this2._gvtype,
+        mname: _this2._name,
+        mid: _this2._gvid,
+        mtype: _this2._gvtype,
         position: new Cesium.CallbackProperty(function () {
           return self.positions;
         }, false),
@@ -74374,9 +74323,9 @@ function (_BaseGraphic2) {
 
         var _loop = function _loop(i) {
           var point = {
-            gvname: _this2._name,
-            gvid: _this2._gvid,
-            gvtype: _this2._gvtype,
+            mname: _this2._name,
+            mid: _this2._gvid,
+            mtype: _this2._gvtype,
             position: new Cesium.CallbackProperty(function () {
               return self.positions[i];
             }, false),
@@ -74463,18 +74412,20 @@ function (_BaseGraphic2) {
   }, {
     key: "stopEdit",
     value: function stopEdit() {
+      var _this6 = this;
+
       if (this.graphic instanceof Cesium.Entity) {
-        this.graphic.position = this.graphic.position.getValue();
+        this.graphic.position = this.graphic.position.getValue(this.viewer.clock.currentTime);
       } else if (this.graphic instanceof Array) {
         this.graphic = this.graphic.map(function (_) {
-          return _.position = _.position.getValue();
+          return _.position = _.position.getValue(_this6.viewer.clock.currentTime);
         });
       }
     }
     /**
      * 判断两个点是否在同一位置
-     * @param {*} node1 
-     * @param {*} node2 
+     * @param {*} node1
+     * @param {*} node2
      */
 
   }, {
@@ -74570,7 +74521,7 @@ function (_BaseGraphic2) {
   }, {
     key: "isCesiumPoint",
     value: function isCesiumPoint(obj) {
-      if (defined(obj) && obj.id && obj.id.gvtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT) {
+      if (Cesium.defined(obj) && obj.id && obj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT) {
         return true;
       }
 
@@ -74616,39 +74567,39 @@ function (_BaseGraphic3) {
    * 属性定义遵循和Cesium.PolylineGraphic相同的定义方式。
    */
   function CesiumPolyline(viewer) {
-    var _this6;
+    var _this7;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumPolyline.defaultStyle;
 
     Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumPolyline);
 
-    _this6 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolyline).call(this, viewer));
-    _this6._type = 'POLYLINE';
-    _this6.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE;
-    _this6.positions = options.positions || [];
+    _this7 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolyline).call(this, viewer));
+    _this7._type = 'POLYLINE';
+    _this7.mtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE;
+    _this7.positions = options.positions || [];
 
-    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this6);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this7);
 
     var _update = function _update() {
       return self.positions;
     };
 
-    _this6.options = {
-      gvname: _this6._name,
-      gvid: _this6._gvid,
-      gvtype: _this6._gvtype,
+    _this7.options = {
+      mname: _this7._name,
+      mid: _this7._gvid,
+      mtype: _this7._gvtype,
       polyline: options,
       properties: options.properties
     };
     delete options.properties;
-    _this6.options.polyline.positions = new Cesium.CallbackProperty(_update, false);
-    _this6.graphic = undefined;
-    _this6.nodeGraphic = undefined;
-    _this6.node = false;
+    _this7.options.polyline.positions = new Cesium.CallbackProperty(_update, false);
+    _this7.graphic = undefined;
+    _this7.nodeGraphic = undefined;
+    _this7.node = false;
 
-    _this6.create();
+    _this7.create();
 
-    return _this6;
+    return _this7;
   }
 
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumPolyline, [{
@@ -74685,11 +74636,11 @@ function (_BaseGraphic3) {
     key: "create",
     value: function create() {
       if (this.viewer) {
-        this.graphic = this.viewer.entities.add(this.options); // this.graphic.gvtype = 'CesiumPolyline'
+        this.graphic = this.viewer.entities.add(this.options); // this.graphic.mtype = 'CesiumPolyline'
       }
     }
     /**
-     * 
+     *
      * @param {Object} options describles a points.
      * 遵循和Cesiun.PointGraphic相同的定义方式
      */
@@ -74713,9 +74664,9 @@ function (_BaseGraphic3) {
   }, {
     key: "startEdit",
     value: function startEdit() {
-      var _this7 = this;
+      var _this8 = this;
 
-      if (!defined(this.graphic)) {
+      if (!Cesium.defined(this.graphic)) {
         return;
       } // this.remove()
       // const self = this
@@ -74727,7 +74678,7 @@ function (_BaseGraphic3) {
 
 
       this.graphic.polyline.positions = new Cesium.CallbackProperty(function () {
-        return _this7.positions;
+        return _this8.positions;
       }, false);
 
       if (this.node === false) {
@@ -74799,7 +74750,7 @@ function (_BaseGraphic3) {
     key: "width",
     get: function get() {
       if (this.graphic) {
-        return this.graphic.polyline.width.getValue();
+        return this.graphic.polyline.width.getValue(this.viewer.clock.currentTime);
       }
 
       return undefined;
@@ -74875,27 +74826,27 @@ function (_BaseGraphic4) {
   /**
    * Cesium PolygonGraphic
    * @param {Viewer} viewer Cesium.Viewer
-   * @param {Object} options describles a polygon. 
+   * @param {Object} options describles a polygon.
    * positions定义其位置信息， 属性信息遵循和Cesium.PolygonGraphic相同的定义方式
    */
   function CesiumPolygon(viewer) {
-    var _this8;
+    var _this9;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumPolygon.defaultStyle;
 
     Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumPolygon);
 
-    _this8 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolygon).call(this, viewer));
-    _this8._type = 'POLYGON';
-    _this8.gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON;
-    _this8.positions = options.positions || [];
-    _this8.nodePositions = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(_this8.positions);
+    _this9 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumPolygon).call(this, viewer));
+    _this9._type = 'POLYGON';
+    _this9.mtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON;
+    _this9.positions = options.positions || [];
+    _this9.nodePositions = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(_this9.positions);
 
-    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this8);
+    var self = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(_this9);
 
-    _this8.options = {
-      gvid: _this8.gvid,
-      gvtype: _this8.gvtype,
+    _this9.options = {
+      mid: _this9.mid,
+      mtype: _this9.mtype,
       polygon: _objectSpread({
         hierarchy: new Cesium.CallbackProperty(function () {
           return new Cesium.PolygonHierarchy(self.positions);
@@ -74904,15 +74855,15 @@ function (_BaseGraphic4) {
       properties: options.properties
     };
     delete options.properties;
-    _this8.node = false;
-    _this8.graphic = undefined;
-    _this8.nodeGraphic = undefined;
-    _this8.outlineGraphic = undefined;
-    _this8.outline = options.outline;
+    _this9.node = false;
+    _this9.graphic = undefined;
+    _this9.nodeGraphic = undefined;
+    _this9.outlineGraphic = undefined;
+    _this9.outline = options.outline;
 
-    _this8.create();
+    _this9.create();
 
-    return _this8;
+    return _this9;
   }
 
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumPolygon, [{
@@ -74982,7 +74933,7 @@ function (_BaseGraphic4) {
       this.options.polygon.outline = false;
 
       if (this.viewer) {
-        this.graphic = this.viewer.entities.add(this.options); // this.graphic.gvtype = 'CesiumPolygon';
+        this.graphic = this.viewer.entities.add(this.options); // this.graphic.mtype = 'CesiumPolygon';
 
         if (this.outline) {
           this.createOutline();
@@ -74990,7 +74941,7 @@ function (_BaseGraphic4) {
       }
     }
     /**
-     * 
+     *
      * @param {Object} options describles a points.
      * 遵循和Cesiun.PointGraphic相同的定义方式
      */
@@ -75001,7 +74952,7 @@ function (_BaseGraphic4) {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : CesiumPoint.defaultStyle;
       this.node = true;
       options.positions = this.positions;
-      options.clampToGround = this.graphic.polygon.perPositionHeight.getValue();
+      options.clampToGround = this.graphic.polygon.perPositionHeight.getValue(this.viewer.clock.currentTime);
       this.nodeGraphic = new CesiumPoint(this.viewer, options);
     }
     /**
@@ -75023,7 +74974,7 @@ function (_BaseGraphic4) {
       options.width = this.options.polygon.outlineWidth || CesiumPolyline.defaultStyle.width;
       options.material = this.options.polygon.outlineColor || CesiumPolyline.defaultStyle.material; // options.show=this.options.outline
 
-      options.clampToGround = !this.graphic.polygon.perPositionHeight.getValue();
+      options.clampToGround = !this.graphic.polygon.perPositionHeight.getValue(this.viewer.clock.currentTime);
       options.positions = this.nodePositions;
       this.outlineGraphic = new CesiumPolyline(this.viewer, options);
       this.outline = true;
@@ -75150,7 +75101,7 @@ function (_BaseGraphic4) {
     set: function set(style) {
       var options = {};
 
-      if (defined(this.outlineGraphic)) {
+      if (Cesium.defined(this.outlineGraphic)) {
         var pl = this.outlineGraphic.graphic.polyline;
         options.material = style.outlineColor || pl.material;
         options.width = style.outlineWidth || pl.width;
@@ -75166,7 +75117,7 @@ function (_BaseGraphic4) {
     key: "material",
     get: function get() {
       if (this.graphic) {
-        return this.graphic.polygon.material.getValue().color;
+        return this.graphic.polygon.material.getValue(this.viewer.clock.currentTime).color;
       }
 
       return undefined;
@@ -75175,7 +75126,7 @@ function (_BaseGraphic4) {
     key: "outlineColor",
     get: function get() {
       if (this.outlineGraphic) {
-        return this.outlineGraphic.graphic.polyline.material.getValue().color;
+        return this.outlineGraphic.graphic.polyline.material.getValue(this.viewer.clock.currentTime).color;
       }
 
       return CesiumPolygon.defaultStyle.outlineColor;
@@ -75184,7 +75135,7 @@ function (_BaseGraphic4) {
     key: "outlineWidth",
     get: function get() {
       if (this.outlineGraphic) {
-        return this.outlineGraphic.graphic.polyline.width.getValue();
+        return this.outlineGraphic.graphic.polyline.width.getValue(this.viewer.clock.currentTime);
       }
 
       return CesiumPolygon.defaultStyle.outlineWidth;
@@ -75243,34 +75194,34 @@ function (_BaseGraphic5) {
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumLabel, _BaseGraphic5);
 
   /**
-   * 
-   * @param {Viewer} viewer Cesium Viewer 
+   *
+   * @param {Viewer} viewer Cesium Viewer
    * @param {Object} options describles a label.
    * positions定义其空间位置(如果positions为Cartesian3数组将创建多个label)，
    * label属性的定义遵循Cesium LabelGraphic的定义方式
    */
   function CesiumLabel(viewer) {
-    var _this9;
+    var _this10;
 
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CesiumLabel.defaultStyle;
 
     Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumLabel);
 
-    _this9 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumLabel).call(this, viewer));
-    _this9._type = 'LABEL';
-    _this9._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].LABEL;
-    _this9.position = options.position;
-    _this9.options = {
-      gvid: _this9._gvid,
-      gvtype: _this9._gvtype,
-      position: _this9.position,
+    _this10 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumLabel).call(this, viewer));
+    _this10._type = 'LABEL';
+    _this10._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].LABEL;
+    _this10.position = options.position;
+    _this10.options = {
+      mid: _this10._gvid,
+      mtype: _this10._gvtype,
+      position: _this10.position,
       label: options
     };
-    _this9.graphic = undefined;
+    _this10.graphic = undefined;
 
-    _this9.create();
+    _this10.create();
 
-    return _this9;
+    return _this10;
   }
 
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumLabel, [{
@@ -75281,11 +75232,11 @@ function (_BaseGraphic5) {
   }, {
     key: "startEdit",
     value: function startEdit() {
-      var _this10 = this;
+      var _this11 = this;
 
       if (this.graphic) {
         this.graphic.label.position = new Cesium.CallbackProperty(function () {
-          return _this10.position;
+          return _this11.position;
         }, false);
       }
     }
@@ -75307,7 +75258,7 @@ function (_BaseGraphic5) {
     value: function updateText(text) {
       if (this.graphic) {
         this.graphic.label.text = text;
-        this.gvname = text;
+        this.mname = text;
       }
     }
   }, {
@@ -75322,7 +75273,7 @@ function (_BaseGraphic5) {
     key: "color",
     get: function get() {
       if (this.graphic) {
-        return this.graphic.label.fillColor.getValue();
+        return this.graphic.label.fillColor.getValue(this.viewer.clock.currentTime);
       }
 
       return undefined;
@@ -75336,7 +75287,7 @@ function (_BaseGraphic5) {
     key: "font",
     get: function get() {
       if (this.graphic) {
-        return this.graphic.label.font.getValue();
+        return this.graphic.label.font.getValue(this.viewer.clock.currentTime);
       }
 
       return undefined;
@@ -75358,25 +75309,25 @@ function (_BaseGraphic6) {
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(CesiumModel, _BaseGraphic6);
 
   function CesiumModel(viewer, options) {
-    var _this11;
+    var _this12;
 
     Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(this, CesiumModel);
 
-    _this11 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumModel).call(this, viewer));
-    _this11._type = 'MODEL';
-    _this11._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MODEL;
-    _this11.position = options.position; // this.gvname = '未命名'
+    _this12 = Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(this, Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CesiumModel).call(this, viewer));
+    _this12._type = 'MODEL';
+    _this12._gvtype = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].MODEL;
+    _this12.position = options.position; // this.mname = '未命名'
 
-    _this11.options = {
-      gvid: _this11._gvid,
-      gvtype: _this11._gvtype,
-      position: _this11.position,
+    _this12.options = {
+      mid: _this12._gvid,
+      mtype: _this12._gvtype,
+      position: _this12.position,
       model: options
     };
 
-    _this11.create();
+    _this12.create();
 
-    return _this11;
+    return _this12;
   }
 
   Object(D_zhangbo_xtfge_vue_cesium_draw_master_cesium_draw_master_node_modules_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(CesiumModel, [{
@@ -75387,11 +75338,11 @@ function (_BaseGraphic6) {
   }, {
     key: "startEdit",
     value: function startEdit() {
-      var _this12 = this;
+      var _this13 = this;
 
       if (this.graphic) {
         this.graphic.label.position = new Cesium.CallbackProperty(function () {
-          return _this12.position;
+          return _this13.position;
         }, false);
       }
     }
@@ -75563,13 +75514,6 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
-/***/ }),
-
-/***/ "d278":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -77772,14 +77716,6 @@ module.exports = (
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -77790,10 +77726,9 @@ module.exports = (
 
 
 var graphicManager = undefined;
-var Cesium = window.Cesium;
 var console = window.console;
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: "cesiumDrawViewer",
+  name: "cesiumDraw",
   data: function data() {
     return {
       visible: true,
@@ -77927,8 +77862,8 @@ var console = window.console;
       this.cesiumViewer = viewer;
       this._viewer = viewer;
       document.addEventListener("addEvent", function (e) {
-        if (graphicManager.has(e.detail.gvid) || self.$refs.markerManager.has(e.detail.gvid)) {
-          self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
+        if (graphicManager.has(e.detail.mid) || self.$refs.markerManager.has(e.detail.mid)) {
+          self.pushLayerManaer(e.detail.mtype, e.detail.mid, e.detail.mname);
         }
       });
       document.addEventListener("stopEdit", function () {
@@ -77948,7 +77883,7 @@ var console = window.console;
       });
       document.addEventListener("destroyEvent", function (e) {
         self.$refs.layerManager.drop({
-          id: e.detail.gvid
+          id: e.detail.mid
         });
         self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
       });
@@ -77956,7 +77891,7 @@ var console = window.console;
         self.menuSelected = {};
         self.editMode = false;
         self.$refs.layerManager.drop({
-          id: e.detail.gvid
+          id: e.detail.mid
         });
         self.cesiumViewer.scene.globe.depthTestAgainstTerrain = self._depthTestAgainstTerrain;
       });
@@ -78033,6 +77968,7 @@ var console = window.console;
      */
     setControlByEvent: function setControlByEvent(e) {
       Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
+      var viewer = this._viewer;
 
       if (e.detail.graphicType === "POLYGON") {
         var material = e.detail.material;
@@ -78065,7 +78001,7 @@ var console = window.console;
           this.lineStyle = "solid";
         }
 
-        this.lineColor = "rgba(".concat(plmaterial.getValue().color.red * 255, ",").concat(plmaterial.getValue().color.green * 255, ",").concat(plmaterial.getValue().color.blue * 255, ",").concat(plmaterial.getValue().color.alpha, ")");
+        this.lineColor = "rgba(".concat(plmaterial.getValue(viewer.clock.currentTime).color.red * 255, ",").concat(plmaterial.getValue(viewer.clock.currentTime).color.green * 255, ",").concat(plmaterial.getValue(viewer.clock.currentTime).color.blue * 255, ",").concat(plmaterial.getValue(viewer.clock.currentTime).color.alpha, ")");
       }
     },
     stopOthers: function stopOthers() {
@@ -78090,22 +78026,22 @@ var console = window.console;
 
       this.markerOptionsVisible = false;
     },
-    updateMarker: function updateMarker(gvid, gvname) {
+    updateMarker: function updateMarker(mid, mname) {
       Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
 
-      if (gvid) {
-        gvname = gvname || "未命名";
-        this.$refs.layerManager.rename(null, gvid, gvname);
+      if (mid) {
+        mname = mname || "未命名";
+        this.$refs.layerManager.rename(null, mid, mname);
       }
 
       this.editMode = false;
       this.menuSelected = {};
     },
-    addMarker: function addMarker(gvid, gvname, gvtype) {
+    addMarker: function addMarker(mid, mname, mtype) {
       Object(_js_utils__WEBPACK_IMPORTED_MODULE_13__[/* checkComponent */ "b"])(this);
-      this.pushLayerManaer(gvtype, gvid, gvname);
+      this.pushLayerManaer(mtype, mid, mname);
 
-      if (gvtype === _core_GraphicType__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"].MODEL) {
+      if (mtype === _core_GraphicType__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"].MODEL) {
         this.editMode = false;
         this.menuSelected = {};
       }
@@ -78304,10 +78240,10 @@ var console = window.console;
       var oname;
 
       if (graphicManager.has(id)) {
-        oname = graphicManager.get(id).gvname;
+        oname = graphicManager.get(id).mname;
         graphicManager.rename(id, name);
       } else {
-        oname = this.$refs.markerManager.markerManager.get(id).gvname;
+        oname = this.$refs.markerManager.markerManager.get(id).mname;
         this.$refs.markerManager.rename(id, name);
       }
 
@@ -78592,6 +78528,17 @@ var console = window.console;
     }
   }
 });
+
+/***/ }),
+
+/***/ "e1ff":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_fcd09e58_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("1332");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_fcd09e58_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_fcd09e58_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_markerViewer_vue_vue_type_style_index_0_id_fcd09e58_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -79542,17 +79489,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var scrollBarWidth = void 0;
 
 ;
-
-/***/ }),
-
-/***/ "e6c9":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("354a");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_layerManager_vue_vue_type_style_index_0_id_47c69614_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -83380,20 +83316,20 @@ var theme_chalk = __webpack_require__("0fae");
 
 
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(element_ui_common_default.a);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be501d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=015cfe9e&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',{attrs:{"id":"drawtoolHead"}},[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont iconclose",on:{"click":function($event){return _vm.$emit('closeEvent')}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("清单")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont iconmodel model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"attachment":_vm.attachment,"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},attrs:{"tools":_vm.tools},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"6f1d55ac-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=32acc14e&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],attrs:{"id":"drawtoolPanel"}},[_c('el-container',[_c('el-header',{attrs:{"id":"drawtoolHead"}},[_c('span',[_vm._v("基础标绘")]),_c('span',{staticClass:"closebtn iconfont icondelete",on:{"click":function($event){return _vm.$emit('closeEvent')}}})]),_c('el-main',{staticClass:"graphic-draw-main"},[_c('ul',[_c('li',[_c('i',{staticClass:"iconfont iconmarker icon-class",class:{'selected-graphic':_vm.menuSelected['MARKER']},attrs:{"title":"添加标记"},on:{"click":function($event){return _vm.menuAction('MARKER')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MARKER']},on:{"click":function($event){return _vm.menuAction('MARKER')}}},[_vm._v("标记")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolyline icon-class",class:{'selected-graphic':_vm.menuSelected['POLYLINE']},attrs:{"title":"添加线段"},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYLINE']},on:{"click":function($event){return _vm.menuAction('POLYLINE')}}},[_vm._v("折线")])]),_c('li',[_c('i',{staticClass:"iconfont iconpolygon icon-class",class:{'selected-graphic':_vm.menuSelected['POLYGON']},attrs:{"title":"添加多边形"},on:{"click":function($event){return _vm.menuAction('POLYGON')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['POLYGON']},on:{"click":function($event){return _vm.menuAction('POLYGON')}}},[_vm._v("多边形")])]),_c('li',[_c('i',{staticClass:"iconfont iconlabel icon-class",class:{'selected-graphic':_vm.menuSelected['LABEL']},attrs:{"title":"添加文字"},on:{"click":function($event){return _vm.menuAction('LABEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['LABEL']},on:{"click":function($event){return _vm.menuAction('LABEL')}}},[_vm._v("文字")])]),(_vm.extendMarkerModel.length)?_c('li',[_c('i',{staticClass:"iconfont iconmodel icon-class",class:{'selected-graphic':_vm.menuSelected['MODEL']},attrs:{"title":"添加模型"},on:{"click":function($event){return _vm.menuAction('MODEL')}}}),_c('span',{class:{'selected-graphic':_vm.menuSelected['MODEL']},on:{"click":function($event){return _vm.menuAction('MODEL')}}},[_vm._v("模型")])]):_vm._e(),_c('li',[_c('i',{staticClass:"iconfont iconlayer icon-class",class:{'selected-graphic':_vm.layerManagerVisible},attrs:{"title":"图层管理"},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}}),_c('span',{class:{'selected-graphic':_vm.layerManagerVisible},on:{"click":function($event){_vm.layerManagerVisible=!_vm.layerManagerVisible}}},[_vm._v("清单")])])])])],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.editMode),expression:"editMode"}],staticClass:"graphic-edit"},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MARKER']),expression:"menuSelected['MARKER']"}],staticClass:"marker-edit-class edit-class"},[_c('el-color-picker',{attrs:{"id":"markerColor","show-alpha":"","size":"mini","title":"文字颜色"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}}),_c('el-select',{attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-popover',{attrs:{"placement":"top","width":"160"},model:{value:(_vm.markerOptionsVisible),callback:function ($$v) {_vm.markerOptionsVisible=$$v},expression:"markerOptionsVisible"}},[_c('el-input',{attrs:{"type":"textarea","rows":4,"placeholder":"请在此定义LabelGraphic"},model:{value:(_vm.markerOption),callback:function ($$v) {_vm.markerOption=$$v},expression:"markerOption"}}),_c('div',{staticStyle:{"text-align":"right","margin":"0"}},[_c('el-button',{attrs:{"size":"mini","type":"text"},on:{"click":function($event){_vm.markerOption='';_vm.markerOptionsVisible=false}}},[_vm._v("取消")]),_c('el-button',{attrs:{"type":"primary","size":"mini"},on:{"click":_vm.setLabel}},[_vm._v("确定")])],1)],1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYLINE']),expression:"menuSelected['POLYLINE']"}],staticClass:"polyline-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"颜色","id":"lineColor","show-alpha":"","size":"mini"},model:{value:(_vm.lineColor),callback:function ($$v) {_vm.lineColor=$$v},expression:"lineColor"}}),_c('el-select',{staticClass:"width-selector",attrs:{"size":"mini","title":"线宽","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineWidth),callback:function ($$v) {_vm.lineWidth=$$v},expression:"lineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"style-selector",attrs:{"size":"mini","title":"直线样式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.lineStyle),callback:function ($$v) {_vm.lineStyle=$$v},expression:"lineStyle"}},_vm._l((_vm.lineStyleList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"直线类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['POLYGON']),expression:"menuSelected['POLYGON']"}],staticClass:"polygon-edit-class edit-class"},[_c('el-color-picker',{attrs:{"title":"填充色","id":"polygonColor","show-alpha":"","size":"mini"},model:{value:(_vm.polygonColor),callback:function ($$v) {_vm.polygonColor=$$v},expression:"polygonColor"}}),_c('el-select',{staticClass:"type-selector",attrs:{"size":"mini","title":"多边形类型","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.graphicHeight),callback:function ($$v) {_vm.graphicHeight=$$v},expression:"graphicHeight"}},_vm._l((_vm.heightList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('i',{staticClass:"iconfont iconoutline border-btn",class:{'outline-selected':_vm.outline},attrs:{"title":"边框"},on:{"click":function($event){_vm.outline=!_vm.outline}}}),_c('el-color-picker',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],attrs:{"title":"边框充色","id":"outlineColor","show-alpha":"","size":"mini"},model:{value:(_vm.outlineColor),callback:function ($$v) {_vm.outlineColor=$$v},expression:"outlineColor"}}),_c('el-select',{directives:[{name:"show",rawName:"v-show",value:(_vm.outline),expression:"outline"}],staticClass:"width-selector",attrs:{"size":"mini","title":"边框宽度","allow-create":"","filterable":"","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.outlineWidth),callback:function ($$v) {_vm.outlineWidth=$$v},expression:"outlineWidth"}},_vm._l((_vm.lineWidthList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1)],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['LABEL']),expression:"menuSelected['LABEL']"}],staticClass:"label-edit-class edit-class"},[_c('el-select',{staticClass:"font-selector",attrs:{"allow-create":"","filterable":"","size":"mini","title":"字体","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontFamily),callback:function ($$v) {_vm.fontFamily=$$v},expression:"fontFamily"}},_vm._l((_vm.fontList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-select',{staticClass:"size-selector",attrs:{"size":"mini","allow-create":"","filterable":"","title":"字号","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.fontSize),callback:function ($$v) {_vm.fontSize=$$v},expression:"fontSize"}},_vm._l((_vm.fontSizeList),function(item){return _c('el-option',{key:item,attrs:{"label":item,"value":item}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"labelColor","show-alpha":"","size":"mini"},model:{value:(_vm.markerColor),callback:function ($$v) {_vm.markerColor=$$v},expression:"markerColor"}})],1),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.menuSelected['MODEL']),expression:"menuSelected['MODEL']"}],staticClass:"model-edit-class edit-class"},[_c('el-popover',{attrs:{"placement":"bottom","id":"model-select","width":"160"},model:{value:(_vm.modelSelectPanelvisible),callback:function ($$v) {_vm.modelSelectPanelvisible=$$v},expression:"modelSelectPanelvisible"}},[_c('div',{staticClass:"model-select-panel"},_vm._l((_vm.extendMarkerModel),function(item){return _c('img',{key:item.id,attrs:{"title":item.name,"src":_vm.modelThumb(item),"onerror":_vm.defaultImage},on:{"click":function($event){return _vm.selectModel(item)}}})}),0),_c('i',{staticClass:"iconfont iconmodel model-selector-trigger",attrs:{"slot":"reference","title":"选择模型"},slot:"reference"})]),_c('el-select',{attrs:{"size":"mini","title":"模式","default-first-option":"","placeholder":"请选择"},model:{value:(_vm.modelMode),callback:function ($$v) {_vm.modelMode=$$v},expression:"modelMode"}},_vm._l((_vm.modelModeList),function(item){return _c('el-option',{key:item.value,attrs:{"label":item.name,"value":item.value}})}),1),_c('el-color-picker',{attrs:{"title":"颜色","id":"modelColor","show-alpha":"","size":"mini"},model:{value:(_vm.modelColor),callback:function ($$v) {_vm.modelColor=$$v},expression:"modelColor"}}),_c('el-slider',{directives:[{name:"show",rawName:"v-show",value:(_vm.modelMode==='Mix'),expression:"modelMode==='Mix'"}],attrs:{"title":"混合度","min":0,"max":1,"step":0.1,"show-tooltip":true},model:{value:(_vm.modelMixed),callback:function ($$v) {_vm.modelMixed=$$v},expression:"modelMixed"}})],1)]),_c('MarkerViewer',{ref:"markerManager",attrs:{"attachment":_vm.attachment,"extendImage":_vm.extendMarkerImage},on:{"deleteEvent":_vm.deleteMarker,"editEvent":_vm.editMarker,"addEvent":_vm.addMarker,"updateEvent":_vm.updateMarker}}),_c('layerManager',{directives:[{name:"show",rawName:"v-show",value:(_vm.layerManagerVisible),expression:"layerManagerVisible"}],ref:"layerManager",staticClass:"layer-manager-class",class:{'edit-layer-manager-class':_vm.editMode},attrs:{"tools":_vm.tools},on:{"locate":_vm.locateGraphic,"edit":_vm.editGraphic,"delete":_vm.deleteGraphic,"rename":_vm.renameGraphic,"select":_vm.selectGraphic,"clear":_vm.clearGraphic,"close":_vm.closeLayerManager,"import":_vm.importGraphic,"export":_vm.exportGraphic}}),_c('input',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}],attrs:{"type":"file","id":"graphicuploadhandler","accept":".geojson, .shp"},on:{"change":_vm.importfp}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=015cfe9e&scoped=true&
+// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=32acc14e&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
 var cesiumDrawViewervue_type_script_lang_js_ = __webpack_require__("e167");
 
 // CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_cesiumDrawViewervue_type_script_lang_js_ = (cesiumDrawViewervue_type_script_lang_js_["a" /* default */]); 
-// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=015cfe9e&lang=scss&scoped=true&
-var cesiumDrawViewervue_type_style_index_0_id_015cfe9e_lang_scss_scoped_true_ = __webpack_require__("2e19");
+// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=32acc14e&lang=scss&scoped=true&
+var cesiumDrawViewervue_type_style_index_0_id_32acc14e_lang_scss_scoped_true_ = __webpack_require__("2b84");
 
 // EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=1&lang=scss&
 var cesiumDrawViewervue_type_style_index_1_lang_scss_ = __webpack_require__("45ea");
@@ -83417,7 +83353,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "015cfe9e",
+  "32acc14e",
   null
   
 )
@@ -83426,17 +83362,8 @@ var component = Object(componentNormalizer["a" /* default */])(
 // EXTERNAL MODULE: ./src/assets/css/iconfont.css
 var iconfont = __webpack_require__("3a10");
 
-// CONCATENATED MODULE: ./src/index.js
+// CONCATENATED MODULE: ./src/cdn.js
 
-
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-10-10 15:55:20
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-03-01 13:44:07
- * @Desc: 
- */
 
 
 
@@ -83455,11 +83382,11 @@ if (typeof window !== 'undefined' && window.Vue) {
   cesiumDrawViewer.install(window.Vue);
 }
 
-/* harmony default export */ var src = (cesiumDrawViewer);
+/* harmony default export */ var cdn = (cesiumDrawViewer);
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src);
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (cdn);
 
 
 

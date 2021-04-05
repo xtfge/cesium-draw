@@ -1,22 +1,13 @@
-<!--
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-10-09 19:42:40
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 11:30:46
- * @Desc: 
- -->
 <template>
   <div id="app">
-    <layout></layout>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import layout from '@/Apps/layout'
 export default {
   name: 'app',
-  components:{layout}
+  components:{}
 }
 </script>
 

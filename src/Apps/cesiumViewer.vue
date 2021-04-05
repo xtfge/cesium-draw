@@ -1,11 +1,3 @@
-<!--
-@Author:zhangbo
-@Date:2019-03-13 10:36:32
-@E-mail:zhangb@geovie.com.cn
-@Last Modified by:zhangbo
-@Modify-Date:2019-9-24 20:07
-
--->
 <template>
   <div style="width:100%;height: 100%" class="fullSize">
     <div class="full-container" :style="viewStyle" id="cesiumContainer"></div>
@@ -34,7 +26,6 @@ export default {
   },
   computed: {},
   mounted() {
-    const Cesium = window.Cesium;
     const _this = this;
     _this.viewerDefaultProperty = {
       animation: false,
@@ -52,10 +43,10 @@ export default {
       shadows: false,
       skyAtmosphere: false,
       imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        url: "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
+        url: "http://mt1.google.com/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
       })
     };
-    
+
     for (let property in _this.viewerProperty) {
       _this.viewerDefaultProperty[property] = _this.viewerProperty[property];
     }
@@ -76,7 +67,7 @@ export default {
       shadows: false,
       skyAtmosphere: false,
       imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        url: "http://www.google.cn/maps/vt?lyrs=s@800&x={x}&y={y}&z={z}",
+        url: "http://mt1.google.com/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali",
         tilingScheme: new Cesium.WebMercatorTilingScheme(),
         minimumLevel: 1,
         maximumLevel: 20

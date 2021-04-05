@@ -1,17 +1,11 @@
-/*
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-10-09 19:42:40
- * @LastEditors: zhangbo
- * @LastEditTime: 2020-02-28 13:50:56
- * @Desc: 
- */
 import Vue from 'vue'
 import './plugins/element.js'
 import App from './App'
 import "@/assets/css/iconfont.css";
+import router from './router'
 
 Vue.config.productionTip = false
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
+  router
 }).$mount('#app')

@@ -1,6 +1,6 @@
 {
   "name": "cesium-draw",
-  "version": "3.3.0",
+  "version": "3.4.5",
   "description": "add a mark,polyline,polygon base on Cesium",
   "private": false,
   "keyword": "Cesium Polygon Polyline mark interactive",
@@ -11,10 +11,11 @@
     "README.md"
   ],
   "scripts": {
-    "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name cesiumdrawViewer ./src/index.js",
+    "build": "vue-cli-service build --report",
+    "lib": "vue-cli-service build --target lib --name cesiumdrawViewer ./src/cdn.js && node ./release.js",
     "lint": "vue-cli-service lint",
-    "start": "vue-cli-service serve"
+    "start": "vue-cli-service serve",
+    "release":"node ./release.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -26,8 +27,6 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "animate.css": "^3.7.2",
@@ -36,9 +35,14 @@
     "css-loader": "^0.28.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "fs": "0.0.1-security",
+    "node-sass": "^4.12.0",
+    "path": "^0.12.7",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "sass-loader": "^8.0.0",
     "vue-cli-plugin-element": "^1.0.1",
+    "vue-router": "^3.5.1",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.6.10"
   },
@@ -56,6 +60,9 @@
     },
     "parserOptions": {
       "parser": "babel-eslint"
+    },
+    "globals": {
+      "Cesium": "true"
     }
   },
   "postcss": {

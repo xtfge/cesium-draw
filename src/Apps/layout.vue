@@ -1,19 +1,13 @@
-<!--
-@Author:zhangbo
-@Date:2019-05-15 09:21:08
-@E-mail:zhangb@geovie.com.cn
--->
 <template>
   <div>
     <earthViewer></earthViewer>
-    <cesiumDrawViewer :extendMarkerImage="imags" ref='marker'></cesiumDrawViewer>
+    <cesiumDrawViewer :extendMarkerImage="imags" ref='marker' :extendMarkerModel="model"></cesiumDrawViewer>
   </div>
 </template>
 
 <script>
 import earthViewer from "./cesiumViewer";
 import cesiumDrawViewer from '@/components/cesiumDrawViewer'
-const Cesium = window.Cesium;
 export default {
   data() {
     return {
@@ -34,7 +28,7 @@ export default {
     ],
     model:[{ id: "model0", name: "木塔", url: "static/model/Wood_Tower.gltf" },
           { id: "model1", name: "人", url: "static/model/Cesium_Man.gltf" }]
-      
+
     };
   },
   components: {

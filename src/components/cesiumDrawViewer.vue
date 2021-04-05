@@ -1,11 +1,3 @@
-<!--
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2019-12-19 12:37:53
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 17:10:26
- * @Desc: cesium标绘面板
- -->
 <template>
   <div id="drawtoolPanel" v-show="visible">
     <el-container>
@@ -103,7 +95,7 @@
 
     <div class="graphic-edit" v-show="editMode">
       <div class="marker-edit-class edit-class" v-show="menuSelected['MARKER']">
-        <el-color-picker v-model="markerColor" id="markerColor" show-alpha size="mini"></el-color-picker>
+        <el-color-picker v-model="markerColor" id="markerColor" show-alpha size="mini" title="文字颜色"></el-color-picker>
         <el-select
           size="mini"
           v-model="fontSize"
@@ -355,10 +347,9 @@ import { moveDiv } from "../js/utils";
 import $ from "jquery";
 import {checkComponent,checkViewer} from "../js/utils";
 let graphicManager = undefined;
-const Cesium = window.Cesium;
 const console = window.console;
 export default {
-  name: "cesiumDrawViewer",
+  name: "cesiumDraw",
   data() {
     return {
       visible: true,
@@ -502,10 +493,10 @@ export default {
       this._viewer=viewer
       document.addEventListener("addEvent", function(e) {
       if (
-        graphicManager.has(e.detail.gvid) ||
-        self.$refs.markerManager.has(e.detail.gvid)
+        graphicManager.has(e.detail.mid) ||
+        self.$refs.markerManager.has(e.detail.mid)
       ) {
-        self.pushLayerManaer(e.detail.gvtype, e.detail.gvid, e.detail.gvname);
+        self.pushLayerManaer(e.detail.mtype, e.detail.mid, e.detail.mname);
       }
     });
     document.addEventListener("stopEdit", function() {
@@ -525,14 +516,14 @@ export default {
       }
     });
     document.addEventListener("destroyEvent", function(e) {
-      self.$refs.layerManager.drop({id:e.detail.gvid});      
+      self.$refs.layerManager.drop({id:e.detail.mid});
       self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
     document.addEventListener("deleteEvent", function(e) {
       self.menuSelected = {};
       self.editMode = false;
-      self.$refs.layerManager.drop({id:e.detail.gvid});      
+      self.$refs.layerManager.drop({id:e.detail.mid});
       self.cesiumViewer.scene.globe.depthTestAgainstTerrain =
         self._depthTestAgainstTerrain;
     });
@@ -587,6 +578,7 @@ export default {
      */
     setControlByEvent(e) {
       checkComponent(this)
+      const viewer=this._viewer;
       if (e.detail.graphicType === "POLYGON") {
         const material = e.detail.material;
         const outlineColor = e.detail.outlineColor;
@@ -616,10 +608,10 @@ export default {
         } else {
           this.lineStyle = "solid";
         }
-        this.lineColor = `rgba(${plmaterial.getValue().color.red *
-          255},${plmaterial.getValue().color.green *
-          255},${plmaterial.getValue().color.blue * 255},${
-          plmaterial.getValue().color.alpha
+        this.lineColor = `rgba(${plmaterial.getValue(viewer.clock.currentTime).color.red *
+          255},${plmaterial.getValue(viewer.clock.currentTime).color.green *
+          255},${plmaterial.getValue(viewer.clock.currentTime).color.blue * 255},${
+          plmaterial.getValue(viewer.clock.currentTime).color.alpha
         })`;
       }
     },
@@ -643,19 +635,19 @@ export default {
       }
       this.markerOptionsVisible = false;
     },
-    updateMarker(gvid, gvname) {
+    updateMarker(mid, mname) {
       checkComponent(this)
-      if (gvid) {
-        gvname = gvname || "未命名";
-        this.$refs.layerManager.rename(null, gvid, gvname);
+      if (mid) {
+        mname = mname || "未命名";
+        this.$refs.layerManager.rename(null, mid, mname);
       }
       this.editMode = false;
       this.menuSelected = {};
     },
-    addMarker(gvid, gvname, gvtype) {
+    addMarker(mid, mname, mtype) {
       checkComponent(this)
-      this.pushLayerManaer(gvtype, gvid, gvname);
-      if (gvtype === GraphicType.MODEL) {
+      this.pushLayerManaer(mtype, mid, mname);
+      if (mtype === GraphicType.MODEL) {
         this.editMode = false;
         this.menuSelected = {};
       }
@@ -811,10 +803,10 @@ export default {
       }
       let oname
       if (graphicManager.has(id)) {
-        oname=graphicManager.get(id).gvname;
+        oname=graphicManager.get(id).mname;
         graphicManager.rename(id, name);
       } else {
-        oname=this.$refs.markerManager.markerManager.get(id).gvname
+        oname=this.$refs.markerManager.markerManager.get(id).mname
         this.$refs.markerManager.rename(id, name);
       }
       this.$emit("renameEvent", id, oname);

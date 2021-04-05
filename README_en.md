@@ -1,11 +1,3 @@
-<!--
- * @Author: zhangbo
- * @E-mail: xtfge_0915@163.com
- * @Date: 2020-01-03 09:54:57
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-06-18 17:23:43
- * @Desc: Cesium基础标绘组件说明文档
- -->
 
 ## Cesium-Draw
 
@@ -80,20 +72,20 @@ e.g.
 data(){
     return{
         model:[
-            { id: "model0", 
-            name: "tower", 
+            { id: "model0",
+            name: "tower",
             thumb:'thumb.png',
             url: "static/model/Wood_Tower.gltf" },
-          { 
-              id: "model1", 
-              name: "people", 
+          {
+              id: "model1",
+              name: "people",
               url: "static/model/Cesium_Man.gltf" }]
     }
 }
 ```
 #### How to use your favorite theme
 ```js
-import 'cesium-draw/dist/theme/default.css' 
+import 'cesium-draw/dist/theme/default.css'
 ```
 or
 ```js
@@ -122,12 +114,12 @@ export default{
                 "./static/images/markers/5.png"
                 ],
             model:[
-                { id: "model0", 
-                name: "tower", 
+                { id: "model0",
+                name: "tower",
                 url: "static/model/Wood_Tower.gltf" },
-                { 
-                id: "model1", 
-                name: "people", 
+                {
+                id: "model1",
+                name: "people",
                 url: "static/model/Cesium_Man.gltf"
                 }]
         }
