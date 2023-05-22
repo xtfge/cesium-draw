@@ -19,7 +19,7 @@ npm i cesium-draw
 <template>
     <div>
      <div id='map'></div>
-     <cesium-draw ref='drwaManager' :viewer="viewer"></cesium-draw>
+     <cesium-draw ref='drawManager' :viewer="viewer"></cesium-draw>
     </div>
 </template>
 <script>
