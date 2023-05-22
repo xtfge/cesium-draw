@@ -15,15 +15,15 @@
     "lib": "vue-cli-service build --target lib --name cesiumdrawViewer ./src/cdn.js && node ./release.js",
     "lint": "vue-cli-service lint",
     "start": "vue-cli-service serve",
-    "release":"node ./release.js"
+    "release": "node ./release.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "element-ui": "^2.12.0",
     "file-saver": "^2.0.2",
     "jquery": "^3.4.1",
     "shapefile": "^0.6.6",
-    "vue": "^2.6.10",
-    "element-ui": "^2.12.0"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -36,11 +36,11 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "fs": "0.0.1-security",
-    "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
-    "sass-loader": "^8.0.0",
+    "sass": "^1.62.1",
+    "sass-loader": "10",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-router": "^3.5.1",
     "vue-style-loader": "^3.0.1",
