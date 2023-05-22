@@ -45,7 +45,12 @@ export default{
 const viewer=new Cesium.Viewer('map')
 this.$refs.drawManager.init(viewer)
 ```
-
+**本插件使用全局变量Cesium, 意味着您的CesiumJS最好通过script标签引入，否则您必须在该插件引入前手动初始化全局变量Cesium。如下：**
+```js
+import * as Cesium from 'cesium';
+window.Cesium = Cesium;
+import CesiumDraw from 'cesium-draw';
+```
 #### 怎么扩展标记图标
 ```html
 <cesium-draw ref='drwaManager' :extendMarkerImage="images"></cesium-draw>
