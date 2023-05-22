@@ -42,9 +42,7 @@ export default {
       sceneModePicker: false,
       shadows: false,
       skyAtmosphere: false,
-      imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        url: "http://mt1.google.com/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
-      })
+      imageryProvider: false
     };
 
     for (let property in _this.viewerProperty) {
@@ -66,12 +64,7 @@ export default {
       sceneModePicker: false,
       shadows: false,
       skyAtmosphere: false,
-      imageryProvider: new Cesium.UrlTemplateImageryProvider({
-        url: "http://mt1.google.com/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali",
-        tilingScheme: new Cesium.WebMercatorTilingScheme(),
-        minimumLevel: 1,
-        maximumLevel: 20
-      })
+      imageryProvider: false
     });
     window.cesiumViewer = viewer;
 
