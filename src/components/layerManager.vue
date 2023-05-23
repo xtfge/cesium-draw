@@ -1,62 +1,104 @@
 <template>
   <div class="layer-manager-box" id="layer-manager-box">
     <div class="layer-manager-header" id="layer-manager-header">
-      <i class="iconfont iconclose1"></i>
+      <i class="cesiumDrawFont iconclose1"></i>
       <span>标绘清单</span>
-      <span class="closebtn iconfont iconclose" @click="closeLayerManaer"></span>
+      <span class="closebtn cesiumDrawFont iconclose" @click="closeLayerManaer"></span>
     </div>
     <div class="layer-manager-tools">
       <span class="el-dropdown-link" @click="importHandler">
-        <i class="iconfont iconimport action-icon-class">
+        <i class="cesiumDrawFont iconimport action-icon-class">
           <span>导入</span>
         </i>
       </span>
       <el-dropdown trigger="click" @command="exportHandler">
         <span class="el-dropdown-link">
-          <i class="iconfont iconexport action-icon-class">
+          <i class="cesiumDrawFont iconexport action-icon-class">
             <span>导出</span>
           </i>
         </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="MARKER" class="iconfont iconmarker">标记</el-dropdown-item>
-          <el-dropdown-item command="POLYLINE" class="iconfont iconpolyline">线</el-dropdown-item>
-          <el-dropdown-item command="POLYGON" class="iconfont iconpolygon">多边形</el-dropdown-item>
-          <el-dropdown-item command="LABEL" class="iconfont iconlabel">书签</el-dropdown-item>
-        </el-dropdown-menu>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="MARKER"
+              class="cesiumDrawFont iconmarker">标记</el-dropdown-item>
+            <el-dropdown-item command="POLYLINE"
+              class="cesiumDrawFont iconpolyline">线</el-dropdown-item>
+            <el-dropdown-item command="POLYGON"
+              class="cesiumDrawFont iconpolygon">多边形</el-dropdown-item>
+            <el-dropdown-item command="LABEL"
+              class="cesiumDrawFont iconlabel">书签</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
       </el-dropdown>
-      <i class="iconfont iconremove action-icon-last-class" @click="removeAll">
+      <i class="cesiumDrawFont iconremove action-icon-last-class" @click="removeAll">
         <span>清空</span>
       </i>
     </div>
     <div id="layerTree" class="graphic-draw-layer-manager-class">
-      <el-tree
-        :data="json"
-        show-checkbox
-        node-key="id"
-        ref="tree"
+      <el-tree :data="json" show-checkbox node-key="id" ref="tree"
         @check="checkAction"
-        :default-expanded-keys="['marker','polyline','polygon']"
-      >
-        <span class="custom-tree-node" slot-scope="{ node, data }">
-          <i :class="data.icon" class="action-item"></i>
-          <el-input v-model="newName" v-if="data.edit" @keypress.enter.native="renameAction(data)"></el-input>
-          <span class="node-name action-item" v-else>{{ data.text }}</span>
-          <span v-if="!data.children" class="action-class">
-            <i
-              v-for="tool in tools"
-              :key="tool.id"
-              class="iconfont action-item"
-              :class="[tool.icon]"
-              :title="tool.text"
-              @click="tool.action(data)"
-            ></i>
+        :default-expanded-keys="['marker', 'polyline', 'polygon']">
+        <template #default="{ data }">
+          <span class="custom-tree-node">
+            <i :class="data.icon" class="action-item"></i>
+            <el-input v-model="newName" v-if="data.edit"
+              @keypress.enter="renameAction(data)"></el-input>
+            <span class="node-name action-item" v-else>{{ data.text }}</span>
+            <span v-if="!data.children" class="action-class">
+              <i v-for="tool in tools" :key="tool.id" class="cesiumDrawFont action-item"
+                :class="[tool.icon]" :title="tool.text"
+                @click="tool.action.call(this, data)"></i>
+            </span>
           </span>
-        </span>
+        </template>
       </el-tree>
     </div>
   </div>
 </template>
 <script>
+function locate(data) {
+  this.$emit("locate", data.id);
+}
+function rename(data, id, text) {
+  // data.edit=true;
+  if (data) {
+    this.$set(data, "edit", true);
+    this.newName = data.text;
+  } else {
+    for (let ls of this.json) {
+      for (let l of ls.children) {
+        if (l.id === id) {
+          l.text = text;
+        }
+      }
+    }
+  }
+}
+function edit(data) {
+  this.$emit("edit", data.id);
+}
+function drop(data) {
+  if (!data) return;
+  this.$emit("delete", data.id);
+  const index = this.checked.indexOf(data.id);
+  if (data.id > -1) {
+    this.checked.splice(index, 1);
+  }
+  this.$nextTick(() => {
+    this.$refs.tree.setCheckedKeys(this.checked);
+  });
+
+  for (let ls of this.json) {
+    let i = 0;
+    for (let l of ls.children) {
+      if (l.id === data.id) {
+        ls.children.splice(i, 1);
+        break;
+      }
+      i++;
+    }
+  }
+}
 export default {
   data() {
     return {
@@ -73,33 +115,33 @@ export default {
           id: "marker",
           text: "标记",
           type: "marker",
-          icon: "iconfont icon-lujing",
+          icon: "cesiumDrawFont icon-lujing",
           children: []
         },
         {
           id: "polyline",
           text: "线",
           type: "polyline",
-          icon: "iconfont iconpolyline",
+          icon: "cesiumDrawFont iconpolyline",
           children: []
         },
         {
           id: "polygon",
           text: "多边形",
           type: "polygon",
-          icon: "iconfont iconpolygon",
+          icon: "cesiumDrawFont iconpolygon",
           children: []
         },
         {
           id: "label",
           text: "文字",
           type: "label",
-          icon: "iconfont iconlabel",
+          icon: "cesiumDrawFont iconlabel",
           children: []
         },
         {
           id: "model",
-          icon: "iconfont iconmodel",
+          icon: "cesiumDrawFont iconmodel",
           text: "模型",
           type: "model",
           children: []
@@ -119,12 +161,21 @@ export default {
   },
   props: {
     tools: {
-      default: function() {
-        return this.defaultTools;
+      default: function () {
+        return {
+          locate: { text: "定位", icon: "iconlocate", action: locate },
+          rename: {
+            text: "重命名",
+            icon: "iconrename",
+            action: rename
+          },
+          edit: { text: "编辑", icon: "iconedit", action: edit },
+          drop: { text: "删除", icon: "iconremove", action: drop }
+        }
       }
     }
   },
-  mounted() {},
+  mounted() { },
   computed: {},
   methods: {
     checkAction(data, node) {
@@ -135,52 +186,21 @@ export default {
       }
     },
     locate(data) {
-      this.$emit("locate", data.id);
+      locate.call(this, data);
     },
     rename(data, id, text) {
-      // data.edit=true;
-      if (data) {
-        this.$set(data, "edit", true);
-        this.newName = data.text;
-      } else {
-        for (let ls of this.json) {
-          for (let l of ls.children) {
-            if (l.id === id) {
-              l.text = text;
-            }
-          }
-        }
-      }
+      rename.call(this, data, id, text);
+    },
+    edit(data) {
+      edit.call(this, data)
+    },
+    drop(data) {
+      drop.call(this, data);
     },
     renameAction(data) {
       data.edit = false;
       this.$emit("rename", data.id, this.newName);
       data.text = this.newName;
-    },
-    edit(data) {
-      this.$emit("edit", data.id);
-    },
-    drop(data) {
-      if (!data) return;
-      this.$emit("delete", data.id);
-      const index = this.checked.indexOf(data.id);
-      if (data.id > -1) {
-        this.checked.splice(index, 1);
-      }
-      this.$nextTick(() => {
-        this.$refs.tree.setCheckedKeys(this.checked);
-      });
-
-      for (let ls of this.json) {
-        let i = 0;
-        for (let l of ls.children) {
-          if (l.id === data.id) {
-            ls.children.splice(i, 1);
-            break;
-          }
-          i++;
-        }
-      }
     },
     removeAll() {
       this.$emit("clear");
@@ -221,6 +241,7 @@ export default {
   background-color: $bg-color;
   color: $color;
   height: 400px;
+
   ::v-deep span {
     font-size: $font-size;
     display: inline-block;
@@ -236,19 +257,24 @@ export default {
   border-radius: $b-radius;
   overflow: auto;
   background-color: $bg-color;
+
   ::v-deep .el-checkbox__inner {
     border: 1px solid $border-color;
   }
+
   ::v-deep .action-item {
     margin: $item-margin;
+
     &:hover {
       color: $hover-color !important;
     }
   }
+
   ::v-deep .action-class {
     right: 20px;
     position: absolute;
   }
+
   ::v-deep * {
     color: $color !important;
     background-color: $bg-color !important;
@@ -261,23 +287,29 @@ export default {
   height: $item-height;
   line-height: $item-height;
   padding: $padding;
+
   .action-icon-class {
     margin: $item-margin;
     cursor: pointer;
     color: $color;
+
     &:hover {
       color: $hover-color;
     }
+
     span {
       color: $color;
+
       &:hover {
         color: $hover-color;
       }
     }
   }
+
   .el-dropdown {
     color: $color;
   }
+
   .action-icon-last-class {
     float: right;
     cursor: pointer;
@@ -285,17 +317,21 @@ export default {
     display: inline-block;
     margin-right: 5px;
     color: $color;
+
     &:hover {
       color: $hover-color;
     }
+
     span {
       color: $color;
+
       &:hover {
         color: $hover-color;
       }
     }
   }
 }
+
 .layer-manager-header {
   height: $title-height;
   line-height: $title-height;
@@ -308,10 +344,12 @@ export default {
     margin: $item-margin;
     color: $color;
   }
+
   span {
     color: $color;
   }
 }
+
 .el-input {
   width: 120px;
   display: inline-block;
@@ -325,13 +363,16 @@ export default {
   margin: 0 8px;
   float: right;
   color: $color;
+
   &:hover {
     color: $hover-color;
   }
 }
+
 .layer-manager-last-item {
   margin-right: 10px;
   color: $color;
+
   &:hover {
     color: $hover-color;
   }

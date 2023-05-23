@@ -1,10 +1,6 @@
 import _Vue from 'vue'
-import './plugins/element.js'
 import drawViewer from './components/cesiumDrawViewer'
 import "@/assets/css/iconfont.css"
-
-
-_Vue.config.productionTip = false
 
 drawViewer.install = Vue => {
   if (!Vue) {

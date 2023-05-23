@@ -1,50 +1,71 @@
 <template>
-<div id="markerContainer" :style="{left:winPos.x+'px',top:winPos.y+'px'}">
-    <el-dialog :title="markName+'附件'" :visible.sync="dialogVisible" :modal-append-to-body="false">
-        <el-upload class="upload-class" ref="upload" :action="attachment.action" :on-remove="attachment.delete" :on-success="attachment.success" :file-list="attachment.fileList" :on-preview="attachment.download" :auto-upload="false">
-            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-            <el-button style="margin-left: 10px;" size="small" type="success" @click="$refs.upload.submit()">上传到服务器</el-button>
-        </el-upload>
-    </el-dialog>
-    <div id="createMerkerPanel" v-if="markMode==='marker'" v-show="visible">
-        <el-container v-show="!selectPanel">
-            <el-header>
-                <span>添加标记</span>
-                <i class="el-icon-paperclip" v-if="attachment.enabled" @click="dialogVisible=true" title="附件" style="font-size:16px"></i>
-                <span class="closebtn iconfont iconclose" @click="visible=false"></span>
-            </el-header>
-
-            <el-container id="marker-panel">
-                <el-container>
-                    <el-main class="marker-main-class">
-                        名称：
-                        <el-input v-model="markName" ref="nameinput" @keyup.enter.native="update"></el-input>
-                        <br />描述：
-                        <el-input v-model="markRemark" type="textarea"></el-input>
-                    </el-main>
-                    <el-aside>
-                        <img :src="selectedImage" />
-                        <br />
-                        <a href="#" id="imageC" @click="selectPanel=true">更换</a>
-                    </el-aside>
+    <div id="markerContainer" :style="{ left: winPos.x + 'px', top: winPos.y + 'px' }">
+        <el-dialog :title="markName + '附件'" v-model="dialogVisible"
+            :modal-append-to-body="false">
+            <el-upload class="upload-class" ref="upload" :action="attachment.action"
+                :on-remove="attachment.delete" :on-success="attachment.success"
+                :file-list="attachment.fileList" :on-preview="attachment.download"
+                :auto-upload="false">
+                <template #trigger>
+                    <el-button size="small"
+                    type="primary">选取文件</el-button>
+                </template>
+                <el-button style="margin-left: 10px;" size="small" type="success"
+                    @click="$refs.upload.submit()">上传到服务器</el-button>
+            </el-upload>
+        </el-dialog>
+        <div id="createMerkerPanel" v-if="markMode === 'marker'" v-show="visible">
+            <el-container v-show="!selectPanel">
+                <el-header>
+                    <span>添加标记</span>
+                    <i class="el-icon-paperclip" v-if="attachment.enabled"
+                        @click="dialogVisible = true" title="附件"
+                        style="font-size:16px"></i>
+                    <span class="closebtn cesiumDrawFont iconclose"
+                        @click="visible = false"></span>
+                </el-header>
+                <el-container id="marker-panel">
+                    <el-container>
+                        <el-main class="marker-main-class">
+                            <div class="pane-row">
+                              <div>名称：</div>
+                              <el-input v-model="markName" ref="nameinput"
+                                  @keyup.enter="update"></el-input>
+                              </div>
+                            <div class="pane-row pane-desc">
+                              <div>描述：</div>
+                              <el-input v-model="markRemark"
+                                  type="textarea"></el-input>
+                            </div>
+                        </el-main>
+                        <el-aside>
+                            <img :src="selectedImage" />
+                            <br />
+                            <a href="#" id="imageC" @click="selectPanel = true">更换</a>
+                        </el-aside>
+                    </el-container>
+                    <el-footer>
+                        <el-button type="danger" id="cancelbtn" plain size="small"
+                            @click="cancelMark">删除</el-button>
+                        <el-button type="primary" plain size="small" id="submitbtn"
+                            @click="update">确定</el-button>
+                    </el-footer>
                 </el-container>
-                <el-footer>
-                    <el-button type="danger" id="cancelbtn" plain size="mini" @click="cancelMark">删除</el-button>
-                    <el-button type="primary" plain size="mini" id="submitbtn" @click="update">确定</el-button>
-                </el-footer>
             </el-container>
-        </el-container>
-        <el-container v-show="selectPanel" class="image-list-class">
-            <!-- <img :src="noImage" @click="changeHandler(undefined)"> -->
-            <img v-for="(img,index) in images" :src="img" :key="index" @click="changeHandler(img)" />
-        </el-container>
+            <el-container v-show="selectPanel" class="image-list-class">
+                <!-- <img :src="noImage" @click="changeHandler(undefined)"> -->
+                <img v-for="(img, index) in images" :src="img" :key="index"
+                    @click="changeHandler(img)" />
+            </el-container>
+        </div>
+        <div id="createLabelPanel" :style="{ left: winPos.x + 'px', top: winPos.y + 'px' }"
+            v-if="markMode === 'label'" v-show="visible">
+            <el-input v-model="markName" @keypress.enter="update" ref="nameinput"></el-input>
+            <el-button size="small" @click="update" style="margin-left: 20px;">确定</el-button>
+        </div>
+        <input type="file" v-show="false" @change="importMarks" id="uploadhandler"
+            accept=".json" />
     </div>
-    <div id="createLabelPanel" :style="{left:winPos.x+'px',top:winPos.y+'px'}" v-if="markMode==='label'" v-show="visible">
-        <el-input v-model="markName" @keypress.enter.native="update"></el-input>
-        <el-button size="mini" @click="update">确定</el-button>
-    </div>
-    <input type="file" v-show="false" @change="importMarks" id="uploadhandler" accept=".json" />
-</div>
 </template>
 
 <script>
@@ -224,7 +245,7 @@ export default {
                 this.markerManager.import(feat)
             }
         },
-        export (type) {
+        export(type) {
             if (this.markerManager) {
                 this.markerManager.export(type);
             }
@@ -274,7 +295,7 @@ export default {
         changeHandler(img) {
             if (this.markerManager) {
                 this.markerManager.changeHandler(img);
-                this.selectedImage=img;
+                this.selectedImage = img;
             }
             this.selectPanel = false;
         },
@@ -294,9 +315,17 @@ export default {
             }
             return false
         },
-        importMarks() {}
+        importMarks() { }
     },
-    watch: {}
+    watch: {
+        visible(val) {
+            if (val) {
+                this.$nextTick(() => {
+                    this.$refs.nameinput.focus();
+                })
+            }
+        }
+    }
 };
 </script>
 
@@ -480,21 +509,35 @@ export default {
         display: block;
         padding: 10px;
     }
+    :deep(.el-input__wrapper) {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .pane-row {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 40px;
+    }
+    .pane-desc {
+        height: 80px;
+    }
 }
 
 #createMerkerPanel .el-input {
     display: inline-block;
-    height: 20px;
-    line-height: 20px;
+    height: 40px;
+    line-height: 40px;
     margin-top: 0px;
     width: 78%;
-    margin-bottom: 30px !important;
     margin-left: 0px !important;
+    position: relative;
 }
 
 #createMerkerPanel .el-button {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 8px;
     margin-right: 20px;
     float: right;
 }
@@ -564,21 +607,16 @@ export default {
     z-index: 999;
     height: 50px;
     width: 320px;
-
     .el-input {
         display: inline-block;
-        width: 200px;
+        width: 180px;
         margin: 0 10px;
         vertical-align: middle;
-
-        ::v-deep .el-input__inner {
-            background-color: $bg-color;
-            border: 1px solid $border-color;
-            border-radius: $b-radius;
-            width: 199px;
-            height: 38px;
-            color: $color;
-        }
+        height: 40px;
+    }
+    :deep(.el-input__wrapper) {
+        height: 100%;
+        width: 100%;
     }
 
     .el-button {
@@ -605,5 +643,4 @@ export default {
     .upload-class {
         min-height: 200px;
     }
-}
-</style>
+}</style>

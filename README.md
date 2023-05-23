@@ -1,8 +1,8 @@
 
 ## Cesium-Draw
 
-基于Vue 2.x开发的Cesium基础标绘插件，支持交互式添加BillBoard、Polyline、Polygon、Label和Model
-
+基于Vue 3.x开发的Cesium基础标绘插件，支持交互式添加BillBoard、Polyline、Polygon、Label和Model
+Vue 2.x请访问 https://github.com/xtfge/cesium-draw/tree/cesium-draw-vue2
 核心功能:
 - 鼠标交互绘图
 - 对于Billboard、Label、Model支持图标，名称的编辑，图标可以任意扩展.

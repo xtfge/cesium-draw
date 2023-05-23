@@ -506,7 +506,7 @@ class CesiumPolyline extends BaseGraphic {
   }
   set properties(v) {
     if (this.graphic) {
-      return this.graphic.properties = v
+      this.graphic.properties = v
     }
   }
   addNode(node) {
@@ -694,9 +694,8 @@ class CesiumPolygon extends BaseGraphic {
   }
   set properties(v) {
     if (this.graphic) {
-      return this.graphic.properties = v
+      this.graphic.properties = v
     }
-    return false
   }
   get outlineStyle() {
     if (this.outlineGraphic) {

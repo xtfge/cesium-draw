@@ -1,11 +1,10 @@
-import Vue from 'vue'
-import './plugins/element.js'
-import App from './App'
+import { createApp } from 'vue'
+import App from './App.vue'
+// import 'default-passive-events'
 import "@/assets/css/iconfont.css";
-import router from './router'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
-Vue.config.productionTip = false
-new Vue({
-  render: h => h(App),
-  router
-}).$mount('#app')
+const app = createApp(App);
+app.use(ElementPlus);
+app.mount('#app')
