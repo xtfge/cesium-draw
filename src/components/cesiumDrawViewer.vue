@@ -473,6 +473,8 @@ export default {
       self.syncColor("markerColor", self.markerColor);
       self.syncColor("lineColor", self.lineColor);
       self.syncColor("polygonColor", self.polygonColor);
+      self.syncColor("outlineColor", self.outlineColor);
+      self.syncColor("modelColor", self.modelColor);
     });
   },
   methods: {
@@ -815,6 +817,7 @@ export default {
       checkComponent(this)
       const graphic = ["MARKER", "POLYLINE", "POLYGON", "LABEL", "MODEL"];
       const bool = this.menuSelected[menu];
+      this.stopOthers(menu);
       this.menuSelected = {};
       graphicManager && (graphicManager.tip.visible = false);
       if (bool) {
@@ -833,7 +836,7 @@ export default {
       } else {
         this.editMode = false;
       }
-      this.stopOthers(menu);
+      // this.stopOthers(menu);
       if (/.*MODEL*/.test(this.graphicHeight)) {
         if (!["MARKER", "LABEL", "MODEL", "LAYER"].includes(menu))
           //依附模型

@@ -354,13 +354,13 @@ class GraphicManager {
         cartesian = viewer.scene.pickPosition(e.position)
       }
       //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以免不必要的事件监听
-
-      if (self.manager.get(self.graphicId).positions.length === 0) {
+      const target = self.manager.get(self.graphicId);
+      if (target && target.positions.length === 0) {
         self.handler.removeInputAction(MOUSE_MOVE);
         self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
       }
-      if (Cesium.defined(cartesian) && self.manager.has(self.graphicId)) {
-        self.manager.get(self.graphicId).addNode(cartesian);
+      if (Cesium.defined(cartesian) && self.manager.has(self.graphicId) && target) {
+        target.addNode(cartesian);
       }
       self.mode = 'create'
     }
@@ -649,6 +649,7 @@ class GraphicManager {
 
     this.graphicId = undefined;
     this.handler.removeInputAction(MOUSE_MOVE);
+    this.positions = [];
 
     document.dispatchEvent(evt);
   }
