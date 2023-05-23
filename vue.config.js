@@ -7,12 +7,11 @@ module.exports = defineConfig({
   lintOnSave: true,
   assetsDir: 'theme',
   configureWebpack: {
-    plugins: [
+    plugins: process.env.NODE_ENV === 'development' ? [] : [
       new MiniCssExtractPlugin({
         filename: `theme/${theme}.css`,
         // chunkFilename: `css/[name].${conf.version}.css`
       })
-
     ]
 
   },
