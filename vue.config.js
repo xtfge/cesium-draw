@@ -1,11 +1,3 @@
-/*
- * @Author: zhangb
- * @Date: 2023-05-22 16:03:02
- * @E-mail: zhangb@geovis.com.cn
- * @LastModifiedBy: zhangb
- * @LastEditTime: 2023-05-22 16:37:43
- * @Desc: 
- */
 const path = require('path');
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');

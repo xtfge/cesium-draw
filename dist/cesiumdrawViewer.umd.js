@@ -824,17 +824,6 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 
 /***/ }),
 
-/***/ "1110":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_5fec55f6_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("94bd");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_5fec55f6_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_5fec55f6_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
-
-
-/***/ }),
-
 /***/ "1157":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17320,17 +17309,20 @@ module.exports = function (it) {
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("ac6a");
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5df3");
-/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("f400");
-/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("d4ec");
-/* harmony import */ var D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("bee2");
-/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("cd53");
-/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("9944");
-/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("4ab0");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("21a6");
-/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("cadf");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("5df3");
+/* harmony import */ var core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("f400");
+/* harmony import */ var core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_map__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("d4ec");
+/* harmony import */ var D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("bee2");
+/* harmony import */ var _Graphic__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("cd53");
+/* harmony import */ var _js_utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("9944");
+/* harmony import */ var _GraphicType__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("4ab0");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("21a6");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -17364,7 +17356,7 @@ var GraphicManager = /*#__PURE__*/function () {
    */
   function GraphicManager(viewer) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    Object(D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(this, GraphicManager);
+    Object(D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(this, GraphicManager);
     if (viewer instanceof Cesium.Viewer === false) {
       throw new Error('viewer不是一个有效的Cesium Viewer');
     }
@@ -17382,7 +17374,7 @@ var GraphicManager = /*#__PURE__*/function () {
     this.handler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
     this.graphicType = undefined;
     this.positions = [];
-    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* default */ "d"].CursorTip('');
+    this.tip = new _js_utils__WEBPACK_IMPORTED_MODULE_13__[/* default */ "d"].CursorTip('');
     this.tip.visible = false;
     this.mode = 'ready';
     this.dragging = false;
@@ -17421,7 +17413,7 @@ var GraphicManager = /*#__PURE__*/function () {
     };
     // this.tip.style.display='none'
   }
-  Object(D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(GraphicManager, [{
+  Object(D_zhangbo_web_cesium_draw_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"])(GraphicManager, [{
     key: "heightReference",
     get: function get() {
       return this._heightReference;
@@ -17507,8 +17499,8 @@ var GraphicManager = /*#__PURE__*/function () {
   }, {
     key: "createPolyline",
     value: function createPolyline() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolyline */ "f"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE;
       var id = this.generateId();
       options.positions = this.positions;
       if (/.*GROUND.*/.test(this._heightReference)) {
@@ -17518,7 +17510,7 @@ var GraphicManager = /*#__PURE__*/function () {
       }
       options.material = this.material || options.material;
       options.width = this.style.width || options.width;
-      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"](this.viewer, options);
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolyline */ "f"](this.viewer, options);
       this.tip.updateText('左键标绘，右键结束.');
       this.tip.visible = true;
       manager.mid = id;
@@ -17551,8 +17543,8 @@ var GraphicManager = /*#__PURE__*/function () {
   }, {
     key: "createPolygon",
     value: function createPolygon() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].defaultStyle;
-      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON;
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolygon */ "e"].defaultStyle;
+      this.graphicType = _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON;
       var id = this.generateId();
       this.graphicId = id;
       options.positions = this.positions;
@@ -17568,7 +17560,7 @@ var GraphicManager = /*#__PURE__*/function () {
       options.material = this.material || options.material;
       options.outlineWidth = this.style.outlineWidth || options.outlineWidth;
       options.outlineColor = this.style.outlineColor || options.outlineColor;
-      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"](this.viewer, options);
+      var manager = new _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolygon */ "e"](this.viewer, options);
       manager.mid = id;
       // manager.id = id;
       // manager.mname = '未命名';
@@ -17600,7 +17592,7 @@ var GraphicManager = /*#__PURE__*/function () {
   }, {
     key: "isKnownGraphic",
     value: function isKnownGraphic(pickedObj) {
-      if (Cesium.defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT)) {
+      if (Cesium.defined(pickedObj) && pickedObj.id instanceof Cesium.Entity && (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON || pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT)) {
         return true;
       }
       return false;
@@ -17613,17 +17605,17 @@ var GraphicManager = /*#__PURE__*/function () {
   }, {
     key: "highlightedNode",
     value: function highlightedNode(node, cp) {
-      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].selectedStyle;
-      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].defaultStyle;
+      var soption = _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPoint */ "d"].selectedStyle;
+      var doption = _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPoint */ "d"].defaultStyle;
       var _iterator = _createForOfIteratorHelper(cp.graphic),
         _step;
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var n = _step.value;
           if (n === node) {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, soption);
+            _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPoint */ "d"].setStyle(n, soption);
           } else {
-            _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].setStyle(n, doption);
+            _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPoint */ "d"].setStyle(n, doption);
           }
         }
       } catch (err) {
@@ -17654,7 +17646,7 @@ var GraphicManager = /*#__PURE__*/function () {
             for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
               var obj = _step2.value;
               known = self.isKnownGraphic(obj);
-              if (known && obj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+              if (known && obj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT) {
                 pickedObj = obj;
                 //再事件监听之前移除上次的监听
                 self.handler.removeInputAction(MOUSE_DOWN);
@@ -17671,7 +17663,7 @@ var GraphicManager = /*#__PURE__*/function () {
             _iterator2.f();
           }
           if (pickedObj && known) {
-            if (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POINT) {
+            if (pickedObj.id.mtype === _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POINT) {
               self.selectedNodeIndex = nodeGraphic.contain(pickedObj.id);
               if (self.selectedNodeIndex !== -1) {
                 self.highlightedNode(pickedObj.id, nodeGraphic);
@@ -17694,10 +17686,10 @@ var GraphicManager = /*#__PURE__*/function () {
           return;
         }
         //非法的要素类型
-        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"].POLYGON) {
+        if (self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYLINE && self.graphicType != _GraphicType__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"].POLYGON) {
           return;
         }
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_13__[/* CVT */ "a"].pixel2Cartesian(e.position, self.viewer);
         if (/.*MODEL.*/.test(self._heightReference)) {
           if (!viewer.scene.pickPositionSupported) {
             console.log('This browser does not support pickPosition.');
@@ -17706,13 +17698,13 @@ var GraphicManager = /*#__PURE__*/function () {
           cartesian = viewer.scene.pickPosition(e.position);
         }
         //添加第一个点后再监听鼠标移动事件，绘绘完成后移除监听，以免不必要的事件监听
-
-        if (self.manager.get(self.graphicId).positions.length === 0) {
+        var target = self.manager.get(self.graphicId);
+        if (target && target.positions.length === 0) {
           self.handler.removeInputAction(MOUSE_MOVE);
           self.handler.setInputAction(moseMoveHandler, MOUSE_MOVE);
         }
-        if (Cesium.defined(cartesian) && self.manager.has(self.graphicId)) {
-          self.manager.get(self.graphicId).addNode(cartesian);
+        if (Cesium.defined(cartesian) && self.manager.has(self.graphicId) && target) {
+          target.addNode(cartesian);
         }
         self.mode = 'create';
       };
@@ -17745,7 +17737,7 @@ var GraphicManager = /*#__PURE__*/function () {
         self.removeEventListener();
       };
       var moseMoveHandler = function moseMoveHandler(e) {
-        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_12__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
+        var cartesian = _js_utils__WEBPACK_IMPORTED_MODULE_13__[/* CVT */ "a"].pixel2Cartesian(e.endPosition, self.viewer);
         if (/.*MODEL.*/.test(self._heightReference)) {
           if (!viewer.scene.pickPositionSupported) {
             console.log('This browser does not support pickPosition.');
@@ -17783,7 +17775,7 @@ var GraphicManager = /*#__PURE__*/function () {
         try {
           for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
             var obj = _step3.value;
-            if (_Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
+            if (_Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPoint */ "d"].isCesiumPoint(obj)) {
               isCesiumPoint = true;
             }
           }
@@ -17939,7 +17931,7 @@ var GraphicManager = /*#__PURE__*/function () {
       var blob = new Blob([JSON.stringify(json)], {
         type: ""
       });
-      Object(file_saver__WEBPACK_IMPORTED_MODULE_14__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
+      Object(file_saver__WEBPACK_IMPORTED_MODULE_15__["saveAs"])(blob, type + parseInt(Cesium.getTimestamp()) + '.geojson');
     }
   }, {
     key: "import",
@@ -17967,7 +17959,7 @@ var GraphicManager = /*#__PURE__*/function () {
           _iterator6.f();
         }
         try {
-          graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions, feat.properties);
+          graphic = _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolyline */ "f"].fromDegrees(this.viewer, positions, feat.properties);
         } catch (e) {
           console.log(e);
         }
@@ -17989,7 +17981,7 @@ var GraphicManager = /*#__PURE__*/function () {
         } finally {
           _iterator7.f();
         }
-        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_11__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions, feat.properties);
+        graphic = _Graphic__WEBPACK_IMPORTED_MODULE_12__[/* CesiumPolygon */ "e"].fromDegrees(this.viewer, positions, feat.properties);
       } else {
         throw new Error('不能识别的数据源.');
       }
@@ -18069,6 +18061,7 @@ var GraphicManager = /*#__PURE__*/function () {
       }
       this.graphicId = undefined;
       this.handler.removeInputAction(MOUSE_MOVE);
+      this.positions = [];
       document.dispatchEvent(evt);
     }
   }]);
@@ -76648,6 +76641,8 @@ var console = window.console;
       self.syncColor("markerColor", self.markerColor);
       self.syncColor("lineColor", self.lineColor);
       self.syncColor("polygonColor", self.polygonColor);
+      self.syncColor("outlineColor", self.outlineColor);
+      self.syncColor("modelColor", self.modelColor);
     });
   },
   methods: {
@@ -76991,6 +76986,7 @@ var console = window.console;
       Object(_js_utils__WEBPACK_IMPORTED_MODULE_15__[/* checkComponent */ "b"])(this);
       var graphic = ["MARKER", "POLYLINE", "POLYGON", "LABEL", "MODEL"];
       var bool = this.menuSelected[menu];
+      this.stopOthers(menu);
       this.menuSelected = {};
       graphicManager && (graphicManager.tip.visible = false);
       if (bool) {
@@ -77008,7 +77004,7 @@ var console = window.console;
       } else {
         this.editMode = false;
       }
-      this.stopOthers(menu);
+      // this.stopOthers(menu);
       if (/.*MODEL*/.test(this.graphicHeight)) {
         if (!["MARKER", "LABEL", "MODEL", "LAYER"].includes(menu))
           //依附模型
@@ -78084,13 +78080,6 @@ exports.default = {
     }
   }
 };
-
-/***/ }),
-
-/***/ "6bf6":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -80994,14 +80983,10 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
 
 /***/ }),
 
-/***/ "8d5c":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "8be4":
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_5fec55f6_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6bf6");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_5fec55f6_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_5fec55f6_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
-
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -81492,13 +81477,6 @@ module.exports = !$assign || __webpack_require__("294c")(function () {
 
 /***/ }),
 
-/***/ "94bd":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "9619":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -81510,6 +81488,13 @@ module.exports = {
 	debounce: debounce
 };
 
+
+/***/ }),
+
+/***/ "9755":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -83521,6 +83506,17 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
+
+
+/***/ }),
+
+/***/ "a604":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_88699340_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("9755");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_88699340_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_1_id_88699340_prod_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
 
 
 /***/ }),
@@ -93530,7 +93526,7 @@ var theme_chalk = __webpack_require__("0fae");
 
 
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(element_ui_common_default.a);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56df57f0-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=5fec55f6&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"56df57f0-vue-loader-template"}!./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=template&id=88699340&scoped=true&
 
 var render = function render() {
   var _vm = this,
@@ -94225,18 +94221,18 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=5fec55f6&scoped=true&
+// CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=template&id=88699340&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
 var cesiumDrawViewervue_type_script_lang_js_ = __webpack_require__("649c");
 
 // CONCATENATED MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_cesiumDrawViewervue_type_script_lang_js_ = (cesiumDrawViewervue_type_script_lang_js_["a" /* default */]); 
-// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=5fec55f6&prod&lang=scss&scoped=true&
-var cesiumDrawViewervue_type_style_index_0_id_5fec55f6_prod_lang_scss_scoped_true_ = __webpack_require__("8d5c");
+// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=0&id=88699340&prod&lang=scss&scoped=true&
+var cesiumDrawViewervue_type_style_index_0_id_88699340_prod_lang_scss_scoped_true_ = __webpack_require__("fccb");
 
-// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=1&id=5fec55f6&prod&lang=scss&
-var cesiumDrawViewervue_type_style_index_1_id_5fec55f6_prod_lang_scss_ = __webpack_require__("1110");
+// EXTERNAL MODULE: ./src/components/cesiumDrawViewer.vue?vue&type=style&index=1&id=88699340&prod&lang=scss&
+var cesiumDrawViewervue_type_style_index_1_id_88699340_prod_lang_scss_ = __webpack_require__("a604");
 
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("0c7c");
@@ -94257,7 +94253,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "5fec55f6",
+  "88699340",
   null
   
 )
@@ -94288,6 +94284,17 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (cdn);
 
+
+
+/***/ }),
+
+/***/ "fccb":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_88699340_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8be4");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_88699340_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_cesiumDrawViewer_vue_vue_type_style_index_0_id_88699340_prod_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
 
 
 /***/ })
