@@ -16,6 +16,9 @@ Vue 2.x请访问 https://github.com/xtfge/cesium-draw/tree/cesium-draw-vue2
 ```sh
 npm i cesium-draw
 ```
+
+**4.0.0及以上版本为Vue3.x版本，4.0.0以下的版本为Vue2.x的版本**
+
 ### 使用
 ```HTML
 <template>
