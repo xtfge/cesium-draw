@@ -11,7 +11,7 @@
           <span>导入</span>
         </i>
       </span>
-      <el-dropdown trigger="click" @command="exportHandler">
+      <el-dropdown trigger="click" @command="exportHandler" class="layer-manager-tools">
         <span class="el-dropdown-link">
           <i class="cesiumDrawFont iconexport action-icon-class">
             <span>导出</span>
@@ -41,7 +41,7 @@
         <template #default="{ data }">
           <span class="custom-tree-node">
             <i :class="data.icon" class="action-item"></i>
-            <el-input v-model="newName" v-if="data.edit"
+            <el-input v-model="newName" v-if="data.edit" size="small"
               @keypress.enter="renameAction(data)"></el-input>
             <span class="node-name action-item" v-else>{{ data.text }}</span>
             <span v-if="!data.children" class="action-class">
@@ -62,7 +62,7 @@ function locate(data) {
 function rename(data, id, text) {
   // data.edit=true;
   if (data) {
-    this.$set(data, "edit", true);
+    data.edit = true;
     this.newName = data.text;
   } else {
     for (let ls of this.json) {
