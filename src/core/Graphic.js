@@ -243,8 +243,9 @@ class CesiumBillboard extends BaseGraphic {
     style: Cesium.LabelStyle.FILL_AND_OUTLINE,
     // outlineWidth: 2,
     verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-    pixelOffset: new Cesium.Cartesian2(20, -30),
-    heightReference: Cesium.HeightReference.NONE
+    pixelOffset: new Cesium.Cartesian2(0, 40),
+    heightReference: Cesium.HeightReference.NONE,
+    horizontalOrigin: Cesium.HorizontalOrigin.CENTER
   }
 }
 class CesiumPoint extends BaseGraphic {
