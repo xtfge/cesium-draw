@@ -79,7 +79,7 @@ export default class MarkerManager {
         if (!ele) {
           return;
         }
-        ele.style.left = pos.x - 100 - 5 + "px";
+        ele.style.left = pos.x - 94 + "px";
         ele.style.top = pos.y - 110 + "px";
 
         const curPos = self.popWinPosition;
