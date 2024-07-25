@@ -1,6 +1,6 @@
 const { defineConfig } = require("@vue/cli-service");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const theme = "default";
+const theme = "dark";
 module.exports = defineConfig({
   outputDir: "dist",
   transpileDependencies: true,

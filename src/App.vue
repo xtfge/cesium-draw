@@ -1,16 +1,21 @@
 <template>
-  <div style="width:100%;height: 100%" class="fullSize">
+  <div style="width: 100%; height: 100%" class="fullSize">
     <div class="full-container" :style="viewStyle" id="cesiumContainer"></div>
     <div id="loadingOverlay">
       <h1>Loading...</h1>
     </div>
-    <cesium-draw :viewer="viewer" v-if="viewer"></cesium-draw>
+    <cesium-draw
+      :viewer="viewer"
+      v-if="viewer"
+      :extend-marker-image="images"
+      :extend-marker-model="models"
+    ></cesium-draw>
   </div>
 </template>
 
 <script>
-import { markRaw } from 'vue';
-import CesiumDraw from './components/cesiumDrawViewer.vue';
+import { markRaw } from "vue";
+import CesiumDraw from "./components/cesiumDrawViewer.vue";
 // import CesiumDraw from 'cesium-draw'
 // import 'cesium-draw/dist/theme/default.css';
 export default {
@@ -21,12 +26,26 @@ export default {
     viewStyle: {},
     viewerProperty: {},
     dropBackground: {
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      viewer: null
+      viewer: null,
+      images: ["./icons/1.png", "./icons/2.png", "./icons/3.png"],
+      models: [
+        {
+          id: "model0",
+          name: "木塔",
+          thumb: "model/tower.png",
+          url: "model/Wood_Tower.glb",
+        },
+        {
+          id: "model1",
+          name: "小黄鸭",
+          url: "model/Duck.glb",
+        },
+      ],
     };
   },
   computed: {},
@@ -46,7 +65,7 @@ export default {
       sceneModePicker: false,
       shadows: false,
       skyAtmosphere: false,
-      imageryProvider: false
+      imageryProvider: false,
     };
 
     for (let property in this.viewerProperty) {
@@ -68,7 +87,12 @@ export default {
       sceneModePicker: false,
       shadows: false,
       skyAtmosphere: false,
-      imageryProvider: false
+      baseLayer: Cesium.ImageryLayer.fromProviderAsync(
+        Cesium.TileMapServiceImageryProvider.fromUrl(
+          Cesium.buildModuleUrl("Assets/Textures/NaturalEarthII")
+        )
+      ),
+      // imageryProvider: false
     });
     this.viewer = markRaw(viewer);
 
@@ -83,7 +107,7 @@ export default {
     viewer.scene.postProcessStages.fxaa.enabled = false;
     viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(116.4, 39.9, 15000000),
-      duration: 0
+      duration: 0,
     });
     // viewer.scene.camera.setView({
     //   destination: new Cesium.Cartesian3(
@@ -97,7 +121,7 @@ export default {
     //   }
     // });
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
