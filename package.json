@@ -1,6 +1,6 @@
 {
   "name": "cesium-draw",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "add a mark,polyline,polygon base on Cesium and Vue 3.x",
   "private": false,
   "keyword": "Cesium Polygon Polyline mark interactive",
