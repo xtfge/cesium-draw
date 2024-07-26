@@ -15,9 +15,11 @@
 
 <script>
 import { markRaw } from "vue";
+import * as Cesium from "cesium";
+import "cesium/Build/Cesium/Widgets/widgets.css";
 import CesiumDraw from "./components/cesiumDrawViewer.vue";
 // import CesiumDraw from 'cesium-draw'
-// import 'cesium-draw/dist/theme/default.css';
+import 'cesium-draw/dist/theme/default.css';
 export default {
   name: "EarthViewer",
   viewerProperty: {},

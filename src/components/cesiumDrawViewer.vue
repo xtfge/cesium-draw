@@ -171,6 +171,7 @@
   </div>
 </template>
 <script>
+import * as Cesium from 'cesium'
 import GraphicManager from "../core/GraphicManager";
 import MarkerViewer from "../components/markerViewer";
 import { CesiumPolygon } from "../core/Graphic";
