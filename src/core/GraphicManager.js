@@ -1,3 +1,4 @@
+import * as Cesium from 'cesium'
 import {
   CesiumPoint,
   CesiumPolyline,

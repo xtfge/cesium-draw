@@ -1,4 +1,5 @@
 import GraphicType from "./GraphicType";
+import * as Cesium from 'cesium'
 const console = window.console;
 import {
   CVT
