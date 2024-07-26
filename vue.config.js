@@ -3,10 +3,16 @@ const { DefinePlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const theme = "dark";
-const plugins = [
-  // new DefinePlugin({
-  //   'window.Cesium': 'Cesium'
-  // }),
+const plugins = [];
+const externals = {
+}
+if (process.env.NODE_ENV === 'production') {
+  plugins.push(new MiniCssExtractPlugin({
+    filename: `theme/${theme}.css`,
+    // chunkFilename: `css/[name].${conf.version}.css`
+  }))
+  externals.cesium = 'Cesium';
+} else {
   new CopyWebpackPlugin({
     patterns: [
       { from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' },
@@ -18,15 +24,6 @@ const plugins = [
   new DefinePlugin({
     CESIUM_BASE_URL: JSON.stringify('')
   })
-]
-const externals = {
-}
-if (process.env.NODE_ENV === 'production') {
-  plugins.push(new MiniCssExtractPlugin({
-    filename: `theme/${theme}.css`,
-    // chunkFilename: `css/[name].${conf.version}.css`
-  }))
-  externals.cesium = 'Cesium';
 }
 
 module.exports = defineConfig({
