@@ -1,4 +1,5 @@
 import $ from "jquery";
+import * as Cesium from 'cesium'
 
 /**
 *
@@ -107,7 +108,7 @@ const CVT = (function() {
     }
   };
   _.toPixel = function(position, viewer) {
-    if (position instanceof Cesium.Cartesian) {
+    if (position instanceof Cesium.Cartesian3) {
       return _.cartesian2Pixel(position, viewer);
     }
   };
