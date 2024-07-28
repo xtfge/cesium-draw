@@ -184,4 +184,4 @@ npm run lib
 ### 捐赠
 >如果您觉得这个项目帮助到了您，您可以请作者喝一杯咖啡表示鼓励
 
-![微信收款码](https://i-blog.csdnimg.cn/direct/ab5232c5d4494d369fc9e7d700f1d8d1.jpeg)
+<img src="https://i-blog.csdnimg.cn/direct/ab5232c5d4494d369fc9e7d700f1d8d1.jpeg" alt="微信收款码" width="200" height="250">
