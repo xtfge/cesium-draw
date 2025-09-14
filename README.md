@@ -180,8 +180,3 @@ npm run lib
 
 ### Cesium交流群
 [![加入QQ群](https://img.shields.io/badge/%E5%B7%B2%E6%BB%A1-107615960-blue)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=bgWooLP8IhmlRV-V9ATdqEmq3oXze8uX&authKey=4ce2A9KMcoxJOpiASPIBXTNwc%2B5a3cL7n4P%2BoXD2YyJp4dR4H2BfHfqBQi4RurYP&noverify=0&group_code=107615960)  [![加入QQ群](https://img.shields.io/badge/-628262010-green)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=OPOFzUro3j8kgtFYG1NU3NEammB0bTny&authKey=esRwasLjLPchfAxo6qQjYHsiWGN4%2BT32WKKjOVHyKeMr1HMvfWHl1PRmyo4zGQis&noverify=0&group_code=628262010)
-
-### 捐赠
->如果您觉得这个项目帮助到了您，您可以请作者喝一杯咖啡表示鼓励
-
-<img src="https://i-blog.csdnimg.cn/direct/ab5232c5d4494d369fc9e7d700f1d8d1.jpeg" alt="微信收款码" width="200" height="250">
